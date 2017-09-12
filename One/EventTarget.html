@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件代理</title>
+	</head>
+	<body>	
+		<input type="text" id="txt" placeholder="qing"/>
+		<ul id="showtxt">
+			<li>1234<span class="close" style="padding-left: 20px;">X</span></li>
+		</ul>
+		<script>
+		window.onload=function(){
+			var txt=document.getElementById('txt');
+			var showtxt=document.getElementById('showtxt');
+			var txtchild=showtxt.getElementsByTagName('li');
+			txt.addEventListener('keydown',function(){
+				if(event.keyCode == '13'){
+					var txtval=txt.value;
+					if(txtval !=''){
+					var ali=document.createElement('li');
+					ali.innerHTML=txtval+'<span class="close" style="padding-left: 20px;">X</span>';
+					showtxt.insertBefore(ali,txtchild[0]);
+					}
+					else{
+						console.log('不能为空');
+					}
+				}	
+			})
+			showtxt.addEventListener('click',function(event){
+				var event = event || window.event;
+		　　　　	var target = event.target || event.srcElement;
+				if (target.nodeName.toLowerCase() == 'span') {
+					tt=target.parentNode;
+					tt.parentNode.removeChild(tt);
+				}
+			})
+		}
+		</script>
+	</body>
+</html>
