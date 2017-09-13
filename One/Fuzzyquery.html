@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>模糊查询</title>
+	  <style> 
+	    #myInput { 
+	      width: 100%; 
+	      font-size: 16px; /* 加大字体 */ 
+	      padding: 12px 20px 12px 40px; 
+	      border: 1px solid #ddd; 
+	      margin-bottom: 12px; 
+	    } 
+	  
+	    #myUL { 
+	      list-style-type: none; 
+	      padding: 0; 
+	      margin: 0; 
+	    } 
+	  
+	    #myUL li a { 
+	      border: 1px solid #ddd; /* 链接添加边框 */ 
+	      margin-top: -1px; 
+	      background-color: #f6f6f6; 
+	      padding: 12px; 
+	      text-decoration: none; 
+	      font-size: 18px; 
+	      color: black; 
+	      display: block; 
+	    } 
+	  
+	    #myUL li a.header { 
+	      background-color: #5587A2; 
+	      cursor: default; 
+	    } 
+	  
+	    #myUL li a:hover:not(.header) { 
+	      background-color: #eee; 
+	    } 
+	  </style> 
+</head> 
+<body> 
+  <input type="text" id="myInput" onkeydown="(event.keyCode =='13')?myFunction():console.log('1')" placeholder="搜索..."> 
+  
+  <ul id="myUL"> 
+    <li><a href="#" class="header">A</a></li> 
+    <li><a href="#">Angel</a></li> 
+    <li><a href="#">Adobe</a></li> 
+    <li><a href="#">Anne</a></li>   
+    <li><a href="#" class="header">B</a></li> 
+    <li><a href="#">Betty</a></li> 
+    <li><a href="#">Bella</a></li> 
+    <li><a href="#">Brown</a></li> 
+    <li><a href="#" class="header">C</a></li> 
+    <li><a href="#">Calvin</a></li> 
+    <li><a href="#">Chris</a></li> 
+    <li><a href="#">Claire</a></li> 
+    <li><a href="#" class="header">D</a></li> 
+    <li><a href="#">David</a></li> 
+    <li><a href="#">Daniel</a></li> 
+    <li><a href="#">Dora</a></li> 
+    <li><a href="#" class="header">E</a></li> 
+    <li><a href="#">Emily</a></li> 
+    <li><a href="#">Elena</a></li> 
+    <li><a href="#">Eufemia</a></li> 
+  </ul> 
+<script> 
+  function myFunction() { 
+    // 声明变量 
+    var input, filter, ul, li, a, i; 
+    input = document.getElementById('myInput'); 
+    filter = input.value.toUpperCase(); 
+    ul = document.getElementById("myUL"); 
+    li = ul.getElementsByTagName('li'); 
+    // 循环所有列表，查找匹配项 
+    for (i = 0; i < li.length; i++) { 
+      a = li[i].getElementsByTagName("a")[0]; 
+//    console.log(a.innerHTML.toUpperCase().indexOf(filter));
+      if (a.innerHTML.toUpperCase().indexOf(filter) > -1) { 
+        li[i].style.display = ""; 
+      } else { 
+        li[i].style.display = "none"; 
+      } 
+    } 
+  } 
+</script> 
+</body> 
+</html>
