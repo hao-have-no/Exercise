@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+//			console.log(Object.getOwnPropertyDescriptor({pro:true},'pro'));
+//			
+//			var person={};
+//			//属性对象，属性名，对象
+//			Object.defineProperty(person,'name',{
+//				configurable: false,
+//				writable:false,
+//				enumerable:true,
+//				value:"Bosn Ma"
+//			});
+//			person.name;
+//			person.name=1;
+//			person.name;
+//			delete person.name;
+//			
+		//序列化（前端向后端传值）
+		//var obj={x:1,y=true,z:[1,2,3],nullVal:null};
+		//JSON.stringify(obj);//返回成字符串
+		
+		obj=JSON.parse('{"x":1}');
+		obj.x;//1
+		</script>
+	</body>
+</html>

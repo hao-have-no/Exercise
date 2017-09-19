@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function foo(){}
+				Object.defineProperty(foo.prototype,'z',
+				{get:function(){
+				return 1;	
+				}});
+				var obj=new foo();
+				
+				obj.z;//1
+				obj.z=10;
+				obj.z;//still 1
+				//按照以往的是，给原型链上属性赋值赋值，输出是赋值后的值
+				//但是对于getset方法，不会按照原来的给原型链上新增新属性赋值
+				//而是直接走get/set方法
+				
+				Object.defineProperty(obj,'z',{value:100,configurable:true});
+				obj.z;//100
+				delete obj.z;
+				obj.z;//back to 1
+				
+				//原型链赋值方法
+				Object.defineProperty(obj,'x',{writeable:true,configurable:true,value:100});
+				//writeable说明原型链上属性值可更改(替换原型链上的值)，configurable说明新加的节点可删除
+				
+		</script>
+	</body>
+</html>

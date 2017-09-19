@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var ca={
+				$leg:null,
+				hand:'@Gall',
+				get leg(){
+					if(this.$leg == undefined){
+						return new Date().getFullYear()-1988;
+					}else{
+						return this.$leg;
+					}
+				},
+				set leg(val){
+					val =+val;//如果val是字符串，+val可以转变为数字
+					if(!isNaN(val) && val>0 && val<150){
+						this.$leg =+val;
+					}else{
+						throw new Error('Introduce val='+val);
+					}
+				}
+			}
+			console.log(ca.leg);
+			ca.leg=100;
+			console.log(ca.leg);
+			ca.leg='abc';
+		</script>
+	</body>
+</html>
