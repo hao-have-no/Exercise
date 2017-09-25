@@ -22,11 +22,13 @@
 //			delete person.name;
 //			
 		//序列化（前端向后端传值）
-		//var obj={x:1,y=true,z:[1,2,3],nullVal:null};
-		//JSON.stringify(obj);//返回成字符串
+		var obj={x:1,y:2,z:3};
+		var ob=JSON.stringify(obj);//返回成字符串
+		console.log('one'+ob+typeof(ob));
 		
-		obj=JSON.parse('{"x":1}');
-		obj.x;//1
+		
+		obj1=JSON.parse('{"x":1}');
+		console.log(obj1.x+"****"+typeof(obj1));//1
 		</script>
 	</body>
 </html>
