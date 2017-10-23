@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		
+//			function log(x,y){
+//				y=y || 'World';
+//				console.log(x,y);
+//			}
+//			log('Hello')
+//			log('Hello','China')
+
+//		let { foo :baz }={foo :'aaa',bar : 'bbb'};
+//		当赋予的值为null时,默认值失效,null不严格等于undefined
+//		let [x,y='b']=['A'];
+//		console.log(x+'******'+y);
+
+//		eg.默认值是表达式
+//		function f(){
+//			console.log('aaa');
+//		}
+//		
+//		let [x=f()] = [1];x有值所以没有运行默认表达式
+
+//    对象的解构赋值
+//    声明时可以不按顺序，但对象必须与属性名一致
+//	let {foo,bar} = {foo:"aaa",bar: "bbb"};
+//	console.log('Object-test1***'+foo+'*****'+bar);
+	
+//	对象与属性名不一致
+//		let {foo:baz} = {foo:'111',bar:'222'};
+//		baz是变量，而foo只是一个模式（方法）
+//		console.log('Object-test2***'+baz);
+//		前面的对象只是做了一个声明，赋值是付给了后面的属性
+//		let obj={first: 'hello', last: 'world'};
+//		let {first:f,last:l}=obj;
+//		console.log('Object-test3***'+f+'*******'+l);
+
+//	    结构嵌套对象
+//		let obj={
+//			p:[
+//			'hello',
+//			{y:'World'}
+//			]
+//		};
+//		let {p:[x,{y}]}=obj;
+//		x//hello
+//		y//World
+//		如果想让p也附上值   let{p,p:[x,{y}]}
+
+//		模式下的对象和参数的区别
+//		function move({x=0,y=0} ={}){
+//			return [x,y]//move1
+//		}
+//		function move({x,y}={x:0,y=0}){
+//			return [x,y]//move2
+//		}
+//		//因为move1的默认值为对象设置，而move2的默认值是参数的
+//		move({x:3});//move1:[3,0],move2:[3,undefined]
+//		move({});//move1:[0,0],move2:[undefined,undefined]
+//		move();//move1：[0,0],move2:[0,0]
+		
+//		提取json数据
+//		let jsonData={
+//			id:42,
+//			status:"OK",
+//			data:[867,5309]
+//		};
+//		
+//		let {id,status,data:number}=jsonData;
+//		
+//		console.log(id,status,number[0]);
+
+//		for(let codePoint of 'looos'){
+//			console.log(codePoint);
+//		}
+//		var text='adgedfrt'
+//		console.log(text.slice(text.indexOf('e')));
+//		console.log(text.split('e'));
+//		console.log(text.slice(3));
+//		trim()消除空格
+		//补全字符串 startz在前面补全
+//		'x'.padStart(5,'ab');//ababx
+
+		//模版字符串
+		//``可以直接将结构写入(接受多级嵌套)，需要带数据的
+		//通过${}就可以完成数据的调用，前提是声明变量
+		//{}可以放入表达式，函数，参数，引用对象属性
+//		function fn() {
+//			return "Hello World";
+//		}
+//		console.log(`foo  ${fn()} bar`);
+      //变量之间的嵌套
+//		const tmpl = addrs =>`
+//		<table>
+//			${addrs.map(addr =>`
+//				<tr><td>${addr.first}</td></tr>
+//				<tr><td>${addr.last}</td></tr>
+//			`).join('')}
+//		</table>
+//		`;
+//	  const data=[
+//	  {first:'<Jane>',last:'Bond'},
+//		  {first:'Lars',last:'<Croft'},
+//	  ];
+//		console.log(tmpl(data));
+//		引用模版本身
+//		let str='return'+'`Hello ${name}`';
+//		let func=new Function('name',str);
+//			func('Jack');
+//
+//		let str='(name)=>`Hello ${name}`';
+//		let func=eval.call(null,str);
+//		func('Jack');
+//		function log(x,y = 'World'){
+//			console.log(x,y);
+//		}
+//			log('Hello')
+//			log('','China')
+//			log('Hello','')
+//			var x=99;
+//			function foo(p=x+1) {
+//				console.log(p);
+//				//p(惰性传值)每次调用都会增加
+//			}
+//			foo();
+//			x=1001;
+//			foo();
+
+//		参数默认值和解构赋值
+//		function foo({x,y=5}) {
+//			console.log(x,y);
+//		}
+//		foo({});//声明对象尽管为空，但可以解构赋值
+//		foo({x:1});
+//		foo({x:1,y:2});
+//		foo()//没有声明对象，无法解构赋值报错
+//
+//		//改变在没有声明对象的情况下，依然可以解构赋值
+//		function  foo(url,{x='',y=5,c={}}) {
+//			console.log(y);
+//		}
+//		foo('http',{});//没有声明对象，默认为空
+
+//		对于多个参数，在没有声明相关对象的情况
+//		在多个参数下使用范围外的默认对象情况
+//		function foo(url,{body='',method='GET',headers={}}={}){
+//			console.log(method);
+//		}
+//		foo();
+
+//		function f(x = 1,y) {
+//			return [x,y];
+//		}
+//		//对于有参数的不能省略，想省略赋值为underfined
+//		console.log(f())
+//		console.log(f(2))
+//		console.log(f(undefined,1))
+
+//		scope
+//		let foo='outer';
+//		function bar(func =()=>foo) {
+//			let foo='inner';
+//			console.log(func());
+//		}
+//		bar();//因为匿名函数的返回值指向foo，但是函数的外层并没有定义
+//		var x=1;
+//		function foo(x,y=function(){x=2;}) {
+//			var x=3;
+//			y();
+//			//在运行时，匿名函数和现在的函数作用域是不一致的
+//			//去掉var x=3时，此时的x执行默认函数的x
+//			console.log(x);
+//		}
+//			foo();//3--去掉var x=3；此时为2
+//			x//1
+		//Es6匿名函数赋值变量，返回函数名而不是ES5的空字符串
+//			var f=function () {}
+//			f.name;
+
+
+		//important:箭头函数声明{代码块}
+//		var f = v => v;
+		//var f=function(){return v;}
+		//函数不需要多少个参数
+//		var f=()=>5;
+		//var f=function(){return 5;}
+//		let getTemple=id=>({id:'id',name:'name'});
+
+		//箭头函数与变量解构
+//		const full=({first,last})=>first+''+last;
+//		[1,2,3].map(x=>x*x);
+
+//		rest函数和箭头函数结合
+//		const numbers=(...nums)=>nums;
+//			numbers(1,2,3,4,5,6)
+//
+//		//箭头函数注意点
+//		function foo() {
+//			setTimeout(()=>{
+//				console.log('id',this.id);
+//			},100);
+//		}
+//		var id=21;
+//		foo.call({id:42});
+
+//		function Timer(){
+//			this.s1=0;
+//			this.s2=0;
+////			箭头函数，固定作用域在当前调用环境下
+//			setInterval(()=> this.s1++ ,1000);
+//			//普通函数
+//			setInterval(function () {
+//				this.s2++;
+//			},1000);
+//		}
+////			setInterval()和setTimout()的作用域指向全局
+//		var timer=new Timer();
+//
+//		setTimeout(()=> console.log('s1: ', timer.s1),1100);
+//		setTimeout(()=> console.log('s2: ', timer.s2),1100);
+
+//		var handle={
+//			id:'123456',
+//			init:function () {
+//				document.addEventListener('click',
+//				event => this.doSomething(event.type),false);
+//			},
+//			doSomething:function (type) {
+//				console.log('Handling' + type + 'for' + this.id);
+//			}
+//		};
+
+		//this在箭头函数中指向的是外层的变量
+//		function fff(){
+//			return ()=>{
+//				return ()=>{
+//					return ()=>{
+//						console.log('id',this.id);
+//					};
+//				};
+//			};
+//		}
+//			var f=fff.call({id:1});
+//			console.log(f.call({id:2})()());
+//			console.log(f().call({id:3})());
+//			console.log(f()().call({id:4}));
+
+//		箭头函数绑定this对象
+//		function test() {
+//		//			function test() {
+//			console.log(this.a);
+//		//			}
+//		//			test();
+//		}
+//		var obj={
+//		a:2,
+//		foo:test
+//}
+//		obj.foo();
+
+//		使用call函数替换一个函数的方法，如果这个函数里面有箭头函数
+//		这个函数中的this指向再使用call时将不会改变
+// function foo() {
+//return (a) => {
+//	//this 继承自 foo()
+//	console.log( this.a );
+//};
+//}
+//var obj1 = { a:2 };
+//var obj2 = { a:3 };
+//
+//var bar = foo.call( obj1 );
+//bar.call( obj2 ); // 2,不是3!
+
+		//Array.from接受第二参数，实现类似于map的功能。
+//		Array.from(arrayLike,x=>x*x);
+//		Array.from(arrayLike).map(x=>x*x);
+
+//		important：map和set
+//        let map=new Map([
+//                [1,'one'],
+//                [2,'two'],
+//                [3,'three'],
+//        ]);
+//         let arr=[...map.keys()];
+//            console.log(arr);
+
+// Array.from(如果对象是数组，则会产生一个一模一样的数组)
+// 可以将具有Interator接口的对象全部转化为数组，
+//        let nameSet=new Set(['a','b'])
+//        let newName=Array.from(nameSet)
+//        console.log(newName+"****"+nameSet);
+
+        //Array.of将值转化为数组形式
+//           var cc=Array.of(1,2,3);
+//           console.log(cc);
+//         数组实例的cptyWithin()复制数组内元素
+//           [1,2,3,4,5].copyWithin(0,3);
+//        对于没有TypedArray的copyWithin方法的平台
+//       [].copyWithin.call(new Int32Array([1,2,3,4,5])，0，3，4);
+
+//         数组实例-查询符合条件的数组成员
+//     [1,-4,5,10].find((n)=>n<0) //-5
+
+        //fill用于数组的初始化，可以抹去原有数组
+//		['a','b','c'].fill(7)
+
+//        数组实例
+
+
+//         对象的属性和方法简写
+//           const bax={foo:baz}
+            //方法简写
+//         let birth='2000/1/1';
+//         const Person={
+//             name:'张三',
+//             birth,
+//             hello(){console.log('我的名字是',this.name);}
+//         };
+
+         //common.js
+//         let ms ={}
+//         function getItem(key) {
+//             return key in ms?ms[key]:null;
+//         }
+//          function setItem(key,value){
+//              ms[key]=value;
+//          }
+//           function clear() {
+//               ms={}
+//           }
+//           module.exports={getItem,setItem,clear};
+
+//          给对象添加属性，将想，y属性添加到Point类的对象实例
+//            class Point{
+//                constructor(x,y){
+//                    Object.assign(this,{x,y});
+//                }
+//            }
+
+
+//          可枚举性（每个属性都有一个飚速的对象来控制自己的行为）
+//            let obj={foo:123};
+//            Object.getOwnPropertyDescriptor(obj,'foo')
+            //enumberable:可枚举性
+        //for...in----Object.keys()------JSON.stringfy()
+         //----Object.assign（）这四个方法忽略枚举属性
+
+          const obj={
+              foo:123,
+              get bar(){return 'abc'}
+          };
+            Object.getOwnPropertyDescriptor(obj)
+//            {foo:
+//                {value:123,
+//                 writeable:true,
+//                 enumerable:true,
+//                 configurable:true
+//                },
+//            bar:
+//                {
+//                get:[function:bar],
+//                set:undefined,
+//                enumerable:true,
+//                configurable:true
+//            }
+//            }
+
+//         super关键字,指向当前对象的原型对象
+			const proto={
+				foo:'hello'
+			};
+			const obj={
+				find(){
+					return super.foo;
+				}
+			};
+			Object.setPrototypeOf(obj,proto);
+			obj.find();
+        </script>
+	</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>js作用域问题和指向问题</title>
+	</head>
+	<body>
+		<script>
+//			//test1  js是函数级作用域
+//			var a=10;
+//			function aaa(){
+//				console.log(a);
+//				var a=20;
+//			}
+//			aaa()
+//			//在声明时，会现在函数里寻找函数里定义的变量，没有的话去万面找。aaa函数内有自己定义的
+//			//值。但是是在弹出后定义的，所以此时函数会预编译一下，var a；没赋值所以弹出undefined
+//			function aaa1(){
+//				console.log(a);
+//				a=20;
+//			}
+//			aaa1();
+////			下面这个应该输出的是20,但是输入语句先执行
+//			var a=10;
+//			function aaa(){
+//				bbb();
+//				console.log(a);
+//				function bbb(){
+//					var a=20;
+//				}
+//			}
+//			aaa();
+//			//内部的可以访问外部的，但外部的访问不了内部，输出10
+		 	
+		 	
+//			var b=15;
+//			function aaa(a){
+//				console.log(a);
+//					var a=20;
+//			}
+//			aaa(b);
+////			参数与局部变量重名时具有一样的优先级
+
+
+////		this指向问题,全局变量都是window的属性
+//		var check=function(){
+//			console.log('check***'+this.x);
+//		};
+//		var x="how to to";
+//		
+//		var obj={};
+//		
+//		obj.x=100;
+//		
+//		obj.y=function(){
+//			console.log('obj***'+this.x);
+//		};
+//		obj.y();
+//		check();
+
+//		call,apply与this 从新定义函数的执行环境
+//		function changesT(type,value){
+//			this.style[type]=value;
+//		}
+//		
+//		var one=document.getElementByIdx('one');
+//		changesT.call(one,'fontSize','100px');
+//		
+//		changesT('fontSize','300px');
+//		//这是错误的。window没style这个属性
+		//上面的call指定了one这个引用对象
+		
+//		apply只接受两个参数，第一个为启动名，第二个必须是数组
+//		var obj={
+//			x:100,
+//			y:function(){
+//				setTimeout(
+//					function(){
+//						console.log(this.x);
+//						//this指的是window对象，会爆出underfinded
+//						//如果想用this指向obj.x这个属性，需要声明一个变量去在本函数声明，
+//						然后setTimout里this就会指向当前对象
+						//eg（77）var that=this;(79行)console.log(that.x)
+//					}
+//				),2000
+//				console.log(this.x);
+//			}
+//		};
+//		obj.y();
+
+//		this永远指向引用它的对象
+//		function indetify(){
+//			return this.name.toUpperCase();
+//		}
+//		function say(){
+//			var greeting="Hello,I'm"+indetify.call( this);
+//			var greet="Hello,I'm"+indetify( this);
+//			console.log(greeting+"********"+greet);
+//		}
+//		var person1={
+//			name:'KyLe'
+//		};
+//		var persona2={
+//			name:'Reader'
+//		};
+//		console.log('txt1'+indetify());
+//		console.log('txt2'+indetify.call(person1));
+//		say(person1);
+//		say.call(person1);
+//		call重新定义函数环境
+
+//		window.onload=function(){
+//			console.log('begin');
+//			for(var i=0;i<5;i++){
+//				setTimeout((function () {
+//					console.log(i);
+//				})(),1000);
+//			}
+//			console.log('end');
+//		}
+		
+		</script>
+	</body>
+</html>
