@@ -1,0 +1,42 @@
+Dom深入学习：
+一：Dom定义：
+DOM，文档对象模型（Document Object Model）。DOM是 W3C（万维网联盟）的标准，DOM定义了访问HTML和XML文档的标准。在W3C的标准中，DOM是独于平台和语言的接口，它允许程序和脚本动态地访问和更新文档的内容、结构和样式。
+W3C DOM由以下三部分组成：
+
+核心DOM - 针对任何结构化文档的标准模型
+XML DOM - 针对 XML 文档的标准模型
+HTML DOM - 针对 HTML 文档的标准模型
+DOM（文档对象模型）是针对xml经过扩展用于html的应用程序编程接口，我们又叫API。DOM把整个页面映射为一个多层的节点结构，html或xml页面中的每个组成部分都是某种类型的节点，这些节点又包含着不同类型的数据。
+
+DOM0级：刚开始出现的页面控制节点方法（标准）不稳定
+
+DOM1级：W3C将DOM定义为一个与平台和编程语言无关的接口，通过这个接口程序和脚本可以动态的访问和修改文档的内容、结构和样式。
+
+DOM2级：原来DOM的基础上又扩充了鼠标、用户界面事件、范围、遍历等细分模块，而且通过对象接口增加了对CSS的支持。
+包括：DOM视图（DOM Views）：定义了跟踪不同文档视图的接口
+DOM事件（DOM Events）：定义了事件和事件处理的接口
+DOM样式（DOM Style）：定义了基于CSS为元素应用样式的接口
+DOM遍历和范围（DOM Traversal and Range）：定义了遍历和操作文档树的接口
+
+DOM3级：进一步扩展了DOM，引入了以统一方式加载和保存文档的方法，它在DOM Load And Save这个模块中定义；同时新增了验证文档的方法，是在DOM Validation这个模块中定义的。
+DOM加载和保存模块（DOM Load and Save）：引入了以统一方式加载和保存文档的方法
+DOM验证模块（DOM Validation）：定义了验证文档的方法
+DOM核心的扩展（DOM Style）：支持XML 1.0规范，涉及XML Infoset、XPath和XML Base 
+
+Important：
+1.getElementByName兼容性处理（IE）：
+function getElements(name){
+    var result = document.getElementsByName(name);
+    if(result.length > 0) return result;
+    result = new Array();
+    var e = document.getElementsByTagName('span');
+    for(i = 0; i < e.length; i++) {
+        if(e[i].getAttribute("name") == name) {
+            result[result.length] = e[i];
+        }
+    }
+    return result;
+}
+
+onload事件是要在所有请求都完成之后才执行，而domReady利用hack技术，在加载完dom树之后就能执行，所以domReady比onload执行时间更早，建议采用domReady。
+

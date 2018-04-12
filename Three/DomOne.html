@@ -1,10 +1,27 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-	</head>
-	<body>
-		
-	</body>
-</html>
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>DocumentFragment文档片段节点</title>  
+</head>  
+<body> 
+<!-- tip区域 -->
+    <div id="tip">test1</div> 
+    <ul id="list-node">
+    <li>test2<li>
+    </ul>  
+    <script type="text/javascript">  
+    window.onload=function(){
+    	var aul=document.getElementById("list-node");
+        var frag = document.createDocumentFragment();  
+        for (var i = 0; i < 10; i++) {  
+            var ali = document.createElement("li"); 
+            ali.innerHTML = "List item" + i; 
+            frag.appendChild(ali);  
+        }  
+        console.log(frag);
+        aul.appendChild(frag);  
+    }
+    </script>  
+</body>  
+</html>  
