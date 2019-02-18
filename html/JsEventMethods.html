@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>事件代理</title>
+</head>
+<body>
+<div class="box">
+    1234
+    <div class="item">123</div>
+</div>
+
+
+<script>
+    //1.filter
+    // var arr= [1,10,20,30]
+    // var brr = arr.filter((item)=>{
+    //     return item>10;
+    // },this)
+    // console.log(arr);
+    // console.log(brr);
+
+    //2.splice(破坏原有数组),slice（不改变原有数组），substring（字符串截取）
+    // let testArr=[1,2,3,4,5,6]
+    // console.log(testArr,testArr.splice(2,5));
+    // console.log(testArr,testArr.splice(2));
+
+    // let newArr=testArr.slice(2);
+    // let newArr2=testArr.slice(2,4);
+    // console.log(newArr,testArr);
+    // console.log(newArr2,testArr);
+
+    //3.map,filter
+    // var arr=[4,2,3,4]
+    // for (i of arr){
+    //     console.log(i);
+    // }
+    // var barr=arr.filter(i=>{
+    //     return i>3
+    // })
+    // console.log(barr);
+
+   //4阻止冒泡,及事件委托
+   //  document.querySelector(".box").addEventListener("click",function () {
+   //      console.log("123")
+   //  })
+   //  document.querySelector(".item").addEventListener("click",function (e) {
+   //      console.log("456")
+   //      e.stopPropagation();
+   //  })
+
+    //5.标准事件流及事件委托--eventTarget
+
+    //6.this指向性问题
+    // function Foo(){
+    //       getName=function(){
+    //         console.log(1)
+    //     }
+    //     return this;
+    // }
+    // var getName;
+    // function getName(){
+    //     console.log(5)
+    // }
+    // Foo.getName=function(){console.log(2)};
+    // Foo.prototype.getName=function(){console.log(3)}
+    // getName=function(){console.log(4)}
+    //
+    //
+    // Foo.getName();
+    // getName();//4
+    // Foo().getName();//1
+    // getName();
+    // new Foo.getName();
+    // new Foo().getName();//(new Foo).getName()=foo.getName(),只有实例化才能调用原型链上的方法，否则只能搜索作用域
+    //  new new Foo().getName();//new(new Foo).getName=>new (foo).getName
+
+
+    // function test(){
+    //     getName=function(){
+    //        console.log("1");
+    //     }
+    //     console.log("this"+this);
+    //     return this;
+    //
+    // }
+    // var getName=function(){
+    //     console.log("2")
+    // }
+    //
+    // getName();
+    // test().getName();//==>var getName;getName=function(alert(1))
+    // getName();
+
+    //7.对象的深浅拷贝
+    // function copyArray(arr){
+    //     return arr.map((e)=>{
+    //         if(typeof e === 'object'){
+    //             return Object.assign({},e);
+    //         }else{
+    //             return e;
+    //         }
+    //     })
+    // }
+    // const arr=[1,2,3,{sss:"123"},5,6]
+    // // const newarr=copyArray(arr);
+    // const newarr=arr;
+    // newarr.push("123");
+    //
+    // console.log(arr);
+    // console.log(newarr);
+
+    //8.函数的调用方式,结合作用域，this指向
+    // var age = 38;
+    // var obj = {
+    //     age: 18,
+    //     getAge: function() {
+    //          function foo() {
+    //             console.log(this.age); // 这里的this属于函数 foo；   打印 38
+    //         }
+    //         foo()//实际是window调用，this指向全局作用域
+    //         // console.log(this.age)
+    //     },
+    //     foos:function(){
+    //         console.log(this.age);
+    //     }
+    // };
+    // obj.getAge();
+
+
+
+
+</script>
+</body>
+</html>

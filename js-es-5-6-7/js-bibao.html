@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+ js-闭包
+ js-构造函数
+ <script>
+     // js-es-5-6-7-闭包
+     // let Person=(function(){
+     //     var name='111';
+     //     var age='12';
+     //     function getAge(){
+     //         return age;
+     //     }
+     //     function getName(){
+     //         return name
+     //     }
+     //     function setAge(newage){
+     //         age=newage;
+     //     }
+     //     function setName(newname){
+     //         name=newname
+     //     }
+     //     return{
+     //         getAge:getAge,
+     //         getName:getName,
+     //         setAge:setAge,
+     //         setName:setName
+     //     }
+     // })()
+     // console.log(Person.name);
+     // console.log(Person.age);
+     // console.log(Person.getAge());
+     // console.log(Person.getName());
+     // Person.setAge("125");
+     // Person.setName("155");
+     // console.log(Person.getAge());
+     // console.log(Person.getName());
+
+     //js-es-5-6-7-构造函数
+     // function PersonOne(name,age){
+     //     this.name=name;
+     //     this.age=age;
+     // }
+     // PersonOne.prototype.printName=function(){
+     //    console.log(this.name);
+     // }
+     // PersonOne.prototype.printAge=function(){
+     //     console.log(this.age);
+     // }
+     //
+     // function Student(name,age){
+     //     PersonOne.call(this,name,age);
+     // }
+
+     //创建新的对象，并继承指定的函数的方法
+     // function create(prototype){
+     //     function F(){}
+     //     F.prototype=prototype;
+     //     return new F();
+     // }
+     // 让Student的原型指向一个对象,该对象的原型指向了Person.prototype,通过这种方式继承 Person 的方法
+    //  Student.prototype=create(PersonOne.prototype)
+    // Student.prototype.printAge=function(){
+    //      console.log(this.age);
+    // }
+
+    //  Student.prototype=new PersonOne();
+    //
+    // let student2=new Student("test","223");
+    //
+    //  student2.printName();
+    //  student2.printAge();//首先看对象本身的原型链上是否含有当前方法，否则将去继承的对象的原型链上寻找方法
+
+
+     /*定义一个人类*/
+     // function Person(name,age)
+     // {
+     //     this.name=name;
+     //     this.age=age;
+     // }
+     // /*定义一个学生类*/
+     // function Student(name,grade)
+     // {
+     //     // Person.apply(this,arguments);
+     //     Person.call(this,name);
+     //     this.grade=grade;
+     // }
+     // //创建一个学生类
+     // var student=new Student("zhangsan","一年级");
+     // //测试
+     // console.log("name:"+student.name+"\n"+"age:"+student.age+"\n"+"grade:"+student.grade);
+
+
+
+     //寄生组合式继承
+    /* function obj(o){
+     function F(){}
+     F.prototype = o;
+     return new F();
+     }
+     function create(parent,test){
+         var f = obj(parent.prototype);//创建对象
+         f.constructor = test;//增强对象
+     }
+
+     function Parent(name){
+         this.name = name;
+         this.arr = ['brother','sister','parents'];
+     }
+
+     Parent.prototype.run = function () {
+         return this.name;
+     };
+
+     function Child(name,age){
+         Parent.call(this,name);
+         this.age =age;
+     }
+
+     inheritPrototype(Parent,Child);//通过这里实现继承
+
+     var test = new Child('trigkit4',21);
+     test.arr.push('nephew');
+     alert(test.arr);//
+     alert(test.run());//只共享了方法
+
+     var test2 = new Child('jack',22);
+     alert(test2.arr);//引用问题解决*/
+
+    // rr=1;let死区问题
+    // var rr;
+    // console.log(rr);
+
+     // var tmp = new Date();
+
+     // function f() {
+         // console.log(tmp);//内层声名变量覆盖外层，内层没有声名的话当前作用域中没有，作用域升迁，引入父级作用域变量
+         // if (false) {
+         //     var tmp = 'hello world';
+         // }
+     // }
+
+     // f(); // undefined
+
+
+     //rest风格
+     // function sortNumbers(arguments) {
+     //     // Array.prototype.slice.call从数组中复制出来新的数组
+     //     return Array.prototype.slice.call(arguments).sort();
+     // }
+
+     // rest参数的写法
+     // const sortNumbers = (...numbers) => numbers.sort();
+     //
+     // console.log(sortNumbers(2,6,4,1,9,3,7));
+
+     // this指向性问题，箭头函数的区别
+     // function foo() {
+     //     setTimeout(() => {
+     //         console.log('id:', this.id);
+     //     }, 100);
+     // }
+     //
+     // var id = 21;
+     //
+     // foo.call({ id: 42 });
+
+    //  function foo() {
+    //      return () => {
+    //                  console.log('id:', this.id);
+    //      };
+    //  }
+    // var id=6;
+
+    //  var f = foo.call({id: 1});实例化后进行操作
+    // f({id: 2})
+
+     // var a=123;
+     // var b="123";
+     //
+     // console.log(Object.is(a,b));
+
+     // set数组去重
+     // var testa=[1,4,2,5,3,6,5,2,12,3,77,9,6,7]
+     //
+     // var setA=new Set(testa);
+     // console.log([...setA]);
+
+
+     console.log([...new Set(Array.prototype.slice.call("qweasdasfgs"))].join(''));
+ </script>
+</body>
+</html>

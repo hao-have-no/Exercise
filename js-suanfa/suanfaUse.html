@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sufa</title>
+</head>
+<body>
+</body>
+<script>
+    //回文
+    //const sucai="qqqwwweeewwwqqq";
+    // function checkPalindom(str){
+    //     return str == str.split('').reverse().join('');
+    // }
+    // const real=checkPalindom(sucai);
+    // console.log(real);
+
+    //去掉重复值(1,indexof确认。2：object的key值确认)
+    // let unique=[1,2,13,24,25,2,11,14,1,2,11];
+    //
+    // getUnique=(str)=>{
+    //     let data=[];
+    //     let obj={}
+    //     for (let i=0,l=str.length;i<l;i++){
+    //         // if(data.indexOf(str[i]) == -1){
+    //         //     data.push(str[i]);
+    //         // }
+    //         if(!obj[str[i]]){
+    //             obj[str[i]]=true;
+    //             data.push(str[i]);
+    //         }
+    //     }
+    //     return data;
+    // }
+    //     const real=getUnique(unique);
+    //     console.log(real);
+
+    //计算重复最多的元素和次数
+    // function getmaxstr(str){
+    //     if(str.length == 0){
+    //         return str;
+    //     }
+    //     var newarr=[];
+    //     for(let i=0,l=str.length;i<l;i++){
+    //         if(!newarr[str.charAt(i)]){
+    //             newarr[str.charAt(i)] = 1;
+    //         }else{
+    //             newarr[str.charAt(i)] +=1;
+    //         }
+    //     }
+    //     console.log(newarr);
+    //
+    //     var maxkey='';
+    //     var maxValue=1;
+    //     for(var k in newarr){
+    //         if (newarr[k]>maxValue){
+    //             maxValue=newarr[k];
+    //             maxkey=k;
+    //         }
+    //     }
+    //     console.log(maxkey,maxValue);
+    //     return (maxkey+"*"+maxValue);
+    // }
+    //  var strs="assfdsghjsddggedfsvgh";
+    // // var strr=["1","a","s","a","d","f","s","7","fg"];
+    // console.log(getmaxstr(strs));
+
+    //快排
+    // function quickSort(arr){
+    //     if(arr.length<1){
+    //         return arr;
+    //     }
+    //
+    //     let leftArr=[];
+    //     let rightArr=[];
+    //     let q = arr[0];
+    //     for(let i = 1,l=arr.length; i<l; i++){
+    //         if(arr[i]>q){
+    //             rightArr.push(arr[i])
+    //         }else{
+    //             leftArr.push(arr[i]);
+    //         }
+    //     }
+    //     console.log(leftArr,[q],rightArr)
+    //    return [].concat(quickSort(leftArr),[q],quickSort(rightArr));
+    //     //只拼接了[q]
+    // }
+    // var sort=[8,3,5,2,10,1,12,16,4,7,15];
+    // console.log(quickSort(sort));
+
+    //判断最大差值
+    const arr=[9,3,1,4,5,8,12];
+
+    function findMax(arr){
+        var minValue=arr[0];
+        var maxVal=0;
+
+        for(let i=0;i<arr.length;i++){
+            const realMin=arr[i]
+            minValue=Math.min(minValue,realMin);
+            const realMax=realMin-minValue;
+            maxVal=Math.max(realMax,maxVal);
+        }
+     return maxVal;
+    }
+ console.log(findMax(arr))
+
+</script>
+</html>

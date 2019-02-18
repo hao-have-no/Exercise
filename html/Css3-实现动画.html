@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片轮换</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            width: 400px;
+            height: 380px;
+        }
+        .div_first{
+            width: 400px;
+            height: 300px;
+            margin-top: 100px;
+            margin-left: 250px;
+            overflow: hidden;
+        }
+        .div_second{
+            width: 1600px;
+            position: relative;
+            animation: myimg 6s linear 2s infinite normal;
+        }
+        @keyframes myimg{
+            from{
+                left:0;
+            }
+            to{
+                left:-1200px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="div_first">
+    <div class="div_second">
+        <img src="../sucai/1.jpg" alt=""><img src="../sucai/2.jpg" alt=""><img src="../sucai/3.jpg" alt=""><img src="../sucai/1.jpg" alt="">
+    </div>
+</div>
+</body>
+</html>

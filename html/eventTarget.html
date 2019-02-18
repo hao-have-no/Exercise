@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="text" id="txt" placeholder="qing"/>
+<ul id="showtxt">
+<li>1234<span class="close" style="padding-left: 20px;">X</span></li>
+<li>1234<span class="close" style="padding-left: 20px;">X</span></li>
+<li>1234<span class="close" style="padding-left: 20px;">X</span></li>
+</ul>
+</body>
+<script>
+    window.onload=function(){
+        const inputMark=document.querySelector("#txt");
+        const ulArr=document.querySelector("#showtxt");
+        const liArr=document.getElementsByTagName("li");
+        console.log(inputMark+"----"+liArr[0].innerHTML.substring(0,liArr[0].innerHTML.indexOf('<span')));
+
+        inputMark.addEventListener("keydown",function(event){
+            if(event.keyCode  == "13"){
+                console.log(inputMark.value);
+                var mark=0;
+                let liVal=inputMark.value;
+                if(liVal != ""){
+                    for(var i=0;i<liArr.length;i++){
+                        const markVal=liArr[i].innerHTML.substring(0,liArr[i].innerHTML.indexOf('<span'));
+                        if(markVal == liVal){
+                            mark =1;
+                        }
+                    }
+                    if(mark == 0){
+                        const ali=document.createElement("li");
+                        ali.innerHTML=inputMark.value+'<span class="close" style="padding-left: 20px;">X</span>';
+                        ulArr.insertBefore(ali,liArr[0]);
+                    }
+                }
+            }
+        });
+
+        ulArr.addEventListener('click',function(event){
+            var event=event||window.event;
+            // 判断在IE的情况下
+            var target=event.target||event.srcElement;
+            if(target.nodeName.toLocaleLowerCase() == 'span'){
+                const deal=target.parentNode;
+                deal.parentNode.removeChild(deal);
+            }
+        })
+    }
+</script>
+</html>
