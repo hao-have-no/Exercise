@@ -190,8 +190,136 @@
      // var setA=new Set(testa);
      // console.log([...setA]);
 
+     // console.log([...new Set(Array.prototype.slice.call("qweasdasfgs"))].join(''))字符串去重;
 
-     console.log([...new Set(Array.prototype.slice.call("qweasdasfgs"))].join(''));
+
+     //常见的for循环
+     var test={data:"1",num:"23",work:[{gongan:"dada"},{xinghan:"kili"},{df:"wsfasf"},{hgg:[{ghh:"123"},{hjk:"234"}]}]}
+     // var test1=[{data:"1",num:"23",work:[{gongan:"dada"},{xinghan:"kili"},{df:"wsfasf"},{hgg:[{ghh:"123"},{hjk:"234"}]}]}]
+
+     // for (let i in test){
+     // // 当test是伪数组的时候
+     //      if(!test[i].hasOwnProperty()){
+     //         console.log(test[i],i);
+     //      }
+     // }
+     // test1.map((item)=>{
+     //     for (let i in item){
+     //         if(i == "work"){
+     //             item[i].forEach((item)=>{
+     //                 console.log(item.gongan)
+     //             })
+     //         }
+     //     }
+     // })
+
+
+     var text=["123","234","567","257"];
+
+     var modu=[{data:"key"},{ghy:[]}]
+
+     // modu.forEach((item)=>{
+     //     console.log(item);
+     // })
+
+
+     // var arr = [
+     //     { name:'nick', age:18 },
+     //     { name:'freddy', age:24 },
+     //     { name:'mike', age:26 },
+     //     { name:'james', age:34 }
+     // ];
+     // for(var item of arr) {
+     //     console.log(item.name, item.age);
+     // }
+     // const real=Array.from(test);
+
+     // for (var key of test){
+     //     console.log(key);
+     // }
+
+     // test.forEach((item)=>{
+     //     console.log(item);
+     // })
+
+
+    //  var relset=[1,2,3,4,5]
+    //  var set = new Set(relset);
+    //  var relmap=[['qwe',56],['asd',344],['gfs',23]];
+    //  var map = new Map(relmap);
+    // for (let v of set) {
+    //      console.log(v);
+    //  }
+    //  console.log("------"+map+"*"+set+"--------------");
+    //  for(let [k,v] of map) {
+    //      console.log(k,v);
+    //  }
+
+     // function timeout(ms) {
+     //     return new Promise((resolve) => {
+     //         setTimeout(resolve, ms);
+     //     });
+     // }
+     //
+     // async function asyncPrint(value, ms) {
+     //     await timeout(ms);
+     //     console.log(value);
+     // }
+     //
+     // asyncPrint('hello world', 50);
+
+
+     // es6-编码风格
+     /*
+     解构赋值{参数保持一致}
+      */
+    // var file={first:"123",sec:"234"};
+    //
+    // // console.log(file.first)
+    //
+    //  function max({first,sec}){
+    //
+    //      console.log(first,sec)
+    // }
+    //
+    // max(file);
+
+
+    // class  Queie{
+    //     constructor(content=[]){
+    //         this._quies=[...content]
+    //     }
+    //     pop(){
+    //         const value=this._quies[0];
+    //         this._quies.splice(0,1);
+    //         return value;
+    //     }
+    // }
+    //
+    // var cc=new Queie([1,2,3,4,5,7]);
+    // console.log(cc.pop());
+
+     function People(name,age){
+         this.name=name;
+         this.age=age;
+         console.log(this.name+"----"+this.age)
+     }
+     People.prototype.say=function(){
+         console.log("我的名字是:"+this.name+"我今年"+this.age+"岁！");
+     }
+
+     function Child(name, age){
+         People.call(this,...arguments);
+     }
+
+     var child = new Child('Rainy', 20);
+
+     //  Child.prototype = new People();
+     // child.say()
+
+
+
+
  </script>
 </body>
 </html>

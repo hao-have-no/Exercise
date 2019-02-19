@@ -89,21 +89,83 @@
     // console.log(quickSort(sort));
 
     //判断最大差值
-    const arr=[9,3,1,4,5,8,12];
+ //    const arr=[9,3,1,4,5,8,12];
+ //
+ //    function findMax(arr){
+ //        var minValue=arr[0];
+ //        var maxVal=0;
+ //
+ //        for(let i=0;i<arr.length;i++){
+ //            const realMin=arr[i]
+ //            minValue=Math.min(minValue,realMin);
+ //            const realMax=realMin-minValue;
+ //            maxVal=Math.max(realMax,maxVal);
+ //        }
+ //     return maxVal;
+ //    }
+ // console.log(findMax(arr))
 
-    function findMax(arr){
-        var minValue=arr[0];
-        var maxVal=0;
+    //最大公约数
+    // function greatestCommonDivisor(a,b){
+    //     var num=0;
+    //     while(b!=0){
+    //         num=a%b;
+    //         a=b;
+    //         b=num;
+    //     }
+    //     return a;
+    // }
+    //
+    // let s=greatestCommonDivisor(8,12)
+    // console.log(s);
 
-        for(let i=0;i<arr.length;i++){
-            const realMin=arr[i]
-            minValue=Math.min(minValue,realMin);
-            const realMax=realMin-minValue;
-            maxVal=Math.max(realMax,maxVal);
-        }
-     return maxVal;
-    }
- console.log(findMax(arr))
+    function treeObj(obj) {
+        // obj.map(item => {
+        //     if (item.parent !== null) {
+        //         obj.map(o => {
+        //             if (item.parent === o.id) {
+        //                 if (!o.child) {
+        //                     o.child = [];
+        //                 }
+        //                 o.child.push(item);
+        //                 o.child = o.child;
+        //             }
+        //         });
+        //     }
+        // });
+        // return obj.filter(item => item.parent === null)[0]
+
+    //根据对应关系，生成树
+    //     obj.map(item=>{
+    //         if(item.parent !== null){
+    //             obj.map(o =>{
+    //                 if(item.parent === o.id){
+    //                     if(!o.child){
+    //                         o.child=[];
+    //                     }
+    //                     o.child.push(item);
+    //                     o.child=o.child;
+    //                 }
+    //             });
+    //         }
+    //     });
+    //     console.log(obj);
+    //      return obj.filter(item =>item.parent === null)[0];
+    // }
+    //
+    // var obj = [
+    //     { id:5, parent:2},
+    //     { id:4, parent:3 },
+    //     { id:3, parent:1 },
+    //     { id:1, parent:null },
+    //     { id:2, parent:1 },
+    // ]
+    //
+    // console.log(treeObj(obj));
+
+
+
+
 
 </script>
 </html>
