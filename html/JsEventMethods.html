@@ -10,7 +10,6 @@
     <div class="item">123</div>
 </div>
 
-
 <script>
     //1.filter
     // var arr= [1,10,20,30]
@@ -21,14 +20,18 @@
     // console.log(brr);
 
     //2.splice(破坏原有数组),slice（不改变原有数组），substring（字符串截取）
-    // let testArr=[1,2,3,4,5,6]
-    // console.log(testArr,testArr.splice(2,5));
-    // console.log(testArr,testArr.splice(2));
+    //let testArr=[1,2,3,4,5,6]
+    // console.log(testArr,testArr.splice(2,2));
+    // console.log(testArr,testArr.splice(4,1));
 
-    // let newArr=testArr.slice(2);
+    // let newArr=testArr.slice(1);
     // let newArr2=testArr.slice(2,4);
-    // console.log(newArr,testArr);
-    // console.log(newArr2,testArr);
+    // console.log(testArr,newArr);
+    // console.log(testArr,newArr2);
+    // let str='12345678';
+    // console.log(str,str.substring(2))
+    // console.log(str,str.substring(2,6))
+
 
     //3.map,filter
     // var arr=[4,2,3,4]
@@ -126,6 +129,35 @@
     //     }
     // };
     // obj.getAge();
+
+
+
+    // 9.
+    // 防抖
+    // var timer=false;
+    //
+    // function bindfang() {
+    //         clearTimeout(timer);
+    //
+    //         timer=setTimeout(function(){
+    //             console.log("123");
+    //         },300)
+    // }
+    //
+    //
+    // //节流
+    // var mark=true;
+    //
+    // function debugd(){
+    // if(!mark){
+    //     return
+    // }
+    // mark =false;
+    // setTimeout(function(){
+    //   console.log("111");
+    //   mark=true;
+    // },time)
+    // }
 
 
 

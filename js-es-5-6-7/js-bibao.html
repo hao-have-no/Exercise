@@ -44,17 +44,27 @@
      // function PersonOne(name,age){
      //     this.name=name;
      //     this.age=age;
+     //     this.setP=function(){
+     //         console.log(this.age);
+     //     }
      // }
      // PersonOne.prototype.printName=function(){
      //    console.log(this.name);
      // }
-     // PersonOne.prototype.printAge=function(){
-     //     console.log(this.age);
-     // }
      //
-     // function Student(name,age){
-     //     PersonOne.call(this,name,age);
-     // }
+     // function create(prototype){
+     //         function F(){}
+     //         F.prototype=prototype;
+     //         return new F();
+     //     }
+     //
+     //  function Student(){
+     //     PersonOne.call(this,arguments);
+     //  }
+     //
+     // Student.prototype=create(PersonOne.prototype)
+     // Student.prototype.constructor =Student;
+
 
      //创建新的对象，并继承指定的函数的方法
      // function create(prototype){
@@ -64,6 +74,8 @@
      // }
      // 让Student的原型指向一个对象,该对象的原型指向了Person.prototype,通过这种方式继承 Person 的方法
     //  Student.prototype=create(PersonOne.prototype)
+     //ES6--->    Student.prototype=Object.create(PersonOne.prototype)
+     // Student.prototype.constructor =Student;
     // Student.prototype.printAge=function(){
     //      console.log(this.age);
     // }
@@ -129,7 +141,7 @@
      alert(test.run());//只共享了方法
 
      var test2 = new Child('jack',22);
-     alert(test2.arr);//引用问题解决*/
+     alert(test2.arr);//引用题问解决*/
 
     // rr=1;let死区问题
     // var rr;
@@ -299,25 +311,152 @@
     // var cc=new Queie([1,2,3,4,5,7]);
     // console.log(cc.pop());
 
-     function People(name,age){
-         this.name=name;
-         this.age=age;
-         console.log(this.name+"----"+this.age)
-     }
-     People.prototype.say=function(){
-         console.log("我的名字是:"+this.name+"我今年"+this.age+"岁！");
-     }
+     // function People(name,age){
+     //     this.name=name;
+     //     this.age=age;
+     //     this.play=[1,2,3,4];
+     //     console.log("asd"+this.name+"----"+this.age+"----"+this.play)
+     // }
+     // People.prototype.say=function(){
+     //     console.log("我的名字是:"+this.place+"我今年"+this.age+"岁！");
+     // }
+     //
+     // function Child(price){
+     //     // People.call(this,...arguments);
+     //     this.price=price;
+     //     // this.age=age;
+     //     console.log("www"+this.price);
+     //
+     //     // People.call(this,...arguments);
+     // }
+     //
+     // // function create(prototype){
+     // //     function F() {}
+     // //     F.prototype=prototype;
+     // //     return new F();
+     // // }
+     //
+     // Child.prototype =new People();
+     // var child=new Child("123","12");
+     // var child1=new Child("1234","1234");
+     // child.say();
+     // child.play.push(7)
+     // console.log(child.play,child1.play);
 
-     function Child(name, age){
-         People.call(this,...arguments);
-     }
-
-     var child = new Child('Rainy', 20);
-
-     //  Child.prototype = new People();
-     // child.say()
+     // Child.prototype= create(People.prototype);
 
 
+     // function fn(){
+     //     var a = 100;
+     //     function func(){
+     //         console.log(a);
+     //     }
+     //      return func;
+     // }
+     //
+     // var func = fn();
+     // console.log(func());
+
+
+
+     //includes
+     // var math=[{id:"1",node:'1',pa:'1'},{id:'2',node:'2',pa:'2'},{id:'3',node:'3',pa:'3'}];
+     // var math1={id:"1",node:'1',pa:'1'}
+     //
+     // // console.log(math.includes({id:"1",node:'1',pa:'1'}))
+     // for (var item of math){
+     //     // console.log(item);
+     //     if(item.id.includes(math1.id)){
+     //
+     //     }
+     //     console.log(item.id.includes(math1.id))
+     // }
+     // var ee=new Set(math);
+     //
+     // console.log(ee);
+     //
+     // for (var i of math){
+     //
+     // }
+
+    // ES6:Class
+    //  class Opo{
+    //     constructor(){
+    //         this.name=1;
+    //     }
+    //
+    //     getOpo(name){
+    //         console.log(name)
+    //      }
+    //  }
+    //
+    //  // var name="234";
+    //  let child=new Opo();
+    //  child.getOpo("123");
+
+    //es5实现一个class函数（通过闭包+构造函数）
+     var Person =(function(){
+         var name='2'
+
+         function getOp(){
+             this.name=name;
+             console.log(this.name);
+         }
+         getOp.prototype.say=function(mes){
+             console.log(mes,this.name);
+         }
+         return getOp;
+     })();
+
+     // var Child=(function(Person){
+     //
+     //     //累的调用检测
+     //     function _classCheck(instance,constructor){
+     //        if(instance instanceof  constructor){
+     //            throw  new Error("child is not instanceof person")
+     //        }
+     //     }
+     //
+     //     //子类继承父类
+     //     function _inherins(subclass,superclass){
+     //         subclass.prototype=Object.create(subclass.prototype,{constructor:{value:subclass}});
+     //         Object.setPrototypeOf(subclass,superclass);
+     //     }
+     //
+     //     _inherins(Child,Person);
+     //
+     //    function Child(){
+     //        let obj=Person.call(this)//子类继承私有属性
+     //        let that=this;
+     //        if(typeof obj=='object'){
+     //            that=obj
+     //        }
+     //        that.name=1;//解决了父类是引用类型的问题
+     //        _classCheck(this, Clild)
+     //        return that
+     //    }
+     //    return Child;
+     //
+     //
+     // })(Person);
+
+
+    //  function shuffleArray(totalLength) {
+    //      let randomArray = {}, randomIndex, temp;
+    //      for (let i = 0; i < totalLength; i ++) {
+    //          randomArray[i] = i;
+    //      }
+    //      for (let i = totalLength - 1; i >= 0; i --) {
+    //          randomIndex = Math.floor(Math.random() * (i + 1));
+    //          temp = randomArray[randomIndex];
+    //          randomArray[randomIndex] = randomArray[i];
+    //          randomArray[i] = temp;
+    //          //两两进行互换
+    //      }
+    //      return randomArray;
+    //  }
+    //
+    // console.log(shuffleArray(16));
 
 
  </script>
