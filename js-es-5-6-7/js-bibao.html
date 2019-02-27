@@ -395,18 +395,18 @@
     //  child.getOpo("123");
 
     //es5实现一个class函数（通过闭包+构造函数）
-     var Person =(function(){
-         var name='2'
-
-         function getOp(){
-             this.name=name;
-             console.log(this.name);
-         }
-         getOp.prototype.say=function(mes){
-             console.log(mes,this.name);
-         }
-         return getOp;
-     })();
+    //  var Person =(function(){
+    //      var name='2'
+    //
+    //      function getOp(){
+    //          this.name=name;
+    //          console.log(this.name);
+    //      }
+    //      getOp.prototype.say=function(mes){
+    //          console.log(mes,this.name);
+    //      }
+    //      return getOp;
+    //  })();
 
      // var Child=(function(Person){
      //
@@ -441,6 +441,7 @@
      // })(Person);
 
 
+     //生成自由排序
     //  function shuffleArray(totalLength) {
     //      let randomArray = {}, randomIndex, temp;
     //      for (let i = 0; i < totalLength; i ++) {

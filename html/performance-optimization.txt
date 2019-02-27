@@ -1,0 +1,56 @@
+
+    加载优化
+
+    DNS预解析
+    合并img、css、javascript文件，减少http请求
+    缓存一切可缓存资源
+    使用长Cache
+    使用外联式引用css、javascript文件
+    压缩HTML、css、javascript文件
+    启用GZip
+    使用首屏加载(比如同构)
+    使用按需加载资源文件
+    使用滚屏记载资源文件
+    资源懒加载
+    通过Media Query加载css文件
+    增加Loading进度条
+    减少Cookie
+    避免重点向
+    图片优化
+
+    在保证图片质量的情况下，压缩图片，减少图片大小
+    使用Css3、svg、iconfont代替图片
+    首次加载不大于1024KB的图片
+    图片宽不大于640px(移动端)
+    脚本优化
+
+    减少重回和回流操作
+    缓存DOM元素、DOM列表长度length、属性值
+    使用事件委托，避免批量绑定事件
+    尽量使用ID选择器
+    使用touch事件代替click事件
+    使用节流函数减少性能消耗
+    HTML优化
+
+    css文件写在头部，javascript放在尾部
+    避免层级深嵌套
+    避免img、iframe、a等元素的空src
+    避免行内样式和事件绑定
+    大图片避免使用base64
+    css优化
+
+    移除空的css规则
+    正确使用display的属性
+    不滥用float
+    不声明过多的font-size
+    值为0时不要使用单位
+    标准化各种浏览器前缀
+    渲染优化
+
+    HTML使用viewport(移动端)
+    减少DOM节点
+    尽量使用CSS3 3d动画来触发GPU渲染
+    使用requestAnimationFrame代替setTimeInter和setTimeout
+    适当使用canvas动画
+    对于resize、mousemove事件使用节流处理，较少DOM回流和重绘次数
+

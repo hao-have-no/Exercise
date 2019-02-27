@@ -95,7 +95,7 @@
     // test().getName();//==>var getName;getName=function(alert(1))
     // getName();
 
-    //7.对象的深浅拷贝
+    // 7.对象的深浅拷贝（该方法无法实现对象的深拷贝）
     // function copyArray(arr){
     //     return arr.map((e)=>{
     //         if(typeof e === 'object'){
@@ -112,6 +112,7 @@
     //
     // console.log(arr);
     // console.log(newarr);
+
 
     //8.函数的调用方式,结合作用域，this指向
     // var age = 38;
@@ -160,6 +161,37 @@
     // }
 
 
+    //递归进行深拷贝
+    // var oldarr=[1,2,3,{"ss":123},5,6];
+    //通过json和javascript值（或者对象），来改变数据对应的堆区间
+    // var clonearr=JSON.parse(JSON.stringify(oldarr));
+    //
+    // clonearr.push("12345");
+    // clonearr[3].obj="12345";
+    //
+    // console.log(oldarr,clonearr);
+
+    // function deepclone(obj){
+    //     const clonedeep=obj.constructor === Array?[]:{};
+    //
+    //     for (let item in obj){
+    //         if (obj.hasOwnProperty(item)){
+    //             if (obj[item]&&typeof obj[item] === 'object'){
+    //                 clonedeep[item] = obj[item].constructor === Array?[]:{};
+    //                 clonedeep[item] = deepclone(obj[item]);
+    //             }else{
+    //                 clonedeep[item]=obj[item];
+    //             }
+    //         }
+    //     }
+    //     return clonedeep;
+    // }
+    //
+    // var clonearr=deepclone(oldarr);
+    // clonearr.push("12345");
+    // clonearr[3].obj="12345";
+    //
+    // console.log(oldarr,clonearr);
 
 
 </script>
