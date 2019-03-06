@@ -194,6 +194,79 @@
     // console.log(oldarr,clonearr);
 
 
+    //闭包的使用--js模块封装方法(面向对象的私有变量成员)
+    // function Ptest(pwd){
+    //     var password=pwd
+    //
+    //     function getPassword() {
+    //      return password;
+    //     }
+    //
+    //     this.getPwdSwevice=function () {
+    //         return getPassword();
+    //     }
+    //
+    //     Ptest.prototype.checkPwd=function (pwd) {
+    //         return this.getPwdSwevice() === pwd;
+    //     }
+    // }
+    //
+    // var tp=new Ptest("1111");
+    // console.log(tp.checkPwd("1111"));
+    // console.log(tp.password);
+    // console.log(tp.getPwdSwevice())
+    // console.log(tp.getPassword);
+
+    // function deleteArr(){
+    //     var arr=[1,2,3,4,5,6,7,8];
+    //    for (let i=0;i<arr.length;i++){
+    //        if (arr[i]%2 != 0){
+    //            arr.splice(i,1);
+    //            i--;
+    //        }
+    //    }
+    //    console.log(arr);
+    // }
+    //
+    // deleteArr()
+
+
+    function accum(obj){
+        // var obj = obj;
+        var str = "";
+        for(var i = 0;i<obj.length;i++){
+            var curr_letters = obj.substr(i,1);          //获取当前字母
+            var curr_str = curr_letters.toUpperCase();   //第一个字母转大写
+            for(var j = i;j>0;j--){                   //循环在后面添加小写字母
+                curr_str += curr_letters.toUpperCase();
+            }
+            if(i != obj.length-1){//不为最后一个字母添加分割符
+                curr_str += "-";
+            }
+            str += curr_str
+        }
+        return str;
+    }
+    console.log(accum("abcde"));
+
+
+    // function accum(obj){
+    //     var str="";
+    //     for (let i=0;i<obj.length;i++){
+    //         var cur=obj.substr(i,1);
+    //         var cur_letter=cur.toUpperCase();
+    //         for (var j=i;j>0;j++){
+    //             cur_letter +=cur_letter;
+    //         }
+    //         if (i !=obj.length-1){
+    //             cur_letter+="-";
+    //         }
+    //         str +=cur_letter;
+    //     }
+    //     return str;
+    // }
+    // console.log(accum("abcde"));
+
 </script>
 </body>
 </html>

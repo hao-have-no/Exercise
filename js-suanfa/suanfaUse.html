@@ -95,7 +95,7 @@
  //        var minValue=arr[0];
  //        var maxVal=0;
  //
- //        for(let i=0;i<arr.length;i++){
+ //        for(let i in arr){
  //            const realMin=arr[i]
  //            minValue=Math.min(minValue,realMin);
  //            const realMax=realMin-minValue;
@@ -119,7 +119,7 @@
     // let s=greatestCommonDivisor(8,12)
     // console.log(s);
 
-    function treeObj(obj) {
+    // function treeObj(obj) {
         // obj.map(item => {
         //     if (item.parent !== null) {
         //         obj.map(o => {
@@ -163,7 +163,17 @@
     //
     // console.log(treeObj(obj));
 
-
+    function fun(n, o) {
+        console.log(o);
+        return {
+            fun: function(m) {
+                return fun(m, n);
+            }
+        }
+    }//第一次执行后生成fun回到函数，而之前作为回调函数的变量被保存
+    //闭包能够将变量保存到内存中
+    // fun(0) //显示undefined，n=0,生成fun回调函数
+    // fun(0).fun(1)//fun(m=1)==>return fun(m=1,n=0)=>n=m=1,o=0==>生成fun（m）,此时n=1;
 
 
 
