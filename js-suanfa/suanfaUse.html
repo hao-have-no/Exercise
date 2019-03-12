@@ -6,7 +6,7 @@
 </head>
 <body>
 </body>
-<script>
+
     //回文
     //const sucai="qqqwwweeewwwqqq";
     // function checkPalindom(str){
@@ -21,7 +21,7 @@
     // getUnique=(str)=>{
     //     let data=[];
     //     let obj={}
-    //     for (let i=0,l=str.length;i<l;i++){
+    <!--//     for (let i=0,l=str.length;i<l;i++){-->
     //         // if(data.indexOf(str[i]) == -1){
     //         //     data.push(str[i]);
     //         // }
@@ -35,13 +35,13 @@
     //     const real=getUnique(unique);
     //     console.log(real);
 
-    //计算重复最多的元素和次数
+    // 计算重复最多的元素和次数
     // function getmaxstr(str){
     //     if(str.length == 0){
     //         return str;
     //     }
     //     var newarr=[];
-    //     for(let i=0,l=str.length;i<l;i++){
+    <!--//     for(let i=0,l=str.length;i<l;i++){-->
     //         if(!newarr[str.charAt(i)]){
     //             newarr[str.charAt(i)] = 1;
     //         }else{
@@ -49,21 +49,21 @@
     //         }
     //     }
     //     console.log(newarr);
-    //
-    //     var maxkey='';
-    //     var maxValue=1;
-    //     for(var k in newarr){
-    //         if (newarr[k]>maxValue){
-    //             maxValue=newarr[k];
-    //             maxkey=k;
-    //         }
-    //     }
-    //     console.log(maxkey,maxValue);
-    //     return (maxkey+"*"+maxValue);
-    // }
-    //  var strs="assfdsghjsddggedfsvgh";
-    // // var strr=["1","a","s","a","d","f","s","7","fg"];
-    // console.log(getmaxstr(strs));
+
+        // var maxkey='';
+        // var maxValue=1;
+        // for(var k in newarr){
+        //     if (newarr[k]>maxValue){
+        //         maxValue=newarr[k];
+        //         maxkey=k;
+        //     }
+        // }
+        // console.log(maxkey,maxValue);
+        // return (maxkey+"*"+maxValue);
+    }
+     // var strs="assfdsghjsddggedfsvgh";
+    // var strr=["1","a","s","a","d","f","s","7","fg"];
+    // console.log(getmaxstr(strr));
 
     //快排
     // function quickSort(arr){
@@ -74,7 +74,7 @@
     //     let leftArr=[];
     //     let rightArr=[];
     //     let q = arr[0];
-    //     for(let i = 1,l=arr.length; i<l; i++){
+       <!--for(let i = 1,l=arr.length;i<l;i++){}-->
     //         if(arr[i]>q){
     //             rightArr.push(arr[i])
     //         }else{
@@ -163,19 +163,19 @@
     //
     // console.log(treeObj(obj));
 
-    function fun(n, o) {
-        console.log(o);
-        return {
-            fun: function(m) {
-                return fun(m, n);
-            }
-        }
-    }//第一次执行后生成fun回到函数，而之前作为回调函数的变量被保存
+    // function fun(n, o) {
+    //     console.log(o);
+    //     return {
+    //         fun: function(m) {
+    //             return fun(m, n);
+    //         }
+    //     }
+    // }
+    //第一次执行后生成fun回到函数，而之前作为回调函数的变量被保存
     //闭包能够将变量保存到内存中
     // fun(0) //显示undefined，n=0,生成fun回调函数
     // fun(0).fun(1)//fun(m=1)==>return fun(m=1,n=0)=>n=m=1,o=0==>生成fun（m）,此时n=1;
 
 
 
-</script>
 </html>

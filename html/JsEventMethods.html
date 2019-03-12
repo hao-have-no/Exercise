@@ -231,23 +231,44 @@
     // deleteArr()
 
 
-    function accum(obj){
-        // var obj = obj;
-        var str = "";
-        for(var i = 0;i<obj.length;i++){
-            var curr_letters = obj.substr(i,1);          //获取当前字母
-            var curr_str = curr_letters.toUpperCase();   //第一个字母转大写
-            for(var j = i;j>0;j--){                   //循环在后面添加小写字母
-                curr_str += curr_letters.toUpperCase();
-            }
-            if(i != obj.length-1){//不为最后一个字母添加分割符
-                curr_str += "-";
-            }
-            str += curr_str
-        }
-        return str;
-    }
-    console.log(accum("abcde"));
+    // function accum(obj){
+    //     // var obj = obj;
+    //     var str = "";
+    //     for(var i = 0;i<obj.length;i++){
+    //         var curr_letters = obj.substr(i,1);          //获取当前字母
+    //         var curr_str = curr_letters.toUpperCase();   //第一个字母转大写
+    //         for(var j = i;j>0;j--){                   //循环在后面添加小写字母
+    //             curr_str += curr_letters.toUpperCase();
+    //         }
+    //         if(i != obj.length-1){//不为最后一个字母添加分割符
+    //             curr_str += "-";
+    //         }
+    //         str += curr_str
+    //     }
+    //     return str;
+    // }
+    // console.log(accum("abcde"));
+
+
+
+
+    //函数柯里化
+    // function calls(a){
+    //     var sum=a;
+    //
+    //     function adds(b) {
+    //         sum += b;
+    //         return adds;
+    //     }
+    //
+    //     adds.toString=function () {
+    //         return sum;
+    //     }
+    //
+    //     return adds;
+    // }
+    //
+    // console.log(calls(1)(2)(3).toString());
 
 
     // function accum(obj){
@@ -267,6 +288,43 @@
     // }
     // console.log(accum("abcde"));
 
+        const col1= function () {
+            var p=new Promise(function (resolve,reject) {
+                resolve(1);
+            });
+            return p;
+    }
+    const col2=function () {
+        var p=new Promise(function (resolve,reject) {
+            resolve(2);
+        });
+        return p;
+    }
+    const col3=function () {
+        var p=new Promise(function (resolve,reject) {
+            resolve(3);
+        });
+        return p;
+    }
+
+    Promise.all([col1(),col2(), col3()]).then(
+        function (result) {
+            // return posts;
+
+                // var sum = 0;
+                // result.forEach(function(val,index,arr){
+                //     sum += val;
+                // })
+                // console.log(sum);
+            result.reduce(function (prev,cur) {
+                return prev+cur;
+            })
+
+        }
+     ).catch(function(){
+
+        }
+    );
 </script>
 </body>
 </html>

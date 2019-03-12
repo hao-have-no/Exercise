@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js-设计模式/exeucute.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-设计模式/old.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-设计模式/util.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/JsEventMethods.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/JsEventMethods.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/eventTarget.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/eventTarget.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js-es-5-6-7/js-bibao.html" beforeDir="false" afterPath="$PROJECT_DIR$/js-es-5-6-7/js-bibao.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/jianrong.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/jianrong.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js-suanfa/suanfaUse.html" beforeDir="false" afterPath="$PROJECT_DIR$/js-suanfa/suanfaUse.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -62,38 +58,42 @@
     <session id="-1399642048">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="7" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.1" value="3" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.20" value="2" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.28" value="1" />
+          <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="html" value="24" />
+          <entry key="html" value="28" />
           <entry key="js" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="24" />
+          <entry key="HTML" value="28" />
           <entry key="JavaScript" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="2553" />
+          <entry key="html" value="4518" />
           <entry key="js" value="368" />
+          <entry key="txt" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="2553" />
+          <entry key="HTML" value="4518" />
           <entry key="JavaScript" value="368" />
+          <entry key="PLAIN_TEXT" value="4" />
         </counts>
       </usages-collector>
     </session>
@@ -103,8 +103,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-suanfa/suanfaUse.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3197">
-              <caret line="139" column="20" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="21" />
+            <state relative-caret-position="-3190">
+              <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/jianrong.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="329">
+              <caret line="137" column="6" lean-forward="true" selection-start-line="137" selection-start-column="6" selection-end-line="137" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -112,8 +121,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-es-5-6-7/js-bibao.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9108">
-              <caret line="396" column="20" selection-start-line="396" selection-start-column="6" selection-end-line="396" selection-end-column="20" />
+            <state relative-caret-position="10419">
+              <caret line="453" column="37" selection-start-line="453" selection-start-column="33" selection-end-line="453" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js-es-5-6-7/es6-includes.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="805">
+              <caret line="35" column="16" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -127,11 +145,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/flex.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1633">
+              <caret line="71" column="6" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/JsEventMethods.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="237" column="41" selection-start-line="237" selection-start-column="35" selection-end-line="237" selection-end-column="41" />
+            <state relative-caret-position="4002">
+              <caret line="174" column="26" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -141,6 +168,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="966">
               <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/Bfc.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1978">
+              <caret line="86" column="30" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -189,7 +225,6 @@
         <option value="$PROJECT_DIR$/html/getUserIpAddress.html" />
         <option value="$PROJECT_DIR$/html/flex.html" />
         <option value="$PROJECT_DIR$/js-suanfa/huiwen.html" />
-        <option value="$PROJECT_DIR$/html/jianrong.html" />
         <option value="$PROJECT_DIR$/html/Bfc.html" />
         <option value="$PROJECT_DIR$/html/performance-optimization.html" />
         <option value="$PROJECT_DIR$/html/performance-optimization.txt" />
@@ -198,8 +233,9 @@
         <option value="$PROJECT_DIR$/js-设计模式/util.js" />
         <option value="$PROJECT_DIR$/js-设计模式/old.js" />
         <option value="$PROJECT_DIR$/js-设计模式/exeucute.html" />
-        <option value="$PROJECT_DIR$/js-suanfa/suanfaUse.html" />
         <option value="$PROJECT_DIR$/html/JsEventMethods.html" />
+        <option value="$PROJECT_DIR$/js-suanfa/suanfaUse.html" />
+        <option value="$PROJECT_DIR$/html/jianrong.html" />
       </list>
     </option>
   </component>
@@ -221,7 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -253,6 +288,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,15 +352,25 @@
       <workItem from="1551668021735" duration="2667000" />
       <workItem from="1551753175911" duration="3346000" />
       <workItem from="1551835537224" duration="8300000" />
+      <workItem from="1551869391578" duration="236000" />
+      <workItem from="1552266691010" duration="11419000" />
+      <workItem from="1552353704929" duration="1146000" />
     </task>
+    <task id="LOCAL-00001" summary="0306">
+      <created>1551869447480</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1551869447480</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147757000" />
+    <option name="totallyTimeSpent" value="160558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24330357" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -345,6 +391,26 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24330357" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="npm" order="2" side_tool="true" />
+      <window_info id="Favorites" order="3" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -352,26 +418,16 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="0306" />
+    <option name="LAST_COMMIT_MESSAGE" value="0306" />
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js-suanfa/二分查找.html" />
     <entry file="file://$PROJECT_DIR$/Two/PrototypeGetSet.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
           <caret line="29" column="72" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/jianrong.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/Bfc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1978">
-          <caret line="86" column="30" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -406,31 +462,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/flex.html">
+    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/js-bibao.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="71" column="6" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
+        <state relative-caret-position="10419">
+          <caret line="453" column="37" selection-start-line="453" selection-start-column="33" selection-end-line="453" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js-es-5-6-7/es6-includes.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
+        <state relative-caret-position="805">
           <caret line="35" column="16" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-suanfa/suanfaUse.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3197">
-          <caret line="139" column="20" selection-start-line="139" selection-start-column="20" selection-end-line="139" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/js-bibao.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9108">
-          <caret line="396" column="20" selection-start-line="396" selection-start-column="6" selection-end-line="396" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -441,10 +483,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/html/flex.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1633">
+          <caret line="71" column="6" selection-start-line="71" selection-start-column="6" selection-end-line="71" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/JsEventMethods.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4002">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="17" selection-end-line="174" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/html/eventTarget.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="966">
           <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Bfc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1978">
+          <caret line="86" column="30" selection-start-line="86" selection-start-column="20" selection-end-line="86" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -455,10 +518,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/JsEventMethods.html">
+    <entry file="file://$PROJECT_DIR$/js-suanfa/suanfaUse.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="237" column="41" selection-start-line="237" selection-start-column="35" selection-end-line="237" selection-end-column="41" />
+        <state relative-caret-position="-3190">
+          <caret line="24" column="49" lean-forward="true" selection-start-line="24" selection-start-column="49" selection-end-line="24" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/jianrong.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="329">
+          <caret line="137" column="6" lean-forward="true" selection-start-line="137" selection-start-column="6" selection-end-line="137" selection-end-column="6" />
         </state>
       </provider>
     </entry>

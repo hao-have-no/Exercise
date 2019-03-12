@@ -5,29 +5,45 @@
     <title>HTML-css-html5-css3-jianrong</title>
 </head>
 <body>
-<ul>
-    <li>apple</li>
-    <li>banana</li>
-    <li>pineapple</li>
-    <li>peach</li>
-    <li>orange</li>
-</ul>
+<input type="text" id="writeName" />
+输入：<span id="showName"></span>
+<!--<ul>-->
+    <!--<li>apple</li>-->
+    <!--<li>banana</li>-->
+    <!--<li>pineapple</li>-->
+    <!--<li>peach</li>-->
+    <!--<li>orange</li>-->
+<!--</ul>-->
 
-<ul>
-    <li> apple</li>
-    <li> banana</li>
-    <li> pineappl</li>
-    <li> peach</li>
-    <li> orange</li>
-</ul>
-<form action="">
+<!--<ul>-->
+    <!--<li> apple</li>-->
+    <!--<li> banana</li>-->
+    <!--<li> pineappl</li>-->
+    <!--<li> peach</li>-->
+    <!--<li> orange</li>-->
+<!--</ul>-->
+<!--<form action="">-->
 
-    <label for="mysql">xingming-自动对齐焦点</label>
-    <input id="mysql" type="text" name="sex"/>
-</form>
+    <!--<label for="mysql">xingming-自动对齐焦点</label>-->
+    <!--<input id="mysql" type="text" name="sex"/>-->
+<!--</form>-->
 
 </body>
 <script>
+    // var obj={},
+    //     textInput=document.getElementById('writeName'),
+    //     textShow=document.getElementById('showName');
+    //
+    // Object.defineProperty(obj,'foo',{
+    //     set:function (newValue) {
+    //         textInput.value=newValue;
+    //         textShow.innerText=newValue;
+    //     }
+    // })
+    //
+    // textInput.addEventListener("keyup",function (e) {
+    //     obj.foo=e.target.value||e.srcElement.value;
+    // })
     // function test() {
     //     console.log(a);
     //     console.log(foo());
@@ -56,5 +72,70 @@
     // var test = obj.prop.getFullname;
     // console.log(test());//Aurelio De Rosa
     // console.log(test.call(obj));//'Colin Ihrig'
+
+
+
+    var arr = [1,3,2,4,1,1,2,4,4,5,6];
+
+    // function findArr(arr){
+    //     // var data=[];
+    //     var obj={};
+    //
+    //     for (let i in arr){
+    //         if (!obj[arr[i]]){
+    //             obj[arr[i]]=1;
+    //         }else{
+    //             obj[arr[i]] +=1;
+    //         }
+    //         //进行arr中位置判断，然后将更新的个数赋值到相关位置上
+    //     }
+    //     return obj;
+    // }
+
+    // console.log(findArr(arr));
+    //
+    // function findArr(arr){
+    // 筛选重复元素
+    //     var data=[];
+    //     var obj={};
+    //     for (let i in arr){
+    //         if(!obj[arr[i]]){
+    //             obj[arr[i]]=true;
+    //             data.push(arr[i]);
+    //         }
+    //     }
+    //     return data;
+    // }
+    // console.log(findArr(arr));
+
+    // function findstr(arr){
+    //     let data=[];
+    //     var obj={};
+    //     for (let i in arr){
+    //         if(arr.indexOf(arr[i]) != arr.lastIndexOf(arr[i])){
+    //             if(!obj[arr[i]]){
+    //                 obj[arr[i]]="true";
+    //                 data.push(arr[i]);
+    //             }
+    //         }
+    //     }
+    //     return data;
+    // }
+
+    // console.log(findstr(arr));
+
+    // var str="this is a pen"
+    //
+    // function bigLetter(str){
+    //     // let newArr = str.split(" ").map((v,i)=>{
+    //     //     return v.slice(0,1).toUpperCase() + v.slice(1)
+    //     // })
+    //     let newArr=str.split(" ").map((v,index)=>{
+    //         return v.substr(0,1).toUpperCase()+v.substr(1);
+    //     })
+    //     return newArr.join(" ")
+    // }
+    //
+    // console.log(bigLetter(str));
 </script>
 </html>
