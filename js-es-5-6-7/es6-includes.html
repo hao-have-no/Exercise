@@ -23,21 +23,95 @@
     //console.log(forr.then(v=>{console.log(v)}))
 
     //--test2
-    function getSomething() {
-        return "something";
-    }
+    // function getSomething() {
+    //     return "something";
+    // }
+    //
+    // async function testAsync() {
+    //     return Promise.resolve("hello async");
+    // }
+    //
+    // async function test() {
+    //     const v1 = await getSomething();
+    //     const v2 = await testAsync();
+    //     console.log(v1, v2);
+    // }
+    //
+    // test();
 
-    async function testAsync() {
-        return Promise.resolve("hello async");
-    }
+    //声名async和await的用法，asy声名函数返回的是promiss对象，await阻止同步任务的执行。
+    //准备
 
-    async function test() {
-        const v1 = await getSomething();
-        const v2 = await testAsync();
-        console.log(v1, v2);
-    }
 
-    test();
+
+    // function prepare(){
+    //     return new Promise((resolve) => {
+    //
+    //             console.log(new Date(),"1");
+    //             resolve();
+    //
+    //     });
+    // }
+    //
+    // //炒鸡
+    // function fired(){
+    //     return new Promise((resolve) => {
+    //
+    //             console.log(new Date(),"2");
+    //             resolve();
+    //
+    //     });
+    // }
+    // //炖鸡
+    // function stewed(){
+    //     return new Promise((resolve) => {
+    //
+    //             console.log(new Date(),"3");
+    //             resolve();
+    //
+    //     });
+    // }
+    // //上料
+    // function sdd(){
+    //     return new Promise((resolve) => {
+    //
+    //             console.log(new Date(),"4");
+    //             resolve();
+    //
+    //     });
+    // }
+    // //上菜
+    // function serve(){
+    //     return new Promise((resolve) => {
+    //
+    //             console.log(new Date(),"5");
+    //             resolve();
+    //
+    //     });
+    // }
+    // async function task(){
+    //     console.log(new Date(),"start task");
+    //      prepare();
+    //      fired();
+    //      stewed();
+    //      sdd();
+    //     await serve();
+    //     console.log(new Date(),"end task");
+    // }
+    // task()
+
+    // var data=[2,3];
+    // for (var i=5;i<1000;i+=2){
+    //     if(check(i)) data.push(i);
+    // }
+    //
+    // function check(n){
+    //     for (let i in data){
+    //         if (data[i]*data[i] >n) return true;
+    //         if (n%data[i] == 0) return false;
+    //     }
+    // }
+    // console.log(data)
 </script>
 </body>
 </html>

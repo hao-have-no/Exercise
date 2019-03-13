@@ -176,6 +176,19 @@
     // fun(0) //显示undefined，n=0,生成fun回调函数
     // fun(0).fun(1)//fun(m=1)==>return fun(m=1,n=0)=>n=m=1,o=0==>生成fun（m）,此时n=1;
 
+<script>
+    var str="this is a pen";
 
+    function accum(str){
+        let newstr=str.split(" ").map((v,i)=>{
+                return v.substr(0).toUpperCase()
+        })
+            // return v.splice(1)
+
+        return newstr
+    }
+
+    console.log(accum(str));
+</script>
 
 </html>
