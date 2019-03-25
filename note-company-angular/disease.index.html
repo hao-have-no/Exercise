@@ -1,0 +1,53 @@
+<h4 class="infi-title"><i class="glyphicon glyphicon-globe"></i>患者列表</h4>
+<div class="infi-box disease-box">
+    <div class="infi-box-containter">
+        <div class="dir-nav-container">
+            <div class="infi-box infi-nursing-title-box infi-nursing-search">
+                <h4 class="infi-btn-title infi-inline-block">患者列表</h4>
+                <span class="infi-right">
+                    <input type="text" class="form-control input-lg"
+                           ng-model="params.search" placeholder="请输入 患者姓名 或 病历号 进行搜索">
+                    <span class="btn btn-primary" ng-click="refleshList()">搜索</span>
+                 </span>
+                <hr/>
+            </div>
+        </div>
+
+        <div class="marginten">
+            <div>
+                <ul class="ul-float-left ul-li-3">
+                    <li class="infi-nuring-sreen">
+                        <label >疾病:</label>
+                        <select ng-model="params.disease.value" class="form-control infi-input-wd" ng-change="refleshList()">
+                            <option ng-repeat="option in params.disease.opt" value="{{option.class_id}}">{{option.class_name}}</option>
+                        </select>
+                    </li>
+                    <!--<li class="infi-nuring-sreen">-->
+                        <!--<label >病区:</label>-->
+                        <!--<select ng-model="param.ward.value" class="form-control infi-input-wd" ng-change="refreshList()">-->
+                            <!--<option value="">全部病区</option>-->
+                            <!--<option ng-repeat="option in param.ward.opt" value="{{option.wardId}}">{{option.wardName}}</option>-->
+                        <!--</select>-->
+                    <!--</li>-->
+                    <!--<li class="infi-nuring-sreen">-->
+                        <!--<label >诊断:</label>-->
+                        <!--<select ng-model="param.diagType.value" class="form-control infi-input-wd" ng-change="refreshList()">-->
+                            <!--<option value="10003">入院诊断</option>-->
+                            <!--<option value="10002">出院诊断</option>-->
+                        <!--</select>-->
+                    <!--</li>-->
+                    <li class="infi-nuring-sreen-lg">
+                        <label >入院时间:</label>
+                        <input type="text" class="form-control infi-screen-time" name="startTime"
+                               ng-model="params.startTime" ng-click="timePlugin('startTime')" ng-change="refleshList()">  ~
+                        <input type="text" class="form-control infi-screen-time" name="endTime" ng-model="params.endTime" ng-click="timePlugin('endTime')" ng-change="refleshList()">
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div infi-table columns="tableColumns.columns" ng-if="tableData && tableColumns.columns && tableData.page.result.length !== 0" content="tableData" opts="operation"></div>
+        <div ng-if="!tableData || !tableColumns.columns" class="alert alert-info" role="alert">数据加载中……</div>
+        <div ng-if="tableData.page.result.length == 0" class="alert alert-info" role="alert">{{tableData.page.desc}}</div>
+    </div>
+</div>
