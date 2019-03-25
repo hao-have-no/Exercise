@@ -1,0 +1,39 @@
+Angular按照发布/订阅模式设计了其事件系统
+$scope与$scope之间的关系，$scope与$rootScope之间的关系
+
+$rootScope是唯一真神，是万域起源，是所有$scope的最终祖先。而$scope与$scope之间可能的关系包括父子关系和兄弟关系。
+每个ｃｏｎｔｒｏｌｌｅｒ都有自己的ｓｃｏｐｅ
+
+$broadcast和$emit用于发布事件
+$broadcast是自上而下的广播，所有能听到的都可以对其进行反应。
+而$emit是自下而上的射箭，只有在箭矢的轨迹上才能对其做出反应。
+
+
+$scope.$broadcast('EVENT_NAME', 'Data to send');
+$scope.$emit('EVENT_NAME', 'Data to send');
+
+$on用于订阅事件
+$scope.$on('EVENT_NAME', function(event, args) {
+
+});
+
+// 订阅事件返回用于退订事件的函数
+var deregister = $scope.$on('EVENT_NAME', function(event, args) {
+    // balabala
+});
+
+// 退订事件
+deregister();
+
+
+
+对于变量的命名、函数的命名、文件的命名都有一定的规范，既要保证可读性，也需要保证无混淆性。在Angular的事件机制中，
+因为事件可能会跨函数，甚至可能跨文件，所以对于事件名一定要保证唯一性，所以建议事件名都加上特定的前缀，以便区分
+$scope.$emit('trash:delete', data);
+$scope.$on('trash:delete', function (event, data) {...});
+
+$scope.$broadcast('trash:clear', data);
+$scope.$on('trash:clear', function (event, data) {...});
+
+
+

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table infi-table infi-event-table">
+    <thead>
+    <tr>
+        <th rowspan="3">科室名称</th>
+        <th rowspan="3">在院人数</th>
+        <th colspan="4" rowspan="1">zxcvb</th>
+    </tr>
+    <tr>
+        <th rowspan="2">
+            <div>
+                <div>75-100%</div>
+                <div>发生病例数</div>
+                <div>发生概率</div>
+            </div>
+        </th>
+        <th rowspan="2">
+            <div>
+                <div>50-75%</div>
+                <div>发生病例数</div>
+                <div>发生概率</div>
+            </div>
+        </th>
+        <th rowspan="2">
+            <div>
+                <div>25-50%</div>
+                <div>发生病例数</div>
+                <div>发生概率</div>
+            </div>
+        </th>
+        <th rowspan="2">
+            <div>
+                <div>25-0%</div>
+                <div>发生病例数</div>
+                <div>发生概率</div>
+            </div>
+        </th>
+    </tr>
+    </thead>
+    <tbody ng-if="badTable.length>0">
+    <tr ng-repeat="entity in badTable" ng-if="entity.eventName == adverseSelection.value">
+        <td>qwe</td>
+        <td>zxc</td>
+        <td>
+            <div style="height:50%;width:46%;display: inline-block;">ａａ</div>
+            <div style="height:50%;width:46%;display: inline-block;">cc</div>
+        </td>
+        <td>
+            <div style="height:50%;width:46%;display: inline-block;">ss</div>
+            <div style="height:50%;width:46%;display: inline-block;">cc</div>
+        </td>
+        <td>
+            <div style="height:50%;width:46%;display: inline-block;">aa</div>
+            <div style="height:50%;width:46%;display: inline-block;">cc</div>
+        </td>
+        <td>
+            <div style="height:50%;width:46%;display: inline-block;">ss</div>
+            <div style="height:50%;width:46%;display: inline-block;">ww</div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
