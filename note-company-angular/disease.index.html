@@ -45,9 +45,11 @@
                 </ul>
             </div>
         </div>
-
+        <div> <a ng-click="showEdit(entity)">修改</a></div>
         <div infi-table columns="tableColumns.columns" ng-if="tableData && tableColumns.columns && tableData.page.result.length !== 0" content="tableData" opts="operation"></div>
         <div ng-if="!tableData || !tableColumns.columns" class="alert alert-info" role="alert">数据加载中……</div>
         <div ng-if="tableData.page.result.length == 0" class="alert alert-info" role="alert">{{tableData.page.desc}}</div>
     </div>
+<!--这个是指令的用法，主要生成模态框-->
+    <div infi-patient></div>
 </div>

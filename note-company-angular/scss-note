@@ -1,0 +1,21 @@
+@嵌套样式
+div {
+    color: #333;
+    a {
+       font-size:14px;
+       &:hover {
+          text-decoration:underline;
+       }
+    }
+}
+// 编译后css
+div {
+    color: #333;
+}
+div a {
+    font-size:14px;
+}
+div a:hover {
+    text-decoration:underline;
+}
+

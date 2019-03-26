@@ -1,0 +1,21 @@
+$color:#0b9bcd!global;
+
+.infi-scss-top{
+  color:$color;
+  margin:30px 0 0 12px;
+  >span{
+    text-align: left;
+    font-size:14px;
+  }
+  >.scss-header{
+    color: #e4b9c0;
+  }
+}
+
+.infi-scss-body{
+  width: 600px;
+  height: 400px;
+  margin: 80px auto;
+  border: 1px solid #000000;
+
+}

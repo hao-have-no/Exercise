@@ -1,6 +1,6 @@
-angular.module('infi-basic').controller('diseaseIndex',['$scope','SYS','DiseaseListServices',
+angular.module('infi-basic').controller('diseaseIndex',['$scope','SYS','DetailService',
     'BasicServices','$routeParams',
-function ($scope, SYS,DiseaseListServices,BasicServices,$routeParams) {
+function ($scope, SYS,DetailService,BasicServices,$routeParams) {
     //预制表格组件中的按钮组件
     $scope.operation={
         "btns":[
@@ -72,5 +72,15 @@ function ($scope, SYS,DiseaseListServices,BasicServices,$routeParams) {
             todayBtn: true
         }).trigger('focus')
     }
+
+        $scope.showEdit = function(entity){
+            $scope.status = SYS.EDIT;
+
+            //获取基本信息，并调整指令所在的文件状态
+            DetailService.getBasic(entity.patient_id).then(function(msg){
+                $scope.newPatient = msg.data;
+                $('#add-patient').modal({backdrap:'static'});
+            });
+        };
 
 }])

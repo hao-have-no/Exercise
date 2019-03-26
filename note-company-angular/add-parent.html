@@ -1,0 +1,17 @@
+//弹框
+<div class="modal fade"  id="add-patient" >
+    <div class="modal-dialog infi-modal-half-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span ng-if="status == SYS.ADD">新增用户</span>
+                <span ng-if="status == SYS.EDIT">修改用户</span>
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-footer infi-confirm-export-footer">
+                <button type="button" class="btn infi-btn-linear-default" data-dismiss='modal'>取消</button>
+                <button type="button" class="btn infi-btn-linear-green-l" ng-click="addPatient(newPatient)">确认</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,2 +1,23 @@
-对于一些常见的指令
+指令－－自定义组件
+ｅｇ：addDirective,add-parent
+addDirective设置了infiPatient自定义指令，文件中定义的ｔｅｍｐ模版指向ａｄｄ－ｐａｒｅｎｔ页面，
+最后整个指令在ｄｉｓｅａｓｅ．ｉｎｄｅｘ文件中进行引用，相关的逻辑操作在ｄｉｓｅａｓｅ．ｉｎｄｅｘ．ｃｏｎｔｒｏｌｌｅｒ中进行设定
+
+ restrict: 'E',// 指令类型  E：element A：attribute M：comment C: class
+设定以什么样的方式指令的使用
+ E：<runoob-directive></runoob-directive>
+ A:<div runoob-directive></div>
+ //C和M必须在 restrict 中声明
+ C:<div class="runoob-directive"></div>
+ M:<!-- directive: runoob-directive -->
+
+
+ 指令暴露接口
+ html中的引用
+ <input-plan-template input="opt"  parent="modal.data"></input-plan-template>
+
+ 通过将opt传入input接口后,制定中根据传入的input参数值进行判断
+
+ input-plan-template 指令中的描述
+ <input-text input="input" ng-if="input.type=='小文本输入'"></input-text>
 
