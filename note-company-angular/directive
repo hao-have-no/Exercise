@@ -21,3 +21,244 @@ addDirective设置了infiPatient自定义指令，文件中定义的ｔｅｍｐ
  input-plan-template 指令中的描述
  <input-text input="input" ng-if="input.type=='小文本输入'"></input-text>
 
+
+
+下拉框初始默认值
+<select ng-model="selectedSite" ng-init="sites=[{site : 'Google', url : 'http://www.google.com'},
+	    {site : 'Runoob', url : 'http://www.runoob.com'},
+	    {site :'Taobao', url : 'http://www.taobao.com'}]">
+<option ng-repeat="x in sites" value="{{x.url}}">{{x.site}}</option>
+</select>
+<h1>你选择的是: {{selectedSite}}</h1>
+</div>
+
+<script>
+var app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope) {
+	 $scope.selectedSite="http://www.google.com";
+});
+</script>
+
+<p>该实例演示了使用 ng-repeat 指令来创建下拉列表，选中的值是一个字符串。</p>
+
+
+
+
+
+// angular.module("infi-basic").directive('inputsText',[function(){
+//     return {
+//         restrict: 'ECMA',
+//         // scope:{
+//         //     input : '='
+//         // },
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red">*</span>'
+//             +'<span class="green" ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align: text-bottom">年龄</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right form-group">'
+//             +'<div class="infi-input-opt input-group">'
+//             +'<input class="form-control" type="text" ng-model="input.value" />'
+//             +'<div class="input-group-addon">岁</div>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);
+//
+//
+// angular.module("infi-basic").directive('inputsNumber',[function(){
+//     return {
+//         restrict: 'ECMA',
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red">*</span>'
+//             +'<span class="green" ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align:text-bottom">计数</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right form-group">'
+//             +'<div class="infi-input-opt input-group">'
+//             +'<input class="form-control" type="number" ng-model="inputNum.value"/>'
+//             +'<div class="input-group-addon">个</div>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);
+//
+// angular.module("infi-basic").directive('inputsTextarea',[function(){
+//     return {
+//         restrict: 'ECMA',
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red">*</span>'
+//             +'<span ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align: text-bottom">概述</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right">'
+//             +'<div class="infi-input-opt">'
+//             +'<label class="">'
+//             +'<textarea class="form-control" ng-model="input.value" ></textarea>'
+//             +'</label>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="123456"></a>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);
+//
+//
+// angular.module("infi-basic").directive('inputsHalfTextarea',[function(){
+//     return {
+//         restrict: 'ECMA',
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red">*</span>'
+//             +'<span ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align: text-bottom">纪录</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right">'
+//             +'<div class="infi-input-opt">'
+//             +'<label class="">'
+//             +'<textarea class="form-control infi-area-half-height" ng-model="input.value" name="{{input.name}}" ></textarea>'
+//             +'</label>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="24680"></a>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);
+//
+// angular.module("infi-basic").directive('inputsSelect',[function(){
+//     return {
+//         restrict: 'ECMA',
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red" >*</span>'
+//             +'<span ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align: text-bottom">病区</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right form-group">'
+//             +'<div class="infi-input-opt input-group">'
+//             +'<select ng-model="input.value" class="form-control">'
+//             +'<option ng-repeat="option in input.dimension.options" value="{{option.value}}">{{option.label}}</option>'
+//             +'</select>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             $('.glyphicon-question-sign',element).popover();
+//         }
+//     };
+// }]);
+//
+//
+// angular.module("infi-basic").directive('inputsRadio',[function(groupServices){
+//     return {
+//         restrict: 'ECMA',
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span class="infi-font-red">*</span>'
+//             +'<span ng-class="{true:\'orange\'}[input.value != 0]" style="vertical-align: text-bottom">性别</span>'
+//             +'<a ng-show="true" tabindex="0" type="button" role="button" class="prompt glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="top" data-content="aaaaaa"></a>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right" style="margin-top: 10px">'
+//             +'<div class="infi-input-opt">'
+//             +'<ul>'
+//             +'<li>'
+//             +'<label class="radio-inline">'
+//             +'<input type="radio" value="男" name="sex_id" ng-model="input.value" ng-checked="true" />男'
+//             +'</label>'
+//             +'</li>'
+//             +'<li>'
+//             +'<label class="radio-inline">'
+//             +'<input type="radio" value="女" name="sex_id" ng-model="input.value">女'
+//             +'</label>'
+//             +'</li>'
+//             +'</ul>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             // scope.updateChildren = function(value){
+//             //     groupServices.updateChildren(value,scope.input,scope.parent);
+//             // }
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);
+//
+// angular.module("infi-basic").directive('inputCheckbox',['groupServices',function(groupServices){
+//     return {
+//         restrict: 'ECMA',
+//         scope:{
+//             input : '=',
+//             parent: '='
+//         },
+//         template: '<div class="infi-input-box">'
+//             +'<div class = "infi-input-left">'
+//             +'<p class="infi-font-red">'
+//             +'<span ng-if="input.notNull" class="infi-font-red">*</span>'
+//             +'<span ng-bind="input.label"></span>'
+//             +'</p>'
+//             +'</div>'
+//             +'<div class = "infi-input-right">'
+//             +'<div class="infi-input-opt">'
+//             +'<ul>'
+//             +'<li ng-repeat = "opt in input.dimension.options">'
+//             +'<label class="checkbox-inline">'
+//             +'<input ng-checked="input.value[opt.value]===true" type="checkbox" value="{{opt.value}}" name="num"'
+//             +'ng-model="input.value[opt.value]">0'
+//             +'</label>'
+//             +'</li>'
+//             +'<li ng-repeat = "opt in input.dimension.options">'
+//             +'<label class="checkbox-inline">'
+//             +'<input  type="checkbox" value="{{opt.value}}" name="num"'
+//             +'ng-model="input.value[opt.value]">1'
+//             +'</label>'
+//             +'</li>'
+//             +'<a ng-show="input.description != null && input.description != \'\'" tabindex="0" type="button" role="button" class="glyphicon glyphicon-question-sign" data-container="body" data-trigger="hover" data-toggle="popover" data-placement="right" data-content="{{input.description}}"></a>'
+//             +'</ul>'
+//             +'</div>'
+//             +'</div>'
+//             +'</div>',
+//         replace : true,
+//         link:function(scope,element,attrs){
+//             // scope.updateChildren = function(value){
+//             //     groupServices.updateChildren(value,scope.input,scope.parent)
+//             // }
+//             $('.glyphicon-question-sign',element).popover()
+//         }
+//     };
+// }]);

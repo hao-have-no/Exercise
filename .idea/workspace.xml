@@ -1,20 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0325－增加关于组件的说明">
-      <change afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/tab.checked.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/html/tab.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/add-parent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/addDirective.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/contants.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/disease.service.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/router.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/note-company-angular/scss-note" afterDir="false" />
+    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/note-company-angular/directive" beforeDir="false" afterPath="$PROJECT_DIR$/note-company-angular/directive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note-company-angular/disease.index.controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/note-company-angular/disease.index.controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/note-company-angular/disease.index.html" beforeDir="false" afterPath="$PROJECT_DIR$/note-company-angular/disease.index.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/note-company-angular/directive">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="571">
+              <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
             </state>
           </provider>
         </entry>
@@ -63,7 +52,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/html/tab.checked.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
@@ -85,7 +74,7 @@
         <entry file="file://$PROJECT_DIR$/note-company-angular/scss-note">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="462">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -186,10 +175,10 @@
         <option value="$PROJECT_DIR$/note-company-angular/disease.index.controller.js" />
         <option value="$PROJECT_DIR$/note-company-angular/add-parent.html" />
         <option value="$PROJECT_DIR$/html/tab.checked.js" />
-        <option value="$PROJECT_DIR$/note-company-angular/directive" />
         <option value="$PROJECT_DIR$/html/tab.checked.html" />
         <option value="$PROJECT_DIR$/html/tab.scss" />
         <option value="$PROJECT_DIR$/note-company-angular/scss-note" />
+        <option value="$PROJECT_DIR$/note-company-angular/directive" />
       </list>
     </option>
   </component>
@@ -330,7 +319,7 @@
       <workItem from="1552965626391" duration="6708000" />
       <workItem from="1553045903624" duration="2464000" />
       <workItem from="1553049237845" duration="21472000" />
-      <workItem from="1553478292797" duration="20728000" />
+      <workItem from="1553478292797" duration="23403000" />
     </task>
     <task id="LOCAL-00001" summary="0306">
       <created>1551869447480</created>
@@ -374,11 +363,18 @@
       <option name="project" value="LOCAL" />
       <updated>1553505828510</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="0326－增加angular业务仿写文件,Scss用法及相关纪录">
+      <created>1553594664902</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1553594664902</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="224330000" />
+    <option name="totallyTimeSpent" value="227005000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -406,8 +402,8 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32845187" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" weight="0.32706767" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32845187" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50027305" side_tool="true" visible="true" weight="0.32845187" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49972692" visible="true" weight="0.32845187" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -452,7 +448,8 @@
     <MESSAGE value="0325" />
     <MESSAGE value="0325－增加测试页面和相关纪录" />
     <MESSAGE value="0325－增加关于组件的说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="0325－增加关于组件的说明" />
+    <MESSAGE value="0326－增加angular业务仿写文件,Scss用法及相关纪录" />
+    <option name="LAST_COMMIT_MESSAGE" value="0326－增加angular业务仿写文件,Scss用法及相关纪录" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js-suanfa/二分查找.html" />
@@ -675,20 +672,6 @@
     <entry file="file://$PROJECT_DIR$/html/tab.checked.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/note-company-angular/add-parent.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note-company-angular/directive">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/tab.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -699,7 +682,7 @@
     <entry file="file://$PROJECT_DIR$/note-company-angular/scss-note">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
@@ -707,6 +690,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note-company-angular/add-parent.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/note-company-angular/directive">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="264" lean-forward="true" selection-start-line="264" selection-end-line="264" />
         </state>
       </provider>
     </entry>
