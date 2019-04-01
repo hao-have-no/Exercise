@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tree</title>
+</head>
+<body>
+
+</body>
+<script>
+    function createNode(key){
+        this.key=key;
+        this.left=null;
+        this.right=null;
+    }
+
+    function insertNode(node,newNode) {
+        if (newNode.key < node.key){
+            if (node.left === null){
+                node.left=newNode;
+            }else{
+                insertNode(node.left,newNode);
+            }
+        }else{
+            if (node.right === null){
+                node.right=newNode;
+            } else{
+                insertNode(node.right,newNode);
+            }
+        }
+    }
+
+    //遍历回调
+    function printNode(value){
+        console.log(node);
+    }
+
+    //中序遍历
+    function inOrdeTraverseNode(node,callback){
+        if (node !== null){
+            inOrdeTraverseNode(node.left,callback);
+            callback(node.key);
+            inOrdeTraverseNode(node.right,callback);
+        }
+    }
+
+    //线序遍历
+    function prevOrderTraverseNode(node,callback){
+        if (node !==null){
+            callback(node.key);
+            prevOrderTraverseNode(node.left,callback);
+            prevOrderTraverseNode(node.right,callback)
+        }
+    }
+
+    //后序遍历
+    function postOrderTravelseNode(node,callback){
+        if (node !== null){
+            postOrderTravelseNode(node.left,callback);
+            postOrderTravelseNode(node.right,callback);
+            callback(node.key)
+        }
+    }
+
+    class BinarySearchTree{
+        constructor(){
+            this.key=null;
+        }
+
+        insert(key){
+            let newNode=new createNode(key);
+            if (this.key === null){
+                this.key=newNode;
+            }else{
+                insertNode(this.key,newNode);
+            }
+        }
+
+        inOrderTraverse(callback){
+            inOrdeTraverseNode(this.key,callback);
+        }
+
+        preOrderTraverse(callback){
+            prevOrderTraverseNode(this.key,callback);
+        }
+
+        postOrderTraverse(callback){
+           postOrderTravelseNode(this.key,callback);
+        }
+
+        findMin(node){
+             if (node){
+                 while(node&&node.left !==null){
+                        node=node.left;
+                 }
+                 return node;
+             }
+             return null;
+        }
+
+        findMax
+
+    }
+
+    https://segmentfault.com/a/1190000018721531#articleHeader3
+    // let tree=new BinarySearchTree();
+    // tree.insert(11)
+    // tree.insert(7)
+    // tree.insert(15)
+    // tree.insert(5)
+    // tree.insert(6)
+    // tree.insert(3)
+    // tree.insert(9)
+    // console.log(tree);
+</script>
+</html>
