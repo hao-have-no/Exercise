@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Set</title>
+</head>
+<body>
+
+</body>
+
+<script>
+    class Sets{
+        constructor(){
+            this.items={}
+        }
+
+        has(val){
+            return val in this.items
+        }
+
+        add(val){
+            this.items[val]=val;
+        }
+
+        removes(val){
+            if(val in this.items){
+                delete this.items[val];
+                return true;
+            }
+            return false;
+        }
+
+        //清除集合
+        clear(){
+            this.items={}
+        }
+
+        //获取数组实际值
+        sizes(){
+            return Object.keys(this.items).length;
+        }
+
+        //提取所有属性
+        values(){
+            return Object.keys(this.items);
+        }
+
+        union(otherSets){
+            let unionSets=new Sets();
+            let values=this.values();
+
+            console.log("inter"+values);
+            for (let i=0;i<values.length;i++){
+                unionSets.add(values[i]);
+            }
+
+            let valuesOther=otherSets.values();
+            console.log("valuesOther"+valuesOther);
+
+            for (let i=0;i<valuesOther.length;i++){
+                unionSets.add(valuesOther[i]);
+            }
+            return unionSets;
+        }
+
+        intersection(otherSets){
+            let intersectionSets=new Sets();
+            let values=this.values();
+            for (let i=0 ;i<values.length;i++){
+                if (otherSets.has(values[i])){
+                    intersectionSets.add(values[i]);
+                }
+            }
+            return intersectionSets;
+        }
+
+        diff(otherSets){
+            let diffsectionSets=new Sets();
+            let values=this.values();
+
+            for (let i=0 ;i<values.length;i++){
+                if (!otherSets.has(values[i])){
+                    diffsectionSets.add(values[i]);
+                }
+            }
+            return diffsectionSets;
+        }
+    }
+
+
+    //测试
+    let setA = new Sets()
+    setA.add('a')
+    setA.add('b')
+    setA.add('c')
+    setA.removes('b')
+    console.log(setA.values())
+    console.log(setA.sizes())
+
+    let setB = new Sets()
+    setB.add('c')
+    setB.add('d')
+    setB.add('e')
+
+
+    let unionB=setA.union(setB);
+    console.log(unionB);
+
+    let interAB=setA.intersection(setB);
+    console.log(interAB);
+
+    let diffAB = setA.diff(setB)
+    console.log(diffAB.values());
+
+
+</script>
+</html>

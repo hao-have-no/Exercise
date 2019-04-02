@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Publish-Subscribe</title>
+</head>
+<body>
+
+</body>
+<script>
+    var PubSub = {
+        list: [],
+        listen: function(key, fn){
+            if(!this.list[key]) {
+                this.list[key]=[];
+            }
+            this.list[key].push(fn);
+        },
+        publish: function(){
+            var key = Array.prototype.shift.call(arguments),
+                fns = this.list[key];
+            if(!fns || fns.length === 0) {
+                return false;
+            }
+            for(var i = 0, fn; fn = fns[i++];){//订阅者循环执行
+                fn.apply(this, arguments);
+            }
+        }
+    }
+
+    //
+    var installEvent = function(obj) {
+        for (var i in PubSub) {
+            obj[i] = PubSub[i];
+        }
+    };
+
+    var day = {}
+    installEvent(day);
+
+    day.listen('天气', function(wind) {
+        console.log('风力：'+ wind);
+    });
+
+    var weather={};
+    installEvent(weather);
+
+    weather.listen('雨天',function (raid) {
+        console.log("雨式:"+raid);
+    })
+
+
+    day.publish('天气', "8级风");
+    day.publish('雨天',"暴雨");
+    // Weather.listen(function (weather,wind) {
+    //     console.log("天气"+weather,"风力"+wind);
+    // })
+    //
+    // Weather.publish("晴天","5级");
+    // Weather.publish("雨天","12及")
+</script>
+</html>

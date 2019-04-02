@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>头部导航</title>
+    <style>
+        #content div{
+            width: 100px;
+            height: 1200px;
+            margin-top: 20px;
+        }
+        #floor-one{
+          
+            background: #0b9bcd;
+        }
+        #floor-two{
+          background: #e4b9c0;
+        }
+        #floor-three{
+        background: salmon;
+        }
+        #floor-four{
+            background: #000000;
+        }
+        #nav{
+            position: fixed;
+            top:20px;
+            right: 120px;
+        }
+        #nav p{
+            display: block;
+            margin-top: 20px;
+        }
+        #nav p:hover{
+            cursor: pointer;
+        }
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+
+<div id="content">
+    <div id="floor-one">
+
+    </div>
+    <div id="floor-two">
+
+    </div>
+    <div id="floor-three">
+
+    </div>
+    <div id="floor-four">
+
+    </div>
+
+</div>
+<div id="nav">
+    <p data-name="floor-one" class="active">1</p>
+    <p data-name="floor-two">2</p>
+    <p data-name="floor-three">3</p>
+    <p data-name="floor-four">4</p>
+</div>
+</body>
+<script>
+    window.onload=function () {
+        document.documentElement.scrollTop=0
+
+        window.onscroll=function(){
+
+            var scrollTop=document.documentElement.scrollTop;
+            var navArr=document.getElementById('content').children;
+            for (var i=1;i<navArr.length;i++) {
+
+                if (scrollTop <= navArr[i].offsetTop && scrollTop > navArr[i - 1].offsetTop) {
+                    var floorNum = navArr[i - 1].id;
+                    var floorNav = document.getElementById("nav").children;
+
+                    for (var j = 0; j < floorNav.length; j++) {
+                        floorNav[j].className = "";
+                        if (floorNav[j].getAttribute("data-name") == floorNum) {
+                            floorNav[j].className = "active";
+                        }
+                    }
+                    // if(scrollTop = navArr[navArr.length-1].offsetTop){
+                    //     for (var j=0;j<floorNav.length;j++){
+                    //         floorNav[j].className="";
+                    //     }
+                    //     floorNav[floorNav.length-1].className="active";
+                    // }
+                } else if(scrollTop >= navArr[navArr.length-1].offsetTop){
+                    var floorNav = document.getElementById("nav").children;
+                    for (var j = 0; j < floorNav.length; j++) {
+                        floorNav[j].className = "";
+                    }
+                    floorNav[floorNav.length-1].className = "active";
+
+                }
+            }
+            console.log(scrollTop)
+            console.log(navArr)
+
+        }
+
+        document.getElementById('nav').addEventListener("click",function (event) {
+            var floorNav=document.getElementById("nav").children;
+
+            for (var j=0;j<floorNav.length;j++){
+                floorNav[j].className="";
+            }
+
+            var event=event||window.target;
+            var target=event.target||event.srcElement;
+            event.className="active";
+            console.log(target.getAttribute("data-name"));
+            var nodeName=target.getAttribute("data-name");
+            var nodeTarget=document.getElementById(nodeName);
+            console.log(nodeTarget.scrollTop+"$"+nodeTarget.offsetTop+"$"+nodeTarget.offsetHeight+"$"+nodeTarget.scrollHeight+"%");
+            window.scrollTo(0,nodeTarget.offsetTop);
+
+        })
+    }
+</script>
+</html>
