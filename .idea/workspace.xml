@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/html/checked-person.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js-es-5-6-7/promiss-test" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/interview-questions.md" beforeDir="false" afterPath="$PROJECT_DIR$/Six/interview-questions.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/top-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/top-nav.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,12 +16,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Six/interview-questions.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="246">
-                <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+              <first_editor relative-caret-position="264">
+                <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
               </first_editor>
               <second_editor />
             </state>
@@ -57,11 +55,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/html/eventTarget.html">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js-es-5-6-7/promiss-test">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="42" column="27" selection-start-line="42" selection-start-column="27" selection-end-line="42" selection-end-column="27" />
+            <state relative-caret-position="505">
+              <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -145,7 +143,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/html/transition.html" />
         <option value="$PROJECT_DIR$/html/Css3-实现动画.html" />
         <option value="$PROJECT_DIR$/html/getUserIpAddress.html" />
         <option value="$PROJECT_DIR$/html/flex.html" />
@@ -196,6 +193,7 @@
         <option value="$PROJECT_DIR$/html/top-nav.html" />
         <option value="$PROJECT_DIR$/html/checked-person.html" />
         <option value="$PROJECT_DIR$/Six/interview-questions.md" />
+        <option value="$PROJECT_DIR$/js-es-5-6-7/promiss-test" />
       </list>
     </option>
   </component>
@@ -228,6 +226,11 @@
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="js-es-5-6-7" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -341,7 +344,7 @@
       <workItem from="1553735805265" duration="14501000" />
       <workItem from="1554080427757" duration="4954000" />
       <workItem from="1554167088903" duration="23760000" />
-      <workItem from="1554253636031" duration="10051000" />
+      <workItem from="1554253636031" duration="12167000" />
     </task>
     <task id="LOCAL-00001" summary="0306">
       <created>1551869447480</created>
@@ -413,11 +416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1554200602641</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="0403-重写checkbox,axios绑定方法">
+      <created>1554284572683</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1554284572683</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="280973000" />
+    <option name="totallyTimeSpent" value="283089000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -494,10 +504,10 @@
     <MESSAGE value="0327－增加angular组件备份" />
     <MESSAGE value="0401－模拟二叉树及数据备份" />
     <MESSAGE value="0402-发布订阅者,导航实验" />
-    <option name="LAST_COMMIT_MESSAGE" value="0402-发布订阅者,导航实验" />
+    <MESSAGE value="0403-重写checkbox,axios绑定方法" />
+    <option name="LAST_COMMIT_MESSAGE" value="0403-重写checkbox,axios绑定方法" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js-suanfa/二分查找.html" />
     <entry file="file://$PROJECT_DIR$/Two/PrototypeGetSet.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="322">
@@ -781,13 +791,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-设计模式/Publish.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/html/top-nav.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="722">
@@ -805,10 +808,24 @@
     <entry file="file://$PROJECT_DIR$/Six/interview-questions.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="246">
-            <caret line="56" column="17" selection-start-line="56" selection-start-column="17" selection-end-line="56" selection-end-column="17" />
+          <first_editor relative-caret-position="264">
+            <caret line="54" column="8" selection-start-line="54" selection-start-column="8" selection-end-line="54" selection-end-column="8" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-设计模式/Publish.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="59" column="34" selection-start-line="59" selection-start-column="34" selection-end-line="59" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/promiss-test">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="505">
+          <caret line="58" column="23" selection-start-line="58" selection-start-column="23" selection-end-line="58" selection-end-column="23" />
         </state>
       </provider>
     </entry>
