@@ -36,4 +36,31 @@ this.$emit('greet',"hello)<br/>
      // -> {two: fn}<br/>
  4.vuex,状态管理,通过commit和getter
  
- 二:
+ 二:vue中路由拆分懒加载<br/>
+ 主路由:<br/>
+ export default new Router({
+   routes: [
+     {
+       path: '/home',
+       name: 'Home',
+       component:home
+     },
+     ...modArr,
+     ...modList,
+     {
+       path: '*',
+       redirect: '/home'
+     }
+   ]
+ })<br/>
+ 子路由:<br/>
+ export default [
+   {
+     path: '/modArrOne',
+     component: resolve => require(['../../component/modArr/modArrOne'],resolve)
+   },
+   {
+     path: '/modArrOne/detail',
+     component: resolve => require(['../../component/modArr/modArrTwo'],resolve)
+   }
+ ]
