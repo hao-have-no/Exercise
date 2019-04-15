@@ -41,16 +41,48 @@
      // console.log(Person.getName());
 
      //js-es-5-6-7-构造函数
-     // function PersonOne(name,age){
-     //     this.name=name;
-     //     this.age=age;
-     //     this.setP=function(){
-     //         console.log(this.age);
-     //     }
+     // function Person(){
+     //     this.name="parent"
+     //     this.arr=[1,2];
      // }
-     // PersonOne.prototype.printName=function(){
+     // Person.prototype.printName=function(){
      //    console.log(this.name);
      // }
+     //
+     //
+     //
+     // function PersonOne(){
+     //
+     // }
+     //
+     // PersonOne.prototype=new Person();
+     // var person=new PersonOne();
+     // person.name="2";
+     // person.arr.push(4)
+     //
+     // console.log(person)
+     //
+     // var per2=new PersonOne();
+     //
+     // console.log(per2)
+
+
+
+
+     // var personone=new PersonOne("sum1");
+     // personone.__proto__.__proto__.sex="123";
+     // console.log(personone.name,personone.age);
+     // console.log(personone.sex);
+     // personone.setAge();
+     // personone.printName();
+     // console.log(personone,"&&&&");
+     //
+     // var persontwo=new PersonOne();
+     // console.log(persontwo.name,persontwo.age);
+     // console.log(persontwo.sex)
+     // persontwo.printName();
+     // console.log(persontwo);
+
      //
      // function create(prototype){
      //         function F(){}

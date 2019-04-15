@@ -64,3 +64,14 @@ this.$emit('greet',"hello)<br/>
      component: resolve => require(['../../component/modArr/modArrTwo'],resolve)
    }
  ]
+ 
+ 
+ 文章记录:
+ 1.前端攻城狮自检清单和深入知识点
+ https://segmentfault.com/a/1190000018873042
+ 
+ 2.前端进阶,更为深入的优化和处理思路与问题
+ https://segmentfault.com/a/1190000018869555
+ 
+ 3.javascript常见知识点
+ https://segmentfault.com/a/1190000018854431
