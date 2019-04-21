@@ -3,10 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <title>HTML-css-html5-css3-jianrong</title>
+    <!--[if IE 6 ]>
+　　　< link rel="stylesheet" type="text/css" media="all" href="./ie6.css" />
+< ![endif]-->
+    <!--根据IE的特性,备选css文件来解决兼容性问题-->
+    <!--[if lte IE 8 ]>
+    <link rel="stylesheet" type="text/css" media="all" href="./assets/css/ie8.css" />
+  [endif]-->
+    <style>
+        .test{
+            width: 600px;
+            height: 200px;
+            margin-top: 100px;
+        }
+        .gradienst{
+            background: -webkit-linear-gradient(left top,red,greenyellow,salmon);; /* Safari 5.1 - 6.0 */
+            background: -o-linear-gradient(left top,red,greenyellow,salmon);; /* Opera 11.1 - 12.0 */
+            background: -moz-linear-gradient(left top,red,greenyellow,salmon);; /* Firefox 3.6 - 15 */
+            background:linear-gradient(left top,red,greenyellow,salmon);
+        }
+    </style>
 </head>
 <body>
 <input type="text" id="writeName" />
 输入：<span id="showName"></span>
+
+
+<div class="test gradienst">
+
+</div>
 <!--<ul>-->
     <!--<li>apple</li>-->
     <!--<li>banana</li>-->
@@ -30,6 +55,22 @@
 
 </body>
 <script>
+
+    //双向数据绑定-数据的劫持
+    var obj={},    textInput=document.getElementById('writeName'),
+        textShow=document.getElementById('showName');
+
+    Object.defineProperty(obj,'foo',{
+        set:function(newValue) {
+            textInput.value=newValue;
+            textShow.innerText=newValue;
+        }
+    })
+
+    textInput.addEventListener('keyup',function (e) {
+        obj.foo=e.target.value||e.srcElement.value;
+    })
+
     // var obj={},
     //     textInput=document.getElementById('writeName'),
     //     textShow=document.getElementById('showName');
@@ -44,6 +85,9 @@
     // textInput.addEventListener("keyup",function (e) {
     //     obj.foo=e.target.value||e.srcElement.value;
     // })
+
+
+
     // function test() {
     //     console.log(a);
     //     console.log(foo());
@@ -75,7 +119,7 @@
 
 
 
-    var arr = [1,3,2,4,1,1,2,4,4,5,6];
+    // var arr = [1,3,2,4,1,1,2,4,4,5,6];
 
     // function findArr(arr){
     //     // var data=[];

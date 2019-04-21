@@ -1,3 +1,57 @@
+工作2:科研分析平台-src-widget
+
+困难点1:理解组合视图的概念
+集中在form.directivehe,group.services,form.services
+(1)虚拟菜单,多层级(在当前组件中会出现children属性来存放二级组件)
+eg:按钮的是否控制children中各个组件的显示状态,可能是true--->children({type:"按钮",active:true,name:"ss"}),在按钮为true的时候,改变状态值显示
+而组件的值改变是将children提出来,放入与当前父级同级的ul中.
+
+(2)组合视图,单个表单多次填写
+根据group状态值来判断是否组合视图,
+
+
+(3)组合主题,多层嵌套,每个嵌套层可能需要组合视图(虚拟菜单+组合视图的应用)
+
+
+
+
+
+
+
+
+-----------------------------------------------------------------------------------------
+工作1:
+摆脱原有的json格式影响,可配置化操作界面,由后台传入.
+数据格式,返回值类型
+item-label--组件名,item_name--组件标识,item_value--组件值,item_type--组件类型,item_option(多选,单选,下拉)---数据源--用于做选择的
+详情请看:ag.txt
+
+
+
+无*,infi-input-left加    padding-top: 10px;  infi-input-left infi-span-padding
+统一给单选多选加    margin-top: 10px;
+
+
+
+
+ //  BasicServices.getData({
+        //     'data':JSON.parse(sessionStorage.getItem('diseaseParam')),
+        //     'url':SYS.url+$routeParams.type+'/recommendation?'+'class_id='+$routeParams.class_id,
+        //     'method':'post'
+        // }).then(function success(msg) {
+        //     var recordId=msg.id;
+        //     var id=msg.data.recom_scheme[0].uuid;
+        //
+        //    var diseasePlanDetail= window.open('_blank');
+        //    diseasePlanDetail.location='#/disease-plan-detail/'+$routeParams.pati_id+'/'+$routeParams.pati_visit_id+'/'+recordId
+        //    +'/'+id+'/'+$routeParams.class_id+'/'+$routeParams.type;
+        //
+        //  })
+
+
+
+
+----------------------------------------------------交接部分及相关纪录----------------------------------------------------------------------------------
 工作开发过程注意要点
 在整个模型操作过程中所有的数据变化都在￥ｓｃｏｐｅ中保存.
 
@@ -33,7 +87,6 @@ angular.module('infi-basic').directive('dischargeRecord', [function () {
         templateUrl: 'html/tpl/discharge.record.html'
     }
 }]);
-
 
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
 
@@ -156,8 +209,10 @@ data: [
 高铁　２４４
 
 
+sudo apt-get purge 软件名称
+sudo apt-get autoremove 清除软件的残余部分
 
-
+绿色,
 
 
 

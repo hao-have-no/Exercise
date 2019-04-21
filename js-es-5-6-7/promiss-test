@@ -1,0 +1,59 @@
+1.Promiss在原有的http上请求时,对状态进行更为细致的管控,eg:返回值是200,mes:error等相关异常
+以angular举例子--封装原有的http请求,增加多个状态值,对不同的状态值进行管理,最终返回的值是success;
+ var deferred = $q.defer()
+    $http.get(`${SYS.url}1/1/getGroup`).then(function(msg) {
+      if (msg.data.status == 'ok') return deferred.resolve(msg.data.data)
+      else if (msg.data.status == 'blank') return deferred.resolve([])
+    }, function(error) {
+      return deferred.reject('请求出错')
+    })
+
+    return deferred.promise
+
+
+在使用时,立马执行函数中,对处理的成功的promiss对象的success状态下的数据,进行相关逻辑操作
+;(function init() {
+      sessionStorage.clear()                                                  // 清除所有 sessionStorage
+
+      APIService.getGroup().then(function(msg) {
+        $scope.filterAbout.groupOrgData = msg.data;                           // 获取护理组下拉框数据
+        $scope.filterAbout.patiGroup = $scope.filterAbout.groupOrgData[0]     // 默认选中护理组第一项数据
+      }).then(function() {
+        $scope.updatePage(SYS.DEFAULT_PAGE_NUMBER)                            // 初始化列表数据
+      })
+    })();
+
+2.简约版的状态管理操作
+1.先声明创建一个对应状态对象,并赋予初始状态值(与构造函数实例化相似)
+scope.calcRst = {																													// 计算结果相关变量及状态
+				rst: null,																															// 计算结果
+				currState: 'init',																											// 当前状态
+				stateMachine: {																													// 状态机
+					'init': {
+						calc: 'calclating'
+					},
+					'calclating': {
+						success: 'showRst',
+						failure: 'showErr'
+					},
+					'showRst': {
+						calc: 'calclating'
+					},
+					'showErr': {
+						calc: 'calclating'
+					}
+				},
+				changeState: function(name) {                       // 修改状态
+					var state = scope.calcRst.currState
+
+					if(scope.calcRst.stateMachine[state][name]) {
+							scope.calcRst.currState = scope.calcRst.stateMachine[state][name]
+					}
+					console.log(`${state} + ${name} --> ${scope.calcRst.currState}`)
+				}
+			}
+2.在后续处理中,调用初始状态中的方法来修改相关值
+根据上述状态中的处理机制,在操作对象(state)-动作(name),确定后,执行修改操作
+scope.calcRst.changeState('calc')
+
+后期可抽象出来,解耦进行构造函数类型的声明处理

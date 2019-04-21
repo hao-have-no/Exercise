@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jd-loading</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        html{font-size:37.5px}
+        .loading{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #fff;
+            z-index: 110;
+        }
+      /*  .loading .progress-text{
+            position: absolute;
+            top: 50%;
+            left: 0;
+            margin-top: 1.86667rem;
+            width: 100%;
+            color: #ff1224;
+            font-size:.24rem;
+            text-align: center;
+        }*/
+        .loading .c-cube{
+            font-size: .8rem;
+            transform: rotateX(33.5deg) rotateY(35deg);
+            transform-origin: .5em .5em;
+            transform-style: preserve-3d;
+            animation: spin-cube-right 1.2s linear infinite;
+        }
+        @keyframes spin-cube-right {
+            0% {
+                transform: rotateX(-33.5deg) rotateY(45deg);
+            }
+            to{
+                transform: rotateX(-33.5deg) rotateY(225deg);
+            }
+        }
+
+        .loading .c-cube-side{
+            height: 1em;
+            position: absolute;
+            width: 1em;
+        }
+
+       /* .loading .c-cube-side-left,
+        .loading .c-cube-side-right{
+            border: 1px solid;
+            border-image:linear-gradient(#ff1224,rgba(255,18,36,0))2 100%;
+            border-top: none;
+            border-bottom: none;
+            height: 5em;
+        }*/
+        /*.loading .c-cube-side-front,
+        .loading .c-cube-side-back{
+
+            border: 1px solid;
+            border-image:linear-gradient(#ff1224,rgba(255,18,36,0))2 100%;
+            border-top: none;
+            border-bottom: none;
+            height: 5em;
+        }
+        .loading .c-cube-side-front{
+            border: 1px solid #ff1224;
+            border-image:linear-gradient(180deg,#ff1224,rgba(255,18,36,0));
+        }*/
+        .loading .c-cube-side-top{
+            border:1px solid #ff1224;
+            background: #fff;
+        }
+        /*.loading .c-cube-side-front{*/
+            /*transform: translateZ(.5em);*/
+        /*}*/
+        /*.loading .c-cube-side-back{*/
+            /*transform: translateZ(-.5em);*/
+        /*}*/
+        /*.loading .c-cube-side-right{*/
+            /*transform: rotateY(90deg) translateZ(.5em);*/
+        /*}*/
+        /*.loading .c-cube-side-left{*/
+            /*transform:rotateY(-90deg) translateZ(.5em); ;*/
+        /*}*/
+        .loading .c-cube-side-top{
+            transform: rotatex(-90deg) translateZ(-.5em);
+        }
+        .loading .c-cube-1{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-top: -2.13333rem;
+            margin-left: -.4em;
+            /*animation: cube-up-down-1 .8s ease-in-out infinite alternate;*/
+        }
+
+        /*@keyframes cube-up-down-1 {*/
+            /*0%{*/
+                /*transform: translateZ(0);*/
+            /*}*/
+            /*to{*/
+                /*transform: translate3d(0,-.4rem,0);*/
+            /*}*/
+        /*}*/
+        /*.loading .line{
+            position: absolute;
+            width: 1px;
+            height: 1.3333rem;
+            background: linear-gradient(-180deg,#ff1224,rgba(255,18,36,0));
+            animation: speed-line-anim 3s linear infinite both;
+            top: 50%;
+            left: 50%;
+        }
+
+        @keyframes speed-line-anim {
+            0%{
+                opacity: 0;
+                transform: translateZ(0);
+            }
+            20%{
+                opacity: 1;
+                transform: translate3d(0,40%,0);
+            }
+            to {
+                opacity: 0;
+                transform: translate3d(0, 200%, 0)
+            }
+        }*/
+
+       /* .loading .line-1{
+            margin-top: -2.4rem;
+            margin-left: -1.3333rem;
+            animation-delay: .2s;
+            animation-duration: 1s;
+        }
+        .loading .line-2{
+            margin-top: -.8rem;
+            margin-left: -2.3333rem;
+            animation-delay: .6s;
+            animation-duration: 1.4s;
+        }
+        .loading .line-3 {
+            margin-left: .4rem;
+            margin-top: -1.86667rem;
+            animation-delay: .6s;
+            animation-duration: 1.4s
+        }
+        .loading .line-4 {
+            margin-left: 1.06667rem;
+            margin-top: -2.4rem;
+            animation-delay: .8s
+        }*/
+
+
+        .person-loading{
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .person-loading .yuan-three{
+            font-size: .8rem;
+            margin:20% 50%;
+            transform: rotateX(33.5deg) rotateY(45deg);
+            transform-origin: .5em .5em;
+            transform-style: preserve-3d;
+            animation: sped-falls 3.8s linear infinite;
+
+        }
+        @keyframes sped-falls {
+            0% {
+                transform: rotateY(45deg) rotateX(33.5deg);
+            }
+            to{
+                transform: rotateY(225deg) rotateX(213.5deg);
+            }
+        }
+        .person-loading .falls {
+            height: 1rem;
+            width: 1rem;
+            border:1px solid #ff1224;
+            transform: rotateX(214deg) rotateY(30deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="loading" id="J-loading" style="display: block;">
+    <div class="c-cube-1">
+        <div class="c-cube">
+           <!-- <div class="c-cube-side c-cube-side-front">
+
+            </div>
+            <div class="c-cube-side c-cube-side-back">
+
+            </div>
+            <div class="c-cube-side c-cube-side-right">
+
+            </div>
+            <div class="c-cube-side c-cube-side-left">
+
+            </div>-->
+            <div class="c-cube-side c-cube-side-top">
+
+            </div>
+        </div>
+    </div>
+    <div class="line line-1"></div>
+    <div class="line line-2"></div>
+    <div class="line line-3"></div>
+    <div class="line line-4"></div>
+    <p class="progress-text origin-font" id="J-progress-text">66%</p>
+</div>
+
+<div class="person-loading" style="display: none">
+    <div class="yuan-three">
+        <div class="falls"></div>
+    </div>
+</div>
+</body>
+</html>
