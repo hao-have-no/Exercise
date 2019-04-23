@@ -1,3 +1,195 @@
+ES6---关注点
+１．解构赋值．２．函数rest参数３．箭头函数４．对象的函数，Object.assign．５．ｐｒｏｍｉｓｓ６．ｇｅｎｅｒｏｕｓ
+７．ａｓｙｎｃ８．ｃｌａｓｓ９．ｍｏｄｕｌｅｓ
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+当组件与父组件之间进行通信时
+1.增加事件监听,$watch数据变化
+2.增加事件发布,$bordercast/$emit,$on来进行事件的发布订阅
+
+
+
+－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－
+思路分享－－状态值，标记值模仿状态管理，ｐｒｏｍｉｓｅ的使用
+（１）定义状态集和修改方法，来控制整个currState（当前数据的状态）的值，减少频繁大面积的更改值操作
+$scope.createPatiAbout = {                                    // 创建患者相关
+      currState: 'init',                                            // 创建的当前状态
+      stateMachine: {                                               // 创建相关的状态机
+        'init': {
+          create: 'creating'
+        },
+        'creating': {
+          success: 'created',
+          failure: 'creatErr',
+        },
+        'created': {
+          evaluate: 'init'
+        },
+        'creatErr': {
+          recreate: 'init'
+        }
+      },
+      stateChange: Utils.changeState(),                              // 更改状态
+      newPatiFormEntity: {                                           // 创建全新患者的表单实例
+        'brandNewPatiForm': null,                                         // 基本信息表单
+        'groupForm': null                                                 // 护理组表单
+      }
+    }
+
+
+（２）ｐｒｏｍｉｓｅ使用，在前后端交互时，会接受到意外的返回值，常规的处理无法处理该情况
+通过ｐｒｏｍｉｓｓ分装ｈｔｔｐ请求，对请求中的状态值进行判断，然后将判断过后的结果返回，避免在每个请求中都需要对返回值进行判断，减少不必要的代码
+this.creatPati = function(param) {
+    var deferred = $q.defer()／／ａｎｇｕｌａｒ中定义的ｐｒｏｍｉｓｓ函数封装
+    $http.post(`${SYS.url}${param.pInfo.groupId}/patient/create`, param.pInfo).then(function(msg) {
+      if (msg.data.status == 'ok') return deferred.resolve(msg.data.data)
+    }, function(error) {
+      return deferred.reject('创建失败！')
+    })
+
+    return deferred.promise
+  }
+
+
+this.getList = function(param) {
+    var deferred = $q.defer()
+
+    /**
+     * 修正页码， 后台传回的比前台需要的少 1
+     * @param {*} data
+     */
+    var fixListData = function(data) {
+      if(data.number>=0) {
+       data.number++
+      }
+    }
+    $http.get(`${SYS.url}${param.filterAbout.patiGroup.id}/patient/list?name=${param.filterAbout.patiName}&pid=${param.filterAbout.depId}&page_size=${param.size}&page_number=${param.num}`).then(function(msg) {
+      if (msg.data.status == 'ok') {
+        fixListData(msg.data.page)
+        return deferred.resolve(msg.data.page)
+      }
+      else if (msg.data.status == 'blank') return deferred.resolve([])
+    }, function(error) {
+      return deferred.reject('请求出错！')
+    })
+
+    return deferred.promise
+  }
+
+使用：
+APIService.creatPati(param).then(function(msg) {
+        // 创建成功
+        $scope.createPatiAbout.stateChange('success')
+        sessionStorage.setItem('currPati', JSON.stringify(msg))                // 当前操作的患者信息
+        sessionStorage.setItem('currInterview', JSON.stringify(msg.interview)) // 存储当前随诊信息
+        $scope.totast.mainBody = {                                             // 通知提示语定义
+          status: 'ok',
+          description: '创建成功！',
+          callback: function() {
+            createPatiModal.modal("hide")
+            // 重写新建患者模态框收起回调事件
+            createPatiModal.on('hidden.bs.modal', function(e) {
+              location.href = `#/scaleEnter/${msg.pid}/${msg.groupId}/${msg.interview.id}/${msg.interview.crfTemplateId}/0`
+            })
+          },
+          delay: 1000
+        }
+      }, function(error) {
+        // 创建失败
+        $scope.createPatiAbout.stateChange('failure')
+        $scope.totast.mainBody = {                                  // 通知提示语定义
+          status: 'error',
+          description: '创建失败，请重试！',
+          callback: function() {
+            $scope.createPatiAbout.stateChange('recreate')          // 重置状态机
+          },
+          delay: 2000
+        }
+      })
+
+---------------------------------------------------------------------------------------------------
+使用nginx搭建服务器
+1.nginx 启动服务器
+2.#ps -ef | grep nginx 找到服务器的主端口
+3.kill -quit 12938 关闭主端口
+
+静态服务器资源配置地址:在nginx下的sites-enabled下的default中可以配置静态资源地址
+
+-------------------------------------------------------------------------------------------
+
+jekins/打包发布前端工程
+首先确定发布的服务器地址,需不需要走单独的配置文件
+不需要:按照原来的方式,在开发的dev.js脚本中修改线上的后台端口就行
+需要的话,在env中新建一个指定服务器版本的js脚本,eg:env.server173.js的文件,在其中配置需要用到的项目的后台端口地址.
+在fis-conf中,配置server173服务器上线中需要的项目的js打包信息,可以拷贝其他的修改为自己的,记住打包js的时候一定要精确到js文件夹
+eg:'system-management/js/*.js'
+
+需要打离线包的话,在restart.sh中修改启动脚本,改为自己的,测试是否有问题.
+
+无问题的话,使用 fis3 release env.server173 /文档/page
+----------------------------------------------------------------------------------------
+
+工作3:病例云分析平台重点纪录
+1.关于中间和左侧的协同关系,通过workspaceinfo传递当前的值,wholeinfo所有的值来进行左右两侧模版区与显示区的交互.
+特殊的是workspaceinfo的data中存放主诉和现病史的数据,用于同步主诉和现病史的关系.
+
+2.左侧与中间部分的关系
+(1)中间部分通过点击改变workSpaceInfo的mark值来控制左边菜单区的显示,根据你点击的元素获取该元素的类型与数据源渲染到左边区域
+(2)左边选择完成,就会促发保存操作,同时刷新中间区域的值
+
+流程解析(以主诉和现病史为例):
+(左中都会出发这个事件---因为公用一份数据源)addQuestion将当前的疾病信息,所在模块,workspaceInfo座位参数,保存左边的区域后,随后促发
+addQuestion将选中的问题的数据源拿到放置在左边
+addAttr将选中的问题数据源放置在疾病的模块数据中,渲染中间部分.
+
+
+
+3.门诊病历部分的嵌套关系
+(1):prescription模版中,通过初始化的继承StateMan构造函数来给每个子实例赋值状态管理数组.通过对状态的改变来触发UI的渲染
+
+(2):页面缓存,检查.检验的弹框缓存来实时更新,经操作后产生(检查,中药等模块)的新数据并同步更新对应的模块数据.(中药除外,模版与其他差异性过大)
+eg:
+ scope.orgDataAbout.rst[mark1].pop();
+secondSelected: scope.orgDataAbout.rst.tests
+
+(3)注意大部分的常量是前端维护的模版,(缓存比较多,容易记混)缓存.(同时每个模版中包含这主要的表头信息,补充的表头信息以及添加的其他模版信息)
+eg1:modelSelectKey 这个是请求信息常量的存放体,用来请求模版中下拉下列表类型的值信息.
+初始化请求数据的时候,根据modelSelectKey来获取每个膜板下的select类型的值并放置在本地常量的缓存中,通过setTempData来更新前端维护的模版中对应的信息
+
+(4)缓存解释(tempModal前端数据模版),后期页面的数据控制由前端模版控制,而缓存用于前后台交互,同时渲染前端模版
+-------注意:中药模版是特殊的,主要的模版信息在secondSelectedTable中,中药有两个模版,所以需要特殊对待
+-------secondSelectedTable是渲染表头的
+-------由于有预制模版,预制模版与缓存进行对应,通过对缓存模版的更新从而改变前端数据模版中的值.
+orgDataState:状态管理,页面初始话的时候生成
+orgDataAbout:模块数据缓存----同时关联前端模版数据源(eg: secondSelected: scope.orgDataAbout.rst.exams)-----该部分在页面初始的话时候附上所有的值
+modelSelectKey:各模版下的select的数据源------同时关联数据模版下select类型的数据源(特殊处理)-----页面初始化的时候生成
+一:;(function() {
+                // 1. 先请求已保存数据 2.请求每个模块 select 的范围
+                fetchOrgData().then(function(data) {
+                    var count = 0
+                    scope.modelSelectKey.forEach(function(val, ind)
+
+二:function fetchOrgData() {
+                scope.orgDataState.state.changeState('fetch')             // 更改当前状态为 fetching
+                var params = `?xlPatientId=${$routeParams.xlPatientId}&xlVisitId=${$routeParams.xlVisitId}`
+                initSaveMark == 1?params = `${params}&init=${initSaveMark}`:'';
+                return $http.get(`${SYS.prescriptUrl}prescribe${params}`).then(function(msg) {
+                    if(msg.data.status == 'ok') {
+                        initSaveMark++;
+                        scope.orgDataState.state.changeState('success')
+                        scope.orgDataAbout.rst = msg.data.data
+                        scope.wholeInfo['prescription'] = scope.orgDataAbout.rst
+
+
+viewDetailState:检查弹框的状态关系
+viewExamAbout:检查数据缓存
+viewTestAbout:检验弹层数据缓存
+
+
+-----------------------------------------------------------------------------------------
+
 工作2:科研分析平台-src-widget
 
 困难点1:理解组合视图的概念

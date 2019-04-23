@@ -54,3 +54,25 @@
     适当使用canvas动画
     对于resize、mousemove事件使用节流处理，较少DOM回流和重绘次数
 
+
+    position: fixed;
+    right: 30px;
+    top: 20%;
+    border: 1px solid #333;
+
+
+width: 80px;
+    line-height: 30px;
+    /* margin-top: 10px; */
+    /* margin-left: 10px; */
+    margin: 10px 10px 0 10px;
+
+
+
+    /* margin-bottom: 10px; */
+    /* text-align: center; */
+    margin-bottom: 10px;
+    /* margin: 0 auto; */
+    width: 60px;
+    margin: 10px 20px;
+    /* margin: 10px; */

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>练习－目录</title>
+</head>
+<body>
+<div>
+    <h2>Es6练习</h2>
+    <ul>
+        <li><a href="./destrucuring.html">解构赋值</a></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+<script>
+    //1.优化sort方法
+    function compare(value1, value2) {
+        if (value1 < value2) {
+            return -1;
+        } else if (value1 > value2) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+    var arr=[0,1,5,10,15,17,19,20,23,54,123,432];
+    console.log(arr.sort());
+    arr.sort(compare);
+    //根据返回值确定两者之间是否更换值
+    console.log(arr);
+
+    //2.splice  前闭后开   slice 取区间slice(2,-1)<从第二位到最后> 前闭后开
+
+    //3.
+</script>
+</html>
