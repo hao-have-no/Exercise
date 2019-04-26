@@ -4,13 +4,14 @@
     <bookmark url="file://$PROJECT_DIR$/js-es-5-6-7/small-knowledge-point.html" description="&lt;script&gt;&#10;function compare(val,val1){&#10;    if(val &gt; ..." line="20" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js-es-5-6-7/destrucuring.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-es-5-6-7/small-knowledge-point.html" afterDir="false" />
+    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0423-总结">
+      <change afterPath="$PROJECT_DIR$/html/der" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/freeze-table.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/api-route.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/bean/sql-basic.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/node/server.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/flex.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/flex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/performance-optimization.txt" beforeDir="false" afterPath="$PROJECT_DIR$/html/performance-optimization.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/html/top-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/top-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/Bfc.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/Bfc.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/note-company-angular/basic-note" beforeDir="false" afterPath="$PROJECT_DIR$/note-company-angular/basic-note" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -25,10 +26,69 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js-es-5-6-7/small-knowledge-point.html">
+        <entry file="file://$PROJECT_DIR$/note-company-angular/basic-note">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
+            <state relative-caret-position="264">
+              <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/html/Bfc.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/html/der">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="11" column="4173" selection-start-line="11" selection-start-column="4173" selection-end-line="11" selection-end-column="4173" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/api-route.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="264">
+              <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/bean/sql-basic.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -36,17 +96,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js-es-5-6-7/destrucuring.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="437">
-              <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/note-company-angular/basic-note">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="6" column="22" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="1738">
+              <caret line="79" selection-start-line="79" selection-end-line="79" />
             </state>
           </provider>
         </entry>
@@ -58,8 +109,8 @@
       <list>
         <option value="CSS File" />
         <option value="SCSS File" />
-        <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -79,6 +130,7 @@
       <find>top</find>
       <find>c-cube-side-top</find>
       <find>scroll</find>
+      <find>record</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -90,12 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/html/eventTarget.html" />
-        <option value="$PROJECT_DIR$/js-设计模式/util.js" />
-        <option value="$PROJECT_DIR$/js-设计模式/old.js" />
-        <option value="$PROJECT_DIR$/js-设计模式/exeucute.html" />
-        <option value="$PROJECT_DIR$/html/JsEventMethods.html" />
-        <option value="$PROJECT_DIR$/Angular/text1.html" />
         <option value="$PROJECT_DIR$/js-es-5-6-7/es6-includes.html" />
         <option value="$PROJECT_DIR$/One/test.html" />
         <option value="$PROJECT_DIR$/note-company-angular/angular-$scope" />
@@ -138,15 +184,21 @@
         <option value="$PROJECT_DIR$/html/flex.html" />
         <option value="$PROJECT_DIR$/html/top-nav.html" />
         <option value="$PROJECT_DIR$/html/performance-optimization.txt" />
-        <option value="$PROJECT_DIR$/note-company-angular/basic-note" />
         <option value="$PROJECT_DIR$/js-es-5-6-7/small-knowledge-point.html" />
         <option value="$PROJECT_DIR$/js-es-5-6-7/destrucuring.html" />
+        <option value="$PROJECT_DIR$/node/node_modules/express/lib/router/index.js" />
+        <option value="$PROJECT_DIR$/node/bean/sql-basic.js" />
+        <option value="$PROJECT_DIR$/node/server.js" />
+        <option value="$PROJECT_DIR$/node/api-route.js" />
+        <option value="$PROJECT_DIR$/note-company-angular/basic-note" />
+        <option value="$PROJECT_DIR$/html/der" />
+        <option value="$PROJECT_DIR$/html/Bfc.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="9" />
+    <option name="x" value="1985" />
+    <option name="y" value="-4" />
     <option name="width" value="1855" />
     <option name="height" value="1084" />
   </component>
@@ -166,12 +218,18 @@
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="js-es-5-6-7" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="html" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="note-company-angular" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="bean" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -207,6 +265,8 @@
       <recent name="E:\temporary-project\js-es-5-6-7" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/node" />
       <recent name="$PROJECT_DIR$/Six" />
       <recent name="$PROJECT_DIR$/One" />
     </key>
@@ -301,7 +361,10 @@
       <workItem from="1555569860847" duration="7015000" />
       <workItem from="1555635776087" duration="10315000" />
       <workItem from="1555894371111" duration="6709000" />
-      <workItem from="1555982454023" duration="11794000" />
+      <workItem from="1555982454023" duration="11925000" />
+      <workItem from="1556070025060" duration="2411000" />
+      <workItem from="1556154065054" duration="12129000" />
+      <workItem from="1556266376114" duration="1136000" />
     </task>
     <task id="LOCAL-00001" summary="0306">
       <created>1551869447480</created>
@@ -401,11 +464,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555318701859</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="0423-总结">
+      <created>1556009919235</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1556009919235</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="367123000" />
+    <option name="totallyTimeSpent" value="382930000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,23 +487,23 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="9" width="1855" height="1084" extended-state="6" />
+    <frame x="1985" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4981203" visible="true" weight="0.17203714" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4981203" visible="true" weight="0.17203714" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.3295082" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49918076" weight="0.3294979" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39849624" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32894737" />
+      <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972692" weight="0.32845187" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.32740587" />
-      <window_info active="true" anchor="bottom" id="Event Log" order="9" sideWeight="0.50136536" side_tool="true" visible="true" weight="0.32740587" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49863464" weight="0.32845187" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50300384" side_tool="true" visible="true" weight="0.33263597" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49699616" visible="true" weight="0.33263597" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -486,40 +556,10 @@
     <MESSAGE value="0403-promiss处理" />
     <MESSAGE value="0404-京东loading跟做" />
     <MESSAGE value="0415-总结" />
-    <option name="LAST_COMMIT_MESSAGE" value="0415-总结" />
+    <MESSAGE value="0423-总结" />
+    <option name="LAST_COMMIT_MESSAGE" value="0423-总结" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/One/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Angular/test1.html" />
-    <entry file="file://$PROJECT_DIR$/One/立即执行函数－闭包.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Angular/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="4" column="16" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/note-company-angular/add-parent.css" />
-    <entry file="file://$PROJECT_DIR$/note-company-angular/disease.index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="47" column="35" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/html/tab.checked.js" />
     <entry file="file://$PROJECT_DIR$/note-company-angular/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
@@ -743,13 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/Bfc.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1386">
-          <caret line="63" column="38" selection-start-line="63" selection-start-column="38" selection-end-line="63" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Three/DomOne.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -816,17 +849,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/destrucuring.html">
+    <entry file="file://$PROJECT_DIR$/node/app.js" />
+    <entry file="file://$PROJECT_DIR$/node/node_modules/express/lib/router/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="79" lean-forward="true" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="196">
+          <caret line="409" column="2" selection-start-line="409" selection-start-column="2" selection-end-line="409" selection-end-column="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/note-company-angular/basic-note">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="6" column="22" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="264">
+          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/api-route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="17" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/bean/sql-basic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/destrucuring.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1738">
+          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/freeze-table.min.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/der">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="11" column="4173" selection-start-line="11" selection-start-column="4173" selection-end-line="11" selection-end-column="4173" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/Bfc.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="55" selection-start-line="7" selection-start-column="55" selection-end-line="7" selection-end-column="55" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
