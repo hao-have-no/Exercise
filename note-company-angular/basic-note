@@ -1,19 +1,6 @@
 科研３：
- <!-- <td ng-if="" class="tdwidth"  rowspan="{{recordList.totalElements}}">-->
-                                <!--<ul>-->
-                                    <!--<li ng-repeat="opt in recordList.content">-->
-                                        <!--<ul>-->
-                                            <!--<li ng-click="modalFlup(opt)">-->
-                                                <!--<span class="plus"> +非计划随访</span>-->
-                                            <!--</li>-->
-                                            <!--<li  ng-click="gotoInputPage(interview,opt.id)" class="{{interview.status}} tdwidth-item" ng-repeat="interview in opt.interviews">-->
-                                                <!--<span>{{interview.schedule}}</span>-->
-                                                <!--<span>{{interview.name}}</span>-->
-                                            <!--</li>-->
-                                        <!--</ul>-->
-                                    <!--</li>-->
-                                <!--</ul>-->
-                            <!--</td>-->
+(1)录入功能：通过缓存的形式对菜单及所有状态进行处理，同时根据菜单取值渲染当前区域
+(2)
 
 
 －－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－

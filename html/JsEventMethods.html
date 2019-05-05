@@ -288,43 +288,96 @@
     // }
     // console.log(accum("abcde"));
 
-        const col1= function () {
-            var p=new Promise(function (resolve,reject) {
-                resolve(1);
-            });
-            return p;
-    }
-    const col2=function () {
-        var p=new Promise(function (resolve,reject) {
-            resolve(2);
-        });
-        return p;
-    }
-    const col3=function () {
-        var p=new Promise(function (resolve,reject) {
-            resolve(3);
-        });
-        return p;
-    }
+    //     const col1= function () {
+    //         var p=new Promise(function (resolve,reject) {
+    //             resolve(1);
+    //         });
+    //         return p;
+    // }
+    // const col2=function () {
+    //     var p=new Promise(function (resolve,reject) {
+    //         resolve(2);
+    //     });
+    //     return p;
+    // }
+    // const col3=function () {
+    //     var p=new Promise(function (resolve,reject) {
+    //         resolve(3);
+    //     });
+    //     return p;
+    // }
+    //
+    // Promise.all([col1(),col2(), col3()]).then(
+    //     function (result) {
+    //         // return posts;
+    //
+    //             // var sum = 0;
+    //             // result.forEach(function(val,index,arr){
+    //             //     sum += val;
+    //             // })
+    //             console.log(result);
+    //         console.log(result.reduce(function (prev,cur) {
+    //             return prev+cur;
+    //         }));
+    //
+    //     }
+    //  ).catch(function(){
+    //
+    //     }
+    // );
 
-    Promise.all([col1(),col2(), col3()]).then(
-        function (result) {
-            // return posts;
+    //递归--避免还未使用时，手动清除变量
+   //  var factorial=function f(num){
+   //      if (num<1){
+   //          return 1
+   //      } else {
+   //          return num * arguments.callee(num - 1);
+   //          //callee指向正在执行的函数，实现递归调用
+   //      }
+   // }
 
-                // var sum = 0;
-                // result.forEach(function(val,index,arr){
-                //     sum += val;
-                // })
-                // console.log(sum);
-            result.reduce(function (prev,cur) {
-                return prev+cur;
-            })
-
+    //通过闭包来保存变量，保证变量不会被
+    var factorial=(function f(num) {
+        if (num < 1) {
+            return 1
+        } else {
+            return num * f(num - 1);
+            //callee指向正在执行的函数，实现递归调用
         }
-     ).catch(function(){
+    })
 
+    var another=factorial;
+    factorial=null;
+    console.log(another(4));
+    console.log(another(3));
+
+
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getNameFunc : function(){
+            // var that = this;
+            return function(){
+                // return that.name;用ｔｈａ固定ｔｈｉｓ的指向
+                return this.name;
+            };
         }
-    );
+    };
+    console.log(object.getNameFunc()());
+
+
+
+    var name = "The Window";
+    var object = {
+        name : "My Object",
+        getName: function(){
+        return this.name;
+        }
+    };
+    console.log(object.getName());
+
+
+
 </script>
 </body>
 </html>
