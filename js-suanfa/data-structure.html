@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据结构与算法－系统学习</title>
+</head>
+<body>
+</body>
+<script>
+    var numbers = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15];
+
+    console.log(numbers.reduce(function (previous,current,index) {
+        return Math.max(previous,current)
+        // return previous+current
+    }))
+
+    //实现队列机制
+   function Quene(){
+        let items=[];
+
+        this.enqueue=function(element){
+            items.push(element);
+        }
+
+        this.dequeue=function () {
+            return items.shift();
+        }
+
+        this.front=function () {
+            return items[0];
+        }
+
+        this.isEmpty=function () {
+            return items.length == 0;
+        }
+
+        this.size=function () {
+            return items.length;
+        }
+        this.print=function () {
+            console.log(items.toString());
+        }
+   }
+
+    let quene=new Quene();
+    console.log(quene.isEmpty());
+
+    quene.enqueue("John");
+    quene.enqueue("sum");
+    quene.print();
+    console.log(quene.size());
+    console.log(quene.isEmpty());
+    console.log(quene.front());
+    quene.dequeue();
+    quene.dequeue();
+    quene.print();
+
+
+    //模仿击鼓传花
+    function hotPotato (nameList, num){
+        let queue = new Quene();
+        for (let i=0; i<nameList.length; i++){
+            queue.enqueue(nameList[i]);
+        }
+        let eliminated = '';
+        while (queue.size() > 1){
+            for (let i=0; i<num; i++){
+            queue.enqueue(queue.dequeue());
+        }
+            eliminated = queue.dequeue();
+            console.log(eliminated + '在击鼓传花游戏中被淘汰。');
+        }
+        return queue.dequeue();
+    }
+    let names = ['John','Jack','Camila','Ingrid','Carl'];let winner =
+        hotPotato(names, 7);console.log('The winner is: ' + winner);
+</script>
+</html>

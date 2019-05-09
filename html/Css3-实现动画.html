@@ -22,7 +22,7 @@
         .div_second{
             width: 1600px;
             position: relative;
-            animation: myimg 6s linear 2s infinite normal;
+            animation: myimg 12s linear 2s infinite normal;
         }
         @keyframes myimg{
             from{
@@ -32,13 +32,36 @@
                 left:-1200px;
             }
         }
+
+
+        .center-space{
+            display: inline-block;
+            width: 100px;
+            border: 1px solid red;
+            text-align: justify;
+            text-align-last: justify;
+        }
+        .center-space:before{
+            content: '';
+            /*display: inline-block;这个在伪类本身作用的元素是块级元素的时候使用*/
+            width: 100%;
+        }
     </style>
 </head>
 <body>
+
 <div class="div_first">
+    <h1>css3轮播图</h1>
     <div class="div_second">
         <img src="../sucai/1.jpg" alt=""><img src="../sucai/2.jpg" alt=""><img src="../sucai/3.jpg" alt=""><img src="../sucai/1.jpg" alt="">
     </div>
+</div>
+<div style="width: 400px">
+    <h1>两端对齐</h1>
+    <div><span class="center-space">姓名</span><input type="text"></div>
+    <div><span class="center-space">手机账号</span><input type="text"></div>
+    <div><span class="center-space">账号</span><input type="text"></div>
+    <div><span class="center-space">密码</span><input type="text"></div>
 </div>
 </body>
 </html>
