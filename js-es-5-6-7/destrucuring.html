@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构赋值,rests</title>
+</head>
+<body>
+
+</body>
+<script>
+    //快速提取
+    var jsonData={
+        id:123,
+        status:"OK",
+        data:[{id:1,reason:"12412-423"},{id:2,reason:"12412-423"},{id:3,reason:"12412-423"},{id:4,reason:"12412-423"}]
+    }
+    var map=new Map();
+    map.set('first','123');
+    map.set('sec','345');
+
+    console.log(jsonData,map)
+
+    //解构赋值－拿到自己想要的值
+    let {id,data: number } = jsonData;
+    console.log(id,number);
+
+
+    //便利ｍａｐ解构
+    for (let [key,value] of map){
+        console.log(key,value);
+    }
+
+    for (let i of number){
+        console.log(i.id,i.reason);
+    }
+    for (let k in number){
+        console.log(number[k]);
+    }
+
+    //anguments和rests
+    var arr=[1,24,5,26,12,14,16]
+
+    function sortNumber() {
+        return Array.prototype.slice.call(arguments).sort();
+        //能将具有length属性的对象转成数组,js的方法都是基于原型的，所以需要Ａｒｒａｙ．ｐｒｏｔｏｔｙｐｅ进行使用
+    }
+
+    const sortNumbers=(...numbers)=>numbers.sort();
+
+    console.log(sortNumbers(arr));
+    console.log(sortNumber(arr));
+
+    function add(...val){
+
+        console.log(val)
+        // let sum=0;
+        //
+        // for (k in val) {
+        //     sum +=val[k];
+        // }
+        // for (k of val) {
+        //     sum +=k;
+        // }
+        //
+        // return sum;
+    }
+   add(arr,jsonData,map)//可以将所有值传入进行处理
+
+
+
+    //箭头函数
+    const headAndTail = (head, ...tail) => [head, tail];
+
+    console.log(headAndTail(1, 2, 3, 4, 5))
+
+    // const headAndTail = (...val) =>{});
+    //
+    // console.log(headAndTail({"o":1},{ "w":2}, {"x":3}, {"s":4});
+
+
+
+
+
+</script>
+</html>

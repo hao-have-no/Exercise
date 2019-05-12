@@ -3,9 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>sufa</title>
+    <style>
+       iput,span{background: red}
+
+        :indeterminate,:indeterminate+label{
+            background: lime;
+        }
+    </style>
 </head>
 <body>
+    <div class="content bifd cfgh">
+        gasfssd
+        <ul id="myLink">
+            <li class="li-1">btn1</li>
+            <li class="li-2">btn2</li>
+            <li class="li-3">btn3</li>
+        </ul>
+        <input type="checkbox" id="checkbox">
+        <div>
+            <span>12342</span>
+            <p>5232</p>
+        </div>
+        <label for="checkbox">background</label>
+
+        <div draggable="true">可拖动</div>
+    </div>
 </body>
+
+
+<script>
+    // var inputs=document.getElementById('checkbox');
+    // inputs.indeterminate=true;
 
     //回文
     //const sucai="qqqwwweeewwwqqq";
@@ -21,7 +49,7 @@
     // getUnique=(str)=>{
     //     let data=[];
     //     let obj={}
-    <!--//     for (let i=0,l=str.length;i<l;i++){-->
+   //     for (let i=0,l=str.length;i<l;i++){-->
     //         // if(data.indexOf(str[i]) == -1){
     //         //     data.push(str[i]);
     //         // }
@@ -41,7 +69,7 @@
     //         return str;
     //     }
     //     var newarr=[];
-    <!--//     for(let i=0,l=str.length;i<l;i++){-->
+    //     for(let i=0,l=str.length;i<l;i++){-->
     //         if(!newarr[str.charAt(i)]){
     //             newarr[str.charAt(i)] = 1;
     //         }else{
@@ -50,18 +78,18 @@
     //     }
     //     console.log(newarr);
 
-        // var maxkey='';
-        // var maxValue=1;
-        // for(var k in newarr){
-        //     if (newarr[k]>maxValue){
-        //         maxValue=newarr[k];
-        //         maxkey=k;
-        //     }
-        // }
-        // console.log(maxkey,maxValue);
-        // return (maxkey+"*"+maxValue);
-    }
-     // var strs="assfdsghjsddggedfsvgh";
+    // var maxkey='';
+    // var maxValue=1;
+    // for(var k in newarr){
+    //     if (newarr[k]>maxValue){
+    //         maxValue=newarr[k];
+    //         maxkey=k;
+    //     }
+    // }
+    // console.log(maxkey,maxValue);
+    // return (maxkey+"*"+maxValue);
+    //}
+    // var strs="assfdsghjsddggedfsvgh";
     // var strr=["1","a","s","a","d","f","s","7","fg"];
     // console.log(getmaxstr(strr));
 
@@ -74,7 +102,7 @@
     //     let leftArr=[];
     //     let rightArr=[];
     //     let q = arr[0];
-       <!--for(let i = 1,l=arr.length;i<l;i++){}-->
+    <!--for(let i = 1,l=arr.length;i<l;i++){}-->
     //         if(arr[i]>q){
     //             rightArr.push(arr[i])
     //         }else{
@@ -89,21 +117,21 @@
     // console.log(quickSort(sort));
 
     //判断最大差值
- //    const arr=[9,3,1,4,5,8,12];
- //
- //    function findMax(arr){
- //        var minValue=arr[0];
- //        var maxVal=0;
- //
- //        for(let i in arr){
- //            const realMin=arr[i]
- //            minValue=Math.min(minValue,realMin);
- //            const realMax=realMin-minValue;
- //            maxVal=Math.max(realMax,maxVal);
- //        }
- //     return maxVal;
- //    }
- // console.log(findMax(arr))
+    //    const arr=[9,3,1,4,5,8,12];
+    //
+    //    function findMax(arr){
+    //        var minValue=arr[0];
+    //        var maxVal=0;
+    //
+    //        for(let i in arr){
+    //            const realMin=arr[i]
+    //            minValue=Math.min(minValue,realMin);
+    //            const realMax=realMin-minValue;
+    //            maxVal=Math.max(realMax,maxVal);
+    //        }
+    //     return maxVal;
+    //    }
+    // console.log(findMax(arr))
 
     //最大公约数
     // function greatestCommonDivisor(a,b){
@@ -120,20 +148,20 @@
     // console.log(s);
 
     // function treeObj(obj) {
-        // obj.map(item => {
-        //     if (item.parent !== null) {
-        //         obj.map(o => {
-        //             if (item.parent === o.id) {
-        //                 if (!o.child) {
-        //                     o.child = [];
-        //                 }
-        //                 o.child.push(item);
-        //                 o.child = o.child;
-        //             }
-        //         });
-        //     }
-        // });
-        // return obj.filter(item => item.parent === null)[0]
+    // obj.map(item => {
+    //     if (item.parent !== null) {
+    //         obj.map(o => {
+    //             if (item.parent === o.id) {
+    //                 if (!o.child) {
+    //                     o.child = [];
+    //                 }
+    //                 o.child.push(item);
+    //                 o.child = o.child;
+    //             }
+    //         });
+    //     }
+    // });
+    // return obj.filter(item => item.parent === null)[0]
 
     //根据对应关系，生成树
     //     obj.map(item=>{
@@ -176,19 +204,277 @@
     // fun(0) //显示undefined，n=0,生成fun回调函数
     // fun(0).fun(1)//fun(m=1)==>return fun(m=1,n=0)=>n=m=1,o=0==>生成fun（m）,此时n=1;
 
-<script>
-    var str="this is a pen";
 
-    function accum(str){
-        let newstr=str.split(" ").map((v,i)=>{
-                return v.substr(0).toUpperCase()
-        })
-            // return v.splice(1)
 
-        return newstr
+    // var str="this is a pen";
+    //
+    // function accum(str){
+    //     let newstr=str.split(" ").map((v,i)=>{
+    //             return v.substr(0).toUpperCase()
+    //     })
+    //     return newstr
+    // }
+    // console.log(accum(str));
+    //
+    //
+    // //重新sort
+    // var arrS=[2,6,12,53,42,0,5,26,23,7,1,4,75];
+    //
+    // function swap(arr,index1,index2){
+    //     var step=arr[index1];
+    //     arr[index1]=arr[index2];
+    //     arr[index2]=step;
+    // }
+    //
+    // //选择排序，(按顺序循环，每次找到最小的（更改后继续比较直到找到最小的），然后进行换位)
+    // function chooseSort(arr){
+    //     for (let i=0;i<arr.length;i++){
+    //         let minIndex=i;
+    //         console.log("初始值"+minIndex+"--"+arr[minIndex])
+    //
+    //         for (let j=i;j<arr.length;j++){
+    //             if (arr[minIndex]>arr[j]){
+    //                 minIndex=j;
+    //                 console.log("找到"+j+"---"+arr[j]);
+    //             }
+    //         }
+    //
+    //         if (i !== minIndex){
+    //             swap(arr,i,minIndex);
+    //             console.log(minIndex+"循环"+i)
+    //         }
+    //     }
+    // }
+    //
+    //
+    //
+    // chooseSort(arrS);
+    // console.log(arrS);
+
+    //变量提升，函数声明（函数提升最先）
+    // var scope = 'global';
+    // function f(){
+    //     console.log(scope);
+    //     var scope = 'local';
+    //     console.log(scope);
+    // }
+    // f();
+
+    // var f = function(){console.log(1)}
+    //
+    // function f(){console.log(2)}
+    //
+    // f();
+
+    //工厂模式
+    // function parent(name,age){
+    //     var o=new Object();
+    //     o.name=name;
+    //     o.age=age;
+    //     o.sayName=function () {
+    //         console.log(this.name);
+    //     }
+    //     return o;
+    // }
+    // var person=new parent("name","age");
+    // console.log(person);
+    //
+    //
+    // //通过闭包封装变量的可读性，使用私有变量可以实现实例的私有化
+    // function MyObject(){
+    //     //私有变量和私有函数
+    //     var privateVariable = 10;
+    //     // function privateFunction(){
+    //     //     return false;
+    //     // }
+    //     //特权方法
+    //     this.publicMethod = function (){
+    //         privateVariable++;
+    //         // return privateFunction();
+    //         return privateVariable;
+    //     };
+    // }
+    // var public=new MyObject();
+    // console.log(public.publicMethod())
+    // console.log(public.publicMethod())
+    //
+    // var public1=new MyObject();
+    // console.log(public1.publicMethod())
+    // console.log(public1.publicMethod())
+
+    // var arr=[{
+    //     id:"1",
+    //     name:"1",
+    //     children:[
+    //         {
+    //             id:"1-1",
+    //             name:"1-1",
+    //             children:[ {
+    //                 id:"1-1-1",
+    //                 name:"1-1-1",
+    //                 children:[]
+    //             },
+    //                 {
+    //                     id:"1-1-2",
+    //                     name:"1-1-2",
+    //                     children:[]
+    //                 }]
+    //         },
+    //         {
+    //             id:"1-2",
+    //             name:"1-2",
+    //             children:[
+    //                 {
+    //                 id:"1-2-1",
+    //                 name:"1-2-1",
+    //                 children:[]
+    //                 },
+    //                 {
+    //                 id:"1-2-2",
+    //                 name:"1-2-2",
+    //                 children:[]
+    //                 }
+    //             ]
+    //         }
+    //     ]
+    // },{
+    //     id:"2",
+    //     name:"2",
+    //     children:[
+    //         {
+    //             id:"2-1",
+    //             name:"2-1",
+    //             children:[{
+    //                 id:"2-1-1",
+    //                 name:"2-1-1",
+    //                 children:[]
+    //             },{
+    //                 id:"2-1-2",
+    //                 name:"2-1-2",
+    //                 children:[]
+    //             }]
+    //         },
+    //         {
+    //             id:"2-2",
+    //             name:"2-2",
+    //             children:[{
+    //                 id:"2-2-1",
+    //                 name:"2-2-1",
+    //                 children:[]
+    //             },{
+    //                 id:"2-2-2",
+    //                 name:"2-2-2",
+    //                 children:[]
+    //             }]
+    //         }
+    //     ]
+    // }]
+    //
+    // var mark="1-1-1"
+    // function filter(menuDara,parent){
+    //       let res=menuDara.filter(menu=>{
+    //           console.log("num",menu.id)
+    //         if(menu.children&&menu.children.length>0){
+    //             let response=filter(menu.children,menu);
+    //             if (response){
+    //                 console.log("@@",response);
+    //                 return true;
+    //             }
+    //         }
+    //         var num=menu.name.toString().indexOf(mark) >= 0;
+    //         return num;
+    //     })
+    //
+    //    if(res.length >0 && parent){
+    //        console.log("res",res)
+    //        console.log("获取父级",parent.id);
+    //        return true;
+    //    }else{
+    //        console.log("失败",res)
+    //        return false;
+    //    }
+    // }
+    //
+    // filter(arr);
+
+    // var someNode=document.querySelector("div")
+    // var nodeArr=[...someNode.children]||Array.prototype.slice.call(someNode.children,0);
+    //
+    // console.log(nodeArr);
+    //
+    // nodeArr.forEach(node=>{
+    //     if (node.nodeType == "1"){
+    //         console.log("2345");
+    //     }
+    // })
+
+    // var className=document.querySelector("div").className.split(' ');
+    //
+    //
+    // var  pos=-1,i,len;
+    //
+    // for (i=0,len=className.length;i<len;i++){
+    //     if (className[i] == 'bifd'){
+    //         pos = i;
+    //         break;
+    //     }
+    // }
+    //
+    // className.splice(i,1);
+    // console.log(className.join(" "))
+
+    //事件处理插件
+    var EventUtil={
+        addHandler:function (element,type,handler) {
+            if (element.addEventListener){
+                element.addEventListener(type,handler,false);
+            }else  if(element.attachEvent){
+                element.attachEvent("on"+type,handler);
+            } else {
+                element["on"+type]=handler;
+            }
+        },
+        removeHandler:function (element,type,handler) {
+            if (element.removeEventListener){
+                element.removeEventListener(type,handler,false);
+            }else  if (element.detachEvent){
+                element.detachEvent("on"+type,handler);
+            } else {
+                element["on"+type]=null;
+            }
+        },
+        getEvent:function (event) {
+            return event?event:window.event;
+        },
+        getTarget:function (event) {
+            return event.target || event.srcElement;
+        },
+        preventDefault:function (event) {
+            if (event.preventDefault){
+                event.preventDefault();
+            } else{
+                event.returnValue=false;
+            }
+        },
+        stopPropagation:function (event) {
+            if (event.stopPropagation){
+                event.stopPropagation();
+            }else{
+                event.cancelBubble=false;
+            }
+        }
     }
 
-    console.log(accum(str));
+
+    //事件委托
+    var liArr=document.getElementById("myLink");
+
+    EventUtil.addHandler(liArr,"click",function (event) {
+        event=EventUtil.getEvent(event);
+        var target=EventUtil.getTarget(event);
+            console.log(target.textContent);
+    })
+
 </script>
 
 </html>
