@@ -376,7 +376,54 @@
     };
     console.log(object.getName());
 
+    //构造函数与实例的区别
+    var A = function() {};
+    A.prototype.n = 1;
+    var b = new A();
+    A.prototype = {
+        n: 2,
+        m: 3
+    }
+    var c = new A();
+    console.log("---"+b.n);
+    console.log(b.m);
+    console.log(c.n);
+    console.log(c.m+"###");
+//----------------------------------------------------------------------------------
 
+    var F = function() {};
+
+    Object.prototype.a = function() {
+        console.log('a');
+    };
+
+    Function.prototype.b = function() {
+        console.log('b');
+    }
+
+    var f = new F();
+
+    f.a();
+    // f.b()
+    //构造函数的实例等对象类型的原型链基类是Ｏｂｊｅｃｔ
+    //构造函数等函数的基类是ｆｕｎｃｔｉｏｎ
+    F.a();
+    // F.b();
+
+
+// -----------------------------------------------
+    var foo = {},
+        Fa = function(){};
+    Object.prototype.a = 'value a';
+    Function.prototype.b = 'value b';
+
+    console.log(foo.a);
+    console.log(foo.b);
+
+    console.log(Fa.a);
+    console.log(Fa.b);
+
+    //
 
 </script>
 </body>

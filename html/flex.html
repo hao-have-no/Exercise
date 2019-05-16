@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Flex布局</title>
-    <style>
+    <!--<style>
         .box{
             width: 450px;
             height: 400px;
@@ -90,11 +90,147 @@
 </div>
 
 
-<!--三列布局-->
-<!--<div class="con">-->
-    <!--<div class="box1"></div>-->
-    <!--<div class="box2"></div>-->
-    <!--<div class="box3"></div>-->
-<!--</div>-->
+&lt;!&ndash;三列布局&ndash;&gt;
+&lt;!&ndash;<div class="con">&ndash;&gt;
+    &lt;!&ndash;<div class="box1"></div>&ndash;&gt;
+    &lt;!&ndash;<div class="box2"></div>&ndash;&gt;
+    &lt;!&ndash;<div class="box3"></div>&ndash;&gt;
+&lt;!&ndash;</div>&ndash;&gt;
+</body>-->
+
+    <style type="text/css">
+        body,td,th {
+            font-size: 12px; padding:0; margin:0;
+        }
+        .tanchuang_wrap{
+            width:100%; height:100%;position:absolute;
+            left: 0px;top: 0px;z-index:100; display:none;
+        }
+        .lightbox{
+            width:100%;z-index:101; height:100%;background-color:#333333;
+            filter:alpha(Opacity=20);
+            -moz-opacity:0.2;opacity: 0.2; position:absolute; top:0px; left:0px;}
+        .tanchuang_neirong{
+            width: 400px;
+            height: 200px;
+            border: solid 1px #f7dd8c;
+            background-color: #FFF;
+            position: absolute;
+            z-index: 105;
+            margin-top: -100px;
+            margin-left: -200px;
+            left: 50%;
+            top: 50%;
+            text-align: center;}
+    </style>
+    <script language="javascript">
+        function closeDiv(divId){
+            document.getElementById(divId).style.display = 'none';
+        }
+        function displayDiv(divId){
+            document.getElementById(divId).style.display = 'block';
+        }
+        function dffchildren(){
+            alert("ccc");
+        }
+    </script>
+</head>
+<body>
+<div style="width:100%; height:100%;text-align:center;">
+    <div>
+        <button onClick="dffchildren()">133</button>
+    </div>
+    <div class="tanchuang_wrap" id="aaaa">
+        <div class="lightbox"></div>
+        <div class="tanchuang_neirong">
+            <p><span onClick="closeDiv('aaaa')" style=" cursor:pointer;">关闭</span></p>
+            这里是弹窗内容</div>
+    </div>
+    <span onclick="displayDiv('aaaa')" style="cursor:pointer;">点击我</span>
+    <p>测试通过，兼容IE6.0、IE7.0、火狐3.6、遨游等各大浏览器</p>
+</div>
 </body>
 </html>
+
+<!--
+<style>
+
+    /*
+      modal
+     */
+    .modal-agree-header{
+        font-size: 20px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+    }
+    .modal-agree-title{
+        font-size: 13px;
+        font-weight: 600;
+        color: #000;
+        opacity: .7;
+    }
+    .btn-primary{
+        margin: 0 100px;
+        color: #fff;
+        height: 40px;
+        width: 100px;
+        background-color: #428bca;
+        border-color: #357ebd;
+    }
+    .disagreen-btn{
+        background-color: #ccc;
+        border: none;
+    }
+    .disagreen-btn:hover{
+        background: #cccccc;
+        border: none;
+    }
+    modal-body{
+        padding-top: 5px;
+    }
+</style>
+
+
+
+&lt;!&ndash; 模态框（Modal） &ndash;&gt;
+<div class="modal fade" id="myModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 10px;">
+                <button type="button" class="close" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title modal-agree-header" id="myModalLabel">
+                    健康体检协议书
+                </h4>
+            </div>
+            <div class="modal-body" style="height: 270px;overflow: auto;">
+                <p class="modal-agree-title">甲、乙双方在平等、自愿、协调一致的原则上,就甲方人员在乙方进行健康体检达成如下协议：</p>
+                <p><span>一、</span>乙方本着科学、严谨的工作态度,依据双方约定的体检项目内容,为甲方人员提供健康体检健康管理服务。</p>
+                <p><span>二、</span> 甲方参加体检的人员在体检结束后如有重大疾病或重大阳性体征，应在第一时间内通知甲方参检人员。</p>
+                <p><span>三、 </span>乙方有义务对甲方员工体检项目结果的准确性负责，如有特殊异常情况，甲方有责任保证乙方体检结果的私密性。</p>
+                <p><span>四、 </span>乙方要以严肃认真、及时准确、高度负责的态度和行为，为甲方体检者提供优质高效的健康管理服务。为确保质量，甲方要向乙方提供体检者的基本信息。</p>
+                <p><span>五、 </span>为了更好地向甲方提供健康管理服务，乙方承诺给甲方免费</p>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+                <button id="closeModal" type="button" class="btn btn-primary disagreen-btn">
+                    不同意
+                </button>
+                <button type="button" class="btn btn-primary">
+                    同意
+                </button>
+            </div>
+        </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+    </div>&lt;!&ndash; /.modal &ndash;&gt;
+</div>
+
+$('#myModal').modal('show');
+
+$('#closeModal').on('click',closeModal);
+$('.close').on('click',closeModal);
+
+
+function closeModal(){
+$('#myModal').modal('hide');
+}-->

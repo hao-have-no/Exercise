@@ -8,6 +8,11 @@
             margin: 0;
             padding: 0;
         }
+        body{
+            font-family: "0swald",sans-serif;
+            line-height: 1.5;
+            margin: 0;
+        }
         img{
             width: 400px;
             height: 380px;
@@ -32,8 +37,6 @@
                 left:-1200px;
             }
         }
-
-
         .center-space{
             display: inline-block;
             width: 100px;
@@ -46,10 +49,93 @@
             /*display: inline-block;这个在伪类本身作用的元素是块级元素的时候使用*/
             width: 100%;
         }
+
+        /**
+        实验：ｎｏｔ伪类
+         */
+        .nav-not{
+            background-color:#384150;
+            padding: 2em;
+            text-align: center;
+        }
+        .nav-not ul{
+            padding: 0;
+        }
+        .nav-not li{display: inline-block;font-size: 1.5em;padding:2.5em 1em;text-transform: uppercase;}
+        .nav-not li:not(:last-child){border-right:1px solid #666}
+        .nav-not li:not(:nth-child(-n+3)){border-top:1px solid #666}
+        .nav-not a{border-bottom:2px solid #666;color:#ccc;text-decoration: none;padding-bottom:10px;}
+        .nav-not a:hover{border-bottom: 2px solid #8bc34a}
+
+        /**
+        纯ｃｓｓ滑块
+         */
+        /*.slider{max-height: 200px;overflow-y:hidden;width:300px}*/
+        .slider{max-height: 600px;overflow-y: scroll;width:300px;}
+
+
+        /**
+        root：字体弹性大小
+         */
+        :root{
+        font-size:calc(.5vw + .5vh + .5vmin);
+        }
+
+
+
+        .demo-ul{margin:100px 0 300px;}
+        .demo-ul li{
+            padding: 0 10px;
+            width: 100px;
+            background: #f90;
+            position: relative;
+            float: left;
+        }
+        .demo-ul li a{
+            display: block;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+        }
+        .demo-ul li ul{
+            position: absolute;
+            width: 100%;
+            top: 40px;
+            left: 0;
+            transform: scaleY(0);
+            overflow: hidden;
+        }
+        .ul-transition ul{
+            transform-origin: 0 0;
+        /*设置旋转点，及动画开始的位置*/
+            transition: all .5s;
+        }
+        .demo-ul li:hover ul{
+            transform: scaleY(1);
+        }
+        .demo-ul li ul li{
+            float: none;
+            background: #0099ff;
+
+        }
     </style>
 </head>
 <body>
-
+<div>
+    <h1>:not伪类</h1>
+    <div class="nav-not">
+        <ul>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Portfolio</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Contact２</a></li>
+            <li><a href="#">Contact３</a></li>
+            <li><a href="#">Contact４</a></li>
+            <li><a href="#">Contact５</a></li>
+        </ul>
+    </div>
+</div>
 <div class="div_first">
     <h1>css3轮播图</h1>
     <div class="div_second">
@@ -62,6 +148,40 @@
     <div><span class="center-space">手机账号</span><input type="text"></div>
     <div><span class="center-space">账号</span><input type="text"></div>
     <div><span class="center-space">密码</span><input type="text"></div>
+</div>
+<div class="slider">
+    <div style="height:100px">
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+        <p>hfasdhqwerahasfhas</p>
+    </div>
+</div>
+<div class="demo-hover demo-ul ul-transition t_c">
+    <ul class="fllil">
+        <li>
+            <a href="javascript:;">html</a>
+            <ul>
+                <li><a href="#">div</a></li>
+                <li><a href="#">h1</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="javascript:;">框架</a>
+            <ul>
+                <li><a href="#">vue</a></li>
+                <li><a href="#">react</a></li>
+            </ul>
+        </li>
+    </ul>
+    <div class="clear"></div>
 </div>
 </body>
 </html>
