@@ -475,6 +475,178 @@
             console.log(target.textContent);
     })
 
+    //构建一个深拷贝的函数
+
+    init=((e)=>{
+        console.log(e);
+    })
+
+
+    class EventEmeitter{
+        constructor(){
+            this._events =this._events || new Map();
+            this._maxListeners = this._maxListeners||10;
+        }
+    }
+
+    EventEmeitter.prototype.emit=function(type,...args){
+       let handler;
+       handler = this._events.get(type);
+       if (Array.isArray(handler)) {
+           for (let i = 0, l = handler.length; i < l; i++) {
+               if (args.length > 0) {
+                   handler[i].apply(this, args);
+               } else {
+                   handler[i].call(this);
+               }
+           }
+       }
+       else
+           {
+               if (args.length>0){
+                   handler.apply(this,args);
+               } else{
+                   handler.call(this);
+               }
+
+           }
+       return true;
+    }
+
+    EventEmeitter.prototype.addListener=function(type,fn){
+        const handler=this._events.get(type);
+        if (!handler){
+            this._events.set(type,fn);
+        } else if (handler&& typeof handler === 'function'){
+            this._events.set(type,[handler,fn]);
+        } else{
+            handler.push(fn);
+        }
+    }
+
+    const emitter=new EventEmeitter();
+
+    emitter.addListener('arson',man=>{
+        console.log(`expel ${man}`);
+    });
+    emitter.addListener('arson',man=>{
+        console.log(`expel1 ${man}`);
+    });
+
+    emitter.addListener('arson', man => {
+        console.log(`kill ${man}`);
+    });
+
+
+
+    emitter.emit('arson','low-end');
+
+
+    //28个技巧
+    // 1.生成指定空间内的随机数
+    // (Math.random()*(max-min)+min).toFixed(0);
+    //2.列表聚合
+    // list.reduce((old,ss)=>old*1+ss*1,0)//预防出现字符串，但只能在数组中使用，对象的话只能使用便利
+    //３.使用字典
+
+    function Dictionary() {
+        this.dataStore=[];
+        this.add=add;
+        this.find=find;
+        this.remove=remove;
+        this.count=count;
+        this.showAll=showAll;
+        this.clear=clear;
+
+        function add(key,val) {
+            this.dataStore[key]=val;
+        }
+
+        function find(key){
+            return this.dataStore[key];
+        }
+
+        function remove(key){
+            if (this.dataStore[key]) delete this.dataStore[key];
+            else return "not found"
+        }
+
+        function showAll(){
+            var sortKeys = Object.keys(this.dataStore).sort();
+            for( var key in sortKeys ){
+                console.log( sortKeys[key] + '->' + this.dataStore[sortKeys[key]] );
+            }
+        }
+
+        function count() {
+            // return this.dataStore.length;//这个方法在键为字符串的时候不起作用
+            var n=0;
+            for (let i in this.dataStore){
+                ++n
+            }
+            return n;
+        }
+
+        function clear(){
+            for( var key in this.dataStore ){
+                delete this.dataStore[key];
+            }
+        }
+    }
+
+    var directory=new Dictionary();
+
+    //添加元素
+    directory.add( 'Jack' , '138****5505' );
+    directory.add( 'Alice' , '156****6606');
+    directory.add( 'Tom' , '180****8808');
+
+    console.log("字典开始")
+    directory.showAll();
+
+    console.log("删除操作")
+    directory.remove('Tom');
+    directory.showAll();
+
+
+    //活用pop和ｐｕｓｈ来进行数据的有顺序增删操作
+
+    //用零补全位数
+    console.log(prefixInteger(3677.8))
+
+    function prefixInteger(num,) {
+        return (num / Math.pow(10, 2)).toFixed(2);
+    }
+
+    //url和科技
+    var urls='?wd=蔡徐坤&skill=篮球&year=2019';
+    console.log(location.hostname);
+    console.log(location.port);
+    var searchUrl=new URLSearchParams(urls);//获得参数部分
+    console.log(searchUrl.get('wd'));//获取字段
+    searchUrl.append('sss','234');
+    console.log(searchUrl.get('sss'));
+
+    //Es5－－实现ｍａｐ
+    Array.prototype.myMap =function(fn,context){
+        let arr=Array.prototype.slice.call(this);
+        console.log(fn+"%%%"+arr+"%%%"+context+"%%%%"+this);
+        let mappedArr=[];
+        for (let i=0;i<arr.length;i++){
+            if (!arr.hasOwnProperty(i)) continue;
+            mappedArr.push(fn.call(context,arr[i],i));
+            //更改当前ｔｈｉｓ指向到全新的作用域，ａｒr[i]函数需要的值
+        }
+        return mappedArr;
+    }
+
+    let a=[1,2,3,4];
+    let b=a.myMap(val=>val+1);
+    b.myMap((obj,i)=>{
+        console.log(obj,i);
+    });
+
+    //函数柯里化
 </script>
 
 </html>

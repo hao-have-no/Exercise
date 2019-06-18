@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//继承－拷贝继承（混入继承）-只想使用某个对象中的个别属性，又不能直接修改它
+//也可以使用扩展运算符　var or={...source,age:18}//拷贝指定的对象并且个性化设置
+// 实现：$.extend()编写ｊｑｕｅｒｙ插件
+//实现：Ｏｂｊｅｃｔ．ａｓｓｉｇｎ（）
+//创建绝对空的对象　Ｏｂｊｅｃｔ．ｃｒｅａｔｅ（ｎｕｌｌ）
+    var o1={age:2};
+    var o2=o1;
+    o2.age=18;
+    //此时o1,o2的属性都改变了
+    // －－js
+    var o3={name:"张三",age:123,address:"大师傅"}
+
+    var o4={};
+    //通过循环来从新赋值
+    for (let i in o3){
+        //获取o3的每项的值
+        var value=o3[i];
+        //把o3的key赋值给04
+        o4[i]=value;
+    }
+    o4.name="ga"
+    console.log(o1,o2);
+    console.log(o3,o4);
+    //浅拷贝与深拷贝的区别，是否实现了递归，浅拷贝只拷贝最外围的对象
+
+
+    //继承－原型链继承
+    var parent={age:12,gender:"按多少噶"};
+    //通过创建空对象来赋值继承
+    var student=Object.create(parent);
+    //student._proto_===parent
+
+
+
+    //继承－借用构造函数继承，通过ｃａｌｌ和ａｐｐｌｙ来改变ｔｈｉｓ指向，
+    //从而达到继承的目的
+    //适用场景：两个构造函数之间逻辑关系相似
+
+
+
+
+</script>
+</body>
+</html>

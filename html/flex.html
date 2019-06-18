@@ -102,19 +102,24 @@
         body,td,th {
             font-size: 12px; padding:0; margin:0;
         }
-        .tanchuang_wrap{
+        .dialog_wrap{
             width:100%; height:100%;position:absolute;
             left: 0px;top: 0px;z-index:100; display:none;
         }
         .lightbox{
-            width:100%;z-index:101; height:100%;background-color:#333333;
-            filter:alpha(Opacity=20);
-            -moz-opacity:0.2;opacity: 0.2; position:absolute; top:0px; left:0px;}
-        .tanchuang_neirong{
+            width: 100%;
+            z-index: 101;
+            height: 100%;
+            background-color: #000;
+            filter: alpha(Opacity=20);
+            -moz-opacity: 0.2;
+            opacity: .5;
+            position: absolute;
+            top: 0px;
+            left: 0px;}
+        .dialog_neirong{
             width: 400px;
             height: 200px;
-            border: solid 1px #f7dd8c;
-            background-color: #FFF;
             position: absolute;
             z-index: 105;
             margin-top: -100px;
@@ -122,6 +127,12 @@
             left: 50%;
             top: 50%;
             text-align: center;}
+        .close-dialog{position: fixed;
+            font-size: 20px;
+            top: 5%;
+            right: 10%;
+            cursor: pointer;}
+
     </style>
     <script language="javascript">
         function closeDiv(divId){
@@ -136,19 +147,31 @@
     </script>
 </head>
 <body>
-<div style="width:100%; height:100%;text-align:center;">
-    <div>
-        <button onClick="dffchildren()">133</button>
-    </div>
-    <div class="tanchuang_wrap" id="aaaa">
+    <div class="dialog_wrap" id="imgDislog">
         <div class="lightbox"></div>
-        <div class="tanchuang_neirong">
-            <p><span onClick="closeDiv('aaaa')" style=" cursor:pointer;">关闭</span></p>
-            这里是弹窗内容</div>
+        <div class="dialog_neirong">
+            <p>
+                <span onClick="closeDiv('imgDislog')" class="close-dialog">关闭
+                </span>
+            </p>
+            <img src="./th.jpeg" alt="">
+        </div>
     </div>
-    <span onclick="displayDiv('aaaa')" style="cursor:pointer;">点击我</span>
-    <p>测试通过，兼容IE6.0、IE7.0、火狐3.6、遨游等各大浏览器</p>
-</div>
+
+    <span onclick="displayDiv('imgDislog')" style="cursor:pointer;">点击我</span>
+
+
+    <div class="dialog_wrap" id="imgDislog">
+       <div class="lightbox"></div>
+       <div class="dialog_neirong">
+            <p>
+                <span onclick="closeImgDialog()">关闭
+                </span>
+            </p>
+           <img src="{{urls}}" alt="">
+       </div>
+    </div>
+
 </body>
 </html>
 
@@ -191,6 +214,13 @@
     }
 </style>
 
+
++ '</div>'
+            + '<div class="dialog_wrap" id="imgDislog">'
+            + '<div class="lightbox"></div>'
+            + '<div class="dialog_neirong">'
+            + '<p><span onclick="closeImgDialog()">关闭</span></p>'
+            + '<img src="{{urls}}" alt=""></div>'
 
 
 &lt;!&ndash; 模态框（Modal） &ndash;&gt;

@@ -423,6 +423,49 @@
     console.log(Fa.a);
     console.log(Fa.b);
 
+    //从二维数组中找到指定值的位置并输出
+    function find(readline){
+                var index=readline.indexOf(",");
+                console.log(index);
+                var left=parseInt(readline.substring(0,index));
+                var right=JSON.parse(readline.substring(index+1));
+                console.log(left,right)
+                findTarget(left,right);
+    }
+
+    function findTarget(target,array){
+      let lenX=array.length;
+      let lenY=array[0].length;
+      for (var i=lenX-1,j=0;i>=0&&j<lenY;){
+          if (target <array[i][j]){
+             i--
+          } else  if (target>array[i][j]){
+              j++
+          } else{
+              console.log("@@@@@@");
+              console.log(i,j);
+              return true;
+          }
+        }
+      return false;
+    }
+
+    find("6,[[1,2,3,4,5],[2,4,6,8,10],[3,5,8,10,22],[4,7,9,11,23]]")
+
+
+
+    function sorts(opt){
+        let lines = opt.toString().replace(/\[|\]/g, '').split(',');
+        lines.sort(function (a, b){
+            return a - b;
+        })
+        console.log(lines[0])
+    }
+
+    sorts([6501,6828,6963,7036,7422,7674,8146,8468,8704,8717,9170,9359,9719,9895,9896,9913,9962,154,293,334,492,1323,1479,1539,1727,1870,1943,2383,2392,2996,3282,3812,3903,4465,4605,4665,4772,4828,5142,5437,5448,5668,5706,5725,6300,6335]);
+    console.log(
+    )
+
     //
 
 </script>

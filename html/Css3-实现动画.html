@@ -105,7 +105,7 @@
             transform: scaleY(0);
             overflow: hidden;
         }
-        .ul-transition ul{
+        .demo-ul ul{
             transform-origin: 0 0;
         /*设置旋转点，及动画开始的位置*/
             transition: all .5s;
@@ -117,6 +117,44 @@
             float: none;
             background: #0099ff;
 
+        }
+
+        .heart-shaped{
+            margin-left: 400px;
+            width: 80px;
+            height: 80px;
+            background: #eea236;
+            position: relative;
+            transform: rotate(45deg);
+        }
+        .heart-shaped:before{
+            content:"";
+            width: 40px;
+            height: 80px;
+            background: #eea236;
+            border-radius: 40px 0 0 40px;
+            position: absolute;
+            right: 99%;
+            top: 0;
+        }
+        .heart-shaped:after{
+            content:"";
+            width: 80px;
+            height: 40px;
+            background: #eea236;
+            border-radius: 40px 40px 0 0;
+            position: absolute;
+            left: 0;
+            bottom: 99%;
+        }
+        .taiji{
+            margin: 100px 0 0 200px;
+            width: 140px;
+            height: 70px;
+            border: 2px solid #8bc34a;
+            border-bottom:70px solid #8bc34a;
+            border-radius: 100%;
+            position: relative;
         }
     </style>
 </head>
@@ -164,7 +202,7 @@
         <p>hfasdhqwerahasfhas</p>
     </div>
 </div>
-<div class="demo-hover demo-ul ul-transition t_c">
+<div class="demo-ul ul-transition">
     <ul class="fllil">
         <li>
             <a href="javascript:;">html</a>
@@ -181,7 +219,8 @@
             </ul>
         </li>
     </ul>
-    <div class="clear"></div>
 </div>
+<div class="heart-shaped"></div>
+<div class="taiji"></div>
 </body>
 </html>

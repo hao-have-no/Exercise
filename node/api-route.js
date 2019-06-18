@@ -150,4 +150,54 @@ router.get('/prescription/search', function(req, res, next) {
     res.json(data)
 });
 
+/**
+ * 获取慢病数据
+ * @type {Router|router}
+ */
+router.get('/disease/list', function(req, res, next) {
+    var data = mockjs.mock({
+        "data":{
+            "id":59,
+            "name":null,
+            "label":"时间轴_历次就诊信息",
+            "type":null,
+            "limits":null,
+            "result":[
+                {
+                    "pati_id":"0020404703",
+                    "xl_patient_id":"501_0020404703",
+                    "xl_medical_id":"501_2_1",
+                    "medical_date":"2017-06-29 15:34:00",
+                    "medical_type_id":"3",
+                    "title":"住院_呼吸科",
+                    "note":"睡眠呼吸暂停低通气综合征"
+                },
+                {
+                    "pati_id":"0020404703",
+                    "xl_patient_id":"501_0020404703",
+                    "xl_medical_id":"501_1_1",
+                    "medical_date":"2017-06-29 00:00:00",
+                    "medical_type_id":"2",
+                    "title":"门诊_呼吸科",
+                    "note":"睡眠呼吸暂停综合征"
+                },
+                {
+                    "pati_id":"0020404703",
+                    "xl_patient_id":"501_0020402312",
+                    "xl_medical_id":"501_2_3",
+                    "medical_date":"2019-06-19 00:00:00",
+                    "medical_type_id":"4",
+                    "title":"慢病_呼吸科",
+                    "note":"睡眠测试综合征"
+                }
+            ],
+            "status":"ok"
+        },
+        "status":"ok",
+        "description":"数据请求成功"
+    });
+
+    res.json(data)
+});
+
 module.exports =  router

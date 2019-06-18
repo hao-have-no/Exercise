@@ -9,50 +9,50 @@
 </body>
 <script>
     //快速提取
-    var jsonData={
-        id:123,
-        status:"OK",
-        data:[{id:1,reason:"12412-423"},{id:2,reason:"12412-423"},{id:3,reason:"12412-423"},{id:4,reason:"12412-423"}]
-    }
-    var map=new Map();
-    map.set('first','123');
-    map.set('sec','345');
-
-    console.log(jsonData,map)
-
-    //解构赋值－拿到自己想要的值
-    let {id,data: number } = jsonData;
-    console.log(id,number);
+    // var jsonData={
+    //     id:123,
+    //     status:"OK",
+    //     data:[{id:1,reason:"12412-423"},{id:2,reason:"12412-423"},{id:3,reason:"12412-423"},{id:4,reason:"12412-423"}]
+    // }
+    // var map=new Map();
+    // map.set('first','123');
+    // map.set('sec','345');
+    //
+    // console.log(jsonData,map)
+    //
+    // //解构赋值－拿到自己想要的值
+    // let {id,data: number } = jsonData;
+    // console.log(id,number);
 
 
     //便利ｍａｐ解构
-    for (let [key,value] of map){
-        console.log(key,value);
-    }
+    // for (let [key,value] of map){
+    //     console.log(key,value);
+    // }
+    //
+    // for (let i of number){
+    //     console.log(i.id,i.reason);
+    // }
+    // for (let k in number){
+    //     console.log(number[k]);
+    // }
+    //
+    // //anguments和rests
+    // var arr=[1,24,5,26,12,14,16]
 
-    for (let i of number){
-        console.log(i.id,i.reason);
-    }
-    for (let k in number){
-        console.log(number[k]);
-    }
-
-    //anguments和rests
-    var arr=[1,24,5,26,12,14,16]
-
-    function sortNumber() {
-        return Array.prototype.slice.call(arguments).sort();
+    // function sortNumber() {
+        // return Array.prototype.slice.call(arguments).sort();
         //能将具有length属性的对象转成数组,js的方法都是基于原型的，所以需要Ａｒｒａｙ．ｐｒｏｔｏｔｙｐｅ进行使用
-    }
+    // }
 
-    const sortNumbers=(...numbers)=>numbers.sort();
+    // const sortNumbers=(...numbers)=>numbers.sort();
+    //
+    // console.log(sortNumbers(arr));
+    // console.log(sortNumber(arr));
 
-    console.log(sortNumbers(arr));
-    console.log(sortNumber(arr));
+    // function add(...val){
 
-    function add(...val){
-
-        console.log(val)
+        // console.log(val)
         // let sum=0;
         //
         // for (k in val) {
@@ -63,21 +63,66 @@
         // }
         //
         // return sum;
-    }
-   add(arr,jsonData,map)//可以将所有值传入进行处理
+    // }
+   // add(arr,jsonData,map)//可以将所有值传入进行处理
 
 
 
     //箭头函数
-    const headAndTail = (head, ...tail) => [head, tail];
-
-    console.log(headAndTail(1, 2, 3, 4, 5))
+    // const headAndTail = (head, ...tail) => [head, tail];
+    //
+    // console.log(headAndTail(1, 2, 3, 4, 5))
 
     // const headAndTail = (...val) =>{});
     //
     // console.log(headAndTail({"o":1},{ "w":2}, {"x":3}, {"s":4});
 
 
+    const fruitBasket={
+        apple:27,
+        grape:0,
+        pear:14
+    }
+
+    const getNumFruit=fruit=>{
+        return fruitBasket[fruit];
+    };
+
+    const numberApple=getNumFruit('apple');
+    console.log("pingguo",numberApple);
+
+    const sleep=ms=>{
+        return new Promise(resolve => setTimeout(resolve,ms))
+        //声明ｐｒｏｍｉｓｅ函数，这样进行链式的回调
+    }
+
+    //模拟在线获取方法
+    const getNumberFruit=fruit=>{
+        return sleep(1000).then(v=>fruitBasket[fruit])
+        //其中的ｖ相当于别名，用来暂存函数执行后的结果
+    }
+
+    getNumberFruit('apple').then(num=>console.log("模拟",num));
+
+    //异步获取
+    const controller=async _=>{
+        console.log("Start");
+
+    const numApples=await getNumberFruit('apple');
+    //一般来说，await是和promise做对称，用于接受ｐｅｏｍｉｓｅ后在执行其他业务操作的场景下
+        // await会创建任微任务，而这个微任务会在当前事件执行完毕后再执行，另外ａｗａｉｔ会阻塞当前任务队列，直到执行完毕才会往下进行
+    console.log('apple',numApples);
+
+    const numGrapes=await getNumberFruit('grape');
+    getNumberFruit('grape').then(num=>console.log('形',num));
+    console.log('grape',numGrapes);
+
+    const numPears=await getNumberFruit('pear');
+    console.log('pear',numPears);
+
+    console.log("END");
+    }
+    controller();
 
 
 
