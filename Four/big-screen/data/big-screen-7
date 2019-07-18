@@ -1,0 +1,64 @@
+{
+  "data": {
+    "id": 7,
+    "name": null,
+    "label": "慢病排行",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "illn_name": "高血压",
+        "con": 163265,
+        "ratio": "65.19%"
+      },
+      {
+        "illn_name": "糖尿病",
+        "con": 49348,
+        "ratio": "19.70%"
+      },
+      {
+        "illn_name": "恶性肿瘤",
+        "con": 22117,
+        "ratio": "8.83%"
+      },
+      {
+        "illn_name": "冠状动脉粥样硬化性心脏病",
+        "con": 4154,
+        "ratio": "1.66%"
+      },
+      {
+        "illn_name": "结核",
+        "con": 3734,
+        "ratio": "1.49%"
+      },
+      {
+        "illn_name": "支气管哮喘",
+        "con": 2576,
+        "ratio": "1.03%"
+      },
+      {
+        "illn_name": "肾功能不全",
+        "con": 1522,
+        "ratio": "0.61%"
+      },
+      {
+        "illn_name": "类风湿性关节炎",
+        "con": 1516,
+        "ratio": "0.61%"
+      },
+      {
+        "illn_name": "肝硬化",
+        "con": 1317,
+        "ratio": "0.53%"
+      },
+      {
+        "illn_name": "系统性红斑狼疮",
+        "con": 893,
+        "ratio": "0.36%"
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

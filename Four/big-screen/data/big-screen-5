@@ -1,0 +1,118 @@
+{
+  "data": {
+    "id": 5,
+    "name": null,
+    "label": "地图",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "area_name": "永嘉县",
+        "jg_con": 322,
+        "mz_con": 110661,
+        "zy_con": 1184,
+        "tj_con": 16270,
+        "total_con": 128115
+      },
+      {
+        "area_name": "鹿城区",
+        "jg_con": 73,
+        "mz_con": 4070,
+        "zy_con": 1786,
+        "tj_con": 4923,
+        "total_con": 10779
+      },
+      {
+        "area_name": "洞头区",
+        "jg_con": 49,
+        "mz_con": 41639,
+        "zy_con": 4309,
+        "tj_con": 0,
+        "total_con": 45948
+      },
+      {
+        "area_name": "龙湾区",
+        "jg_con": 60,
+        "mz_con": 0,
+        "zy_con": 272,
+        "tj_con": 37,
+        "total_con": 309
+      },
+      {
+        "area_name": "瓯海区",
+        "jg_con": 54,
+        "mz_con": 39631,
+        "zy_con": 913,
+        "tj_con": 10810,
+        "total_con": 51354
+      },
+      {
+        "area_name": "瑞安市",
+        "jg_con": 29,
+        "mz_con": 76877,
+        "zy_con": 5174,
+        "tj_con": 0,
+        "total_con": 82051
+      },
+      {
+        "area_name": "市辖区",
+        "jg_con": 10,
+        "mz_con": 676365,
+        "zy_con": 15638,
+        "tj_con": 19329,
+        "total_con": 711332
+      },
+      {
+        "area_name": "平阳县",
+        "jg_con": 92,
+        "mz_con": 115532,
+        "zy_con": 4545,
+        "tj_con": 2018,
+        "total_con": 122095
+      },
+      {
+        "area_name": "文成县",
+        "jg_con": 87,
+        "mz_con": 43165,
+        "zy_con": 958,
+        "tj_con": 1834,
+        "total_con": 45957
+      },
+      {
+        "area_name": "经开区",
+        "jg_con": 1,
+        "mz_con": 0,
+        "zy_con": 0,
+        "tj_con": 0,
+        "total_con": 0
+      },
+      {
+        "area_name": "苍南县",
+        "jg_con": 197,
+        "mz_con": 385506,
+        "zy_con": 3566,
+        "tj_con": 0,
+        "total_con": 389072
+      },
+      {
+        "area_name": "泰顺县",
+        "jg_con": 81,
+        "mz_con": 112741,
+        "zy_con": 1819,
+        "tj_con": 0,
+        "total_con": 114560
+      },
+      {
+        "area_name": "乐清市",
+        "jg_con": 108,
+        "mz_con": 149635,
+        "zy_con": 6472,
+        "tj_con": 783,
+        "total_con": 156890
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

@@ -1,0 +1,34 @@
+{
+  "data": {
+    "id": 9,
+    "name": null,
+    "label": "医疗机构分布",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "total": 238,
+        "level": "社区医院，卫生院"
+      },
+      {
+        "total": 13,
+        "level": "二级甲"
+      },
+      {
+        "total": 8,
+        "level": "三级甲"
+      },
+      {
+        "total": 8,
+        "level": "三级乙"
+      },
+      {
+        "total": 8,
+        "level": "二级乙"
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

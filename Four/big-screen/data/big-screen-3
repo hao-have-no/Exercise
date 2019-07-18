@@ -1,0 +1,26 @@
+{
+  "data": {
+    "id": 3,
+    "name": null,
+    "label": "性别",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "xingbiemc": "男",
+        "con": 2911792
+      },
+      {
+        "xingbiemc": "女",
+        "con": 2725092
+      },
+      {
+        "xingbiemc": "未知",
+        "con": 224
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

@@ -1,0 +1,38 @@
+{
+  "data": {
+    "id": 4,
+    "name": null,
+    "label": "年龄",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "con": 13859,
+        "type": "1-3岁"
+      },
+      {
+        "con": 193733,
+        "type": "3-10岁"
+      },
+      {
+        "con": 406103,
+        "type": "10-18岁"
+      },
+      {
+        "con": 2347608,
+        "type": "18-45岁"
+      },
+      {
+        "con": 1332933,
+        "type": "45-60岁"
+      },
+      {
+        "con": 1314008,
+        "type": "60岁以上"
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

@@ -1,0 +1,35 @@
+.bg {
+    border: 1px solid;
+    border-top-color: rgba(58, 239, 245, .3);
+    border-left-color: rgba(0, 235, 243, 0.3);
+    border-bottom-color: rgba(58, 239, 245, .3);
+    border-right-color: rgba(0, 235, 243, 0.3);
+    box-shadow: inset 0px 0px 10px 0px rgba(255,255,255,.25);
+    position: relative;
+}
+.bg-title {
+    width: 30%;
+    position: absolute;
+    left: 50%;
+    top:1px;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 2;
+    color: rgb(58,239,245);
+    font-size: 14px;
+}
+.bg-title::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    width: 100%;
+    left: 0;
+    margin: 0 auto;
+    height:22px;
+    background: linear-gradient(to top, rgba(58,239,245, .4), #114164);
+    transform:perspective(0.5em) rotateX(-9deg);
+    z-index: -1;
+}
+.padding-title {
+    padding-top: 24px;
+}

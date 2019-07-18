@@ -1,0 +1,21 @@
+{
+  "data": {
+    "id": 1,
+    "name": null,
+    "label": "KPI",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "mz": 2134909,
+        "zy": 47019,
+        "tj": 85395,
+        "jg": 1164,
+        "cj": "0"
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}

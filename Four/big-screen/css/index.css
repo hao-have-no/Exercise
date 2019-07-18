@@ -1,0 +1,127 @@
+body {    
+    background: url('../images/background.png') center center / 100% 100% no-repeat;
+    font-size: 16px;
+}
+
+/* 
+ * header 部分
+*/
+
+header {
+    width: 100%;
+    height: var(--header-height);
+    background: url('../images/head.png') center center / 100% 100% no-repeat;
+    padding: 0 var(--padding);
+    box-sizing: border-box;
+}
+header>div.logo {
+    left: 11vw;
+    top: 10px;
+}
+header>div.logo img {
+    height: 36px;
+}
+header>div.title {
+    height: 100%;
+    line-height: var(--header-height);
+    font-size: 36px;
+}
+header>div.time {
+    right: 5vw;
+    top: 15px;
+    font-size: 18px;
+}
+
+/* 
+ * 统计数字 部分
+*/
+section.statistics-num ul li {
+    margin: 0 var(--margin);
+    padding-bottom: var(--padding-sm);
+}
+section.statistics-num ul li p:nth-child(2) {
+    font-size: 12px;
+}
+/* 
+ * 中间三栏 部分
+*/
+section.statistics-center ul.right-table-header li {
+    border: 1px solid rgba(154, 154, 154, 0.3);
+    border-right: none;
+    line-height: 1.5;
+}
+section.statistics-center>ul {
+    height: 100%;
+}
+section.statistics-center .hospital li ul li:first-child {
+    text-align: left;
+    padding-left: var(--padding-sm)
+}
+section.statistics-center .hospital {
+    transition: all .5s;
+    overflow: hidden;
+}
+#statistics-center-swiper {
+    /* height: 276px; */
+    overflow: hidden;
+}
+#statistics-center-swiper-right {
+    overflow: hidden;
+}
+#statistics-center-swiper>ul {
+    height: 100%;
+}
+section.statistics-center ul.right-table-header li:last-child {
+    border-right: 1px solid rgba(154, 154, 154, 0.3);
+}
+section.statistics-center .right-ul li {
+    font-size: 14px;
+}
+section.statistics-center .right-ul li.active {
+    background: #39a7bb;
+}
+section.statistics-center .table-div {
+    font-size: 15px;
+    width: 100%;
+    overflow: hidden;
+}
+section.statistics-center .table-div .diseaseName {
+    text-align: left;
+}
+section.statistics-center .table-div .diseaseNum {
+    text-align: right;
+}
+.diseaseIndex {
+    line-height: 1.5;
+}
+section.statistics-center .table-div .progress {
+    border: 1px solid #d5a043;
+    border-radius: 20px;
+    text-align: right;
+    position: relative;
+}
+section.statistics-center .table-div .progress div {
+    background: #d5a043;
+    width: 50%;
+    height: 100%;
+    border-radius: 20px;
+    height: 100%;
+    color: #fff;
+    vertical-align: middle;
+}section.statistics-center .table-div .progress span {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+#all-li>ul>li {
+    transition: all .3s;
+}
+.map-li {
+    position: relative;
+}
+.map-li .map-title {
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}

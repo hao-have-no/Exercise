@@ -1,0 +1,194 @@
+{
+  "data": {
+    "id": 6,
+    "name": null,
+    "label": "疾病排行",
+    "type": null,
+    "limits": null,
+    "result": [
+      {
+        "zhuzhendmc": "高血压病",
+        "mz": 108281,
+        "type": 0,
+        "ratio": "21.68%"
+      },
+      {
+        "zhuzhendmc": "急性上呼吸道感染",
+        "mz": 90141,
+        "type": 0,
+        "ratio": "18.05%"
+      },
+      {
+        "zhuzhendmc": "支气管炎",
+        "mz": 65636,
+        "type": 0,
+        "ratio": "13.14%"
+      },
+      {
+        "zhuzhendmc": "呼吸道感染",
+        "mz": 40935,
+        "type": 0,
+        "ratio": "8.19%"
+      },
+      {
+        "zhuzhendmc": "上呼吸道疾病",
+        "mz": 34750,
+        "type": 0,
+        "ratio": "6.96%"
+      },
+      {
+        "zhuzhendmc": "高血压1级",
+        "mz": 31106,
+        "type": 0,
+        "ratio": "6.23%"
+      },
+      {
+        "zhuzhendmc": "慢性胃炎",
+        "mz": 30390,
+        "type": 0,
+        "ratio": "6.08%"
+      },
+      {
+        "zhuzhendmc": "胃炎",
+        "mz": 29750,
+        "type": 0,
+        "ratio": "5.96%"
+      },
+      {
+        "zhuzhendmc": "糖尿病",
+        "mz": 29493,
+        "type": 0,
+        "ratio": "5.90%"
+      },
+      {
+        "zhuzhendmc": "妊娠状态",
+        "mz": 26580,
+        "type": 0,
+        "ratio": "5.32%"
+      },
+      {
+        "zhuzhendmc": "高血压病",
+        "mz": 108169,
+        "type": 1,
+        "ratio": "22.22%"
+      },
+      {
+        "zhuzhendmc": "急性上呼吸道感染",
+        "mz": 89999,
+        "type": 1,
+        "ratio": "18.49%"
+      },
+      {
+        "zhuzhendmc": "支气管炎",
+        "mz": 65601,
+        "type": 1,
+        "ratio": "13.48%"
+      },
+      {
+        "zhuzhendmc": "呼吸道感染",
+        "mz": 40934,
+        "type": 1,
+        "ratio": "8.41%"
+      },
+      {
+        "zhuzhendmc": "上呼吸道疾病",
+        "mz": 34750,
+        "type": 1,
+        "ratio": "7.14%"
+      },
+      {
+        "zhuzhendmc": "高血压1级",
+        "mz": 31105,
+        "type": 1,
+        "ratio": "6.39%"
+      },
+      {
+        "zhuzhendmc": "慢性胃炎",
+        "mz": 30348,
+        "type": 1,
+        "ratio": "6.24%"
+      },
+      {
+        "zhuzhendmc": "胃炎",
+        "mz": 29744,
+        "type": 1,
+        "ratio": "6.11%"
+      },
+      {
+        "zhuzhendmc": "糖尿病",
+        "mz": 29489,
+        "type": 1,
+        "ratio": "6.06%"
+      },
+      {
+        "zhuzhendmc": "妊娠状态",
+        "mz": 26580,
+        "type": 1,
+        "ratio": "5.46%"
+      },
+      {
+        "zhuzhendmc": "支气管肺炎",
+        "mz": 410,
+        "type": 2,
+        "ratio": "20.73%"
+      },
+      {
+        "zhuzhendmc": "社区获得性肺炎，非重症",
+        "mz": 246,
+        "type": 2,
+        "ratio": "12.44%"
+      },
+      {
+        "zhuzhendmc": "手术后恶性肿瘤化学治疗",
+        "mz": 205,
+        "type": 2,
+        "ratio": "10.36%"
+      },
+      {
+        "zhuzhendmc": "慢性阻塞性肺病伴急性加重",
+        "mz": 185,
+        "type": 2,
+        "ratio": "9.35%"
+      },
+      {
+        "zhuzhendmc": "冠状动脉粥样硬化性心脏病",
+        "mz": 177,
+        "type": 2,
+        "ratio": "8.95%"
+      },
+      {
+        "zhuzhendmc": "肺部感染",
+        "mz": 160,
+        "type": 2,
+        "ratio": "8.09%"
+      },
+      {
+        "zhuzhendmc": "妊娠合并子宫瘢痕",
+        "mz": 159,
+        "type": 2,
+        "ratio": "8.04%"
+      },
+      {
+        "zhuzhendmc": "子宫内膜息肉",
+        "mz": 149,
+        "type": 2,
+        "ratio": "7.53%"
+      },
+      {
+        "zhuzhendmc": "乳腺良性肿瘤",
+        "mz": 145,
+        "type": 2,
+        "ratio": "7.33%"
+      },
+      {
+        "zhuzhendmc": "急性上呼吸道感染",
+        "mz": 142,
+        "type": 2,
+        "ratio": "7.18%"
+      }
+    ],
+    "status": "ok"
+  },
+  "status": "ok",
+  "description": "数据请求成功"
+}
