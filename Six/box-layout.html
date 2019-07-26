@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>相对完整的垂直居中布局</title>
+    <style>
+        html{
+            font-size: 14px;
+        }
+        .red {
+            color: red;
+            width:5rem;
+            height: 5rem;
+        }
+
+        .blue {
+            color: blue
+        }
+    </style>
+</head>
+<body>
+<div class="red blue">123</div>
+<div class="blue red">123</div>
+<!--居中元素定宽高适用-->
+
+<!--absolute + 负margin-->
+<!--absolute + margin auto-->
+<!--absolute + calc-->
+<!--absolute + calc：依赖浏览器兼容性，并且需要知道子元素宽高-->
+<!--{-->
+<!--position: absolute;;-->
+<!--top: calc(50% - 50px);-->
+<!--left: calc(50% - 50px);-->
+<!--}-->
+
+<!--居中元素不定宽高-->
+
+<!--absolute + transform-->
+<!--{-->
+<!--position: absolute;-->
+<!--top: 50%;-->
+<!--left: 50%;-->
+<!--transform: translate(-50%, -50%);-->
+<!--}-->
+
+<!--lineheight-->
+<!--{-->
+<!--font-size: 16px;-->
+<!--display: inline-block;-->
+<!--vertical-align: middle;-->
+<!--line-height: initial;-->
+<!--text-align: left; /* 修正文字 */-->
+<!--}-->
+
+
+<!--table-->
+<!--css-table-->
+<!--css-table在ｔａｂｌｅ的基础上减少了代码的冗余-->
+<!--.wp {-->
+<!--display: table-cell;-->
+<!--text-align: center;-->
+<!--vertical-align: middle;-->
+<!--}-->
+<!--.box {-->
+<!--display: inline-block;-->
+<!--}-->
+
+<!--flex-->
+<!--<div class="wp">-->
+    <!--<div class="box">123123</div>-->
+<!--</div>-->
+<!--.wp {-->
+<!--display: flex;-->
+<!--justify-content: center;-->
+<!--align-items: center;-->
+<!--}-->
+
+<!--grid-->
+</body>
+<!--<script>-->
+    <!--window.onload=function () {-->
+        <!--document.documentElement.style.fontSize=document.documentElement.clientWidth / 750 + 'px';-->
+    <!--}-->
+<!--</script>-->
+</html>

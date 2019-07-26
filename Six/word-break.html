@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>版权声明，彻底搞懂word-break、word-wrap、white-space</title>
+    <style>
+        .box {
+            border: 1px solid grey;
+            width: 140px;
+            float: left;
+            margin-right: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    Hi&nbsp;&nbsp;,
+    This   is a incomprehensibilities long word.
+    </br>
+    你好&nbsp;&nbsp;，
+    这   是一个不可思议的长单词
+</div>
+
+
+<p>彻底搞懂word-break、word-wrap、white-space</p>
+<textarea>彻底搞懂word-break、word-wrap、white-space</textarea>
+
+<script type="text/javascript">
+    var ua = navigator.userAgent.toLowerCase();
+    if (window.ActiveXObject) {  /* 兼容IE */
+        document.body.oncopy = function () {
+            event.returnValue = false;
+            var selectedText = document.selection.createRange().text;
+            var pageInfo = '<br>---------------------<br>著作权归作者所有。<br>'
+                + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>'
+                + '作者：Bravo Yeung<br> 源地址：' + document.location.href
+                + '<br>来源：博客园cnblogs<br>© 版权声明：本文为博主原创文章，转载请附上博文链接！';
+            clipboardData.setData('Text', selectedText.replace(/\n/g, '<br>') + pageInfo);
+        }
+    }
+    else {
+        function addCopyRight() {
+            var body_element = document.getElementsByTagName('body')[0];
+            var selection = window.getSelection();
+            var pageInfo = '<br>---------------------<br>著作权归作者所有。<br>'
+                + '商业转载请联系作者获得授权，非商业转载请注明出处。<br>'
+                + '作者：Bravo Yeung<br> 源地址：' + document.location.href
+                + '<br>来源：博客园cnblogs<br>© 版权声明：本文为博主原创文章，转载请附上博文链接！';
+            var copyText = selection.toString().replace(/\n/g, '<br>') + pageInfo;  // Solve the line breaks conversion issue
+            var newDiv = document.createElement('div');
+            newDiv.style.position = 'absolute';
+            newDiv.style.left = '-99999px';
+            body_element.appendChild(newDiv);
+            newDiv.innerHTML = copyText;
+            selection.selectAllChildren(newDiv);
+            window.setTimeout(function () {
+                body_element.removeChild(newDiv);
+            }, 0);
+        }
+        document.oncopy = addCopyRight;
+    }
+</script>
+</body>
+</html>

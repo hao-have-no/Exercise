@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   // 测试ｂｉｎｄ--bind返回的是一个函数，可以传参（传参可以在定义时传输一部分，在返回生成后在传入一部分），也可以ｎｅｗ创造对象
+
+    // 模拟前两个特性
+    Function.prototype.myBind=function (content) {
+        var self = this;
+        var args=Array.prototype.slice.call(arguments,1);//针对在声明时传入的参数
+        return function () {
+            //此时ａｒｇｕｍｅｎｔｓ是ｂｉｎｄ返回的函数传入的值
+            var bindArgs = Array.prototype.slice.call(arguments);//针对在返回函数时传入的对象
+            self.apply(content,args.concat(bindArgs));
+        }
+    };
+
+    //针对整个ｂｉｎｇ方法的特性
+    Array.prototype.newBind=function (context) {
+     //确保调用ｂｉｎｇ的是函数
+        if (typeof this !== 'function'){
+            throw new Error("Function.prototype.bind - what is trying to be bound is not callable");
+        }
+
+        var self=this;
+        var args=Array.prototype.slice.call(context,1);
+        var fnop=function () {}
+
+        var bound=function () {
+            self.bind(this instanceof self ? this : context,args.concat(Array.prototype.slice.call(arguments)));
+        }
+        fnop().prototype=this.prototype;
+        // 通过ｆｎｏｐ函数做中转，避免影响函数的ｐｒｏｔｏｔｙｐｅ
+        bound.prototype=new fnop();
+
+        return fnop();
+
+    }
+
+</script>
+</body>
+</html>
