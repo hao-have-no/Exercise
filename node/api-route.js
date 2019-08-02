@@ -9,6 +9,7 @@ var db=require('./bean/sql-basic')
 var router = express.Router()
 
 
+
 //登录接口,更改session状态
 router.get('/login', function (req, res,next) {
     var myDate = new Date();
@@ -32,6 +33,20 @@ router.get('/login', function (req, res,next) {
     })
 })
 
+
+//纪录每个人在系统里的浏览记录
+router.get('/pageInfo',function(req,res,next){
+    console.log(req.query,req.body);
+    const data=mockjs.mock({
+        "data":{
+            "message":"125"
+        },
+        "status":200
+    });
+    res.json(data);
+});
+
+
 //注销接口,更改session状态
 router.get('/logout', function (req, res,next) {
     var sql="update user set ts ='0' where personId='123'";
@@ -46,7 +61,7 @@ router.get('/logout', function (req, res,next) {
                 message:result
             },
             "status":200
-        })
+        });
 
         res.json(data)
     })
@@ -199,5 +214,9 @@ router.get('/disease/list', function(req, res, next) {
 
     res.json(data)
 });
+
+router.get('/disease/list',function () {
+    
+})
 
 module.exports =  router
