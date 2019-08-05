@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>作用域链</title>
+</head>
+<body>
+
+</body>
+<script>
+    /**
+     * 函数的作用域在于在哪声明，在哪调用（词法作用域：在函数分离的情况，要看函数在哪编写请看第一题）
+     */
+
+    // 1：词法作用域
+    function fn(callback) {
+        var age=12;
+        callback();
+    }
+    fn(function () {
+        console.log(age);
+    })
+    //寻找当前作用域没有，去找上级作用域
+    //由于函数方法并不是在fn的函数内声明，处于全局作用域中声明
+    //所以上级作用域为全局作用域
+
+    // 2.
+     var name="张三";
+    function f1() {
+        var name="aavx";
+        console.log("例子1",name);
+    }
+    f1();
+
+    //3
+    var name1="张三";
+    function f2(){
+        console.log("例子3",name1);
+        var name1="ffas";
+    }
+
+    //4
+    var name2="张三";
+    function f3(){
+        return function () {
+            console.log("例子4",name2)
+        }
+        var name2="dzfaf";
+    }
+    var fn4=f3();
+    fn4();
+
+    //5
+    var name5="张三";
+    function f5() {
+        return {
+            say:function () {
+                console.log(name);
+                var name="abc";
+            }
+        }
+    }
+    var fn6=f5();
+    fn6.say();
+</script>
+</html>
