@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>html导出生成word文档</title>
+</head>
+
+<body>
+<div class="word">
+    <h1>我们的梦想来自内心深处的孤独</h1>>
+    <p align="center" style="font-size:20pt;font-weight:bold;">JS导出Word文档</p>
+    <div>我们来自同一个世界</div>
+</div>
+<input type="button" value="导出word">
+<script type="text/javascript" src="jquery-3.3.1.js"></script>
+<script type="text/javascript" src="FileSaver.js"></script>
+<script type="text/javascript" src="jquery.wordexport.js"></script>
+<script>
+    $(function () {
+        $("input[type='button']").click(function (event) {
+            $(".word").wordExport('word文档');
+        });
+    })
+</script>
+</body>
+</html>
