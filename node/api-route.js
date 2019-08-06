@@ -36,15 +36,35 @@ router.get('/login', function (req, res,next) {
 
 //纪录每个人在系统里的浏览记录
 router.get('/pageInfo',function(req,res,next){
-    console.log(req.query,req.body);
-    const data=mockjs.mock({
-        "data":{
-            "message":"125"
-        },
-        "status":200
+    var sql=
+    "insert into "+"`page-info`"+`(user_id,page,page_name,stay_time) values ("${req.query.userId}","${req.query.page}","${req.query.pageName}","${req.query.stayTime}")`;
+    db.query(sql,function (err,rows,field) {
+       if (err) {
+           console.log(err);
+       }
+        const data=mockjs.mock({
+            "data":{
+                "data":"ok"
+            },
+            "status":200
+        });
+        res.json(data);
     });
-    res.json(data);
 });
+
+router.get('/pageView',function (req,res,next) {
+    var sql = "select page,page_name,round(sum(stay_time),2) sum,count(*) count from `page-info` group by page,page_name order by count(*)";
+    db.query(sql,function (err,rows,field) {
+        if (err){
+            console.log(err);
+        }
+        const data=mockjs.mock({
+            "data":rows,
+            status:200
+        });
+        res.json(data);
+    })
+})
 
 
 //注销接口,更改session状态
@@ -87,6 +107,7 @@ router.get('/me',function (req,res,next) {
 
         const data=mockjs.mock({
             "data":{
+
                 message:rows
             },
             "status":200
