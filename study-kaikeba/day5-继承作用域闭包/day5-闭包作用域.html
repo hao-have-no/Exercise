@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function fn(){
+        var a=5;
+        return function () {
+            a++;
+            console.log(a);
+        }
+    }
+    var f1=fn();
+    f1();//6
+    f1();//7
+    f1();//8
+
+    //一般情况下，变量使用完毕后会被垃圾回收机制回收
+    //但是由于执行fn函数后，返回的是匿名函数
+    //js引擎发现匿名函数需要该变量，所以将变量放到匿名函数可以访问到的地方且只能被匿名函数使用
+
+
+
+
+
+
+</script>
+</body>
+</html>

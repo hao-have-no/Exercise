@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 原型链：是一套以—proto—连接所有对象形成相互关系的家族图谱；
+    // 所有对象最终继承自object.prototype(所有对象的根对象)
+    // eg:
+    var arr=[1,2,3];
+    arr._proto_=Array.prototype;
+    arr._proto_._proto_//找到了根对象
+
+</script>
+
+</body>
+</html>
