@@ -1,0 +1,110 @@
+
+.container-fluid {
+  padding: 20px;
+}
+
+/**
+人体图像
+ */
+.humanBody{
+  width: 100%;
+  position: relative;
+  font-size: 16px;
+}
+
+.humanBody .humanBody-title{
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: auto;
+  border-radius: 5px 5px 0 0;
+  background: url("../styles/images/healthy/man-dynamic-part.png") repeat-y 0 67px;
+  background-size:100% auto ;
+}
+.humanBody .humanBody-title .row{
+  margin: 0;
+  padding: 0 10px;
+}
+.humanBody .humanBody-title .row img{
+  padding: 0;
+  margin-top: 2px;
+  position: relative;
+  z-index: 6;
+}
+
+.humanBody .lession-group {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  font-size: 16px;
+}
+
+.humanBody .lession-group img {
+  margin-top: -1px;
+  border-radius: 0 0 5px 5px;
+  width: 100%;
+  height: auto;
+}
+
+.humanBody .lession-group div {
+  position: absolute;
+  width: 3em;
+  height: 3em;
+  background-color: #fff;
+  border-radius: 50%;
+}
+
+.humanBody .lession-group div:nth-child(2){
+  top: 2.7em;
+  left: 1.8em;
+}
+.humanBody .lession-group div:nth-child(3){
+  top: 6.5em;
+  left: 1.8em;
+}
+.humanBody .lession-group div:nth-child(4){
+  top: 10.3em;
+  left: 1.8em;
+}
+.humanBody .lession-group div:nth-child(5){
+  top: 14.1em;
+  left: 1.8em;
+}
+.humanBody .lession-group div:nth-child(6){
+  top: 17.8em;
+  left: 1.8em;
+}
+.humanBody .lession-group div:nth-child(7){
+  top: 2.7em;
+  right: 1.9em;
+}
+.humanBody .lession-group div:nth-child(8){
+  top: 6.5em;
+  right: 1.9em;
+}
+.humanBody .lession-group div:nth-child(9){
+  top: 10.3em;
+  right: 1.9em;
+}
+.humanBody .lession-group div:nth-child(10){
+  top: 14.1em;
+  right: 1.9em;
+}
+.humanBody .lession-group div:nth-child(11){
+  top: 17.8em;
+  right: 1.9em;
+}
+.humanBody .lession-group div img{
+  position:absolute;
+  width: 80%;
+  height: 80%;
+  top:50%;
+  left: 50%;
+  z-index: 0;
+  transform: translate(-50%,-50%);
+}
+.lession-disease{
+  border: 4px solid red;
+  opacity: 1;
+  cursor: pointer;
+}
