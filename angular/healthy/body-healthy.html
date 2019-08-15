@@ -1,0 +1,31 @@
+<div class="container-fluid healthy-content">
+    <div class="row">
+        <div class="col-xs-12 com-sm-6 col-md-4">
+            <!--人体图-->
+            <div class="humanBody">
+                <div class="humanBody-title">
+                    <div class="row">
+                        <img
+                            ng-repeat="item in specitalDiseaseMapping track by $index"
+                            class="col-xs-3 col-sm-3"
+                            src="{{item.url}}"
+                            alt="{{item.alt}}"
+                            name="{{item.name}}"
+                            id="{{item.id}}"
+                        >
+                    </div>
+                </div>
+                <div class="lession-group">
+                    <!--身体主图-->
+                    <img src="/styles/images/healthy/man-portrait.jpg"/>
+                    <div ng-repeat="item in bodyMapping track by $index"
+                         id="{{item.class}}"
+                         ng-class="{true:'lession-disease'}[$index == 0]"
+                    >
+                        <img src="{{item.url}}" alt="{{item.name}}" id="img{{item.class}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -186,7 +186,7 @@ function getData(tip){
 // function getData(type) {
 //     return new Promise((resolve, reject) => {
 //         $.ajax({
-//             url: `data/big-screen-${type}.json`,
+//             url: `data/big-screen-realData-${type}.json`,
 //             type:'get',
 //             contentType: false, // 关关关！必须得 false
 //             processData: false,
