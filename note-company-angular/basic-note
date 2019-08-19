@@ -1,3 +1,58 @@
+angular.js的component方法
+
+１．父级
+  <single-line class="sec-item"
+   ng-if="planItem.schemeTemplate.schemeMaterials.length > 0"
+   ng-repeat="singleItem in planItem.schemeTemplate.schemeMaterials track by $index"
+   whole-item="singleItem"
+   single-item="singleItem"
+   pre-map-level="{{$ctrl.currGroup.type}}.{{planItem.type}}.content"></single-line>
+
+
+2.子级（自定义组件）的声明，传统的格式是声明directive，从而行程自定义组件
+
+借用ｃｏｍｐｏｎｅｎｔ方法，可以这样写（仿照ａｎｇｕｌａｒ２）
+function singleLineController(Utils, $scope) {
+  var ctrl = this
+  ctrl.typeIs = Utils.typeIs
+}
+
+
+angular.module('infi-basic')
+.component('singleLine', {
+  templateUrl: './components/singleLine/singleLine.tpl.html',
+  require: {
+    planCtrl: '^plans'
+      ? - 不要抛出异常。这使这个依赖变为一个可选项。
+      ^ - 允许查找父元素的controller
+  },
+  bindings: {
+    // 这里创建了一个组件，bindings用来绑定外界来的数据，‘<’代表单向，‘=’代表双向。
+  }
+    wholeItem: '<',                                         // 最外层数据对象（不含递归）
+    singleItem: '<',                                        // 单条数据对象（含递归）
+    preMapLevel: '@',                                       // 当前组件在 planFieldMap 中的映射，即可以通过此字段在 planFieldMap 中找到对应字段显示隐藏的规则。
+  },
+  controller: ['Utils', '$scope', singleLineController]
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
 Ubuntu命令:
 ｃｔｒｌ+shift+n 打开新的终端
 ctrl+shift+t 打开新的标签页

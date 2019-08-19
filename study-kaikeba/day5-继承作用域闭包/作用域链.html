@@ -18,8 +18,8 @@
         callback();
     }
     fn(function () {
-        console.log(age);
-    })
+        console.log(this.age);
+    });
     //寻找当前作用域没有，去找上级作用域
     //由于函数方法并不是在fn的函数内声明，处于全局作用域中声明
     //所以上级作用域为全局作用域
@@ -28,7 +28,7 @@
      var name="张三";
     function f1() {
         var name="aavx";
-        console.log("例子1",name);
+        console.log("例子1",this.name);
     }
     f1();
 
@@ -38,6 +38,7 @@
         console.log("例子3",name1);
         var name1="ffas";
     }
+    f2();
 
     //4
     var name2="张三";
@@ -62,5 +63,88 @@
     }
     var fn6=f5();
     fn6.say();
+
+
+    /**
+     * 方法调用
+     */
+
+    var length="23";
+
+     var clear=function () {
+        console.log(this.length)
+    }
+    var tom={c:clear,length:100};
+     //方法调用的函数，函数中的ｔｈｉｓ指向该方法体
+     tom.c();
+
+    /**
+     * 通过new关键字来调用的，函数内部的ｔｈｉｓ就是该构造函数的实例
+     */
+
+    function fn(){
+        this.name=name;
+    }
+
+    var _n=new fn("熊爱明");//相当于给构造函数赋值新属性，而ｔｈｉｓ指向该构造函数
+
+
+    //
+    function jQuery(){
+        var _init=jQuery.prototype.init;
+        return new _init();//_init是一个构造函数
+    }
+
+    jQuery.prototype={
+        constructor:jQuery,
+        length:100,
+        init:function () {
+            console.log(this.length);
+            //１.首先看本身有没有length属性
+            //2.其次再去原型对象上找
+            //3.原型对象没有，就往原型对象的原型对象上找，直到找到根对象为止
+            //如果没有的话，默认认为没有该属性
+
+            //１００是错误的，构造函数部分没有给实例赋值
+            //this可以访问到实例的属性，也可以访问到init（普通的函数）.prototype上的属性
+            //ｉｎｉｔ的ｐｒｏｔｏｔｙｐｅ和jQuery.prototype不一致
+        }
+    }
+
+    var $init=jQuery.prototype.init;
+    $init.prototype=jQuery.prototype;//ｉｎｉｔh函数的原型指向新原型，通过满足上述对象的属性查找原则
+
+    //变量声明了未赋值为underfined，属性(相对于对象被声明了)未声明也是underfined
+    jQuery();
+
+
+
+    /**
+     * 上下文调用
+     */
+    // call方法的第一个值，决定了函数内部的ｔｈｉｓ指向谁
+    //对于传入的参数有这样的定义
+    //1:如果方法是一个对象类型，那么函数内部的ｔｈｉｓ指向该对象
+    //２.如果为underfined/null，函数内部的this指向window
+    //3.如果为数字，ｔｈｉｓ指向的是对应的Number构造函数的实例
+    //123 ---- > new Number("123)
+    //4．如果为字符串的话，ｔｈｉｓ指向对应的String构造函数的实例
+    //　＂ａｂｃ＂－－－＞　new String("abc);
+    //5.如果为布尔值，this 指向的是对应的Boolean构造函数的实例
+    // true  ---- > new Boolean(true);
+
+    //上诉的机制适用于apply
+
+    //不同之处:
+    //传参的形式不同:apply传数组形式的，call可以传单个的
+
+    //call和ａｐｐｌｙ立刻执行并绑定ｔｈｉｓ指向，bind返回新的函数；
+    // bind解析:
+    function speed(){
+        console.log(this.seconds);
+    }
+
+    var speedBInd=speed.bind({seconds:100});//执行ｂｉｎｄ方法后生成新函数，内部逻辑与之前一样，只不过更改了ｔｈｉｓ指向
+    speedBInd();//１００
 </script>
 </html>

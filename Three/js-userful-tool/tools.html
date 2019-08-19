@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS 开发常用工具函数</title>
+</head>
+<body>
+<script>
+    //1.isFunction：检查值是不是函数
+
+    function isFunction(value) {
+        return Object.prototype.toString.call(value) === '[object Function]'
+    }
+
+    //2.isEmpty：检查值是否为空
+    function isEmpty(value) {
+        if (value == null) {
+            return true;
+        }
+        if (isArrayLike(value)) {
+            return !value.length;
+        }else if(isPlainObject(value)){
+            for (let key in value) {
+                if (hasOwnProperty.call(value, key)) {
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+    //判断数据是否是类数组
+    function isArrayLike(value) {
+        return value != null && isLength(value.length) && !isFunction(value);
+    }
+
+    //检查 value 是否为有效的类数组长度
+    function isLength(value) {
+        return typeof value == 'number' && value > -1 && value % 1 == 0 && value <= Number.MAX_SAFE_INTEGER;
+    }
+
+    //isPlainObject：判断数据是不是Object类型的数据
+    function isPlainObject(obj) {
+        return Object.prototype.toString.call(obj) === '[object Object]'
+    }
+
+    var obj;
+    var obj1;
+    console.log(isEmpty(obj))
+    console.log(isEmpty(obj1))
+
+    //3.字符串首位大写
+    function capitalize(str){
+        return str.charAt(0).toUpperCase()+str.slice(1);
+    }
+
+    console.log(capitalize("abcsffsfs"))
+
+    //4 识别各种浏览器和平台
+    //运行环境是浏览器
+    let inBrowser = typeof window !== 'undefined';
+    //运行环境是微信
+    let inWeex = typeof WXEnvironment !== 'undefined' && !!WXEnvironment.platform;
+    let weexPlatform = inWeex && WXEnvironment.platform.toLowerCase();
+    //浏览器 UA 判断
+    let UA = inBrowser && window.navigator.userAgent.toLowerCase();
+    let isIE = UA && /msie|trident/.test(UA);
+    let isIE9 = UA && UA.indexOf('msie 9.0') > 0;
+    let isEdge = UA && UA.indexOf('edge/') > 0;
+    let isAndroid = (UA && UA.indexOf('android') > 0) || (weexPlatform === 'android');
+    let isIOS = (UA && /iphone|ipad|ipod|ios/.test(UA)) || (weexPlatform === 'ios');
+    let isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
+
+
+    //5.getExplorerInfo：获取浏览器信息
+    function getExplorerInfo() {
+        let t = navigator.userAgent.toLowerCase();
+        return 0 <= t.indexOf("msie") ? { //ie < 11
+            type: "IE",
+            version: Number(t.match(/msie ([\d]+)/)[1])
+        } : !!t.match(/trident\/.+?rv:(([\d.]+))/) ? { // ie 11
+            type: "IE",
+            version: 11
+        } : 0 <= t.indexOf("edge") ? {
+            type: "Edge",
+            version: Number(t.match(/edge\/([\d]+)/)[1])
+        } : 0 <= t.indexOf("firefox") ? {
+            type: "Firefox",
+            version: Number(t.match(/firefox\/([\d]+)/)[1])
+        } : 0 <= t.indexOf("chrome") ? {
+            type: "Chrome",
+            version: Number(t.match(/chrome\/([\d]+)/)[1])
+        } : 0 <= t.indexOf("opera") ? {
+            type: "Opera",
+            version: Number(t.match(/opera.([\d]+)/)[1])
+        } : 0 <= t.indexOf("Safari") ? {
+            type: "Safari",
+            version: Number(t.match(/version\/([\d]+)/)[1])
+        } : {
+            type: t,
+            version: -1
+        }
+    }
+
+    //6.dateFormater：格式化时间
+    function dateFormater(formater, t) {
+        let date = t ? new Date(t) : new Date(),
+            Y = date.getFullYear() + '',
+            M = date.getMonth() + 1,
+            D = date.getDate(),
+            H = date.getHours(),
+            m = date.getMinutes(),
+            s = date.getSeconds();
+        return formater.replace(/YYYY|yyyy/g,Y)
+            .replace(/YY|yy/g,Y.substr(2,2))
+            .replace(/MM/g,(M<10?'0':'') + M)
+            .replace(/DD/g,(D<10?'0':'') + D)
+            .replace(/HH|hh/g,(H<10?'0':'') + H)
+            .replace(/mm/g,(m<10?'0':'') + m)
+            .replace(/ss/g,(s<10?'0':'') + s)
+    }
+
+    dateFormater('YYYY-MM-DD HH:mm',t);
+
+    //7.GetUrlParam：获取Url参数，返回一个对象
+    function GetUrlParam(){
+        let url = document.location.toString();
+        let arrObj = url.split("?");
+        let params = Object.create(null)
+        if (arrObj.length > 1){
+            arrObj = arrObj[1].split("&");
+            arrObj.forEach(item=>{
+                item = item.split("=");
+                params[item[0]] = item[1]
+            })
+        }
+        return params;
+    }
+    // ?a=1&b=2&c=3 ==> {a: "1", b: "2", c: "3"}
+
+
+    // ８、toFullScreen：全屏
+
+    function toFullScreen(){
+        let elem = document.body;
+        elem.webkitRequestFullScreen
+            ? elem.webkitRequestFullScreen()
+            : elem.mozRequestFullScreen
+            ? elem.mozRequestFullScreen()
+            : elem.msRequestFullscreen
+                ? elem.msRequestFullscreen()
+                : elem.requestFullScreen
+                    ? elem.requestFullScreen()
+                    : alert("浏览器不支持全屏");
+    }
+
+
+    // ９、exitFullscreen：退出全屏
+
+    function exitFullscreen(){
+        let elem = parent.document;
+        elem.webkitCancelFullScreen
+            ? elem.webkitCancelFullScreen()
+            : elem.mozCancelFullScreen
+            ? elem.mozCancelFullScreen()
+            : elem.cancelFullScreen
+                ? elem.cancelFullScreen()
+                : elem.msExitFullscreen
+                    ? elem.msExitFullscreen()
+                    : elem.exitFullscreen
+                        ? elem.exitFullscreen()
+                        : alert("切换失败,可尝试Esc退出");
+    }
+
+    // _isNaN：检查数据是否是非数字值
+    //原生的isNaN会把参数转换成数字(valueof)，而null、true、false以及长度小于等于1的数组(元素为非NaN数据)会被转换成数字，
+    // 这不是我想要的。Symbol类型的数据不具有valueof接口，所以isNaN会抛出错误，这里放在后面，可避免错误
+
+    function _isNaN(v){
+
+        return !(typeof v === 'string' || typeof v === 'number') || isNaN(v)
+    }
+
+
+    //10.性能分析
+    window.onload = function(){
+        setTimeout(function(){
+            let t = performance.timing
+            console.log('DNS查询耗时 ：' + (t.domainLookupEnd - t.domainLookupStart).toFixed(0))
+            console.log('TCP链接耗时 ：' + (t.connectEnd - t.connectStart).toFixed(0))
+            console.log('request请求耗时 ：' + (t.responseEnd - t.responseStart).toFixed(0))
+            console.log('解析dom树耗时 ：' + (t.domComplete - t.domInteractive).toFixed(0))
+            console.log('白屏时间 ：' + (t.responseStart - t.navigationStart).toFixed(0))
+            console.log('domready时间 ：' + (t.domContentLoadedEventEnd - t.navigationStart).toFixed(0))
+            console.log('onload时间 ：' + (t.loadEventEnd - t.navigationStart).toFixed(0))
+
+            if(t = performance.memory){
+                console.log('js内存使用占比 ：' + (t.usedJSHeapSize / t.totalJSHeapSize * 100).toFixed(2) + '%')
+            }
+        })
+    }
+
+    // 11、禁止右键、选择、复制
+        ['contextmenu', 'selectstart', 'copy'].forEach(function(ev){
+        document.addEventListener(ev, function(event){
+            return event.returnValue = false
+        })
+    });
+
+</script>
+</body>
+</html>
