@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高性能渲染十万条数据(时间分片)</title>
+</head>
+<body>
+<ul id="container">
+
+</ul>
+<script>
+    // //第一种方案直接全部插入，消耗的时间和内存很大
+    // //纪录任务开始时间
+    // var now=Date.now();
+    // //插入的总数据数
+    // const total=100000;
+    // // 获取容器
+    // var ul = document.getElementById('container');
+    // // 将数据插入容器中
+    // for (var i = 0; i < total; i++) {
+    //     var li = document.createElement('li');
+    //     li.innerText = ~~(Math.random() * total)
+    //     ul.appendChild(li);
+    // }
+    //
+    // console.log('JS运行时间：',Date.now() - now);
+    // setTimeout(()=>{
+    //     console.log('总运行时间：',Date.now() - now);
+    // },0);//异步操作，在执行完渲染后执行，从而纪录整个渲染时间
+
+    //2.采用定时器分别插入
+    //需要插入的容器
+    var ul = document.getElementById('container');
+    // 插入十万条数据
+    var total = 100000;
+    // 一次插入 20 条
+    var once = 20;
+    //总页数
+    var page = total/once
+    //每条记录的索引
+    var index = 0;
+    //循环加载数据
+    function loop(curTotal,curIndex){
+        if (curTotal <= 0){
+            return false;
+        }
+        //每页多少条
+        var pageCount = Math.min(curTotal,once);
+
+        //直接采用这样，可能会因为ｃｐｕ的不足导致白屏和卡顿
+        //可以使用window.requestAnimationFrame
+        //requestAnimationFrame最大的优势是由系统来决定回调函数的执行时机。
+        window.requestAnimationFrame(function() {
+            // setTimeout(() => {
+                for (var i = 0; i < pageCount; i++) {
+                    var li = document.createElement('li');
+                    li.innerText = curIndex + i + ' : ' + ~~(Math.random() * total)
+                    ul.appendChild(li)
+                }
+                loop(curTotal - pageCount, curIndex + pageCount)
+            // }, 0)
+        });
+    }
+    loop(total,index);
+</script>
+</body>
+</html>

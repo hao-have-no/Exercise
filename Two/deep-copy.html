@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>深拷贝</title>
+</head>
+<body>
+<a onclick="open()">123</a>
+<script>
+    function open(){
+        window.location.href='http://192.168.1.55:8080/pgt/picture/find/3';
+    }
+
+    //简单--如果是原始类型，无需继续拷贝，直接返回
+    // 如果是引用类型，创建一个新的对象，遍历需要克隆的对象，将需要克隆对象的属性执行深拷贝后依次添加到新对象上。
+    //对于循环引用的对象来说，这个拷贝还不够准确
+    function clone(){
+        if (typeof target　=== 'object'){
+            let cloneTarget={};
+            for (const key in target){
+                cloneTarget[key] = clone(target[key]);
+            }
+            return cloneTarget;
+        } else{
+            return target;
+        }
+    }
+
+
+    //升级，通过ｍａｐ集合的概念，将对象存储为key-value形式来避免对象的间接性引用导致的死循环问题
+    function clone2(target,map=new Map()){
+        if (typeof target === "object"){
+            let cloneTarget = Array.isArray(target)?[]:{};
+            if (map.get(target)){
+                //map.get，返回键对应的值，如果不存在，则返回undefined。
+                return map.get(target);
+            }
+            map.set(target,cloneTarget);
+            //设置Map对象中键的值。返回该Map对象。
+            //上面的一系列操作
+            // 检查map中有无克隆过的对象
+            // 有 - 直接返回
+            // 没有 - 将当前对象作为key，克隆对象作为value进行存储
+            // 继续克隆
+            for (const key in target){
+                cloneTarget[key]=clone(target[key],map);
+            }
+            return cloneTarget;
+        }else{
+            return target;
+        }
+    }
+
+    //for循环比for in 快
+
+    // 性能优化
+    function newClone2(target,map=new Map()){
+        if (typeof target == 'Object'){
+            const isArray = Array.isArray(target);
+            let cloneTarget=isArray?[]:{};
+
+
+            //如果map中存在克隆过对象直接返回
+            if (map.get(target)){
+                return map.get(target);
+            }
+
+            map.set(target,cloneTarget);
+
+            const keys=isArray?undefined:Object.keys(target);//拿到所有key(数组)
+
+            forEach(keys || target,(value,key)=>{
+                // 当遍历数组时，直接使用forEach进行遍历
+                //使用Object.keys取出所有的key进行遍历，然后在遍历时把forEach会调函数的value当作key使用
+                if (keys){
+                    key=value;
+                }
+                cloneTarget[key]=clone(target[key],map);
+            });
+            return cloneTarget;
+        }else{
+            return target;
+        }
+    }
+
+
+
+
+    // var getName;
+    // function Foo() {
+    //     getName = function () { alert (1); };
+    //     return this;
+    // }
+    // function getName() { alert (5);}
+    // Foo.getName = function () { alert (2);};
+    // Foo.prototype.getName = function () { alert (3);};
+    // var getName = function () { alert (4);};
+    //
+    //
+    // //请写出以下输出结果：
+    // Foo.getName();//2
+    // getName();//4
+    // Foo().getName();//先运行Ｆoo函数,发现getName没有在函数体内部声明，作用域寻找到window中的getName，改变的window中的getName函数,return this返回调用者的作用域（ｗｉｎｄｏｗ）－－－>window.getName()，输出１;
+    // getName();//上一问window中的getName已经被改变，输出1
+    // new Foo.getName();//操作符顺序--->点的优先级(18)比new无参数列表(17)优先级高.  --->new(Foo.getName)()---Foo,getName
+    // new Foo().getName();//new有参数列表(18)跟点的优先级(18)是同级,从左往右   ---> (new Foo()).getName　－－－３
+    // new new Foo().getName();
+
+
+</script>
+</body>
+</html>

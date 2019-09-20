@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>四种调用方式</title>
+</head>
+<body>
+<script>
+    //1.函数调用
+    var age=18;
+
+    var p={
+        age:15,
+        say:function () {
+            console.log("函数",this.age);
+        }
+    };
+
+    var f1=p.say;
+    f1();//window调用的f1,实际上输出的是18,ｔｈｉｓ指向调用它的对象的所在的作用域
+
+
+    function Person(name){
+        this.name=name;
+    }
+
+    Person.prototype={
+      constructor:Person,
+      say:function () {
+          console.log(this.name);
+      }
+    };
+
+    Person('abc');//函数内部的this指向ｗｉｎｄｏｗ
+
+
+
+    //2.方法调用
+    var p2={
+        height:180,
+        travel:function () {
+            console.log(this.height);
+        }
+    };
+
+    p2.travel();//180
+
+
+    var clear=function () {
+        console.log(this.length);
+    }
+
+    var length=50;
+    var tom={c:clear,length:100}
+    tom.c();
+    //方法调用
+    //由于ｃｌｅａｒ函数被当成ｔｏｍ．ｃ()这种方式进行调用
+    //ｔｈｉｓ指向调用它的对象也就是ｔｏｍ，this指向的就是ｔｏｍ中的ｌｅｎｇｔｈ属性
+
+    //补充：window中的方法都是全局函数，属性都是全局变量
+
+
+    //构造函数调用
+    function init(){
+        this.name=name;
+    }
+
+    //通过ｎｅｗ关键字调用的，就是构造函数的调用方式，函数内部的ｔｈｉｓ指向构造函数的实例
+    var _n=new init("小名");//给实例增加ｎａｍｅ属性并给值;_n.name = "小名"
+
+
+    //2.
+    function Jquery(){
+        var _init=Jquery.prototype.init;
+        return new _init();//构造函数调用函数
+        //_init是构造函数
+    }
+    Jquery.prototype={
+        constructor:Jquery,
+        length:100,
+        init:function () {
+            console.log("jquey",this.length);
+            //ｉｎｉｔ只是一个普通的函数
+            //this.length为undefined,因为this指向的实例并没有该属性，就去它的原型对象中查找（jquery.prototype.init.prototype）
+            // 且实例的原型中(init.prototype并不是jquery.prototype)也没有该属性，再往上寻找，直到object.prototype
+            //this指向init构造函数的实例
+        }
+    };
+
+    var $init=Jquery.prototype.init;
+    $init.prototype = Jquery.prototype;//改变默认原型，指向新的原型
+
+    Jquery();
+
+
+    //上下文调用(call,apply,bind)
+    function callTest(){
+        console.log(this);
+    }
+
+    // call的第一个参数决定了函数内部的值,apply可以替代下属的实现方式
+    callTest.call([1,2,5]);
+    callTest.call("abc");
+    callTest.call(1);
+    callTest.call(null);
+    callTest.call(undefined);
+    //1.第一个参数如果是对象，函数内部指向该对象
+    //2.如果是undefined,null，函数指向window
+    //3.如果是number,指向Number构造函数的实例－－＞１－－＞new Number(1);
+    //...
+
+    //call与apply(立刻执行函数并绑定值)的区别
+    callTest.call(null,1,2,3);
+    callTest.apply(null,[1,2,3]);
+
+    //bind
+
+    //补充，setTimout中的this是访问不到调用函数内部的属性的，它的this指向window
+    var obj={
+        age:18,
+        run:function () {
+            console.log(this);
+            //var that=this;
+            // setTimeout(function () {
+            //     // console.log(this.age)
+            //     console.log(that.age);
+            // },50)
+            setTimeout((function () {
+                    console.log(this.age)
+            }).bind(this),50);
+            }
+    }
+    //可以使用＿ｔｈａｔ＝ｔｈｉｓ，通过别名的方式改变this指向，从而能够访问
+    //可以使用bind(不改变原来的函数，通过创建新函数并绑定值)来改变这个机制
+
+
+
+
+    //bind 如何实现
+    Function.prototype.myBind=function(context){
+
+        //判断调用的对象是否是函数
+        if (typeof this !== "function"){
+            throw new Error("ssssss");
+        }
+
+        var self=this;
+        var args=Array.prototype.slice.call(arguments,1);//获取函数从第二个参数到最后一个参数
+        var result=function () {}
+
+        var bound=function () {
+            // 当作为构造函数时，this 指向实例，self 指向绑定函数，因为下面一句 `fbound.prototype = this.prototype;`，已经修改了 fbound.prototype 为 绑定函数的 prototype，此时结果为 true，当结果为 true 的时候，this 指向实例。
+            // 当作为普通函数时，this 指向 window，self 指向绑定函数，此时结果为 false，当结果为 false 的时候，this 指向绑定的 context。
+            self.apply(this instanceof self?
+                this:
+                context,args.concat(Array.prototype.slice.call(arguments)))//这个时候的arguments是指bind返回的函数传入的参数
+        }
+
+        result.prototype=this.prototype;
+        // 空函数来进行中转：
+        bound.prototype=new result();
+
+        return bound;
+    };
+
+
+    var foo = {
+        value: 1
+    };
+
+    function bar(name, age) {
+        console.log(this.value);
+        console.log(name);
+        console.log(age);
+
+    }
+
+     var bindFoo=bar.myBind(foo,'daisy');
+      bindFoo('18');
+
+
+
+
+</script>
+</body>
+</html>

@@ -27,6 +27,7 @@
 
 
    // 测试ｂｉｎｄ--bind返回的是一个函数，可以传参（传参可以在定义时传输一部分，在返回生成后在传入一部分），也可以ｎｅｗ创造对象
+
     // 模拟前两个特性
     Function.prototype.myBind=function (content) {
         var self = this;
@@ -47,7 +48,7 @@
 
         var self=this;
         var args=Array.prototype.slice.call(context,1);//对传入的参数进行解析
-        var fnop=function () {}　//声明空函数
+        var fnop=function () {};//声明空函数
 
         var bound=function () {
             self.bind(this instanceof self ? this : context,args.concat(Array.prototype.slice.call(arguments)));

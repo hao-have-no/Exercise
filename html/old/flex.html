@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex布局</title>
+    <!--<style>
+        .box{
+            width: 450px;
+            height: 400px;
+            background: black;
+            position: absolute;
+            left: 40%;
+            display: flex;
+        /*同一抽线项目超出*/
+            flex-wrap: wrap;
+            /*flex-direction: row;*/
+            /*justify-content: stretch;*/
+            /*align-items: center;*/
+            /*align-content: flex-end;多轴线项目参数*/
+        }
+
+        /*margin: 0px 40%;*/
+        /*width: 20%;*/
+        /*margin: 0 auto;*/
+        /*text-align: center;*/
+
+
+        .item {
+            flex-basis: 20%;
+            width: 20px;
+            height: 200px;
+            background: red;
+            /*flex-grow: 1;*/
+            margin:0 20px;
+
+        }
+
+        /*.box{*/
+            /*width: 100%;*/
+            /*height:100%;*/
+            /*background: red;*/
+
+            /*position: absolute;*/
+            /*left: 50%;*/
+            /*top: 50%;*/
+            /*margin-left: -100px;*/
+            /*margin-top: -100px;*/
+
+            /*display: flex;*/
+            /*flex-direction: row;*/
+            /*justify-content:center;*/
+            /*align-items:center;*/
+        /*}*/
+        /*.item{*/
+            /*width: 240px;*/
+            /*height: 240px;*/
+            /*background: black;*/
+        /*}*/
+
+        /*.con{*/
+            /*display: flex;*/
+        /*}*/
+        /*.box1{*/
+            /*width: 300px;*/
+            /*height: 100px;*/
+            /*background: black;*/
+        /*}*/
+        /*.box2{*/
+            /*background: darkcyan;*/
+            /*flex: 1;*/
+            /*height: 100px;*/
+        /*}*/
+        /*.box3{*/
+            /*width: 300px;*/
+            /*height: 100px;*/
+            /*background: red;*/
+        /*}*/
+    </style>
+</head>
+<body>
+<div class="box">
+    <div class="item">1</div>
+    <div class="item">
+        <span>123</span><span>123</span><span>123</span><span>123</span><span>123</span><span>123</span><span>123</span>
+    </div>
+    <div class="item">3</div>
+    <div class="item">4</div>
+    <div class="item">5</div>
+    <div class="item">6</div>
+</div>
+
+
+&lt;!&ndash;三列布局&ndash;&gt;
+&lt;!&ndash;<div class="con">&ndash;&gt;
+    &lt;!&ndash;<div class="box1"></div>&ndash;&gt;
+    &lt;!&ndash;<div class="box2"></div>&ndash;&gt;
+    &lt;!&ndash;<div class="box3"></div>&ndash;&gt;
+&lt;!&ndash;</div>&ndash;&gt;
+</body>-->
+
+    <style type="text/css">
+        body,td,th {
+            font-size: 12px; padding:0; margin:0;
+        }
+        .dialog_wrap{
+            width:100%; height:100%;position:absolute;
+            left: 0px;top: 0px;z-index:100; display:none;
+        }
+        .lightbox{
+            width: 100%;
+            z-index: 101;
+            height: 100%;
+            background-color: #000;
+            filter: alpha(Opacity=20);
+            -moz-opacity: 0.2;
+            opacity: .5;
+            position: absolute;
+            top: 0px;
+            left: 0px;}
+        .dialog_neirong{
+            width: 400px;
+            height: 200px;
+            position: absolute;
+            z-index: 105;
+            margin-top: -100px;
+            margin-left: -200px;
+            left: 50%;
+            top: 50%;
+            text-align: center;}
+        .close-dialog{position: fixed;
+            font-size: 20px;
+            top: 5%;
+            right: 10%;
+            cursor: pointer;}
+
+    </style>
+    <script language="javascript">
+        function closeDiv(divId){
+            document.getElementById(divId).style.display = 'none';
+        }
+        function displayDiv(divId){
+            document.getElementById(divId).style.display = 'block';
+        }
+        function dffchildren(){
+            alert("ccc");
+        }
+    </script>
+</head>
+<body>
+    <div class="dialog_wrap" id="imgDislog">
+        <div class="lightbox"></div>
+        <div class="dialog_neirong">
+            <p>
+                <span onClick="closeDiv('imgDislog')" class="close-dialog">关闭
+                </span>
+            </p>
+            <img src="th.jpeg" alt="">
+        </div>
+    </div>
+
+    <span onclick="displayDiv('imgDislog')" style="cursor:pointer;">点击我</span>
+
+
+    <div class="dialog_wrap" id="imgDislog">
+       <div class="lightbox"></div>
+       <div class="dialog_neirong">
+            <p>
+                <span onclick="closeImgDialog()">关闭
+                </span>
+            </p>
+           <img src="{{urls}}" alt="">
+       </div>
+    </div>
+
+</body>
+</html>
+
+<!--
+<style>
+
+    /*
+      modal
+     */
+    .modal-agree-header{
+        font-size: 20px;
+        text-align: center;
+        color: #000;
+        font-weight: bold;
+    }
+    .modal-agree-title{
+        font-size: 13px;
+        font-weight: 600;
+        color: #000;
+        opacity: .7;
+    }
+    .btn-primary{
+        margin: 0 100px;
+        color: #fff;
+        height: 40px;
+        width: 100px;
+        background-color: #428bca;
+        border-color: #357ebd;
+    }
+    .disagreen-btn{
+        background-color: #ccc;
+        border: none;
+    }
+    .disagreen-btn:hover{
+        background: #cccccc;
+        border: none;
+    }
+    modal-body{
+        padding-top: 5px;
+    }
+</style>
+
+
++ '</div>'
+            + '<div class="dialog_wrap" id="imgDislog">'
+            + '<div class="lightbox"></div>'
+            + '<div class="dialog_neirong">'
+            + '<p><span onclick="closeImgDialog()">关闭</span></p>'
+            + '<img src="{{urls}}" alt=""></div>'
+
+
+&lt;!&ndash; 模态框（Modal） &ndash;&gt;
+<div class="modal fade" id="myModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="padding: 10px;">
+                <button type="button" class="close" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title modal-agree-header" id="myModalLabel">
+                    健康体检协议书
+                </h4>
+            </div>
+            <div class="modal-body" style="height: 270px;overflow: auto;">
+                <p class="modal-agree-title">甲、乙双方在平等、自愿、协调一致的原则上,就甲方人员在乙方进行健康体检达成如下协议：</p>
+                <p><span>一、</span>乙方本着科学、严谨的工作态度,依据双方约定的体检项目内容,为甲方人员提供健康体检健康管理服务。</p>
+                <p><span>二、</span> 甲方参加体检的人员在体检结束后如有重大疾病或重大阳性体征，应在第一时间内通知甲方参检人员。</p>
+                <p><span>三、 </span>乙方有义务对甲方员工体检项目结果的准确性负责，如有特殊异常情况，甲方有责任保证乙方体检结果的私密性。</p>
+                <p><span>四、 </span>乙方要以严肃认真、及时准确、高度负责的态度和行为，为甲方体检者提供优质高效的健康管理服务。为确保质量，甲方要向乙方提供体检者的基本信息。</p>
+                <p><span>五、 </span>为了更好地向甲方提供健康管理服务，乙方承诺给甲方免费</p>
+            </div>
+            <div class="modal-footer" style="text-align: center">
+                <button id="closeModal" type="button" class="btn btn-primary disagreen-btn">
+                    不同意
+                </button>
+                <button type="button" class="btn btn-primary">
+                    同意
+                </button>
+            </div>
+        </div>&lt;!&ndash; /.modal-content &ndash;&gt;
+    </div>&lt;!&ndash; /.modal &ndash;&gt;
+</div>
+
+$('#myModal').modal('show');
+
+$('#closeModal').on('click',closeModal);
+$('.close').on('click',closeModal);
+
+
+function closeModal(){
+$('#myModal').modal('hide');
+}-->
