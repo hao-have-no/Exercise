@@ -33,7 +33,7 @@
             let cloneTarget = Array.isArray(target)?[]:{};
             if (map.get(target)){
                 //map.get，返回键对应的值，如果不存在，则返回undefined。
-                return map.get(target);
+                return map.get(target);//return 后不再往后进行直接返回结果
             }
             map.set(target,cloneTarget);
             //设置Map对象中键的值。返回该Map对象。
@@ -42,6 +42,7 @@
             // 有 - 直接返回
             // 没有 - 将当前对象作为key，克隆对象作为value进行存储
             // 继续克隆
+            //通过引用对象类型，完成内存的开辟和数值拷贝
             for (const key in target){
                 cloneTarget[key]=clone(target[key],map);
             }
