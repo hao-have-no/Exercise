@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * 解构赋值－－主要是避免作用域变量污染
+     * @type {{name: string, age: string}}
+     */
+    // var obj={name:"1",age:"@"};
+    //
+    // let {age}=obj;
+    // console.log(age);
+
+    Array.prototype.MyMap = function(fn, context){
+        var arr = Array.prototype.slice.call(this);//由于是ES5所以就不用...展开符了
+        var mappedArr = [];
+        for (var i = 0; i < arr.length; i++ ){
+            if(!arr.hasOwnProperty(i))continue;
+            mappedArr.push(fn.call(context, arr[i], i));
+        }
+        return mappedArr;
+    };
+
+    ['1','2','3'].MyMap(function(i){
+        console.log(i);
+    })
+
+    //举例
+    function fn2({option,age,name}){
+        //避免声明变量和全部接收导致反复和变量多声明
+    }
+
+    fn2({option:'123',age:'12',name:'sdd'})
+
+    //另一种结构赋值的情况
+    var a=3;
+    var b={a};//变量b有一个ａ属性，a属性的值来自于ａ变量
+
+    /**
+     *rest
+     */
+
+    function fn(){
+        //arguments是函数内部的一个局部变量,可用于各种对参数的作用函数中
+        //arguments.length获取实参个数
+        // eg:
+        for (let i=0,len=arguments.length;i<len;i++){
+            console.log(arguments[i]);
+        }
+    }
+    fn(1,2,3);
+
+    //es6－箭头函数中无法使用arguments
+    //但是可以使用rest参数来实现该效果
+    function q(...arge){
+            console.log(arge instanceof Array);
+            //Object.prototype.toString.call判断数据类型
+            console.log(Object.prototype.toString.call(arge));
+            console.log(Array.isArray(arge));
+            console.log(arge);
+    }
+    q(1,5,3);
+
+
+    //补充:判断数据类型（常用）
+    //typeOf只能判断数字，字符串，布尔型，undefined，函数
+    Object.prototype.toString.call();//判断数据类型
+
+
+
+    /**
+     *箭头函数替换匿名函数
+     * 箭头函数和匿名函数的区别：
+     * 1.箭头函数不具备作用域,函数题内部的this是定义时所在的对象
+     * 2.不可以当作构造函数，不可以使用new
+     * 3.不可以使用arguments，但是可以使用rest替代
+     * 4.不可以使用yield命令，不能当作generator函数的参数(不常用,已使用async代替)
+     */
+
+    //1
+    var p={
+        age:18,
+        run(){
+        //run:()=>{
+        //如果是匿名函数的话，this指向window
+            setTimeout(()=>{
+                console.log(this);//ｔｈｉｓ指向了window而不是当前的p,修改了run为普通匿名函数发现指向了p
+                //箭头函数的this指向由外层函数决定（自己不具备作用域）
+            },1000)
+        },
+        say(){
+            //es5对象方法的简写形式(推荐,有效的避免了this作用域问题)
+            console.log(this);//this指向了ｐ
+            }
+        };
+    p.run();
+
+
+
+
+
+
+</script>
+</body>
+</html>

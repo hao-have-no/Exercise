@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css3实现惊艳面试官的背景即背景动画</title>
+</head>
+<style>
+.dash-border{
+    width: 200px;
+    height: 100px;
+    background-color: #000;
+    outline: 1px dotted #fff;
+    outline-offset:-10px ;
+    border-radius: 8px;
+    box-shadow: 0 0 0 10px gray;
+    margin-left: 20px;
+}
+
+    .progress-list{
+        width: 200px;
+        height: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+    }
+    .one{
+      background: linear-gradient(to right,#fb3 50%,#58a 0);
+      background-size: 40px 100%;
+    }
+    .two{
+        background: linear-gradient(45deg,#fb3 25%,#58a 0,#58a 50%,#fb3 0,#fb3 75%,#58a 0);
+        background-size: 40px 40px;
+    }
+    .three{
+        background: repeating-linear-gradient(60deg,#fb3,#fb3 15px,#58a 0,#58a 30px);
+    }
+    .traffic-light{
+        height: 50px;
+        width: 200px;
+        margin-top: 20px;
+        background-image:
+        radial-gradient(circle,#0cf 15px,transparent),
+        radial-gradient(circle,red 15px,transparent),
+        radial-gradient(circle, #cc55cc 15px,transparent),
+        radial-gradient(circle,green 15px,transparent);
+        background-repeat: no-repeat;
+        background-position: 0 0, 50px 0, 100px 0, 150px 0, 200px 0;
+        background-size: 50px 50px;
+    }
+    .travel{
+        animation: move 6s linear infinite;
+    }
+    @keyframes move {
+        0%{
+            /*background-position: 0 0,50px 0,100px 0,150px 0;*/
+            background-image: radial-gradient(circle,#0cf 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent);
+        }
+        30%{
+            background-image: radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,red 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent);
+            /*background-position: 50px 0,0 0,100px 0,150px 0;*/
+        }
+        60%{
+            background-image: radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,#cc55cc 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent);
+            /*background-position: 50px 0,100px 0,0 0,150px 0;*/
+        }
+        100%{
+            background-image: radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,gray 15px,transparent),
+            radial-gradient(circle,green 15px,transparent);
+            /*background-position: 50px 0,100px 0,150px 0, 0 0;*/
+        }
+    }
+</style>
+<body>
+<ul>
+    <li>将学到</li>
+    <li>  Css3</li>
+    <li>   outline</li>
+    <li>   radial-gradient</li>
+    <li>   linear-gradient</li>
+    <li>   box-shadow</li>
+</ul>
+<div>
+    <p>内部虚线边框</p>
+    <div class="dash-border">
+    </div>
+</div>
+<div>
+    <p>条纹背景进度条</p>
+    <div class="progress-list one">
+    </div>
+    <div class="progress-list two">
+    </div>
+    <div class="progress-list three">
+    </div>
+</div>
+<div class="traffic-light travel">
+</div>
+</body>
+</html>
