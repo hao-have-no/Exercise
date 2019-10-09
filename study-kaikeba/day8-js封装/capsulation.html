@@ -5,7 +5,74 @@
     <title>js封装</title>
 </head>
 <body>
+<div>
+    <p>123</p>
+    <p>456</p>
+    <p>567</p>
+    <div class="page">sfs</div>
+    <div id="page1">sfsf</div>
+</div>
 <script>
+    /**
+     * 封装js库
+     */
+    //自调用函数
+    (function(global){
+        //global保存了window对象的引用
+        function Jquery(selector){
+            //1.获取页面中所有的元素
+            //2.以特定的对象去存储
+            // const elements=document.getElementsByName(selector);
+            //这种方式就过于浪费浏览器内存
+
+            //将对象放到原型上面（construct（指向原型对象））会节约内存 而这种方式会破坏对象的原生结构
+
+            //放到自定义对象中
+            return new F(selector);
+        }
+
+        //  jquery的构造函数
+        function F(selector){
+            //为了将获取的标签在ｃｓｓ中传递，将标签放置到对象中
+            // const elements=document.getElementsByTagName(selector);
+            //(2)升级方法，增加类型和ｉｄ选择器
+            //jqueryz内部封装了一个Ｓｉｚｚｌｅ引擎(快速获取dom元素)
+            const elements=document.querySelectorAll(selector);
+
+            //(3)为了后续循环dom元素方便，将这些获取到的dom元素放到了自己的身上
+            //使自己变为了一个数组，可以使用循环进行处理（伪数组）
+
+            //实现将元素添加到对象自己身上
+            for (let i=0;i<elements.length;i++){
+                var ele=elements[i];
+                this[i]=ele;
+            }
+
+
+            this.length=elements.length;
+        }
+
+        F.prototype.css=function(name,value){
+            // （１）－基础封装－ｄｏｍ元素在新对象中
+            for (let i=0;i<this.length;i++){
+                let element=this[i];
+                element.style[name]=value;
+            }
+        };
+
+        //这种方式会破坏对象的原生结构
+        // HTMLCollection.prototype.css=()=>{
+        //
+        // };
+
+        //返回自定义对象
+        window.$=window.Jquery=Jquery;
+    })(window);
+
+    $("p").css('color','red');
+    //丰富方法，增加类名和ｉｄ选择器（２）
+    $('.page').css('fontSize','30px');
+    $('#page1').css('color','blue');
 
 </script>
 </body>

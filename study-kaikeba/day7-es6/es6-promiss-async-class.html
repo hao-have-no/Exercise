@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>es6-promiss-async-class</title>
-    <script src="../jquery-3.3.1.js"></script>
+    <!--<script src="../jquery-3.3.1.js"></script>-->
 </head>
 <body>
 <div>
@@ -211,49 +211,6 @@
     //页面有没有加载完成，和变量能否访问没有直接关系
     //如何判断变量能够访问?
     //变量的词法作用域:
-
-
-    /**
-     * 封装js库
-     */
-    $('div').css('color','white');
-
-    //自调用函数
-    (function(global){
-        //global保存了window对象的引用
-        function Jquer(selector){
-            //1.获取页面中所有的元素
-            //2.以特定的对象去存储
-            // const elements=document.getElementsByName(selector);
-            //这种方式就过于浪费浏览器内存
-
-            //将对象放到原型上面（construct（指向原型对象））会节约内存 而这种方式会破坏对象的原生结构
-
-            //放到自定义对象中
-            return new F(selector);
-        }
-
-        function F(selector){
-            const elements=document.getElementsByTagName(selector);
-            this.elements=elements;
-        }
-
-        F.prototype.css=function(name,value){
-            for (let i=0;i<this.length;i++){
-                let element=this.elements[i];
-                element.style[name]=value;
-            }
-        };
-
-        //这种方式会破坏对象的原生结构
-        // HTMLCollection.prototype.css=()=>{
-        //
-        // };
-
-        //返回自定义对象
-        window.$=window.Jquer=Jquer;
-    })(window);
-
 
 </script>
 </body>
