@@ -10,14 +10,15 @@ const config=require("./config");
 const app=new Koa();
 const router=new Router();
 
-app.use(bodyParser);
+app.use(bodyParser());
 
 /**
  * 建立用户
  */
  router.post("/user",async (ctx,next)=>{
-    const {username="",passsword="",isAdmin}=ctx.request.body||{};
-    if (username ===""||passsword === ""){
+    const {username="",password="",isAdmin}=ctx.request.body||{};
+    console.log(username);
+    if (username ===""||password === ""){
         ctx.status =401;
         return (ctx.body={
             success:false,
@@ -32,11 +33,13 @@ app.use(bodyParser);
      const salt = String(Math.random()).substring(2, 10);
      // 生成新的md5
      const saltMD5PassWord = md5(`${md5Password}:${salt}`).toString();
+     console.log(saltMD5PassWord);
      try{
          //类似用户查找
          const searchUser=await User.findByName(username);
+         console.log(!searchUser);
          if (!searchUser){
-             const result=await User.addUser({username,saltMD5PassWord,salt,isAdmin});
+             await User.addUser(username,saltMD5PassWord,salt,isAdmin);
              ctx.body={
                  success:true,
                  msg:'创建成功'
@@ -89,7 +92,7 @@ router.post("/login",async (ctx, next)=>{
                 const payload = {
                     id: searchUser.name
                 };
-                const token = jwt.sign(payload, config.active, {
+                const token = jwt.sign(payload, config.secret, {
                     expiresIn: "2h"
                 });
                 ctx.body = {
@@ -122,7 +125,7 @@ router.get(
         // 这里应该抽成一个auth中间件
         const token = ctx.request.query.token || ctx.request.headers["token"];
         if (token) {
-            jwt.verify(token, config.active, async function(err, decoded) {
+            jwt.verify(token, config.secret, async function(err, decoded) {
                 if (err) {
                     return (ctx.body = {
                         success: false,
@@ -144,11 +147,11 @@ router.get(
     async (ctx, next) => {
         try {
             const id= ctx.decoded;
-            console.log("code",id);
-            // ctx.body = {
-            //     success: true,
-            //     data: { name, age, isAdmin }
-            // };
+            // const result = await User.findByName(id);
+                ctx.body = {
+                    success: true,
+                    data: id
+                };
         } catch (error) {
             ctx.body = {
                 success: false,

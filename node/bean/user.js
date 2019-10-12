@@ -29,8 +29,9 @@ var user = User.sync({ force: false });
 
 
 // 添加新用户
-exports.addUser = function({userName, password,salt,tip}) {
+exports.addUser = function(userName="", password="",salt="",tip="") {
     // 向 user 表中插入数据
+    console.log("账号",userName+"###"+password)
     return User.create({
         name: userName,
         password: password,
