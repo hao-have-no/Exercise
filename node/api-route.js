@@ -10,6 +10,22 @@ var router = express.Router()
 
 
 
+//获取微信用户数据
+
+//获取绑定档案信息
+
+//手机信息
+
+//绑定手机号
+
+//绑定档案
+
+//删除档案
+
+//设置默认账号
+
+
+
 //登录接口,更改session状态
 router.get('/login', function (req, res,next) {
     var myDate = new Date();

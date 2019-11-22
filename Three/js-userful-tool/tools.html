@@ -120,7 +120,7 @@
             .replace(/ss/g,(s<10?'0':'') + s)
     }
 
-    dateFormater('YYYY-MM-DD HH:mm',t);
+    // dateFormater('YYYY-MM-DD HH:mm',t);
 
     //7.GetUrlParam：获取Url参数，返回一个对象
     function GetUrlParam(){
@@ -206,6 +206,82 @@
             return event.returnValue = false
         })
     });
+
+    //12.手机号格式校验
+    function checkPhone(value){
+        const reg = /^((0\d{2,3}-\d{7,8})|(1[34578]\d{9}))$/;
+        if (value == '' || value == undefined || value == null) {
+            callback();
+        } else {
+            if ((!reg.test(value)) && value != '') {
+                callback(new Error('请输入正确的电话号码或者固话号码'));
+            } else {
+                callback();
+            }
+        }
+    }
+    //13.身份证格式校验
+    function checkPersonID(){
+        const reg = /(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+        if(value==''||value==undefined||value==null){
+            callback();
+        }else {
+            if ((!reg.test(value)) && value != '') {
+                callback(new Error('请输入正确的身份证号码'));
+            } else {
+                callback();
+            }
+        }
+    }
+    //14.日期前调或者后调(几年，几月，几天，几小时，几分钟，几秒钟)
+    function updateTime(addTime,addType,outType){
+            var dd = new Date();
+            updateTimeType(addTime,addType);
+
+            var y = dd.getFullYear();
+            var m = dd.getMonth()<9?'0'+(dd.getMonth()+1):dd.getMonth()+1;//获取当前月份的日期
+            var d = dd.getDate()<9?'0'+(dd.getDate()+1):dd.getDate()+1;
+            var h = dd.getHours()<9?'0'+(dd.getHours()):dd.getHours();
+            var mi = dd.getMinutes()<9?'0'+(dd.getMinutes()+10):dd.getMinutes()+1;
+            var s = dd.getSeconds()<9?'0'+(dd.getSeconds()+1):dd.getSeconds()+1;
+            var outData=outType.indexOf('mm:ss')>-1 ?  y+'-'+m+'-'+d+' '+h+':'+mi+':'+s :  y+'-'+m+'-'+d;
+            return outData;
+
+            function updateTimeType(num,type){
+                switch (type) {
+                    case 'year':
+                        dd.setFullYear(dd.getFullYear()+num);
+                        break;
+                    case 'month':
+                        dd.setMonth(dd.getMonth()+num);
+                        break;
+                    case 'day':
+                        dd.setDate(dd.getDate()+num);
+                        break;
+                    case 'hours':
+                        dd.setHours(dd.getHours()+num);
+                        break;
+                    case 'minutes':
+                        dd.setMinutes(dd.getMinutes()+num);
+                        break;
+                    case 'seconds':
+                        dd.setSeconds(dd.getSeconds()+num);
+                        break;
+                }
+            }
+    }
+
+    //15.常见的密码校验
+    function checkPassword(){
+        if (!value) {
+            return callback(new Error('请输入密码'))
+        }
+        if (!/^(?![\d]+$)(?![a-zA-Z]+$)(?![^\da-zA-Z]+$)([^\u4e00-\u9fa5\s]){6,20}$/.test(value)) {
+            callback(new Error('请输入6-20位英文字母、数字或者符号（除空格），且字母、数字和标点符号至少包含两种'))
+        } else {
+            callback()
+        }
+    }
 
 </script>
 </body>

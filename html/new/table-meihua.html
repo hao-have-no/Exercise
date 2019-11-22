@@ -4,18 +4,66 @@
     <meta charset="UTF-8">
     <title>美化表格常用技巧。等比、定宽、错色等</title>
     <style>
+        /**
+            滚动条样式美化
+         */
 
+        ::-webkit-scrollbar-thumb{
+            background: linear-gradient(orange,red);
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track{
+            background: pink;
+        }
+        ::-webkit-scrollbar{
+            width: 10px;
+            height:10px;
+        }
+
+        /**
+        美化表格常用技巧。等比、定宽、错色等
+         */
+        table,thread,tbody,tr,th,td{
+            border: 1px solid #d6d6d6;
+        }
+        table{
+            width:40%;
+            border-collapse: collapse;/*解决边线重叠问题*/
+            font-size: 14px;
+            color: #555;
+            table-layout: fixed;
+        }
+        tr,td{
+            padding:6px 12px;
+            height: 120px;
+        }
+        tr:nth-child(odd){
+            background: aliceblue;
+        }
+        tr:nth-child(1):hover{
+            background: aliceblue;
+        }
+        tr:hover{
+            background: lightcoral;
+        }
+        tr{
+            transition: background-position 1s;
+        }
     </style>
+    <script src="../../../../home/hxw/桌面/all.js"></script>
 </head>
 <body>
 <table>
-    <thread>
-        <tr>姓名</tr>
-        <tr>年级</tr>
-        <tr>分类</tr>
-        <tr>操作</tr>
-    </thread>
-    <tbody>
+    <tr>
+        <colgroup>
+            <col span="3">
+            <col style="width: 260px;;">
+        </colgroup>
+        <th>姓名</th>
+        <th>年级</th>
+        <th>分类</th>
+        <th>操作</th>
+    </tr>
     <tr>
         <td>sfsfff1</td>
         <td>2</td>
@@ -34,7 +82,87 @@
         <td>uhfd</td>
         <td>4</td>
     </tr>
-    </tbody>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr><tr>
+    <td>hsdff</td>
+    <td>2</td>
+    <td>uhfd</td>
+    <td>4</td>
+</tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+    <tr>
+        <td>hsdff</td>
+        <td>2</td>
+        <td>uhfd</td>
+        <td>4</td>
+    </tr>
+
 </table>
+<script>
+    console.log(`${[new Date(1501469892000).getFullYear(),(new Date(1501469892000).getMonth()+1>9?new Date(1501469892000).getMonth()+1:"0"+(new Date(1501469892000).getMonth()+1)),(new Date(1501469892000).getDate()>9?new Date(1501469892000).getDate():"0"+(new Date(1501469892000).getDate()))].join('-')} ${[(new Date(1501469892000).getHours()>9?new Date(1501469892000).getHours():"0"+new Date(1501469892000).getHours()),(new Date(1501469892000).getMinutes()>9?new Date(1501469892000).getMinutes():"0"+new Date(1501469892000).getMinutes()),(new Date(1501469892000).getSeconds()>9?new Date(1501469892000).getSeconds():"0"+new Date(1501469892000).getSeconds())].join(':')}`);
+</script>
 </body>
 </html>

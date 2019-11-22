@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>聊天</title>
+    <style>
+        .message {
+            width: 600px;
+            min-height: 400px;
+            padding: 15px;
+            border: 1px solid #ccc;
+        }
+        .message .a {
+            text-align: right;
+        }
+        .message li {
+            line-height: 30px;
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+<h4>当前用户：小叶</h4>
+<div class="wrap">
+    <input type="text" class="input">
+    <button class="btn-send">发送给小秋</button>
+</div>
+<ul class="message"></ul>
+</body>
+<script type="text/javascript">
+    window.onload=function(){
+        let elInput = document.querySelector('.input');
+        let elUl = document.querySelector('.message');//消息框
+        let ws=null;
+        let msgData={
+            fromUserId: 1,
+            toUserId: 2,
+            type: 'open',
+            content: '',
+        };
+
+        function connectWebSocket(){
+            ws = new WebSocket('ws://localhost:9000');
+            //监听成功
+            ws.onopen=()=>{
+                console.log("连接服务端成功");
+                ws.send(JSON.stringify(msgData));//send给服务器端发送消息
+            };
+
+            //监听服务端消息
+            ws.onmessage=(msg)=>{
+                let message=JSON.parse(msg.data);
+                console.log('接受消息'.message);
+                elUl.innerHTML += `<li class="b">小秋：${message.content}</li>`;
+            }
+
+            //连接失败
+            ws.onerror=()=>{
+                console.log('连接失败，正在重连');
+                connectWebSocket();
+            };
+
+            //链接关闭
+            ws.onclose=()=>{
+                console.log('链接关闭');
+            }
+        }
+
+        connectWebSocket();
+
+        document.querySelector('.btn-send').addEventListener('click',()=>{
+            let msg={...msgData,content:elInput.value,type:'text'};
+            //发送消息
+            ws.send(JSON.stringify(msg));
+            elUl.innerHTML +=`<li class="a">${elInput.value}：小叶</li>`;
+            elInput.value = '';
+        })
+    };
+</script>
+</html>
