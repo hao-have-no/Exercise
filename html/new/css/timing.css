@@ -1,0 +1,198 @@
+/*flip: 纸牌的外框*/
+/*down：表示向下翻牌动效，还有对于的up。后面章节会具体讲解。*/
+/*front: 表示位于前面的纸牌*/
+/*back: 表示位于后面的纸牌*/
+/*number*: 表示纸牌上的数字*/
+.single-demo {
+    margin: 50px auto;
+    padding: 30px;
+    width: 600px;
+    text-align: center;
+    border: solid 1px #999;
+}
+
+.flip{
+    display: inline-block;
+    position: relative;
+    width: 60px;
+    height: 100px;
+    line-height: 100px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 66px;
+    color: #fff;
+    box-shadow: 0 0 6px rgba(0,0,0, .5);
+    text-align: center;
+    font-family: "Helvetica Neue";
+}
+
+/*每个纸牌用为元素分成两部分*/
+.flip .digital:before,
+.flip .digital:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    background: #000;
+    overflow: hidden;
+    box-sizing: border-box;
+    /*盒子模型，内嵌*/
+}
+
+.flip .digital:before{
+    top:0;
+    bottom:50%;
+    border-radius: 10px 10px 0 0;
+    border-bottom: 1px solid #666;
+}
+.flip .digital:after {
+    top: 50%;
+    /*后面卡片覆盖前面的卡片一半*/
+    bottom: 0;
+    border-radius: 0 0 10px 10px;
+    line-height: 0;
+    /*处理第二张图片位置显示不准确*/
+}
+
+.flip .number0:before,
+.flip .number0:after {
+    content: "0";
+}
+.flip .number1:before,
+.flip .number1:after {
+    content: "1";
+}
+.flip .number2:before,
+.flip .number2:after {
+    content: "2";
+}
+.flip .number3:before,
+.flip .number3:after {
+    content: "3";
+}
+.flip .number4:before,
+.flip .number4:after {
+    content: "4";
+}
+.flip .number5:before,
+.flip .number5:after {
+    content: "5";
+}
+.flip .number6:before,
+.flip .number6:after {
+    content: "6";
+}
+.flip .number7:before,
+.flip .number7:after {
+    content: "7";
+}
+.flip .number8:before,
+.flip .number8:after {
+    content: "8";
+}
+.flip .number9:before,
+.flip .number9:after {
+    content: "9";
+}
+
+/*可以根据事物就可以得到*/
+/*向下翻*/
+.flip.down .front:before {
+    z-index: 3;
+}
+.flip.down .back:after {
+    z-index: 2;
+    transform-origin: 50% 0; /*是元素旋转的基本点，取水平的中间*/
+    transform: perspective(160px) rotateX(180deg);/*perspective(160px)可以理解为立体透视图的景深。　rotateX沿着ｘ翻转（180）直接盖住font(zindex(3>2>1),下面只有ｆｏｎｔ－ｂａｃｋx显示出０)*/
+}
+.flip.down .front:after,
+.flip.down .back:before {
+    z-index: 1;
+}
+
+/*向上翻*/
+.flip.up .front:after {
+    z-index: 3;
+}
+
+.flip.up .back:before {
+    z-index: 2;
+    transform-origin: 50% 100%;
+    transform: perspective(160px) rotateX(-180deg);
+}
+
+.flip.up .front:before,
+.flip.up .back:after {
+    z-index: 1;
+}
+
+/*开始翻转,向下(0-->1)*/
+.flip.down.go .front:before{
+    transform-origin: 50% 100%;
+    animation: frontFlipDown 0.6s ease-in-out both;
+    box-shadow: 0 -2px 6px rgba(255,255,255,0.3);
+    backface-visibility: hidden;/*元素背面可见*/
+}
+.flip.down.go .back:after{
+    animation: backFlipDown 0.6s ease-in-out both;
+}
+
+@keyframes frontFlipDown {
+    0%{
+        transform: perspective(160px) rotateX(0deg);
+    }
+    100%{
+        transform: perspective(160px) rotateX(-180deg);/*(从底部回来，由于ｉｎｄｅｘ的压制，只显示了一半)*/
+    }
+}
+
+@keyframes backFlipDown {
+    0%{
+        transform: perspective(160px) rotateX(180deg);
+    }
+    100%{
+        transform: perspective(160px) rotateX(0deg);
+    }
+}
+
+/*开始翻转,向上(0-->1)*/
+.flip.up.go .front:after {
+    transform-origin: 50% 0;
+    animation: frontFlipUp 0.6s ease-in-out both;
+    box-shadow: 0 2px 6px rgba(255, 255, 255, 0.3);
+    backface-visibility: hidden;
+}
+.flip.up.go .back:before {
+    animation: backFlipUp 0.6s ease-in-out both;
+}
+
+@keyframes frontFlipUp {
+    0% {
+        transform: perspective(160px) rotateX(0deg);
+    }
+    100% {
+        transform: perspective(160px) rotateX(180deg);
+    }
+}
+@keyframes backFlipUp {
+    0% {
+        transform: perspective(160px) rotateX(-180deg);
+    }
+    100% {
+        transform: perspective(160px) rotateX(0deg);
+    }
+}
+
+
+.clock {
+    text-align: center;
+}
+
+.clock em {
+    display: inline-block;
+    line-height: 102px;
+    font-size: 66px;
+    font-style: normal;
+    vertical-align: top;
+}
