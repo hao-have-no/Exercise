@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试Kvue</title>
+</head>
+<body>
+<!--（８－２２）实现简单的数据绑定，依赖收集，数据响应-->
+<!--<script src="./Kvue.js"></script>-->
+<!--<script>-->
+    <!--const app=new KVue({-->
+        <!--data:{-->
+         <!--test:'I am test',-->
+        <!--　foo:{-->
+            <!--bar:'bar'-->
+            <!--}-->
+        <!--}-->
+    <!--});-->
+
+    <!--app.$data.test="hello,kaikeba";-->
+    <!--app.$data.foo.bar="oh my bar";-->
+<!--</script>-->
+
+<!--compile编译
+    获取dom.遍历dom，解析特殊指令，处理后通过相关方法转化为页面可识别
+-->
+    <div id="app">
+        <!--插值绑定-->
+        <p>{{name}}</p>
+        <!--指令-->
+        <p k-text="name"></p>
+        <p>{{age}}</p>
+        <p>{{doubleAge}}</p>
+        <!--双向绑定-->
+        <input type="text" k-model="name"/>
+        <!--事件处理-->
+        <button @click="changeName">呵呵</button>
+        <!--html内容处理-->
+        <div k-html="html"></div>
+    </div>
+    <script src="./Kvue.js"></script>
+    <script src="./compile.js"></script>
+
+    <script>
+        const kaikeba=new KVue({
+            el:'#app',
+            data:{
+               name:"I am test",
+               age:12,
+               html:'<button>这是一个按钮</button>'
+            },
+            created(){
+                console.log('start');
+                setTimeout(()=>{
+                    this.name='我是测试'
+                },1500)
+            },
+            methods:{
+                changeName(){
+                    this.name = 'hello,kaikeba';
+                    this.age= 1;
+                }
+            }
+        })
+    </script>
+</body>
+</html>
