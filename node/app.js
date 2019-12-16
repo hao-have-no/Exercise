@@ -1,12 +1,3 @@
-// const Koa=require("koa");
-// const Router=require("koa-router");
-// const bodyParser=require("koa-bodyparser");
-// const md5=require("crypto-js/md5");
-// const jwt=require("jsonwebtoken");
-// const Sequelize=require("sequelize");//mysql的封装
-// const User=require("./bean/user.js");
-// const config=require("./config");
-
 //websocket建立实时聊天
 // const path = require('path');
 // const express=require("express");
@@ -52,10 +43,22 @@
 // });
 //*************************************************************************************************
 
+
+// const Koa=require("koa");
+// const Router=require("koa-router");
+// const bodyParser=require("koa-bodyparser");
+// const md5=require("crypto-js/md5");
+// const jwt=require("jsonwebtoken");
+//const jwtAuth = require("koa-jwt");
+// const Sequelize=require("sequelize");//mysql的封装
+// const User=require("./bean/user.js");
+// const config=require("./config");
 // const app=new Koa();
 // const router=new Router();
 //
 // app.use(bodyParser());
+//
+
 //
 // /**
 //  * 建立用户
@@ -78,6 +81,21 @@
 //      const salt = String(Math.random()).substring(2, 10);
 //      // 生成新的md5
 //      const saltMD5PassWord = md5(`${md5Password}:${salt}`).toString();
+//
+//
+// /**
+//  * 新增的生成令牌的方式，比md5更加安全可靠
+//  */
+//
+//     const token=jwt.sign(
+//         {
+//             data:{name:'开课吧'},//用户数据
+//             exp:Math.floor(Date.now()/1000)+60*60//过期时间（一小时）
+//         },
+//         salt //秘钥
+//     ),
+//     ctx.body={code,token}\
+//
 //      console.log(saltMD5PassWord);
 //      try{
 //          //类似用户查找
@@ -168,7 +186,11 @@
 //     "/user",
 //     async (ctx, next) => {
 //         // 这里应该抽成一个auth中间件
-//         const token = ctx.request.query.token || ctx.request.headers["token"];
+//         const token = ctx.request.query.token || ctx.request.headers["token"];//验证token
+
+// 　　　//更为准确的是，通过用户携带的信息，本当期你的秘钥进行计算，判断一致，然后计算过期时间
+//     jwtAuth(secret);
+
 //         if (token) {
 //             jwt.verify(token, config.secret, async function(err, decoded) {
 //                 if (err) {

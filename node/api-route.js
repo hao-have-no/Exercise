@@ -6,35 +6,27 @@ const express = require('express')
 const mockjs = require('mockjs')
 var db=require('./bean/sql-basic')
 const md5=require("crypto-js/md5");
+var jwt=require('jsonwebtoken');
 var router = express.Router();
-var multipart = require('connect-multiparty');
-var multipartMiddleware = multipart();
-
-
-
-//获取微信用户数据
-
-//获取绑定档案信息
-
-//手机信息
-
-//绑定手机号
-
-//绑定档案
-
-//删除档案
-
-//设置默认账号
-
-
 
 //登录接口,更改session状态
-router.post('/login',multipartMiddleware,function (req,res,next) {
+router.post('/login',function (req,res,next) {
     const {name = "",pass = ""} = req.body.params|| {};
+    var salt="isMyLove"
     var sql="select * from user where name='"+name+"'";
     console.log(pass);
     const md5Password = md5(String(pass)).toString();
     let result={};
+
+    //jwt-令牌操作，避免前端普通的token信息被修改
+    const token=jwt.sign(
+        {
+            data:{name:'ESS'},//用户数据
+            exp:Math.floor(Date.now()/1000)+60*60//过期时间（一小时）
+        },
+        salt //秘钥
+    );
+    console.log('token',token);
 
     db.query(sql,function (err,rows,field) {
         if (err){
