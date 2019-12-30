@@ -91,6 +91,106 @@ function auth(req,res,next){
     res.json({code:200,data:{name:'jack'},message:'获取成功'})
  });
 
+//获取轮播图和列表项
+　router.get('/slider',function (req,res,next) {
+     const result={
+         code:200,
+         slider:[
+             {id:21,img:'../../../static/images/1.jpg'},
+             {id:22,img:'../../../static/images/2.jpg'},
+             {id:23,img:'../../../static/images/3.jpg'},
+             {id:24,img:'../../../static/images/4.jpg'},
+             {id:25,img:'../../../static/images/5.jpg'},
+             {id:26,img:'../../../static/images/6.jpg'}
+         ],
+         data:{
+             fe:[
+                 {
+                 id:1,
+                 title:'Vue2.x实战',
+                 price:'100',
+                 img:'',
+                 count:100
+                 },
+                 {
+                     id:2,
+                     title:'React实战',
+                     price:'200',
+                     img:'',
+                     count:100
+                 },
+                 {
+                     id:3,
+                     title:'Angular实战',
+                     price:'200',
+                     img:'',
+                     count:100
+                 }
+                 ],
+             python:[{
+                 id:4,
+                 title:'python实战1',
+                 price:'100',
+                 img:'',
+                 count:100
+             },
+                 {
+                     id:5,
+                     title:'python实战2',
+                     price:'200',
+                     img:'',
+                     count:100
+                 },
+                 {
+                     id:6,
+                     title:'python实战3',
+                     price:'200',
+                     img:'',
+                     count:100
+                 }],
+             java:[{
+                 id:7,
+                 title:'java实战1',
+                 price:'100',
+                 img:'',
+                 count:100
+             },
+                 {
+                     id:8,
+                     title:'java实战2',
+                     price:'200',
+                     img:'',
+                     count:300
+                 },
+                 {
+                     id:9,
+                     title:'java实战3',
+                     price:'200',
+                     img:'',
+                     count:100
+                 }],
+             ai:[{
+                 id:10,
+                 title:'ai实战1',
+                 price:'100',
+                 img:'',
+                 count:100
+             },
+                 {
+                     id:11,
+                     title:'ai实战2',
+                     price:'200',
+                     img:'',
+                     count:300
+                 }]
+         },
+         keys:["fe","python","java","ai"]
+     };
+
+     res.json(result);
+ });
+
+
 
 
 

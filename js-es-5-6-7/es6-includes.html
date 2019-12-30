@@ -112,6 +112,65 @@
     //     }
     // }
     // console.log(data)
+
+    var obj={
+        aa:[
+            {
+                id:'1',
+                name:'aa1'
+            },
+            {
+                id:'2',
+                name:'aa2'
+            },
+            {
+                id:'2',
+                name:'aa2'
+            }
+        ],
+        bb:[
+            {
+                id:'1',
+                name:'bb1'
+            },
+            {
+                id:'2',
+                name:'bb2'
+            },
+            {
+                id:'2',
+                name:'bb2'
+            }
+        ],
+        cc:[
+            {
+                id:'1',
+                name:'cc1'
+            },
+            {
+                id:'2',
+                name:'cc2'
+            },
+            {
+                id:'2',
+                name:'cc2'
+            }
+        ]
+    }
+
+    var opt=['aa','bb','cc'];
+
+    function setData(){
+        console.log('出里');
+        const arr=opt.map(key =>
+            obj[key]).reduce(
+            (prev,next)=>{
+                return prev.concat(next)},[]);
+        console.log(arr);
+    }
+
+    setData()
+
 </script>
 </body>
 </html>
