@@ -25,3 +25,21 @@ sudo apt-get --purge remove nginx
 ps -ef |grep nginx
 
 sudo kill  -9
+
+
+运行mongodb
+./bin/mongod --dbpath=/usr/local/mongodb/data/db/  设置mongodb的地址
+
+/data/db 是 MongoDB 默认的启动的数据库路径(--dbpath)。
+mkdir -p /data/db
+
+启动mongondb
+mongodb://localhost 以本地方式启动
+
+管理工具推荐:navicat
+
+//杀死占用端口的进程
+sudo lsof -i:端口号
+sudo kill -9 进程号
+
+

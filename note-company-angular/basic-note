@@ -1,3 +1,26 @@
+
+页面跳转之前的路由判定(阻断页面跳转,先进行判定)
+$rootScope.$on("$routeChangeStart", (event, current, previous) => {
+			WeiAuthService.authRouteChangeStart(event, current);
+		});
+
+event.preventDefault();
+在进行相关的请求操作和业务判断
+eg:
+if (urlCode) {
+							let currentRoutePath = $location.url();
+							if (!currentRoutePath || currentRoutePath == "/") {
+								currentRoutePath = this.saveLocationUrl("get");
+							}
+							this.saveLocationUrl("set", currentRoutePath);
+							this.getAccessToken(urlCode);
+						} else {
+							this.saveLocationUrl("set", $location.url());
+
+
+
+
+-----------------------------------------------------------------------------
 angular.js的component方法
 
 １．父级

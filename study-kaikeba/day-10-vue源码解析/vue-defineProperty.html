@@ -13,12 +13,15 @@
     var obj={};
     Object.defineProperty(obj,'name',{
         get:function(){
+            console.log(document.querySelector('#name').innerHTML);
             return document.querySelector('#name').innerHTML;
         },
         set:function (val) {
+            console.log(val);
             document.querySelector('#name').innerHTML = val;
         }
     });
     obj.name = "Jerry";
+    // obj.name //出发getter
 </script>
 </html>
