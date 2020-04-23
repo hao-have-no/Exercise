@@ -5,8 +5,61 @@
     <title>24中比较常用的Es6方法</title>
 </head>
 <body>
+<div id="myId">
+123
+</div>
 <script>
+    //1.等待指定事件后调用提供的函数
+    const delay=(fn,wait,...args)=>setTimeout(fn,wait,...args);
+    delay(function (text) {
+        console.log(text);
+    },1000,'info');
 
+    //2.如何给指定的元素增加特定的事件,传递自定义数据
+    const triggerEvent =(el,eventType,detail)=>el.dispatchEvent(new CustomEvent(eventType,{detail}));
+
+    triggerEvent(document.getElementById('myId'),'click',{user:'name'});
+
+    document.getElementById('myId').addEventListener('click',function (element) {
+        console.log(element);
+    });
+
+    //event loop,(先执行宏任务,在执行宏任务产生的微任务,微任务执行过程中产生新的微任务,则继续执行微任务,执行完毕后回到宏任务)
+    //async隐式返回 Promise 作为结果的函数,那么可以简单理解为，await后面的函数执行完毕时，
+    // await会产生一个微任务(Promise.then是微任务)。但是我们要注意这个微任务产生的时机，它是执行完await之后，
+    // 直接跳出async函数，执行其他代码(此处就是协程的运作，A暂停执行，控制权交给B)。其他代码执行完毕后，
+    // 再回到async函数去执行剩下的代码，然后把await后面的代码注册到微任务队列当中。
+
+    async function async1(){
+      await  async2();
+      //await等待async2执行后,在执行其他的,先将该上下文挂起跳出继续执行
+      //遇到setTimeout宏任务
+      //遇到promise生成两个then的微任务
+      //执行async2的挂起微任务
+      //async2 => promise => async1=> promise1 => promise2 => setTimeout
+      console.log("async1");
+    }
+    async function async2(){
+      console.log("async2");
+      return Promise.resolve().then(()=>{
+          console.log('async2 end')
+      })
+    }
+
+    async1();
+
+    setTimeout(()=>{
+       console.log('setTimeout')
+    },0);
+
+    new Promise(resolve => {
+        console.log('promise');
+        resolve();
+    }).then(function(){
+        console.log('promise1')
+    }).then(()=>{
+        console.log('promise2');
+    })
 </script>
 </body>
 </html>

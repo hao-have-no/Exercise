@@ -2,86 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>算法积累</title>
+    <title>反转一个单链表</title>
+    <link rel="stylesheet" href="./viewer.min.css">
 </head>
 <body>
+<button id="content1">123</button>
+
+<div id="docs-pictures">
+    <img id="./emma-watson-1.jpg" class="img" data-original="../emma-watson-1.jpg"   src="./emma-watson-1.jpg" style="width: 60px;height: 60px;margin-right: 10px" alt="Picture1"/>
+    <img class="img" data-original="../emma-watson-2.jpg"   src="./emma-watson-2.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture2"/>
+    <img class="img" data-original="../emma-watson-3.jpg"   src="./emma-watson-3.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture3"/>
+    <img class="img" data-original="../emma-watson-1.jpg"   src="./emma-watson-1.jpg" style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture1"/>
+    <img class="img" data-original="../emma-watson-2.jpg"   src="./emma-watson-2.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture2"/>
+    <img class="img" data-original="../emma-watson-3.jpg"   src="./emma-watson-3.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture3"/>
+    <img class="img" data-original="../emma-watson-1.jpg"   src="./emma-watson-1.jpg" style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture1"/>
+    <img class="img" data-original="../emma-watson-2.jpg"   src="./emma-watson-2.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture2"/>
+    <img class="img" data-original="../emma-watson-3.jpg"   src="./emma-watson-3.jpg"  style="display: none;width: 60px;height: 60px;margin-right: 10px" alt="Picture3"/>
+</div>
+
+<script src="./jquery-1.11.0.min.js"></script>
+<script src="./viewer.min.js"></script>
 <script>
-    //通过数组的形式对出现的元素进行累加，最后判断
-    var decodeString=function (s) {
-        //存放出现次数的栈
-        let countStack = [];
-        //存放积累字符串的栈
-        let resStack = [];
-        //用来积累的字符串ｒｅｓ
-        let res= "";
-        //表示重复次数
-        let multi = 0;
-        for (let i =0;i<s.length;i++){
-            let cur=s.charAt(i);//截取当前字符串
-            if (cur　== '['){
-                //进栈，保存当前值，初始值回复
-                countStack.push(multi);
-                resStack.push(res);
-                res = '';
-                multi = 0;
-            }else if (cur == ']'){
-                //进行当前阶段计算值
-                let count=countStack.pop();//根据先进先出的原则，取出最后一位数字
-                let temp = '';//暂时存放的结果
-                for (let i =0;i<count;i++){
-                    temp += res;
-                }
-                res = resStack.pop()+temp;
-            }else if (cur >= '0'&& cur <= '9'){
-                //存放重复次数(当前出现大于１０的情况，需要进行累加操作)
-                multi = multi *10+(cur - '0');
-            }else{
-                //如果只是字符的话，存放累计字段
-                res += cur;
-            }
-        }
-        return res;
-    }
-
-    //利用递归的方法,将每个括号里置为子程序，最后计算
-    function decodeString2(s){
-        return dfs(s,0);
-    }
-
-    let dfs=(s, n)=>{
-        let res="";//字段存放
-        let i=n;//保存索引值
-        let multi = 0;//重复次数
-        while (i < s.length){
-            let cur=s.charAt(i);
-            if (cur >= '0' && cur <= '9'){
-                multi = multi *10 + (cur - '0');
-            }
-            else if (cur === '['){
-                //开辟新的子程序，去计算括号里的
-                let tmp=dfs(s,i+1);
-                //返回的值为】计算结束的结果
-                i = tmp[0];
-                let repeatStr=tmp[1];
-                for (let j=0;j<multi;j++){
-                    res +=repeatStr;//每一层都要计算子程序的预算结果，得到当前层级的值
-                }
-                multi = 0;//为下一轮遍历准备，有时候统一层级会存在多个，不要影响后面的值；
-            }
-            else if(cur == ']'){
-                return [i,res];
-            }else{
-                res += cur;
-            }
-            i++;
-        }
-        return res;
-    };
-
-
-    var s="3[ee4[dd3[cc]]]5[bb2[aa]]";console.log(decodeString(s));console.log('果皮',decodeString2(s));
-
+    $('#docs-pictures').viewer({ toolbar: false, movable: false, zoomTo: 0.3, fullscreen: false, ZoomRatio: 0.29, navbar: false });
 
 </script>
+<!--<script src="main.js"></script>-->
 </body>
 </html>

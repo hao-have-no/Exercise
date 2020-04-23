@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计时器</title>
+</head>
+<body>
+
+<script src="./jquery-1.11.0.min.js"></script>
+<script>
+    (function(){
+
+    var count=0;
+    var timer = setInterval(function(){
+       count++;
+       console.log('count',count);
+       $.get('http://192.168.1.41:33015/chronic/data/migration/entry?num=2',function(){
+
+       });
+       if (count === 5){
+           clearInterval(timer);
+       }
+    },43200000)
+    })();
+</script>
+</body>
+</html>
