@@ -4,63 +4,63 @@
 
 const express = require('express')
 const mockjs = require('mockjs')
-var db=require('./bean/sql-basic')
-const md5=require("crypto-js/md5");
-var jwt=require('jsonwebtoken');
+var db = require('./bean/sql-basic')
+const md5 = require("crypto-js/md5");
+var jwt = require('jsonwebtoken');
 var router = express.Router();
 
 //登录接口,更改session状态
-router.post('/login',function (req,res,next) {
-    const {name = "",pass = ""} = req.body.params|| {};
-    var salt="isMyLove"
-    var sql="select * from user where name='"+name+"'";
+router.post('/login', function (req, res, next) {
+    const {name = "", pass = ""} = req.body.params || {};
+    var salt = "isMyLove"
+    var sql = "select * from user where name='" + name + "'";
     console.log(pass);
     const md5Password = md5(String(pass)).toString();
-    let result={};
+    let result = {};
 
     //jwt-令牌操作，避免前端普通的token信息被修改
-    const token=jwt.sign(
+    const token = jwt.sign(
         {
-            data:{name:'ESS'},//用户数据
-            exp:Math.floor(Date.now()/1000)+60*60//过期时间（一小时）
+            data: {name: 'ESS'},//用户数据
+            exp: Math.floor(Date.now() / 1000) + 60 * 60//过期时间（一小时）
         },
         salt //秘钥
     );
-    console.log('token',token);
+    console.log('token', token);
 
-    db.query(sql,function (err,rows,field) {
-        if (err){
+    db.query(sql, function (err, rows, field) {
+        if (err) {
             //也可以在判断中直接采用res.status(401).json()　
             // 给定错误状态码进行回传，减少前端不必要的判断
-            console.log('err',err);
-            result={status:'error',error:err}
+            console.log('err', err);
+            result = {status: 'error', error: err}
             send();
-        }else{
-            if (rows.length === 0){
-                result = {code:401,message:"无该用户，请注册！！！"};
-                 send();
-            }else if (rows[0].password === md5Password) {
-                insertToken(name).then((data)=>{
-                    result = {code:200,token:data};
+        } else {
+            if (rows.length === 0) {
+                result = {code: 401, message: "无该用户，请注册！！！"};
+                send();
+            } else if (rows[0].password === md5Password) {
+                insertToken(name).then((data) => {
+                    result = {code: 200, token: data, username:name};
                     send();
                 });
-            }else{
-                result = {code:401,message:"密码错误，请重试！！！"};
+            } else {
+                result = {code: 401, message: "密码错误，请重试！！！"};
                 send();
             }
         }
 
-        function send(){
-            const data=mockjs.mock({
-                "data":result,
-                "status":'200'
+        function send() {
+            const data = mockjs.mock({
+                "data": result,
+                "status": '200'
             });
             res.json(data)
         }
 
     })
 
-        function insertToken(name){
+    function insertToken(name) {
         return new Promise(function (resolve, reject) {
             let token = md5(`${new Date().getDate()}${name}${(Math.random() * 10000).toFixed(0)}`).toString();
             const sql = "update user set ts ='" + token + "' where name='" + name + "'";
@@ -77,152 +77,147 @@ router.post('/login',function (req,res,next) {
 })
 
 //中间件-保护接口，判断权限
-function auth(req,res,next){
-    if (req.headers.token){
+function auth(req, res, next) {
+    if (req.headers.token) {
         //已认证
         next();
-    } else{
-        res.json({code:401,message:'登录状态异常'})
+    } else {
+        res.json({code: 401, message: '登录状态异常'})
     }
 }
 
 //获取登录用户信息
- router.get('/userInfo',auth,function(req,res,next){
-    res.json({code:200,data:{name:'jack'},message:'获取成功'})
- });
+router.get('/userInfo', auth, function (req, res, next) {
+    res.json({code: 200, data: {name: 'jack'}, message: '获取成功'})
+});
 
 //获取轮播图和列表项
-　router.get('/slider',function (req,res,next) {
-     const result={
-         code:200,
-         slider:[
-             {id:21,img:'../../../static/images/1.jpg'},
-             {id:22,img:'../../../static/images/2.jpg'},
-             {id:23,img:'../../../static/images/3.jpg'},
-             {id:24,img:'../../../static/images/4.jpg'},
-             {id:25,img:'../../../static/images/5.jpg'},
-             {id:26,img:'../../../static/images/6.jpg'}
-         ],
-         data:{
-             fe:[
-                 {
-                 id:1,
-                 title:'Vue2.x实战',
-                 price:'100',
-                 img:'',
-                 count:100
-                 },
-                 {
-                     id:2,
-                     title:'React实战',
-                     price:'200',
-                     img:'',
-                     count:100
-                 },
-                 {
-                     id:3,
-                     title:'Angular实战',
-                     price:'200',
-                     img:'',
-                     count:100
-                 }
-                 ],
-             python:[{
-                 id:4,
-                 title:'python实战1',
-                 price:'100',
-                 img:'',
-                 count:100
-             },
-                 {
-                     id:5,
-                     title:'python实战2',
-                     price:'200',
-                     img:'',
-                     count:100
-                 },
-                 {
-                     id:6,
-                     title:'python实战3',
-                     price:'200',
-                     img:'',
-                     count:100
-                 }],
-             java:[{
-                 id:7,
-                 title:'java实战1',
-                 price:'100',
-                 img:'',
-                 count:100
-             },
-                 {
-                     id:8,
-                     title:'java实战2',
-                     price:'200',
-                     img:'',
-                     count:300
-                 },
-                 {
-                     id:9,
-                     title:'java实战3',
-                     price:'200',
-                     img:'',
-                     count:100
-                 }],
-             ai:[{
-                 id:10,
-                 title:'ai实战1',
-                 price:'100',
-                 img:'',
-                 count:100
-             },
-                 {
-                     id:11,
-                     title:'ai实战2',
-                     price:'200',
-                     img:'',
-                     count:300
-                 }]
-         },
-         keys:["fe","python","java","ai"]
-     };
+router.get('/slider', function (req, res, next) {
+    const result = {
+        code: 200,
+        slider: [
+            {id: 21, img: '../../../static/images/1.jpg'},
+            {id: 22, img: '../../../static/images/2.jpg'},
+            {id: 23, img: '../../../static/images/3.jpg'},
+            {id: 24, img: '../../../static/images/4.jpg'},
+            {id: 25, img: '../../../static/images/5.jpg'},
+            {id: 26, img: '../../../static/images/6.jpg'}
+        ],
+        data: {
+            fe: [
+                {
+                    id: 1,
+                    title: 'Vue2.x实战',
+                    price: '100',
+                    img: '',
+                    count: 100
+                },
+                {
+                    id: 2,
+                    title: 'React实战',
+                    price: '200',
+                    img: '',
+                    count: 100
+                },
+                {
+                    id: 3,
+                    title: 'Angular实战',
+                    price: '200',
+                    img: '',
+                    count: 100
+                }
+            ],
+            python: [{
+                id: 4,
+                title: 'python实战1',
+                price: '100',
+                img: '',
+                count: 100
+            },
+                {
+                    id: 5,
+                    title: 'python实战2',
+                    price: '200',
+                    img: '',
+                    count: 100
+                },
+                {
+                    id: 6,
+                    title: 'python实战3',
+                    price: '200',
+                    img: '',
+                    count: 100
+                }],
+            java: [{
+                id: 7,
+                title: 'java实战1',
+                price: '100',
+                img: '',
+                count: 100
+            },
+                {
+                    id: 8,
+                    title: 'java实战2',
+                    price: '200',
+                    img: '',
+                    count: 300
+                },
+                {
+                    id: 9,
+                    title: 'java实战3',
+                    price: '200',
+                    img: '',
+                    count: 100
+                }],
+            ai: [{
+                id: 10,
+                title: 'ai实战1',
+                price: '100',
+                img: '',
+                count: 100
+            },
+                {
+                    id: 11,
+                    title: 'ai实战2',
+                    price: '200',
+                    img: '',
+                    count: 300
+                }]
+        },
+        keys: ["fe", "python", "java", "ai"]
+    };
 
-     res.json(result);
- });
-
-
-
-
-
+    res.json(result);
+});
 
 
 //纪录每个人在系统里的浏览记录
-router.get('/pageInfo',function(req,res,next){
-    var sql=
-    "insert into "+"`page-info`"+`(user_id,page,page_name,stay_time) values ("${req.query.userId}","${req.query.page}","${req.query.pageName}","${req.query.stayTime}")`;
-    db.query(sql,function (err,rows,field) {
-       if (err) {
-           console.log(err);
-       }
-        const data=mockjs.mock({
-            "data":{
-                "data":"ok"
+router.get('/pageInfo', function (req, res, next) {
+    var sql =
+        "insert into " + "`page-info`" + `(user_id,page,page_name,stay_time) values ("${req.query.userId}","${req.query.page}","${req.query.pageName}","${req.query.stayTime}")`;
+    db.query(sql, function (err, rows, field) {
+        if (err) {
+            console.log(err);
+        }
+        const data = mockjs.mock({
+            "data": {
+                "data": "ok"
             },
-            "status":200
+            "status": 200
         });
         res.json(data);
     });
 });
 
-router.get('/pageView',function (req,res,next) {
+router.get('/pageView', function (req, res, next) {
     var sql = "select page,page_name,round(sum(stay_time),2) sum,count(*) count from `page-info` group by page,page_name order by count(*)";
-    db.query(sql,function (err,rows,field) {
-        if (err){
+    db.query(sql, function (err, rows, field) {
+        if (err) {
             console.log(err);
         }
-        const data=mockjs.mock({
-            "data":rows,
-            status:200
+        const data = mockjs.mock({
+            "data": rows,
+            status: 200
         });
         res.json(data);
     })
@@ -230,19 +225,19 @@ router.get('/pageView',function (req,res,next) {
 
 
 //注销接口,更改session状态
-router.get('/logout', function (req, res,next) {
-    var sql="update user set ts ='0' where personId='123'";
-    db.query(sql,function (err,rows,field) {
-        if (err){
+router.get('/logout', function (req, res, next) {
+    var sql = "update user set ts ='0' where personId='123'";
+    db.query(sql, function (err, rows, field) {
+        if (err) {
             console.log(err);
         }
-        var result="logout";
+        var result = "logout";
 
-        const data=mockjs.mock({
-            "data":{
-                message:result
+        const data = mockjs.mock({
+            "data": {
+                message: result
             },
-            "status":200
+            "status": 200
         });
 
         res.json(data)
@@ -250,95 +245,95 @@ router.get('/logout', function (req, res,next) {
 })
 
 //私密接口
-router.get('/',function (req,res,next) {
+router.get('/', function (req, res, next) {
 
-    if (req.body.name){
+    if (req.body.name) {
         res.send("hello world");
-    } else{
+    } else {
 
     }
 });
 
-router.post('/me',function (req,res,next) {
+router.post('/me', function (req, res, next) {
     console.log(req.query);
 
-    var password=md5(req.query.password).toString();
-        console.log(password);
+    var password = md5(req.query.password).toString();
+    console.log(password);
 
-        const data=mockjs.mock({
-            "data":{
-                password:password
-            },
-            "status":200
-        })
+    const data = mockjs.mock({
+        "data": {
+            password: password
+        },
+        "status": 200
+    })
     res.json(data);
 
 });
 
-router.get('/select', function(req, res, next) {
-    var sql="select * from user";
+router.get('/select', function (req, res, next) {
+    var sql = "select * from user";
 
-    db.query(sql,function (err,rows,field) {
-        if (err){
-            return ;
+    db.query(sql, function (err, rows, field) {
+        if (err) {
+            return;
         }
-        const data=mockjs.mock({
-            "data":{
-                message:rows
+        const data = mockjs.mock({
+            "data": {
+                message: rows
             },
-            "status":200
+            "status": 200
         })
         res.json(data)
     })
 });
 
-router.get('/basic/info/:patientId', function(req, res, next) {
-patientId = req.query.patientId
+router.get('/basic/info/:patientId', function (req, res, next) {
+    patientId = req.query.patientId
 
-  var data = mockjs.mock({
-      "data":{
-          "name":"quinn",
-          "sex":"男",
-          "age":18,
-          "patientId":"10001",
-          "phone":"18888888888",
-          "address":"北京海淀",
-          "idType":"身份证",
-          "idNumber":"110402199309272232"
-      },
-      "status":"ok",
-      "description":"数据请求成功"
-  });
+    var data = mockjs.mock({
+        "data": {
+            "name": "quinn",
+            "sex": "男",
+            "age": 18,
+            "patientId": "10001",
+            "phone": "18888888888",
+            "address": "北京海淀",
+            "idType": "身份证",
+            "idNumber": "110402199309272232"
+        },
+        "status": "ok",
+        "description": "数据请求成功"
+    });
 
-  res.json(data)
+    res.json(data)
 });
 
-router.get('/prescription/search', function(req, res, next) {
+router.get('/prescription/search', function (req, res, next) {
     keyword = req.query.filter_LIKE_searchValue
 
     var data = mockjs.mock({
-        "data":[
+        "data": [
             {
                 "id": 1,
-                "name":"quinn",
-                "sex":"男",
-                "age":18,
-                "patientId":"10001",
-                "phone":"18888888888",
-                "address":"北京海淀",
+                "name": "quinn",
+                "sex": "男",
+                "age": 18,
+                "patientId": "10001",
+                "phone": "18888888888",
+                "address": "北京海淀",
             },
             {
                 "id": 2,
-                "name":"sunny",
-                "sex":"女",
+                "name": "sunny",
+                "sex": "女",
                 "age": 20,
-                "patientId":"10001",
-                "phone":"18888888888",
-                "address":"河北石家庄",
+                "patientId": "10001",
+                "phone": "18888888888",
+                "address": "河北石家庄",
             }
         ],
-        "status":"ok",
-        "description":"数据请求成功"
+        "status": "ok",
+        "description": "数据请求成功"
     });
 
     res.json(data)
@@ -348,54 +343,291 @@ router.get('/prescription/search', function(req, res, next) {
  * 获取慢病数据
  * @type {Router|router}
  */
-router.get('/disease/list', function(req, res, next) {
+router.get('/disease/list', function (req, res, next) {
     var data = mockjs.mock({
-        "data":{
-            "id":59,
-            "name":null,
-            "label":"时间轴_历次就诊信息",
-            "type":null,
-            "limits":null,
-            "result":[
+        "data": {
+            "id": 59,
+            "name": null,
+            "label": "时间轴_历次就诊信息",
+            "type": null,
+            "limits": null,
+            "result": [
                 {
-                    "pati_id":"0020404703",
-                    "xl_patient_id":"501_0020404703",
-                    "xl_medical_id":"501_2_1",
-                    "medical_date":"2017-06-29 15:34:00",
-                    "medical_type_id":"3",
-                    "title":"住院_呼吸科",
-                    "note":"睡眠呼吸暂停低通气综合征"
+                    "pati_id": "0020404703",
+                    "xl_patient_id": "501_0020404703",
+                    "xl_medical_id": "501_2_1",
+                    "medical_date": "2017-06-29 15:34:00",
+                    "medical_type_id": "3",
+                    "title": "住院_呼吸科",
+                    "note": "睡眠呼吸暂停低通气综合征"
                 },
                 {
-                    "pati_id":"0020404703",
-                    "xl_patient_id":"501_0020404703",
-                    "xl_medical_id":"501_1_1",
-                    "medical_date":"2017-06-29 00:00:00",
-                    "medical_type_id":"2",
-                    "title":"门诊_呼吸科",
-                    "note":"睡眠呼吸暂停综合征"
+                    "pati_id": "0020404703",
+                    "xl_patient_id": "501_0020404703",
+                    "xl_medical_id": "501_1_1",
+                    "medical_date": "2017-06-29 00:00:00",
+                    "medical_type_id": "2",
+                    "title": "门诊_呼吸科",
+                    "note": "睡眠呼吸暂停综合征"
                 },
                 {
-                    "pati_id":"0020404703",
-                    "xl_patient_id":"501_0020402312",
-                    "xl_medical_id":"501_2_3",
-                    "medical_date":"2019-06-19 00:00:00",
-                    "medical_type_id":"4",
-                    "title":"慢病_呼吸科",
-                    "note":"睡眠测试综合征"
+                    "pati_id": "0020404703",
+                    "xl_patient_id": "501_0020402312",
+                    "xl_medical_id": "501_2_3",
+                    "medical_date": "2019-06-19 00:00:00",
+                    "medical_type_id": "4",
+                    "title": "慢病_呼吸科",
+                    "note": "睡眠测试综合征"
                 }
             ],
-            "status":"ok"
+            "status": "ok"
         },
-        "status":"ok",
-        "description":"数据请求成功"
+        "status": "ok",
+        "description": "数据请求成功"
     });
 
     res.json(data)
 });
 
-router.get('/disease/list',function () {
-    
+router.get('/disease/list', function () {
+    var data = mockjs.mock({
+        "data": {
+            "info": "info"
+        },
+        "status": "ok",
+        "description": "数据请求成功"
+    })
+    res.json(data);
 })
 
-module.exports =  router
+/**
+ * 慢病测试-获取数据
+ * @type {Router|router}
+ */
+router.get('/disease-src', function (req, res, next) {
+    var data = mockjs.mock({
+        "data": {
+            "info": "info"
+        },
+        "status": "ok",
+        "description": "数据请求成功"
+    })
+    res.json(data);
+})
+
+/**
+ * 图表数据
+ */
+router.get('/disease-charts', function (req, res, next) {
+    var data = mockjs.mock({
+        "data": [
+            {
+                "time": "2020-02-02 00:00:00",
+                "healthData": [
+                    {
+                        "name": "收缩压",
+                        "value": 140,
+                        "unit":'mmol'
+                    },
+                    {
+                        "name": "舒张压",
+                        "value": 80,
+                        "unit":'mmol'
+                    }
+                ]
+            },
+            {
+                "time": "2020-02-03 00:00:00",
+                "healthData": [
+                    {
+                        "name": "收缩压",
+                        "value": 140,
+                        "unit":'mmol'
+                    },
+                    {
+                        "name": "舒张压",
+                        "value": 80,
+                        "unit":'mmol'
+                    }
+                ]
+            }
+        ],
+        "status": "200",
+        "description": "数据请求成功"
+    })
+    res.json(data);
+})
+
+router.get('/scheme-list', function (req, res, next) {
+    var data = mockjs.mock({
+        "data": [
+            {
+                "schemeName": "高血压健康管理方案",
+                "estimateTime": "2020-02-15 10:59:26",
+                "estimateEvidence": "评估依据",
+                "estimateResult": "1级高血压低危",
+                "schemes": {
+                    "drug": [
+                        {
+                            "schemeTemplate": {
+                                "name": "用药方案",
+                                "schemeMaterials": [
+                                    {
+                                        "materialName": "马来酸依那普利",
+                                        "dateName": "日",
+                                        "dateValue": "1",
+                                        "timeValue": "1",
+                                        "timeName": "次",
+                                        "operationName": "口服",
+                                        "dosageValue": "1",
+                                        "dosageName": "g",
+                                        "medicationTime": [
+                                            "08:00",
+                                            "10:00"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "interview": [
+                        {
+                            "schemeTemplate": {
+                                "name": "每日上报",
+                                "dateName": "日",
+                                "dateValue": "1",
+                                "timeValue": "1",
+                                "timeName": "次",
+                                "schemeMaterials": [
+                                    {
+                                        "materialName": "血压",
+                                        "crfTemplateInfoNames": [
+                                            "收缩压",
+                                            "舒张压"
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "schemeTemplate": {
+                                "name": "月度随访",
+                                "dateName": "月",
+                                "dateValue": "3",
+                                "timeValue": "1",
+                                "timeName": "次",
+                                "schemeMaterials": [
+                                    {
+                                        "materialName": "血常规",
+                                        "crfTemplateInfoNames": [
+                                            "白细胞计数（WBC）",
+                                            "红细胞计数（RBC）"
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "sport": [
+                        {
+                            "schemeTemplate": {
+                                "name": "运动方案",
+                                "schemeMaterials": [
+                                    {
+                                        "materialName": "运动方案",
+                                        "sportWay": "游泳、打球、登山、慢跑",
+                                        "sportTimeAdmission": "餐后",
+                                        "sportTimeValue": "1",
+                                        "sportTimeUnit": "小时",
+                                        "sportDurationValue": "40～60",
+                                        "sportDurationUnit": "分钟",
+                                        "dateName": "日",
+                                        "dateValue": "1",
+                                        "timeValue": "1",
+                                        "timeName": "次"
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "diet": [
+                        {
+                            "schemeTemplate": {
+                                "name": "饮食建议",
+                                "schemeMaterials": [
+                                    {
+                                        "bmr": "BMR = 66 + ( 13.7 x 体重kg ) + ( 5 x 身高cm ) - ( 6.8 x 年龄years )",
+                                        "dietRules": [
+                                            "控制体重",
+                                            "戒烟",
+                                            "限制饮酒"
+                                        ],
+                                        "dietChoices": [
+                                            {
+                                                "value": {
+                                                    "suitable_food": "米饭、粥",
+                                                    "unsuitable_food": "番薯、干豆类"
+                                                },
+                                                "lable": "碳水化合物"
+                                            },
+                                            {
+                                                "value": {
+                                                    "suitable_food": "脂肪少的食品",
+                                                    "unsuitable_food": "脂肪多的食品"
+                                                },
+                                                "lable": "蛋白质"
+                                            }
+                                        ],
+                                        "dietPlan": [
+                                            {
+                                                "scheme": {
+                                                    "breakfast": "早餐",
+                                                    "breakfast_plus": "早餐加餐",
+                                                    "lunch": "午餐",
+                                                    "lunch_plus": "午餐加餐",
+                                                    "dinner": "晚餐",
+                                                    "dinner_plus": "晚餐加餐"
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                }
+            }
+        ],
+        "status": "200",
+        "description": "数据请求成功"
+    })
+    res.json(data);
+})
+
+router.get('/disease-info', function (req, res, next) {
+    var data = mockjs.mock({
+        "data": [{
+            "diseaseId": 2,
+            "xlPatientId": "123123",
+            "nurseGroupName": "高血压管理组",
+            "schemeGroupName": "1级高血压低危",
+            "responsibleDoctor": "张医生",
+            "healthDataTypes": [{"id": 1, "name": "血压"}, {"id": 2, "name": "血脂"}]
+        }, {
+            "diseaseId": 3,
+            "xlPatientId": "123123",
+            "nurseGroupName": "糖尿病管理组",
+            "schemeGroupName": "1级糖尿病",
+            "responsibleDoctor": "张医生",
+            "healthDataTypes": [{"id": 2, "name": "血脂"}]
+        }], "status": "200", "description": "数据请求成功"
+    })
+    res.json(data);
+})
+
+/**
+ *
+ * @type {Router|router}
+ */
+
+module.exports = router

@@ -18,7 +18,16 @@ app.use(session({
 
 
 
-app.use(cors());
+//允许跨域
+
+app.use(cors({
+    credentials: true, //是否允许发送Cookie
+    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], //设置所允许的HTTP请求方法
+    allowHeaders: ['Content-Type', 'Authorization', 'Accept'], //设置服务器支持的所有头信息字段
+    exposeHeaders: ['WWW-Authenticate', 'Server-Authorization'] //设置获取其他自定义字段
+}));
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -36,7 +45,7 @@ app.all('*', function(req, res, next) {
 
 // 启动前端数据接口代理服务
 app.listen({
-    host: 'localhost',
+    host: '192.168.1.13',
     port: 12138,
 }, function() {
     console.log("前端数据接口代理服务启动成功!\n访问地址: http://" + this.address().address + ':' + this.address().port)

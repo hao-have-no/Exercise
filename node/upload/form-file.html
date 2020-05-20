@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>原始的文件上传方法－form表单</title>
+    <style>
+        .progress{
+            height: 20px;
+            width:70%;
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .progress span{
+            display: block;
+            height: 20px;
+            width: 0;
+            color: #000;
+            font-size: 12px;
+        }
+        .progress .fileName{
+            min-width: 200px;
+            margin-top: 20px;
+        }
+        .progress span:nth-child(2){
+            max-width: 300px;
+            color: #fff;
+        }
+        .progress button{
+            position: absolute;
+            top: 0;
+            right: -60px;
+        }
+
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: #8bc34a;
+        }
+        .blue{
+            background-color: #337ab7;
+        }
+
+        .img-box{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .img-box .item{
+            margin-left:60px;
+        }
+        .img-box .item img{
+            width: 100%;
+            height: 80%;
+        }
+        .addfile{
+            width: 60px;
+            height: 60px;
+            background: #000000;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 50px;
+            cursor: pointer;
+            position: relative;
+        }
+        .addfile input{
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            top: 0;
+            width: 100%;
+            opacity: 0;
+
+        }
+
+
+        .drop-box{
+            height:200px;
+            width: 400px;
+            background-color: #ccc;
+            margin-bottom: 30px;
+        }
+        .over{
+            background-color: green;
+        }
+
+        #progress{
+            height:20px;
+            width: 300px;
+            margin-bottom: 30px;
+        }
+        #progress span{
+            display: block;
+            height:20px;
+            width:0;
+            color: #fff;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+<h1>1.普通的表单上传－没有任何交互</h1>
+<form method="post" action="http://192.168.1.13:8310/upload" enctype="multipart/form-data">
+    <label for="formFile">选择文件</label>
+    <input type="file" id="formFile" name="formFile" multiple>
+    标题：<input type="text" name="title" />
+    <button type="submit">上传</button>
+</form>
+
+<h1>2.基础文件上传－通过fetch formate</h1>
+<div>
+    <label for="fetch">选择文件</label>
+    <input type="file" id="fetch" name="fetch" multiple>
+    标题：<input type="text" name="title" id="title-fetch" />
+    <button id="submitUpload" type="submit">上传</button>
+</div>
+<div id="upload-content">
+
+</div>
+
+<h1>3.文件上传－　图片上传（预览，进度条，停止）</h1>
+<div>
+    <label for="fetch-progress">选择文件，可多选</label>
+    <div class="addfile">
+        <input type="file" id="fetch-progress" name="fetch-progress" multiple>
+    </div>
+    <div class="img-box">
+    </div>
+    <button type="button" id="btn-submit">上传</button>
+</div>
+
+<h1>4.文件上传-拖拽上传/粘贴上传</h1>
+<div>
+    <label>拖拽上传</label>
+    <div class="drop-box" id="drop-box">
+        拖动文件到这里
+    </div>
+    <div class="editor-box">
+        粘贴文件上传
+    </div>
+    <div id="file-number"></div>
+    <button type="button" id="drug-submit">上 传</button>
+</div>
+
+<h1>5.文件上传－大文件上传（切片上传+简易版断点续传(通过客户端的strong完成）</h1>
+<div>
+    <label for="big-file">选择文件:</label>
+    <input type="file" name="big-file" id="big-file"/>
+    <div>
+        <span>总进度:</span>
+        <div id="file-progress" class="green">
+
+        </div>
+    </div>
+    <div id="big-progress">
+
+    </div>
+    <button type="button" id="big-submit">上 传</button>
+    <div id="big-file-result"></div>
+</div>
+
+<script>
+    //--------------------fetch－传输表单
+    function submitUpload() {
+        var fileList = document.getElementById('fetch').files;
+        if (!fileList){
+            console.log('请选择文件');
+            return;
+        }
+
+        var formFile = new FormData();//构造formData
+        formFile.append('title',document.getElementById('title-fetch').value||'上传');
+        //装载文件
+        for (let i in fileList){
+            formFile.append('formFile',fileList[i])
+        }
+
+        fetch('http://192.168.1.13:8310/upload',{
+            method:　'POST',
+            body:　formFile
+        }).then(response=>{
+            if (response.ok) {
+                return response.json();
+            }
+        }).then((data)=>{
+            console.log(data);
+            document.getElementById("upload-content").innerHTML=JSON.stringify(data);
+        }).
+        catch(error=>{
+            console.error('Error',error);
+        })
+    }
+    //绑定提交事件
+    document.getElementById('submitUpload').addEventListener('click',submitUpload);
+
+    //--------------图片上传-预览，上传进度，取消上传-----------------------------
+
+    var fileMax=6;//限制图片张数
+    var imgBox=document.getElementsByClassName('img-box')[0];
+    var willUploadFile = [];//保存待上传文件及相关信息
+
+    document.getElementById('fetch-progress').addEventListener('change',(e)=>{
+        var fileList = document.getElementById('fetch-progress').files;
+        if (willUploadFile.length > fileMax||fileList.lengh>fileMax||(willUploadFile.length+fileList.length)>fileMax){
+            alert(`最多可上传${fileMax}张图片`);
+            return;
+        }
+        for (let i=0,len = fileList.length;i<len;i++){
+            var imgModal = fileList[i];//图片主体
+            var img = document.createElement('img');
+            img.style.height = '80px';
+            img.style.width = '80px';
+            var item = document.createElement('div');
+            var progress = document.createElement('div');
+            progress.className = 'progress';
+            progress.innerHTML = '<span class="red"></span><button type="button">Abort</button>';
+            item.className='item';
+            img.src = window.URL.createObjectURL(imgModal);//根据获取的对象生成本地的ＵＲＬ
+            img.onload = function () {
+                //是否要进行内存
+                window.URL.revokeObjectURL(this.src);
+            };
+
+            item.appendChild(img);
+            item.appendChild(progress);
+            imgBox.append(item);
+
+            willUploadFile.push(
+                {
+                    file:imgModal,
+                    item,
+                    progress
+                })
+        }
+    });
+
+    function xhrSend({file,progress}){
+        var progressSpan = progress.firstElementChild;
+        var btnCancel = progress.getElementsByTagName('button')[0];
+        btnCancel.removeEventListener('click',function(){});
+        btnCancel.addEventListener('click',(event)=>{
+            if (xhr&&xhr.readyState !== 4){
+                xhr.abort();//取消发送
+            }
+        })
+        progressSpan.style.width='0';
+        progressSpan.classList.remove('green');
+
+        var formFile = new FormData();   //构造FormData对象
+        formFile.append('formFile',file);
+
+        var xhr = new XMLHttpRequest();   //创建对象
+        xhr.open('POST', 'http://192.168.1.13:8310/upload', true);
+
+        //请求发送到服务器后的响应(readyState改变就会触发)
+        xhr.onreadystatechange=()=>{
+            console.log('state change',xhr.readyState);
+            //困惑mdn:对这部分的定义是0,但是调用abort后，变为了4
+            //增加自定义属性uploaded，判断上传状态
+            if (xhr.readyState == 4&&xhr.uploaded){
+                var result = JSON.parse(xhr.responseText);
+                console.log('result',result);
+                if (result.fileUrl&&result.fileUrl.length>0){
+                    console.log('上传成功');
+                }
+            }
+        };
+
+        xhr.onprogress = updateProgress;
+        xhr.upload.onprogress = updateProgress;
+
+        //获取并实时更新文件上传进度
+        function updateProgress(event){
+            if (event.lengthComputable){
+                var completedPercent = (event.loaded/event.total*100).toFixed(2);
+                progressSpan.style.width = completedPercent+'%';
+                progressSpan.innerText = completedPercent+'%';
+                if (completedPercent > 90){
+                    progressSpan.classList.add('green');
+                }
+                if (completedPercent>= 100){
+                    xhr.uploaded = true;
+                }
+                console.log('已上传',completedPercent);
+            }
+        }
+
+        //注意 send 一定要写在最下面，否则 onprogress 只会执行最后一次 也就是100%的时候
+        xhr.send(formFile);//发送时  Content-Type默认就是: multipart/form-data;
+        return xhr;
+    }
+
+    //文件上传
+    function submitUpload(willFiles){
+        if (!willFiles){
+            return;
+        }
+
+        //便利信息并上传
+        for (let i in willFiles){
+            let {file,progress} = willFiles[i];
+            xhrSend({
+                file:file,
+                progress:progress
+            })
+        }
+    }
+
+    //绑定提交事件
+    document.getElementById('btn-submit').addEventListener('click',()=>{
+        submitUpload(willUploadFile);
+    })
+
+    //------------------拖拽上传submitUpload-------------------------------
+    var box =document.getElementById('drop-box');
+    var dragFileList = [];
+
+    document.addEventListener('drop',(e)=>{
+        console.log('document drog');
+        e.preventDefault();
+    });
+
+    //设置拖拽事件
+    function openDropEvent(){
+
+        box.addEventListener("dragover",(e)=>{
+            console.log('document dragenter');
+            box.classList.add('over');
+            e.preventDefault();
+        });
+
+        box.addEventListener("dragleave", function (e) {
+            console.log('elemenet dragleave');
+            box.classList.remove('over');
+            e.preventDefault();
+        });
+
+        box.addEventListener("drop",(e)=>{
+            e.preventDefault(); //取消
+            console.log(e);
+
+            var fileList = e.dataTransfer.files; //获取拖拽中的文件对象
+            var len = fileList.length; //用于获取文件的长度
+
+            document.getElementById('file-number').innerHTML=`已上传：${len}个文件`
+
+            console.log('fileList',Array.isArray(fileList));
+
+            //检测拖拽行为是否在指定区域
+            if (!len){
+                box.classList.remove('over');
+            }
+
+            box.classList.add('over');
+
+            dragFileList = fileList;
+
+            console.log(dragFileList);
+        },false)
+    }
+
+    openDropEvent();
+
+    function submitUpload(){
+        let fileList =dragFileList||[];
+
+        if (!fileList.length){
+            alert('请选择文件');
+            return;
+        }
+
+        let formFile = new FormData(); //构造formData对象
+
+        for (let option of fileList) {
+            formFile.append('formFile',option);
+        }
+
+        var xhr = new XMLHttpRequest();
+
+        xhr.open('POST', 'http://192.168.1.13:8310/upload', true);
+
+        xhr.onreadystatechange=()=>{
+            console.log('state change',xhr.readyState);
+            //困惑mdn:对这部分的定义是0,但是调用abort后，变为了4
+            //增加自定义属性uploaded，判断上传状态
+            if (xhr.readyState == 4){
+                var result = JSON.parse(xhr.responseText);
+                console.log('result',result);
+                if (result.fileUrl&&result.fileUrl.length>0){
+                    console.log('上传成功');
+                    document.getElementById('file-number').innerHTML=`上传成功：${result.fileUrl}`
+                }
+            }
+        };
+
+        xhr.send(formFile);
+    }
+    //绑定提交事件
+    document.getElementById('drug-submit').addEventListener('click',submitUpload);
+
+    //大文件上传－－切片上传-------------------------------------------------
+    //比如规定：10m以上的大文件，按照每份2m大小进行切割，同时携带时间戳标识
+    //服务端生成临时文件，接受到传输完成的标识，进行碎片合并，清理临时文件
+
+    //待优化点：
+    // 1.请求并发控制，限定每一时刻的请求数量
+    // 2.断点续传－本地local方法不合理，准备采用服务端hash片段判断，过滤重复碎片的上传
+    // 3.上传效率，动态计算hash来确定文件大小（实现文件的秒传），借助ffiber架构，通过requestIndleCallback利用浏览器龙溪那时间计算
+    // 4.文件大小不一，参考ＴＣＰ慢启动的原则，设置初始待续奥，通过上一任务的，结合网速，确定每个切片的大小
+    var bigProgressSpan = document.getElementById('big-progress');
+    var fileProgress = document.getElementById('file-progress');
+    var fileList=[];
+    var fileSum = 0;
+
+    //大文件上传前操作－文件切割
+    function bigFileSubmit() {
+        const chunkSize = 0.2 * 1024 * 1024; //文件大小
+        let file = document.getElementById('big-file').files[0];
+        if (!file) {
+            alert('请选择文件');
+            return;
+        }
+
+        let chunks = [], //文件碎块
+            token = (+new Date()), //标识信息
+            fileName = file.name, //文件名称
+            chunkCount = 0; //文件碎块数
+
+        if (file.size > chunkSize) {
+            //拆分文件
+            var start = 0, end = 0;
+            while (true) {
+                end += chunkSize;
+
+                let blob = file.slice(start, end);
+
+                start += chunkSize;
+
+                if (!blob.size) {
+                    //拆分结束
+                    break;
+                }
+                chunks.push(blob);
+            }
+        } else {
+            chunks.push(file.slice(0))
+        }
+
+        fileSum = chunks.reduce((acc,cur)=>acc+cur.size,0);
+
+        console.log(chunks);
+
+        chunkCount = chunks.length;
+
+
+        uploadFile(chunks,chunkCount,fileName,token);
+
+    }
+
+    //上传
+    function uploadFile(chunks,chunkCount,fileName,token){
+        let sendChunkCount = 0;　// 已发送的文件碎块数;
+        //先不做并发控制，看一下tcp最大接受程度
+        for (let i=0;i<chunkCount;i++){
+            let fileChunk = new FormData;
+            fileChunk.append('token',token);
+            fileChunk.append('formFile',chunks[i]);
+            fileChunk.append('index',i+1);
+            bigFileSend(fileChunk,()=>{
+                sendChunkCount +=1;
+                if (sendChunkCount === chunkCount){
+                    console.log('发送完毕.发送合并请求');
+                    let formFile = new FormData();
+                    formFile.append('type','merge');
+                    formFile.append('token',token);
+                    formFile.append('fileName',fileName);
+                    formFile.append('chunkCount',chunkCount);
+                    bigFileSend(formFile)
+                }
+            })
+        }
+    }
+
+    //构造进度条
+    function createProgress(){
+        var item = document.createElement('div');
+        var progress = document.createElement('div');
+        progress.className = 'progress';
+        progress.innerHTML = '<span class="fileName"></span><span class="blue"></span>';
+        item.className='item';
+        item.appendChild(progress);
+        bigProgressSpan.append(item);
+        return progress
+    }
+
+    //大文件上传－上传切片
+    function bigFileSend(formFile,callback){
+        var fileIndex = null;
+        //初始化进度条
+        if (formFile.get('type') !== 'merge'){
+            var progress = createProgress();
+            fileIndex = formFile.get('index');
+            var progressFileName = progress.children[0];
+            var progressSpan = progress.children[1];
+            progressFileName.innerHTML = `第${fileIndex}个文件碎片：`;
+            progressSpan.style.width =　'';
+        }
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST','http://192.168.1.13:8310/uploadBigFile');
+
+        xhr.onreadystatechange=()=>{
+            if (xhr.readyState == 4) {
+                if(formFile.get('type') !== 'merge'){
+                    fileList[fileIndex] = formFile.get('formFile').size;
+                    cutFilePercent();
+                }
+                console.log(xhr.responseText);
+                callback && callback();
+                var result = JSON. parse(xhr.responseText);
+                if (result.success&&result.fileUrl){
+                    document.getElementById('big-file-result').innerHTML = `上传成功${result.fileUrl}`
+                }
+            }
+        };
+
+        let type = formFile.get('type')||null;
+        if (!type){
+            xhr.onprogress = updateProgress;
+            xhr.upload.onprogress = updateProgress;
+        }
+
+        //更新各个切片进度条
+        function updateProgress(event) {
+            if (event.lengthComputable) {
+                var completedPercent = (event.loaded / event.total * 100).toFixed(2);
+                progressSpan.style.width = completedPercent + '%';
+                progressSpan.innerHTML = completedPercent + '%';
+                cutFilePercent(fileIndex,event.loaded);
+            }
+        }
+
+        xhr.send(formFile);
+    }
+
+    //计算总的文件上传进度
+    var cutFilePercent=(index,size)=>{
+        if(size)fileList[index] = {'size':size};
+        let loaded = fileList.reduce((acc,cur)=>acc+(cur.size||cur)*1,0);
+        fileProgress.innerHTML = `${((loaded/fileSum)*100).toFixed(2)}%`;
+        fileProgress.style.width = `${((loaded/fileSum)*100).toFixed(2)}%`;
+        console.log('----------------'+JSON.stringify(fileList));
+        console.log('-------------------',loaded,fileSum);
+    };
+
+    //绑定提交事件
+    document.getElementById('big-submit').addEventListener('click',bigFileSubmit);
+</script>
+</body>
+</html>

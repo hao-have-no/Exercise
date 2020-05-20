@@ -2,6 +2,7 @@
 
 新版node-借助koa+sequelize和外部postman进行jwt鉴定权限－－app.js启动
 
+Mq消息队列:
 首先必须要有Erlang环境支持
 安装之前要装一些必要的库:
 # sudo apt-get install build-essential
@@ -51,4 +52,13 @@ rabbitmqctl -p vhostpath purge_queue blue：清除队列里消息
   消息队列：到达消费者前一刻存储的地方
   
   ａｃｋ回执：收到消息后确认消息已被消费的应答。
-
+  
+  
+  node.js实现爬虫
+  server1.js:
+  1.通过superagent请求获取网页的ｄｏｍ结构
+  2.cheerio:服务端的类似ｊｑ的解析文档插件
+  3.node-schedule 定时任务  
+  
+  node.js实现文件的解析存储
+  
