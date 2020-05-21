@@ -9,6 +9,36 @@ const md5 = require("crypto-js/md5");
 var jwt = require('jsonwebtoken');
 var router = express.Router();
 
+//增加文件上传
+const path = require('path');
+const Controller = require('./upload/upload-controller');
+const schedule = require('./upload/schedule');
+
+
+const UPLOAD_DIR = path.resolve(__dirname, "..", "target"); // 大文件存储目录
+
+// schedule.start(UPLOAD_DIR) //定时任务
+
+const ctrl = new Controller(UPLOAD_DIR);
+
+
+//文件上传
+router.post('/upload', async (req, res, next) => {
+    let result = await ctrl.handleUpload(req, res);
+    res.json(result);
+});
+
+router.post('/merge', async (req, res, next) => {
+    let result =await ctrl.handleMerge(req,res)
+    res.json(result);
+});
+
+router.post('/verify', async (req, res, next) => {
+    let result =await ctrl.handleVerify(req,res)
+    res.json(result);
+});
+
+
 //登录接口,更改session状态
 router.post('/login', function (req, res, next) {
     const {name = "", pass = ""} = req.body.params || {};

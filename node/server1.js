@@ -1,7 +1,7 @@
-const cheerio = require("cheerio");
-const superagent = require("superagent");
-const fs = require("fs");
-const nodeSchedule = require("node-schedule");
+const cheerio = require("cheerio");　//类似jquery,加载网页获取DOM
+const superagent = require("superagent"); //
+const fs = require("fs"); //文件处理
+const nodeSchedule = require("node-schedule"); //定时任务
 const weiboUrl = "https://s.weibo.com";
 const hotSearchURL = weiboUrl + "/top/summary?cate=realtimehot";
 
