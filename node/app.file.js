@@ -21,8 +21,6 @@ app.use(cors({
 
 const port = process.env.PORT|| '8310';
 
-const uploadHost = `http://192.168.1.13:8085/files/`;
-
 app.use(koaBody({
     formidable:{
         //设置文件的默认暴露目录，不设置保存在临时文件夹下ｏｓ

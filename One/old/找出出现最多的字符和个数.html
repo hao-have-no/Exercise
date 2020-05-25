@@ -6,13 +6,16 @@
 </head>
 <body>
 <script>
-    const str="fagasssdagwsfasgggasgw";
+    const str="fagassssdagwsfasggfffggggggasgw";
     const arr = str.match(/(\w)\1*/g);//切割获取连续的字符串
+    console.log(arr);
     const maxLen = Math.max(...arr.map(s => s.length));//类数组转化为数组，请求循环最多的次数
+    console.log(maxLen);
     const result = arr.reduce((pre, curr) => {
+        console.log(pre,curr,curr[0]);
         if (curr.length === maxLen) {
-            console.log(curr[0]);
             pre[curr[0]] = curr.length;
+            console.log('max',curr[0]);
         }
         return pre;
     }, {});

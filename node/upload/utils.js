@@ -5,9 +5,11 @@ exports.resolvePost = req =>
     new Promise(resolve => {
         let chunk = ""
         req.on("data", data => {
+            console.log('resolve1',data);
             chunk += data
         })
         req.on("end", () => {
+            console.log('resolve2',chunk);
             resolve(JSON.parse(chunk))
         })
     })
@@ -48,6 +50,7 @@ exports.getUploadedList = async (dirPath)=>{
         ? (await fse.readdir(dirPath)).filter(name=>name[0]!=='.') // 过滤诡异的隐藏文件
         : []
 }
+
 exports.extractExt = filename => filename.slice(filename.lastIndexOf("."), filename.length)
 
 

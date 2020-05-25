@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>一组有关联的数据－形成树</title>
+</head>
+<body>
+<script>
+    /**
+     * 根据关联关系形成一棵树
+     * @type {*[]}
+     */
+    var data = [
+        { id: 1, name: "办公管理", pid: 0 },
+        { id: 9, name: "请假申请", pid: 1 },
+        { id: 3, name: "出差申请", pid: 1 },
+        { id: 4, name: "请假记录", pid: 3 },
+        { id: 5, name: "系统设置", pid: 0 },
+        { id: 6, name: "权限管理", pid: 5 },
+        { id: 7, name: "用户角色", pid: 6 },
+        { id: 8, name: "菜单设置", pid: 6 },
+    ];
+
+    var toTree=(data)=>{
+        //首先先将每个数据下的子类删除
+        data.forEach(option=>delete option.children)
+
+        //将数据存储为map类型的key:val形式
+        let map = {};
+        //重新组织，确定每个数据的位置,是有序的
+        data.forEach(option=>map[option.id] = option)
+
+        //遍历数据
+        var val = [];
+
+        data.forEach(option=>{
+            let parent = map[option.pid];
+            if (parent){
+                //在操作的时候都是往map中对应的地方插入,val是存放map的地方，所以值都能拿到
+                (parent.children||(parent.children = [])).push(option)
+            } else{
+                val.push(option);
+            }
+        });
+        return val;
+    };
+
+    console.log(toTree(data));
+</script>
+</body>
+</html>

@@ -15,7 +15,7 @@ const Controller = require('./upload/upload-controller');
 const schedule = require('./upload/schedule');
 
 
-const UPLOAD_DIR = path.resolve(__dirname, "..", "target"); // 大文件存储目录
+const UPLOAD_DIR = path.resolve(__dirname,'static/uploads'); // 大文件存储目录
 
 // schedule.start(UPLOAD_DIR) //定时任务
 
@@ -24,18 +24,18 @@ const ctrl = new Controller(UPLOAD_DIR);
 
 //文件上传
 router.post('/upload', async (req, res, next) => {
-    let result = await ctrl.handleUpload(req, res);
-    res.json(result);
+    await ctrl.handleUpload(req, res);
 });
 
 router.post('/merge', async (req, res, next) => {
-    let result =await ctrl.handleMerge(req,res)
-    res.json(result);
+    console.log('merge',req.body);
+    await ctrl.handleMerge(req,res)
 });
 
 router.post('/verify', async (req, res, next) => {
-    let result =await ctrl.handleVerify(req,res)
-    res.json(result);
+    console.log('verrify',req.body,ctrl);
+    await ctrl.handleVerify(req,res);
+    // res.json(result);
 });
 
 

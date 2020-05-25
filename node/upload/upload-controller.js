@@ -1,8 +1,9 @@
 const path = require('path')
-const fse = require("fs-extra")
+const fse = require("fs-extra");
+const fs = require('fs');
 const multiparty = require("multiparty")
 const { resolvePost, pipeStream,extractExt,getUploadedList,mergeFiles } = require('./utils')
-
+const uploadHost = `http://192.168.1.13:8085/files/`;
 
 
 
@@ -24,8 +25,9 @@ class Controller {
 
 
     async handleVerify(req, res) {
-        const data = await resolvePost(req)
-        const { filename, hash } = data
+        console.log('data',req.body);
+        const data = req.body;
+        const { filename, hash } = data;
         const ext = extractExt(filename)
         const filePath = path.resolve(this.UPLOAD_DIR, `${hash}${ext}`)
 
@@ -38,6 +40,7 @@ class Controller {
             // 文件没有完全上传完毕，但是可能存在部分切片上传完毕了
             uploadedList = await getUploadedList(path.resolve(this.UPLOAD_DIR, hash))
         }
+        console.log(uploaded,uploadedList);
         res.end(
             JSON.stringify({
                 uploaded,
@@ -48,14 +51,22 @@ class Controller {
     }
     async handleMerge(req, res) {
 
-        const data = await resolvePost(req)
+        const data = req.body;
         const {fileHash, filename, size } = data
         const ext = extractExt(filename)
-        const filePath = path.resolve(this.UPLOAD_DIR, `${fileHash}${ext}`)
-        await this.mergeFileChunk(filePath, fileHash, size)
+        let filePath = path.resolve(this.UPLOAD_DIR, `${fileHash}${ext}`)
+        await this.mergeFileChunk(filePath, fileHash, size);
+        fs.chmod(filePath,'0775',function(err){
+            if (err){
+                console.log(err);
+            }
+        });
+        filePath=filePath.replace('/opt/Exercise/node/static/uploads/',uploadHost);
         res.end(
             JSON.stringify({
                 code: 0,
+                fileName:filename,
+                filePath:filePath,
                 message: "file merged success"
             })
         )
@@ -63,43 +74,46 @@ class Controller {
 
     }
     async handleUpload(req, res) {
-        const multipart = new multiparty.Form()
+        const multipart = new multiparty.Form();
         multipart.parse(req, async (err, field, file) => {
             if (err) {
                 console.log(err)
                 return
             }
-            const [chunk] = file.chunk
-            const [hash] = field.hash
-            const [filename] = field.filename
-            const [fileHash] = field.fileHash
+            const [chunk] = file.chunk;
+            const [hash] = field.hash;
+            const [filename] = field.filename;
+            const [fileHash] = field.fileHash;
             const filePath = path.resolve(
                 this.UPLOAD_DIR,
                 `${fileHash}${extractExt(filename)}`
             )
-            const chunkDir = path.resolve(this.UPLOAD_DIR, fileHash)
-            if(Math.random()<0.5){
-                // 概率报错
-                console.log('概率报错了')
-                res.statusCode=500
-                res.end()
-                return
-            }
+            const chunkDir = path.resolve(this.UPLOAD_DIR, fileHash);
+            console.log(chunkDir);
+            // if(Math.random()<0.5){
+            //     // 概率报错
+            //     console.log('概率报错了')
+            //     res.statusCode=500;
+            //     res.end();
+            //     return
+            // }
 
             // 文件存在直接返回
             if (fse.existsSync(filePath)) {
-                res.end("file exist")
+                res.end("file exist");
                 return
             }
 
             if (!fse.existsSync(chunkDir)) {
                 await fse.mkdirs(chunkDir)
             }
-            await fse.move(chunk.path, `${chunkDir}/${hash}`)
+
+            await fse.move(chunk.path, `${chunkDir}/${hash}`);
+            console.log('chunk',chunk.path);
             res.end("received file chunk")
         })
     }
 }
 
 
-module.exports = Controller
+module.exports = Controller;
