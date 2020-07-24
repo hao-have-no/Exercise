@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>前端路由实现</title>
+    <style>
+         a{
+            padding-right: 20px;
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <!--hash模式-->
+    <body>
+    <!--<div id="nav">-->
+        <!--<a href="#/page1">page1</a>-->
+        <!--<a href="#/page2">page2</a>-->
+        <!--<a href="#/page3">page3</a>-->
+        <!--<a href="#/page4">page4</a>-->
+        <!--<a href="#/page5">page5</a>-->
+    <!--</div>-->
+    <div id="container"></div>
+    </body>
+    <!--<script>-->
+        <!--/**-->
+         <!--* hash模式-->
+         <!--*/-->
+        <!--class HashRouter{-->
+            <!--constructor(){-->
+                <!--//存储不同hash值对应的回调函数-->
+                <!--this.routers = {-->
+                    <!--'index':()=> container.innerHTML = '我是首页',-->
+                    <!--'404':()=> container.innerHTML = '报错,迷路了',-->
+                    <!--'error':(e)=>container.innerHTML = '页面异常，错误消息：<br>' + e.message-->
+                <!--};-->
+                <!--window.addEventListener('hashchange',this.refresh.bind(this),false);-->
+            <!--}-->
+
+            <!--//根据视图注册路由和相关方法-->
+            <!--resister(hash,callback = function(){}){-->
+                <!--this.routers[hash] = callback;-->
+            <!--}-->
+
+            <!--//回调函数-->
+            <!--refresh(){-->
+                <!--let hash = location.hash.slice(1),-->
+                    <!--handler;-->
+
+                <!--if (!hash){-->
+                    <!--handler = this.routers['index'];-->
+                <!--}else if(!this.routers.hasOwnProperty(hash)){-->
+                    <!--handler = this.routers['404'];-->
+                <!--} else{-->
+                    <!--handler = this.routers[hash];-->
+                <!--}-->
+
+                <!--try {-->
+                    <!--handler.call(this)-->
+                <!--}catch(e){-->
+                    <!--console.log(e);-->
+                    <!--(this.routers['error']||function(){}).call(this,e);-->
+                <!--}-->
+
+                <!--//执行回调函数-->
+                <!--// handler.call(this);-->
+            <!--}-->
+        <!--}-->
+
+        <!--//实现hash模式的路由跳转-->
+        <!--let router = new HashRouter();-->
+        <!--let container = document.getElementById('container');-->
+
+        <!--router.resister('/page1',()=>container.innerHTML = '我是page1')-->
+        <!--router.resister('/page2',()=>container.innerHTML = '我是page2')-->
+        <!--router.resister('/page3',()=>container.innerHTML = '我是page3')-->
+        <!--// router.register('/page4',()=>{throw new Error('抛出一个异常')});-->
+
+        <!--//加载视图-->
+        <!--router.refresh();-->
+    <!--</script>-->
+</body>
+</html>

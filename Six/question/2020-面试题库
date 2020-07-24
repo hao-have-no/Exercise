@@ -1,0 +1,411 @@
+2020.05.26面试内容
+1.　自我介绍
+2. 介绍一下最熟悉的项目及开发了哪些功能
+3. 常规的问题html,css,js,vue,http缓存等
+3.1 遇到的问题，dom操作（是否知道回流和重绘），怎么避免
+CSS
+避免使用table布局。
+尽可能在DOM树的最末端改变class。
+避免设置多层内联样式。
+将动画效果应用到position属性为absolute或fixed的元素上。
+避免使用CSS表达式（例如：calc()）。
+
+JavaScript
+
+避免频繁操作样式，最好一次性重写style属性，或者将样式列表定义为class并一次性更改class属性。
+避免频繁操作DOM，创建一个documentFragment，在它上面应用所有DOM操作，最后再把它添加到文档中。
+也可以先为元素设置display: none，操作结束后再把它显示出来。因为在display属性为none的元素上进行的DOM操作不会引发回流和重绘。
+避免频繁读取会引发回流/重绘的属性，如果确实需要多次使用，就用一个变量缓存起来。
+对具有复杂动画的元素使用绝对定位，使它脱离文档流，否则会引起父元素及后续元素频繁回流。
+
+4.　jquery问题
+
+怎么找到下拉框的选中值：$('[name=NameOfSelectedTag] :selected')
+
+
+
+
+
+
+
+
+## html部分
+> 简易购物车的实现（输入框输入商品，敲击回车键可以添加商品，添加的商品可以删除）
++ 事件机制
+    dom0和dom2
+    1.冒泡
+    2.事件委托
++ 事件代理（父级代理，通过判断点击的位置，来删除子类，同时每个子类在添加时都拥有click点击事件）
+
+
+## js部分
+
+> 判断JavaScript数据类型的方式
++ typeOf:首先 typeof 能够正确的判断基本数据类型，但是除了 null, typeof null输出的是对象。
+但是对象来说，typeof 不能正确的判断其类型， typeof 一个函数可以输出 'function',
+而除此之外，输出的全是 object,这种情况下，我们无法准确的知道对象的类型。
++ instanceof:instanceof的原理是基于原型链的查询，只要处于原型链中，判断永远为true,
+使用instanceof也不能检测基本数据类型，所以instanceof并不是一个很好的选择。
++ 手动实现instanceof
+核心: 原型链的向上查找。
+function myInstanceof(left, right) {
+    //基本数据类型直接返回false
+    if(typeof left !== 'object' || left === null) return false;
+    //getProtypeOf是Object对象自带的一个方法，能够拿到参数的原型对象
+    let proto = Object.getPrototypeOf(left);
+    while(true) {
+        //查找到尽头，还没找到
+        if(proto == null) return false;
+        //找到相同的原型对象
+        if(proto == right.prototype) return true;
+        proto = Object.getPrototypeOf(proto);
+    }
+}
++ constructor:类似与instanceof,只能辨别引用类型的数据，不能识别基本数据类型
++ 每一个引用类型都有toString方法，默认情况下，toString()方法被每个Object对象继承。
+如果此方法在自定义对象中未被覆盖，toString() 返回 "[object type]"，其中type是对象的类型。
+直接调用Object原型上未被覆盖的toString()方法，使用call来改变this指向来达到我们想要的效果。
+
+> 说出下面运行的结果，解释原因。
+function test(person) {
+  person.age = 26
+  person = {
+    name: 'hzj',
+    age: 18
+  }
+  return person
+}
+const p1 = {
+  name: 'fyq',
+  age: 19
+}
+const p2 = test(p1)
+console.log(p1) // -> ?
+console.log(p2) // -> ?
+复制代码结果:
+p1：{name: “fyq”, age: 26}
+p2：{name: “hzj”, age: 18}
+
+> "aa#assc#afsfs#" 过滤一段字符串，有#就删除前一项，请问怎么进行过滤
+ 1.　遍历进入数组，unshift,shift,push,pop，合并数组数组 --> 询问循环的问题
+ 2. indexOf确认位置，删除字符串
+
+> 数组去重的方法(结合"hash#"这道题):
++ indexOf  
++ 类数组set
++ filter
++ Object.keys键值对
++ 循环比较
+
+循环：
+ for()无法只关注元素本身，需要花费精力去维护变量i以及边界len；
+ 当存在着多重嵌套时，将需要跟踪维护多个变量i，代码会非常复杂；
+ 需要花费精力去处理越界问题，一些编译型语言在遇到数组索引越界时会报错
+
+ for...in循环：遍历字符串，数组,对象自身的和继承的可枚举的属性, 不能直接获取属性值。可以中断循环。
+ 但是: 如果我声明一个father对象，此时我声明这个对象的实例child,并且给child增加了a,b,c三个属性
+ 这时候在用该循环,会把father中的属性也循环出来for in 会循环运行链上的属性，
+ 需要在循环中加入hasOwnProperty判断是否为自身属性)
+ 
+ forEach: 只能遍历数组，不能中断，没有返回值(或认为返回值是undefined)
+ 
+ map: 只能遍历数组，不能中断，返回值是修改后的数组。
+ 
+ Object.keys()：返回给定对象所有可枚举属性的字符串数组。
+ 
+ 　for...of循环：具有 iterator 接口，就可以用for...of循环遍历它的成员(属性值)。
+  for...of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象、Generator 对象，以及字符串。
+  for...of循环调用遍历器接口，数组的遍历器接口只返回具有数字索引的属性。
+  对于普通的对象，
+  for...of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用。可以中断循环。
+ 
+ 
+>继承和bind和call,apply
+ 
+   
+
+> 浅拷贝与深拷贝
++ 深拷贝最简单的： JSON.parse(JSON.stringify());
++ 实现深拷贝:递归循环，判断类型object,array后，再赋值
++ 注意：循环引用产生的死循环问题，采用map开辟新的空间去存储(target.target = target)
+
+unction deepClone(obj) { //递归拷贝
+    if(obj === null) return null; //null 的情况
+    if(obj instanceof RegExp) return new RegExp(obj);
+    if(obj instanceof Date) return new Date(obj);
+    if(typeof obj !== 'object') {
+        //如果不是复杂数据类型，直接返回
+        return obj;
+    }
+    /**
+     * 如果obj是数组，那么 obj.constructor 是 [Function: Array]
+     * 如果obj是对象，那么 obj.constructor 是 [Function: Object]
+     */
+    let t = new obj.constructor();
+    for(let key in obj) {
+        //如果 obj[key] 是复杂数据类型，递归
+        t[key] = deepClone(obj[key]);
+    }
+    return t;
+}
+
+> 继承问题(浏览器网页)
+    
+
+> setTimeout为什么会出现时间差
+
+> js:任务队列
+
+>修改原数组的API有:
+
+splice/reverse/fill/copyWithin/sort/push/pop/unshift/shift
+
+不修改原数组的API有:
+
+slice/map/forEach/every/filter/reduce/entries/find
+
+
+## css部分
+> 后面定义的颜色会覆盖前面的，跟声明的顺序无关
+<div class="red blue">123</div>
+<div class="blue red">123</div>
+ .red {
+        color: red
+    }
+
+    .blue {
+        color: blue
+    }
+
+> display:none与visibility：hidden的区别？
+
+display：none 不显示对应的元素，在文档布局中不再分配空间（回流+重绘）
+visibility：hidden 隐藏对应元素，在文档布局中仍保留原来的空间（重绘）
+
+> break-down,white-space,white-space
++ white-space:这个属性是用来控制空白字符的显示的，同时还能控制是否自动换行。
++ break-down:这个属性是控制单词如何被拆分换行的
++ word-wrap:只有当一个单词一整行都显示不下时，才会拆分换行该单词。
+
+> 清除浮动
+1.父级div定义height
+
+2.最后一个浮动元素后加空div标签 并添加样式clear:both。
+
+3.包含浮动元素的父标签添加样式overflow为hidden或auto。
+
+4.父级div定义zoom
+
+5.　伪元素::after
+
+> 垂直居中：
++ .wp {
+    border: 1px solid red;
+    width: 300px;
+    height: 300px;
+}
+.box {
+    background: green;    
+}
+.box.size{
+    width: 100px;
+    height: 100px;
+}
+
++ 仅居中元素定宽高适用
++ absolute + 负margin
+.wp {
+    position: relative;
+}
+.box {
+    position: absolute;;
+    top: 50%;
+    left: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
++ absolute + margin auto
+.wp {
+    position: relative;
+}
+.box {
+    position: absolute;;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
++ absolute + calc
+.wp {
+    position: relative;
+}
+.box {
+    position: absolute;;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+}
+
++ 居中元素不定宽高
++ absolute + transform
+.wp {
+    position: relative;
+}
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
++ lineheight
+    .wp {
+    line-height: 300px;
+    text-align: center;
+    font-size: 0px;
+}
+.box {
+    font-size: 16px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: initial;
+    text-align: left; /* 修正文字 */
+}
+复制代码这种方法需要在子元素中将文字显示重置为想要的效果
+
++ writing-mode
++ table
+
++ css-table
+.wp {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.box {
+    display: inline-block;
+}
+
++ flex
+
+.wp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
++ grid
+.wp {
+    display: grid;
+}
+
+.box {
+    align-self: center;
+    justify-self: center;
+}
+
+
+PC端有兼容性要求，宽高固定，推荐absolute + 负margin
+PC端有兼容要求，宽高不固定，推荐css-table
+PC端无兼容性要求，推荐flex
+移动端推荐使用flex
+
+> css加载会造成阻塞吗
+
+css加载不会阻塞DOM树的解析
+css加载会阻塞DOM树的渲染
+css加载会阻塞后面js语句的执行、
+因此，为了避免让用户看到长时间的白屏时间，我们应该尽可能的提高css加载速度，比如可以使用以下几种方法:
+
+使用CDN(因为CDN会根据你的网络状况，替你挑选最近的一个具有缓存内容的节点为你提供资源，因此可以减少加载时间)
+对css进行压缩(可以用很多打包工具，比如webpack,gulp等，也可以通过开启gzip压缩)
+合理的使用缓存(设置cache-control,expires,以及E-tag都是不错的，不过要注意一个问题，就是文件更新后，你要避免缓存而带来的影响。其中一个解决防范是在文件名字后面加一个版本号)
+减少http请求数，将多个css文件合并，或者是干脆直接写成内联样式(内联样式的一个缺点就是不能缓存)
+
+webkit渲染流程：
+HTML解析文件，生成DOM Tree，解析CSS文件生成CSSOM Tree
+将Dom Tree和CSSOM Tree结合，生成Render Tree(渲染树)
+根据Render Tree渲染绘制，将像素渲染到屏幕上。
+
+ＤOM解析和CSS解析是两个并行的进程，所以这也解释了为什么CSS加载不会阻塞DOM的解析。
+然而，由于Render Tree是依赖于DOM Tree和CSSOM Tree的，所以他必须等待到CSSOM Tree构建完成，
+也就是CSS资源加载完成(或者CSS资源加载失败)后，才能开始渲染。因此，CSS加载是会阻塞Dom的渲染的。
+由于js可能会操作之前的Dom节点和css样式，因此浏览器会维持html中css和js的顺序。
+因此，样式表会在后面的js执行前先加载执行完毕。所以css会阻塞后面js的执行。
+
+>rem,vw,vh等移动端布局方式
+
+1. 在head 设置width=device-width的viewport‘
+2. 在css中使用px
+3. 在适当的场景使用flex布局，或者配合vw进行自适应
+4. 在跨设备类型的时候（pc <-> 手机 <-> 平板）使用媒体查询
+5. 在跨设备类型如果交互差异太大的情况，考虑分开项目开发
+
+> scss,less
+
+## 网络部分
+> http的缓存有哪些，怎么合理的使用强缓存和协商缓存
+
+> 权限部分怎么解决
+
+>我现在有三个不同的页面要进行通信（在同一个地址下，不在用一个地址下） 跨域问题怎么解决?
+1. 当协议、子域名、主域名、端口号中任意一个不相同时，都算作不同域。不同域之间相互请求资源，就算作“跨域”。
+2. 解决：jsonp,cors
+3. postMessage:
+解决以下方面的问题：
+页面和其打开的新窗口的数据传递
+多窗口之间消息传递
+页面与嵌套的iframe消息传递
+4. websocket:建立通信
+5. node做一层代理
+6. 
+
+## vue部分
+> SPA和SSR的区别
+
+> 生命周期
+
+> computed 和 watch 的区别和运用的场景？
+
+> vuex刷新页面还会有值吗
+
+> 钩子函数（路由守卫）：
+加载渲染过程
+父 beforeCreate -> 父 created -> 父 beforeMount -> 子 beforeCreate -> 子 created -> 子 beforeMount -> 子 mounted -> 父 mounted
+
+子组件更新过程
+父 beforeUpdate -> 子 beforeUpdate -> 子 updated -> 父 updated
+
+父组件更新过程
+父 beforeUpdate -> 父 updated
+
+销毁过程
+父 beforeDestroy -> 子 beforeDestroy -> 子 destroyed -> 父 destroyed
+
+> 可以在钩子函数 created、beforeMount、mounted 中进行调用，因为在这三个钩子函数中，data 已经创建，可以将服务端端返回的数据进行赋值。但是本人推荐在 created 钩子函数中调用异步请求，因为在 created 钩子函数中调用异步请求有以下优点：
+
+能更快获取到服务端数据，减少页面 loading 时间；
+ssr 不支持 beforeMount 、mounted 钩子函数，所以放在 created 中有助于一致性；
+
+>
+
+
+## react部分
+>
+
+## webpack
+> 热更新原理
++ Webpack编译期，为需要热更新的 entry 注入热更新代码(EventSource通信)
++ 页面首次打开后，服务端与客户端通过 EventSource 建立通信渠道，把下一次的 hash 返回前端
++ 客户端获取到hash，这个hash将作为下一次请求服务端 hot-update.js 和 hot-update.json的hash
++ 修改页面代码后，Webpack 监听到文件修改后，开始编译，编译完成后，发送 build 消息给客户端
++ 客户端获取到hash，成功后客户端构造hot-update.js script链接，然后插入主文档
++ hot-update.js 插入成功后，执行hotAPI 的 createRecord 和 reload方法，获取到 Vue 组件的 render方法，重新 render 组件， 继而实现 UI 无刷新更新。
+
+## 其余部分
+> 
+
+## 算法部分
+>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量提升</title>
+</head>
+<style>
+    .red {
+        color: red
+    }
+
+    .blue {
+        color: blue
+    }
+</style>
+<body>
+<!--<div class="red blue">123</div>-->
+<!--<div class="blue red">123</div>-->
+
+
+<!--<div id="box">-->
+    <!--<a href=""></a>-->
+    <!--<span>1</span>-->
+<!--</div>-->
+
+<div>
+    <ul id="js-list"></ul>
+</div>
+
+<script>
+    var ndContainer = document.getElementById('js-list');
+    for (var i=0;i<3;i++){
+        var ndItem = document.createElement('li');
+        ndItem.innerText = i + 1;
+        ndItem.addEventListener('click', function () {
+            alert(i);
+        });
+        ndContainer.appendChild(ndItem);
+    }
+
+    // var foo = {},
+    //     F = function(){};
+    // Object.prototype.a = 'value a';
+    // Function.prototype.b = 'value b';
+    //
+    // // console.log(foo.a)
+    // // console.log(foo.b)
+    // // console.log(F.a)
+    // // console.log(F.b)
+    //
+    //
+    // var vv="sgasgasgs#sgsg#sgasgs";
+    // // for (var i=0,len=aa.length;i<len;i++){
+    // //     console.log(aa[i]);
+    // // }
+    // // for (let i in aa){
+    // //     console.log(i,aa[i]);
+    // // }
+    // for (let i of vv){
+    //     //会循环出来　value a,因为原型链上有value a
+    //     console.log(i,vv[i]);
+    // }
+    //         var box = document.getElementById('box');
+    //         var span= document.querySelector("span");
+    //
+    //        　box.remove(span);
+
+
+    // console.log(a);// undfined
+    // var a = function (){}
+    // console.log(a); // function a
+    // function a(){};
+    // console.log(a);
+    //预编译为
+    // var a;
+    // function a(){};
+    // console.log(a);
+    // a = function(){};
+    // console.log(a);
+    // console.log(a);
+
+    // var a = 0;
+    // console.log(a,window.a); // 输出 0 和 0
+    // if(true){
+    //     console.log(a,window.a);// 函数提升，是块级作用域，输出 function a 和 0
+    //     a = 1;  // 取作用域最近的块级作用域的 function a ,且被重置为 1了，本质又是一个 变量的赋值。
+    //     console.log(a,window.a);// a 是指向块级作用域的 a, 输出 1 和 0
+    //     function a(){} // 函数的声明，将执行函数的变量的定义同步到函数级的作用域。
+    //     console.log(a,window.a);// 输出 1 和 1
+    //     a = 21; // 仍然是函数定义块级作用域的 a ,重置为 21
+    //     console.log(a,window.a); // 输出为函数提升的块级作用域的 a, 输出 21，1
+    //     console.log("里面",a);
+    // }
+    // console.log("外部",a);
+
+    // function test(fn){
+    //     // return new Promise(resolve => {
+    //     //     fn;
+    //     //     resolve({content:'成功'});
+    //     // })
+    //     //async内部和promise内部的是同步的
+    //         fn;
+    //         return {content:'成功'};
+    //     //async函数的返回值是 Promise 对象
+    // }
+    // async function show(){
+    //     await Promise.reject('出错了');
+    //     let result =await test(console.log('1'));//async/await是异步函数，await会阻挡进程
+    //     // await命令就是内部then命令的语法糖。
+    //     console.log('2',result);
+    //     return result;
+    // }
+    // function all(){
+    //     show().then((result)=>{
+    //         console.log('3',result); //异步进程
+    //     });
+    //     console.log('0');
+    // }
+    // all();
+    // 1-->0-->2-->3
+
+    // const a={aa:'111'};
+    // console.log(a);
+    // a.bb=2;
+    // a.aa=3;
+    // console.log(a);
+    // const arr=[1];
+    // arr.push(2);
+    // console.log(arr);
+
+    var a = 20;
+    //
+    var obj = {
+        a: 10,
+        b: function(){
+            console.log(this.a); //10
+        },
+        c:()=>{
+            console.log(this.a);
+        },
+        d: function() {
+            return ()=>{
+                console.log(this.a); //10
+            }
+        }
+    };
+    obj.b();
+    obj.c();
+    obj.d()();
+</script>
+</body>
+</html>
