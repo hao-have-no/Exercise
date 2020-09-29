@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+<body>
+<script>
+    // 由于{}编译为代码块,如果内部要返回一个对象,必须要从括号包裹大括号
+    var APP = app=>({x:111,y:222});
+    console.log(APP instanceof Function);
+    console.log(APP(123));
+</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异步串行</title>
+</head>
+<body>
+<script>
+    const log = console.log;
+    const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+    const subFlow = createFlow([() => delay(1000).then(() => log("c"))]);
+
+    //reducer函数聚合,借助reduce的概念（柯里化）
+    function createFlow(list = []){
+            list = [...list].flat(Infinity);
+
+            const run=(cb)=>{
+                const reduce = (list,promise)=>{
+                    return list.reduce((promise,item)=>{
+                        if (typeof  item === 'function'){
+                            return promise.then(item);
+                        }else{
+                            return reduce(item.list,promise);
+                        }
+                    },promise)
+                }
+
+                const result = reduce(list,Promise.resolve());
+
+                result.then(cb)
+            };
+
+            return {run,list}
+    }
+
+    //async await 异步阻塞流
+    function createFlow1(list=[]){
+        return{
+            list:[...list].flat(Infinity), //扁平化数组,不管嵌套多深
+            async run(cb=()=>{}){
+                for (let i=0;i< this.list.length;i++){
+                    typeof this.list[i] === 'function'?await this.list[i]():await this.list[i].run()
+                }
+                cb();
+            }
+        }
+    };
+
+    createFlow([
+        () => log("a"),
+        () => log("b"),
+        subFlow,
+        [() => delay(1000).then(() => log("d")), () => log("e")],
+    ]).run(() => {
+        console.log("done");
+    });
+
+
+</script>
+</body>
+</html>
