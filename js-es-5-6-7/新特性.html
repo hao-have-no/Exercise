@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新特性及规划</title>
+</head>
+<body>
+<script>
+    // Optional Chaining
+    // vue-nuxt中已有相关用法
+
+    // 根据为运算符，完成性能更好的运算
+
+    //幂指数
+    console.log(2**3);
+
+    //快速取整
+    console.log(23.9|0,-23.9|0);
+    // 如果n为正，则n | 0有效地向下舍入。如果n为负数，则有效地向上舍入。
+    console.log(~~23.9,~~-23.9)
+    // 可以使用~~来获得相同的舍入效果
+
+    //字符串的截取
+    console.log()
+
+    //数组阶段，排序后截取想要的
+    let array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+    array.length = 4;
+    console.log(array); // Result: [0, 1, 2, 3]
+
+    //slice截取更快，而且能够截取制定位置的数据
+    array = array.slice(0, 4);
+    console.log(array); // Result: [0, 1, 2, 3]
+
+    //获取数组的最后一位
+    console.log(array.slice(-1)); // Result: [9]
+    console.log(array.slice(-2)); // Result: [8, 9]
+    console.log(array.slice(-3)); // Result: [7, 8, 9]
+</script>
+</body>
+</html>

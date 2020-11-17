@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="koa+mysql实现鉴定权限完成,最后的接口不同,需调试">
-      <change afterPath="$PROJECT_DIR$/Four/箭头函数.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js-es-5-6-7/新特性.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/html/前端路由实现.html" beforeDir="false" afterPath="$PROJECT_DIR$/Six/html/前端路由实现.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/api-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/api-route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/app.file.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/app.file.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -127,78 +125,45 @@
     <favorites_list name="Exercise" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5412343">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/README.md">
-              <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-                <state split_layout="FIRST">
-                  <first_editor relative-caret-position="189">
-                    <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
-                  </first_editor>
-                  <second_editor>
-                    <markdownNavigatorState />
-                  </second_editor>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="567">
-                  <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/node/server.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="891">
-                  <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/node/api-route.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="379">
-                  <caret line="3012" column="47" lean-forward="true" selection-start-line="3012" selection-start-column="47" selection-end-line="3012" selection-end-column="47" />
-                  <folding>
-                    <element signature="e#0#26#0" />
-                    <element signature="e#973#1224#0" />
-                    <element signature="n#!!block;n#auth#0" />
-                    <element signature="e#3719#6380#0" />
-                    <element signature="e#15342#215785#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/node/api-route.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1063">
-                  <caret line="343" column="64" lean-forward="true" selection-start-line="343" selection-start-column="64" selection-end-line="343" selection-end-column="64" />
-                  <folding>
-                    <element signature="e#0#26#0" />
-                    <element signature="n#!!block;n#auth#0" />
-                    <element signature="e#3719#6380#0" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/js-es-5-6-7/新特性.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-135">
+              <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/nuxt.config.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-98">
+              <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/layouts/default.vue">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -212,7 +177,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>img-box</find>
       <find>updateProgress</find>
       <find>xhrSend</find>
       <find>submitUpload</find>
@@ -242,6 +206,7 @@
       <find>uploadHost</find>
       <find>register</find>
       <find>时间</find>
+      <find>pdf</find>
     </findStrings>
     <replaceStrings>
       <replace>var</replace>
@@ -264,13 +229,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.json" />
-        <option value="$PROJECT_DIR$/One/3d/index.html" />
-        <option value="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/vue-defineProperty.html" />
-        <option value="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/test/compile.js" />
-        <option value="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/index.html" />
-        <option value="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/test/test.html" />
-        <option value="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/test/Tvue.js" />
         <option value="$PROJECT_DIR$/note-company-angular/angular8.md" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/Six/suanfa/链表/main.js" />
@@ -315,14 +273,21 @@
         <option value="$PROJECT_DIR$/Four/箭头函数.html" />
         <option value="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" />
         <option value="$PROJECT_DIR$/node/api-route.js" />
+        <option value="$PROJECT_DIR$/js-suanfa/kkb/README.md" />
+        <option value="$PROJECT_DIR$/html/new/b.html" />
+        <option value="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" />
+        <option value="$PROJECT_DIR$/html/new/a.html" />
+        <option value="$PROJECT_DIR$/vue-nuxt-project/front/package.json" />
+        <option value="$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue" />
+        <option value="$PROJECT_DIR$/js-es-5-6-7/新特性.html" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="x" value="1985" />
-    <option name="y" value="-4" />
+    <option name="y" value="24" />
     <option name="width" value="1855" />
-    <option name="height" value="1084" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -330,6 +295,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -340,18 +316,27 @@
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
             <path>
-              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="layouts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -372,19 +357,19 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html/new" />
+      <recent name="$PROJECT_DIR$/Six" />
+      <recent name="$PROJECT_DIR$/Three/viewers" />
+      <recent name="$PROJECT_DIR$/Six/suanfa/链表" />
+      <recent name="$PROJECT_DIR$/Six/suanfa" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Six/question" />
       <recent name="$PROJECT_DIR$/Six" />
       <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
       <recent name="$PROJECT_DIR$/node/message" />
       <recent name="$PROJECT_DIR$/node" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Six" />
-      <recent name="$PROJECT_DIR$/Three/viewers" />
-      <recent name="$PROJECT_DIR$/Six/suanfa/链表" />
-      <recent name="$PROJECT_DIR$/Six/suanfa" />
-      <recent name="$PROJECT_DIR$/One" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -647,20 +632,14 @@
       <workItem from="1600669506134" duration="1773000" />
       <workItem from="1600830247577" duration="8420000" />
       <workItem from="1600916336100" duration="4920000" />
-    </task>
-    <task id="LOCAL-00001" summary="0306">
-      <created>1551869447480</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1551869447480</updated>
-    </task>
-    <task id="LOCAL-00002" summary="0312">
-      <created>1552354865857</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1552354865857</updated>
+      <workItem from="1601342312283" duration="11767000" />
+      <workItem from="1603769486323" duration="822000" />
+      <workItem from="1604566555851" duration="842000" />
+      <workItem from="1604884698393" duration="98000" />
+      <workItem from="1605085194522" duration="849000" />
+      <workItem from="1605145967104" duration="115000" />
+      <workItem from="1605506685089" duration="3389000" />
+      <workItem from="1605535781121" duration="6313000" />
     </task>
     <task id="LOCAL-00003" summary="0325">
       <created>1553478320338</created>
@@ -984,11 +963,32 @@
       <option name="project" value="LOCAL" />
       <updated>1595582135083</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="箭头函数测试，mock,前端路由实现和异步串行流">
+      <created>1601342404034</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1601342404034</updated>
+    </task>
+    <task id="LOCAL-00050" summary="算法训练营引导">
+      <created>1601374307134</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1601374307134</updated>
+    </task>
+    <task id="LOCAL-00051" summary="koa+mysql实现鉴定权限完成,最后的接口不同,需调试">
+      <created>1601374649010</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1601374649010</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1376480000" />
+    <option name="totallyTimeSpent" value="1400675000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1000,9 +1000,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="37" width="1855" height="1056" extended-state="0" />
+    <frame x="1985" y="24" width="1855" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" weight="0.13271436" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.17422174" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50209206" side_tool="true" weight="0.17203714" />
@@ -1060,8 +1061,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="０８０２－增加路由纪录，从而提供访客纪录和页面纪录，进行数据展示" />
-    <MESSAGE value="数据库数据模拟，ｗｏｒｄ导出" />
     <MESSAGE value="增加ｗｏｒｄ文档转换，增加后台请求" />
     <MESSAGE value="调整项目结构" />
     <MESSAGE value="函数调用方式" />
@@ -1084,65 +1083,12 @@
     <MESSAGE value="1.调整文件上传后台逻辑&#10;2.增加面试准备（生成tree）&#10;3.增加面试题库" />
     <MESSAGE value="面试题库" />
     <MESSAGE value="变量提升,hash路由实现,vue响应式开发等" />
+    <MESSAGE value="箭头函数测试，mock,前端路由实现和异步串行流" />
+    <MESSAGE value="算法训练营引导" />
     <MESSAGE value="koa+mysql实现鉴定权限完成,最后的接口不同,需调试" />
     <option name="LAST_COMMIT_MESSAGE" value="koa+mysql实现鉴定权限完成,最后的接口不同,需调试" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node/node_modules/koa-static/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="52" column="14" selection-start-line="52" selection-start-column="14" selection-end-line="52" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/app.file.fetch.js" />
-    <entry file="file://$PROJECT_DIR$/node/upload/form-fetch.html" />
-    <entry file="file://$PROJECT_DIR$/node/node_modules/koa-body/node_modules/co-body/lib/json.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="59" column="12" selection-start-line="59" selection-start-column="12" selection-end-line="59" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/static/uploads/upload_7622d7518ef718e2c13bb557a4ef6537.2.png" />
-    <entry file="file://$PROJECT_DIR$/node/static/uploads/haimian.jpg" />
-    <entry file="file:///home/hxw/tools/apache-tomcat-7.0.94/webapps/uploads/form-file.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="399" column="12" lean-forward="true" selection-end-line="561" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/node_modules/fs-extra/lib/index.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload/schedule.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/node_modules/@types/node/path.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/static/uploads/d919ec5cc8e4104a63bd02f643223788.jpg" />
-    <entry file="file://$PROJECT_DIR$/One/old/jsLabel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-162" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/One/old/prototype.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1399,15 +1345,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node/api-route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="3012" column="47" lean-forward="true" selection-start-line="3012" selection-start-column="47" selection-end-line="3012" selection-end-column="47" />
+        <state relative-caret-position="498">
+          <caret line="343" column="64" lean-forward="true" selection-start-line="343" selection-start-column="64" selection-end-line="343" selection-end-column="64" />
           <folding>
             <element signature="e#0#26#0" />
             <element signature="e#973#1224#0" />
-            <element signature="n#!!block;n#auth#0" />
+            <element signature="e#3388#3518#0" />
             <element signature="e#3719#6380#0" />
-            <element signature="e#15342#215785#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-suanfa/kkb/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="408">
+            <caret line="39" column="9" lean-forward="true" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="485">
+          <caret line="40" column="38" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/new/b.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/a.html" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/person-nuxt/package.json" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/test/app/controller/home.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/config/config.default.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/layouts/default.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/nuxt.config.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/新特性.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
         </state>
       </provider>
     </entry>
