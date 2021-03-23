@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="koa+mysql实现鉴定权限完成,最后的接口不同,需调试">
-      <change afterPath="$PROJECT_DIR$/js-es-5-6-7/新特性.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="烟花">
+      <change afterPath="$PROJECT_DIR$/html/new/fireworks-more.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/html/new/fireworks.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/html/new/index.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -127,40 +127,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/js-es-5-6-7/新特性.html">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
-              <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+            <state relative-caret-position="108">
+              <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-135">
-              <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/nuxt.config.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/layouts/default.vue">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -177,19 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>updateProgress</find>
-      <find>xhrSend</find>
-      <find>submitUpload</find>
-      <find>createProgress</find>
-      <find>willUploadFile</find>
-      <find>chunkCount</find>
-      <find>fileSum</find>
-      <find>name</find>
-      <find>readdir</find>
-      <find>form</find>
-      <find>ctrl</find>
-      <find>UPLOAD_DIR</find>
-      <find>mergeFiles</find>
       <find>upload</find>
       <find>resolvePost</find>
       <find>resolve1</find>
@@ -207,6 +166,19 @@
       <find>register</find>
       <find>时间</find>
       <find>pdf</find>
+      <find>LINES</find>
+      <find>step</find>
+      <find>anim</find>
+      <find>shardFireworkVelMultiplier</find>
+      <find>addedShardsParFirework</find>
+      <find>baseFireworkVel</find>
+      <find>xFriction</find>
+      <find>fireworks</find>
+      <find>tick</find>
+      <find>clearCanvas</find>
+      <find>alpha</find>
+      <find>particles</find>
+      <find>createFireworks</find>
     </findStrings>
     <replaceStrings>
       <replace>var</replace>
@@ -229,16 +201,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/note-company-angular/angular8.md" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/Six/suanfa/链表/main.js" />
-        <option value="/home/hxw/下载/201509031731 (1)/index.html" />
-        <option value="$PROJECT_DIR$/note-company-angular/basic-note" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/Four/Es6-userful-methods-24.html" />
-        <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案0317.md" />
-        <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案2020.03.18.md" />
-        <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案0319.md" />
         <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案0320.md" />
         <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案0320-1.md" />
         <option value="$PROJECT_DIR$/Six/suanfa/链表/case1-反转列表.html" />
@@ -274,18 +236,28 @@
         <option value="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" />
         <option value="$PROJECT_DIR$/node/api-route.js" />
         <option value="$PROJECT_DIR$/js-suanfa/kkb/README.md" />
-        <option value="$PROJECT_DIR$/html/new/b.html" />
         <option value="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" />
-        <option value="$PROJECT_DIR$/html/new/a.html" />
         <option value="$PROJECT_DIR$/vue-nuxt-project/front/package.json" />
         <option value="$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue" />
         <option value="$PROJECT_DIR$/js-es-5-6-7/新特性.html" />
+        <option value="$PROJECT_DIR$/Six/html/循环.html" />
+        <option value="$PROJECT_DIR$/vue-nuxt-project/server/package.json" />
+        <option value="$PROJECT_DIR$/vue-nuxt-project/server/.eslintrc" />
+        <option value="$PROJECT_DIR$/vue-nuxt-project/server/README.md" />
+        <option value="$PROJECT_DIR$/html/new/index.html" />
+        <option value="$PROJECT_DIR$/html/new/a.html" />
+        <option value="$PROJECT_DIR$/html/new/b.html" />
+        <option value="$PROJECT_DIR$/html/new/c.html" />
+        <option value="$PROJECT_DIR$/js-suanfa/动态规划套路详解-斐波那契.html" />
+        <option value="$PROJECT_DIR$/html/new/fireworks-more.html" />
+        <option value="$PROJECT_DIR$/html/new/fireworks.html" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="1985" />
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="65" />
+    <option name="y" value="34" />
     <option name="width" value="1855" />
     <option name="height" value="1056" />
   </component>
@@ -316,27 +288,18 @@
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="html" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="html" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="new" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="layouts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="vue-nuxt-project" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="front" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="pages" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -357,19 +320,19 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html/new" />
-      <recent name="$PROJECT_DIR$/Six" />
-      <recent name="$PROJECT_DIR$/Three/viewers" />
-      <recent name="$PROJECT_DIR$/Six/suanfa/链表" />
-      <recent name="$PROJECT_DIR$/Six/suanfa" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html" />
       <recent name="$PROJECT_DIR$/Six/question" />
       <recent name="$PROJECT_DIR$/Six" />
       <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
       <recent name="$PROJECT_DIR$/node/message" />
-      <recent name="$PROJECT_DIR$/node" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html/new" />
+      <recent name="$PROJECT_DIR$/html/new/css" />
+      <recent name="$PROJECT_DIR$/Six" />
+      <recent name="$PROJECT_DIR$/Three/viewers" />
+      <recent name="$PROJECT_DIR$/Six/suanfa/链表" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -639,21 +602,18 @@
       <workItem from="1605085194522" duration="849000" />
       <workItem from="1605145967104" duration="115000" />
       <workItem from="1605506685089" duration="3389000" />
-      <workItem from="1605535781121" duration="6313000" />
-    </task>
-    <task id="LOCAL-00003" summary="0325">
-      <created>1553478320338</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1553478320338</updated>
-    </task>
-    <task id="LOCAL-00004" summary="0325－增加测试页面和相关纪录">
-      <created>1553501825744</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1553501825744</updated>
+      <workItem from="1605535781121" duration="7158000" />
+      <workItem from="1605597935745" duration="1691000" />
+      <workItem from="1605755535896" duration="3366000" />
+      <workItem from="1605839774740" duration="786000" />
+      <workItem from="1606207824953" duration="804000" />
+      <workItem from="1609740652081" duration="10561000" />
+      <workItem from="1610508720513" duration="10565000" />
+      <workItem from="1610596021558" duration="1623000" />
+      <workItem from="1610604951936" duration="2533000" />
+      <workItem from="1610674755439" duration="12355000" />
+      <workItem from="1610950559196" duration="3432000" />
+      <workItem from="1616491539905" duration="958000" />
     </task>
     <task id="LOCAL-00005" summary="0325－增加测试页面和相关纪录">
       <created>1553501850845</created>
@@ -984,11 +944,25 @@
       <option name="project" value="LOCAL" />
       <updated>1601374649010</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="算法:寻找k点最近的多个点，Optional Chaining用法，">
+      <created>1605583907321</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1605583907321</updated>
+    </task>
+    <task id="LOCAL-00053" summary="update-config">
+      <created>1616492372868</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1616492372868</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1400675000" />
+    <option name="totallyTimeSpent" value="1450194000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1000,10 +974,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1985" y="24" width="1855" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.17422174" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.17422174" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50209206" side_tool="true" weight="0.17203714" />
@@ -1017,7 +990,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.5240586" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.42019302" side_tool="true" weight="0.4738494" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.579807" visible="true" weight="0.35129312" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.579807" visible="true" weight="0.33158997" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49972692" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1061,8 +1034,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="增加ｗｏｒｄ文档转换，增加后台请求" />
-    <MESSAGE value="调整项目结构" />
     <MESSAGE value="函数调用方式" />
     <MESSAGE value="目录修复，增加打印插件，函数调用方式，自写ｂｉｎｄ" />
     <MESSAGE value="弹幕，深拷贝" />
@@ -1086,85 +1057,11 @@
     <MESSAGE value="箭头函数测试，mock,前端路由实现和异步串行流" />
     <MESSAGE value="算法训练营引导" />
     <MESSAGE value="koa+mysql实现鉴定权限完成,最后的接口不同,需调试" />
-    <option name="LAST_COMMIT_MESSAGE" value="koa+mysql实现鉴定权限完成,最后的接口不同,需调试" />
+    <MESSAGE value="算法:寻找k点最近的多个点，Optional Chaining用法，" />
+    <MESSAGE value="update-config" />
+    <option name="LAST_COMMIT_MESSAGE" value="update-config" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/One/old/prototype.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/PrototypeGetSet.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="28" column="61" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/Scope.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2606" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/Tree.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/Set.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/3d/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/找出出现最多的字符和个数.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Six/interview-questions.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Six/introduce.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="27">
-            <caret line="1" column="27" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="27" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/new/apply colours to a drawing.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/new/javascript-mode.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="7" column="12" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/old/tree-component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="580">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/个人vue工作机制.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/compile过程.jpeg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/compile编译流程.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -1317,18 +1214,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="189">
-            <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="567">
@@ -1382,50 +1267,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/html/new/b.html" />
-    <entry file="file://$PROJECT_DIR$/html/new/a.html" />
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/person-nuxt/package.json" />
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/test/app/controller/home.test.js">
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/test/app/controller/home.test.js" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/config/config.default.js" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/layouts/default.vue" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/package.json" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/nuxt.config.js" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue" />
+    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/新特性.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+        <state relative-caret-position="116">
+          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="30" selection-end-column="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/config/config.default.js">
+    <entry file="file://$PROJECT_DIR$/Six/html/循环.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="496">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="216">
+          <caret line="8" column="14" lean-forward="true" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="189">
+            <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/.eslintrc" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/README.md" />
+    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/package.json" />
+    <entry file="file://$PROJECT_DIR$/html/b.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/c.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/b.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/a.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/index.html" />
+    <entry file="file://$PROJECT_DIR$/html/new/table-meihua.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js-suanfa/动态规划套路详解-斐波那契.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="26" column="10" selection-start-line="26" selection-start-column="10" selection-end-line="26" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/html/new/Timing-brand.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="51" column="50" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="50" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#2153#3055#0" />
+            <element signature="e#3083#3721#0" />
+            <element signature="e#3976#4824#0" />
+            <element signature="e#4854#6858#0" />
+            <element signature="e#6924#8120#0" />
+            <element signature="e#8157#8220#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/layouts/default.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/package.json">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        <state relative-caret-position="353">
+          <caret line="17273" column="17" selection-start-line="17273" selection-start-column="17" selection-end-line="17273" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/nuxt.config.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/front/pages/index.vue">
+    <entry file="file://$PROJECT_DIR$/html/new/fireworks-more.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="76" column="70" selection-start-line="76" selection-start-column="70" selection-end-line="76" selection-end-column="70" />
+        <state relative-caret-position="-540">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+          <folding>
+            <element signature="e#116#236#0" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js-es-5-6-7/新特性.html">
+    <entry file="file://$PROJECT_DIR$/html/new/fireworks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="33" column="47" selection-start-line="33" selection-start-column="47" selection-end-line="33" selection-end-column="47" />
+        <state relative-caret-position="362">
+          <caret line="75" column="41" lean-forward="true" selection-start-line="75" selection-start-column="41" selection-end-line="75" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" column="17" lean-forward="true" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
