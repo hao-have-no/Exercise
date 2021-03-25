@@ -16,22 +16,29 @@ exports.resolvePost = req =>
 
 const pipeStream = (filePath, writeStream) =>
     new Promise(resolve => {
+        //流读取文件
         const readStream = fse.createReadStream(filePath)
         readStream.on("end", () => {
             // 删除文件
             fse.unlinkSync(filePath)
             resolve()
         })
+        //建立管道流，异步读取文件，将读取结果写入文件
         readStream.pipe(writeStream)
     })
 exports.mergeFiles = async (files,dest,size)=>{
+    //files文件的文件路径列表
+    //dest　文件路径
     await Promise.all(
         files.map((file, index) =>
+            //合并文件碎片,
             pipeStream(
                 file,
                 // 指定位置创建可写流 加一个put避免文件夹和文件重名
                 // hash后不存在这个问题，因为文件夹没有后缀
                 // fse.createWriteStream(path.resolve(dest, '../', 'out' + filename), {
+                // 创建一个可以写入的流，写入到指定文件 dest 目标文件地址
+                // start
                 fse.createWriteStream(dest, {
                     start: index * size,
                     end: (index + 1) * size
@@ -47,6 +54,7 @@ exports.mergeFiles = async (files,dest,size)=>{
 
 exports.getUploadedList = async (dirPath)=>{
     return fse.existsSync(dirPath)
+    // fse.readdir获得指定目录下，所有文件的列表
         ? (await fse.readdir(dirPath)).filter(name=>name[0]!=='.') // 过滤诡异的隐藏文件
         : []
 }
