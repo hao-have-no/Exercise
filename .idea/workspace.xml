@@ -108,8 +108,7 @@
       <change beforePath="$PROJECT_DIR$/node/node_modules/util-deprecate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/util-deprecate/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/utils-merge/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/vary/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/vary/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/upload/upload-controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/upload/upload-controller.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/upload/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/upload/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/upload-file-knowledge-point.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/upload-file-knowledge-point.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -128,7 +127,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/api-route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="548">
+            <state relative-caret-position="783">
               <caret line="31" column="26" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="26" />
               <folding>
                 <element signature="e#0#26#0" />
@@ -605,9 +604,7 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-324" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -619,7 +616,7 @@
         <entry file="file://$PROJECT_DIR$/node/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="447">
+              <first_editor relative-caret-position="1458">
                 <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
               </first_editor>
               <second_editor>
@@ -632,7 +629,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
+            <state relative-caret-position="999">
               <caret line="63" column="52" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="52" />
               <folding>
                 <element signature="n#!!block;n#handleVerify#0;n#Controller#0" />
@@ -642,21 +639,21 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/upload/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="729">
-              <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+            <state relative-caret-position="648">
+              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="231">
-                <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
+              <first_editor relative-caret-position="150">
+                <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -668,8 +665,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-202">
-              <caret line="113" column="35" lean-forward="true" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
+            <state relative-caret-position="3051">
+              <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -788,9 +785,9 @@
         <option value="$PROJECT_DIR$/html/new/fireworks-more.html" />
         <option value="$PROJECT_DIR$/html/new/fireworks.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/node/upload-file-knowledge-point.md" />
         <option value="$PROJECT_DIR$/node/upload/upload-controller.js" />
         <option value="$PROJECT_DIR$/node/upload/utils.js" />
+        <option value="$PROJECT_DIR$/node/upload-file-knowledge-point.md" />
       </list>
     </option>
   </component>
@@ -806,17 +803,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -834,6 +820,17 @@
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="upload" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1147,14 +1144,9 @@
       <workItem from="1610604951936" duration="2533000" />
       <workItem from="1610674755439" duration="12355000" />
       <workItem from="1610950559196" duration="3432000" />
-      <workItem from="1616491539905" duration="29284000" />
-    </task>
-    <task id="LOCAL-00008" summary="0327－增加angular组件备份">
-      <created>1553680840363</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1553680840363</updated>
+      <workItem from="1616491539905" duration="29364000" />
+      <workItem from="1616660398502" duration="1398000" />
+      <workItem from="1616751208088" duration="848000" />
     </task>
     <task id="LOCAL-00009" summary="0401－模拟二叉树及数据备份">
       <created>1554113536065</created>
@@ -1492,11 +1484,18 @@
       <option name="project" value="LOCAL" />
       <updated>1616579236082</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="update-upload-introduce">
+      <created>1616652346811</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1616652346811</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1478520000" />
+    <option name="totallyTimeSpent" value="1480846000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1509,9 +1508,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" weight="0.17422174" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.17422174" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50209206" side_tool="true" weight="0.17203714" />
@@ -1524,8 +1522,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972692" weight="0.32845187" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.5240586" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.42019302" side_tool="true" weight="0.4738494" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.579807" weight="0.33158997" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.42063493" side_tool="true" visible="true" weight="0.33158997" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5793651" visible="true" weight="0.33158997" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49972692" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1593,9 +1591,22 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="调整弹幕功能" />
     <MESSAGE value="es6常规知识点实现" />
     <MESSAGE value="koa+mysql实现鉴定权限" />
     <MESSAGE value="websocket建立聊天" />
@@ -1620,7 +1631,8 @@
     <MESSAGE value="烟花" />
     <MESSAGE value="上传文件知识点梳理" />
     <MESSAGE value="上传文件知识点串讲" />
-    <option name="LAST_COMMIT_MESSAGE" value="上传文件知识点串讲" />
+    <MESSAGE value="update-upload-introduce" />
+    <option name="LAST_COMMIT_MESSAGE" value="update-upload-introduce" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/compile.js">
@@ -1795,9 +1807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/question/2020-面试准备">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
@@ -1825,13 +1834,6 @@
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-202">
-          <caret line="113" column="35" lean-forward="true" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/server1.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="81">
@@ -1850,55 +1852,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-324" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="447">
-            <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="231">
-            <caret line="38" column="18" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="18" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/api-route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
+        <state relative-caret-position="783">
           <caret line="31" column="26" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="26" />
           <folding>
             <element signature="e#0#26#0" />
@@ -2354,9 +2310,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1458">
+            <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
+        <state relative-caret-position="999">
           <caret line="63" column="52" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="52" />
           <folding>
             <element signature="n#!!block;n#handleVerify#0;n#Controller#0" />
@@ -2367,8 +2355,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/node/upload/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="729">
-          <caret line="39" column="37" lean-forward="true" selection-start-line="39" selection-start-column="37" selection-end-line="39" selection-end-column="37" />
+        <state relative-caret-position="648">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3051">
+          <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
