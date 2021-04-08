@@ -58,7 +58,7 @@ router.get('/img/model',async (req,res,next)=>{
 router.post('/login', function (req, res, next) {
     const {name = "", pass = ""} = req.body.params || {};
     var salt = "isMyLove"
-    var sql = "select * from user where name='" + name + "'";
+    var sql = "select * from userInfo where name='" + name + "'";
     console.log(pass);
     const md5Password = md5(String(pass)).toString();
     let result = {};
@@ -78,7 +78,7 @@ router.post('/login', function (req, res, next) {
             //也可以在判断中直接采用res.status(401).json()　
             // 给定错误状态码进行回传，减少前端不必要的判断
             console.log('err', err);
-            result = {status: 'error', error: err}
+            result = {status: 'error', error: err,message:err.sqlMessage}
             send();
         } else {
             if (rows.length === 0) {
@@ -108,7 +108,7 @@ router.post('/login', function (req, res, next) {
     function insertToken(name) {
         return new Promise(function (resolve, reject) {
             let token = md5(`${new Date().getDate()}${name}${(Math.random() * 10000).toFixed(0)}`).toString();
-            const sql = "update user set ts ='" + token + "' where name='" + name + "'";
+            const sql = "update userInfo set ts ='" + token + "' where name='" + name + "'";
             db.query(sql, function (err, rows, field) {
                 if (err) {
                     result = {status: 'error', error: err}

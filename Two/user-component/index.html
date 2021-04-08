@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>死磕 36 个 JS 手写题（搞懂后，提升真的大）</title>
+</head>
+<body>
+<script>
+    // 数据类型判断
+    function typeOf(obj){
+        let res = Object.prototype.toString.call(obj).split(' ')[1];
+        res = res.substring(0,res.length-1).toLowerCase();
+        return res;
+    }
+
+    //数组去重
+    function unique(arr){
+        let res= arr.filter((item,index,array)=>{
+            return array.indexOf(item) === index;
+        });
+        return res;
+    }
+    var unique = [...new Set(arr)];
+
+    //数组扁平化
+    function
+</script>
+</body>
+</html>

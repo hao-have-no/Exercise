@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="烟花">
+      <change afterPath="$PROJECT_DIR$/Two/user-component/READNE.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Two/user-component/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/api-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/api-route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -108,7 +111,6 @@
       <change beforePath="$PROJECT_DIR$/node/node_modules/util-deprecate/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/util-deprecate/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/utils-merge/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/utils-merge/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/vary/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/vary/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node/upload-file-knowledge-point.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/upload-file-knowledge-point.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -124,29 +126,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/node/api-route.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="783">
-              <caret line="31" column="26" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="26" />
+            <state relative-caret-position="479">
+              <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
               <folding>
                 <element signature="e#0#26#0" />
                 <element signature="e#815#923#0" />
                 <element signature="e#973#1224#0" />
-                <element signature="e#1295#3339#0" />
-                <element signature="e#1611#1729#0" />
-                <element signature="e#1836#2740#0" />
-                <element signature="e#1855#2061#0" />
                 <element signature="e#1869#1905#0" />
-                <element signature="e#2067#2550#0" />
-                <element signature="e#2104#2205#0" />
-                <element signature="e#2249#2433#0" />
-                <element signature="e#2300#2417#0" />
-                <element signature="e#2439#2540#0" />
-                <element signature="e#2576#2733#0" />
-                <element signature="e#2615#2694#0" />
-                <element signature="e#2774#3337#0" />
-                <element signature="e#2830#3329#0" />
                 <element signature="e#3086#3318#0" />
                 <element signature="e#3113#3191#0" />
                 <element signature="e#3197#3304#0" />
@@ -585,39 +574,20 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/app.js">
+        <entry file="file://$PROJECT_DIR$/node/bean/sql-basic.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1242">
-              <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+            <state relative-caret-position="432">
+              <caret line="16" column="8" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="8" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="18" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/package.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/package-lock.json">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/readme.md">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="1458">
-                <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+              <first_editor relative-caret-position="108">
+                <caret line="4" column="5" selection-start-line="4" selection-end-line="4" selection-end-column="5" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -627,33 +597,11 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="999">
-              <caret line="63" column="52" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="52" />
-              <folding>
-                <element signature="n#!!block;n#handleVerify#0;n#Controller#0" />
-                <element signature="n#!!block;n#handleUpload#0;n#Controller#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/upload/utils.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
+        <entry file="file://$PROJECT_DIR$/Two/user-component/READNE.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="150">
-                <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+              <first_editor relative-caret-position="54">
+                <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -663,10 +611,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
+        <entry file="file://$PROJECT_DIR$/Two/user-component/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3051">
-              <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
+            <state relative-caret-position="486">
+              <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node/server.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="243">
+              <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -685,7 +642,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isEvent</find>
       <find>eventHandler</find>
       <find>modelUpdater</find>
       <find>model</find>
@@ -715,6 +671,7 @@
       <find>captcha</find>
       <find>chunk</find>
       <find>handleMerge</find>
+      <find>db</find>
     </findStrings>
     <replaceStrings>
       <replace>var</replace>
@@ -737,8 +694,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="/home/hxw/下载/溪流产品-慢病B+C接口对接方案0320-1.md" />
-        <option value="$PROJECT_DIR$/Six/suanfa/链表/case1-反转列表.html" />
         <option value="$PROJECT_DIR$/Three/viewers/picture-look.html" />
         <option value="$PROJECT_DIR$/Six/suanfa/链表/setInterview.html" />
         <option value="$PROJECT_DIR$/Three/viewers/interview.html" />
@@ -767,7 +722,6 @@
         <option value="$PROJECT_DIR$/Six/html/前端路由实现.html" />
         <option value="$PROJECT_DIR$/Four/箭头函数.html" />
         <option value="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" />
-        <option value="$PROJECT_DIR$/node/api-route.js" />
         <option value="$PROJECT_DIR$/js-suanfa/kkb/README.md" />
         <option value="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" />
         <option value="$PROJECT_DIR$/vue-nuxt-project/front/package.json" />
@@ -788,6 +742,9 @@
         <option value="$PROJECT_DIR$/node/upload/upload-controller.js" />
         <option value="$PROJECT_DIR$/node/upload/utils.js" />
         <option value="$PROJECT_DIR$/node/upload-file-knowledge-point.md" />
+        <option value="$PROJECT_DIR$/Two/user-component/READNE.md" />
+        <option value="$PROJECT_DIR$/Two/user-component/index.html" />
+        <option value="$PROJECT_DIR$/node/api-route.js" />
       </list>
     </option>
   </component>
@@ -814,12 +771,6 @@
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="upload" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -1146,14 +1097,8 @@
       <workItem from="1610950559196" duration="3432000" />
       <workItem from="1616491539905" duration="29364000" />
       <workItem from="1616660398502" duration="1398000" />
-      <workItem from="1616751208088" duration="848000" />
-    </task>
-    <task id="LOCAL-00009" summary="0401－模拟二叉树及数据备份">
-      <created>1554113536065</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1554113536065</updated>
+      <workItem from="1616751208088" duration="1603000" />
+      <workItem from="1617766018437" duration="9708000" />
     </task>
     <task id="LOCAL-00010" summary="0402-发布订阅者,导航实验">
       <created>1554200602641</created>
@@ -1491,11 +1436,18 @@
       <option name="project" value="LOCAL" />
       <updated>1616652346811</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="详解文件上传">
+      <created>1616760462700</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1616760462701</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1480846000" />
+    <option name="totallyTimeSpent" value="1491309000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1508,6 +1460,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.17422174" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
@@ -1522,8 +1475,8 @@
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972692" weight="0.32845187" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.5240586" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.42063493" side_tool="true" visible="true" weight="0.33158997" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5793651" visible="true" weight="0.33158997" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.4212963" side_tool="true" weight="0.34133613" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.5787037" visible="true" weight="0.3410042" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49972692" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1607,7 +1560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="es6常规知识点实现" />
     <MESSAGE value="koa+mysql实现鉴定权限" />
     <MESSAGE value="websocket建立聊天" />
     <MESSAGE value="腾讯－快速切割字符串（通过数组栈的形式，进行存储计算）" />
@@ -1632,30 +1584,10 @@
     <MESSAGE value="上传文件知识点梳理" />
     <MESSAGE value="上传文件知识点串讲" />
     <MESSAGE value="update-upload-introduce" />
-    <option name="LAST_COMMIT_MESSAGE" value="update-upload-introduce" />
+    <MESSAGE value="详解文件上传" />
+    <option name="LAST_COMMIT_MESSAGE" value="详解文件上传" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/compile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="136" column="34" selection-start-line="136" selection-start-column="34" selection-end-line="136" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/One/new/变量提升.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="144" column="9" selection-start-line="144" selection-start-column="9" selection-end-line="144" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/app.file.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1971">
@@ -1724,18 +1656,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="189">
-            <caret line="7" column="3" selection-start-line="7" selection-end-line="7" selection-end-column="3" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/.eslintrc" />
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/README.md" />
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/package.json" />
@@ -1793,13 +1713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/bean/sql-basic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="20" selection-start-line="4" selection-start-column="11" selection-end-line="4" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1845,35 +1758,143 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/node/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="19" selection-start-column="18" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/package.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="1458">
+            <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="999">
+          <caret line="63" column="52" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="52" />
+          <folding>
+            <element signature="n#!!block;n#handleVerify#0;n#Controller#0" />
+            <element signature="n#!!block;n#handleUpload#0;n#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="648">
+          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3051">
+          <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="150">
+            <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="108">
+            <caret line="4" column="5" selection-start-line="4" selection-end-line="4" selection-end-column="5" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Two/user-component/READNE.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="54">
+            <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Two/user-component/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="486">
+          <caret line="18" column="49" lean-forward="true" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/node/server.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
+        <state relative-caret-position="243">
+          <caret line="33" column="25" selection-start-line="33" selection-start-column="25" selection-end-line="33" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/node_modules/mysql/lib/protocol/sequences/Query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="606">
+          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/bean/sql-basic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="16" column="8" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/node_modules/express/lib/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="280" column="21" selection-start-line="280" selection-start-column="21" selection-end-line="280" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/node/api-route.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="31" column="26" selection-start-line="31" selection-start-column="15" selection-end-line="31" selection-end-column="26" />
+        <state relative-caret-position="479">
+          <caret line="71" column="17" lean-forward="true" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
           <folding>
             <element signature="e#0#26#0" />
             <element signature="e#815#923#0" />
             <element signature="e#973#1224#0" />
-            <element signature="e#1295#3339#0" />
-            <element signature="e#1611#1729#0" />
-            <element signature="e#1836#2740#0" />
-            <element signature="e#1855#2061#0" />
             <element signature="e#1869#1905#0" />
-            <element signature="e#2067#2550#0" />
-            <element signature="e#2104#2205#0" />
-            <element signature="e#2249#2433#0" />
-            <element signature="e#2300#2417#0" />
-            <element signature="e#2439#2540#0" />
-            <element signature="e#2576#2733#0" />
-            <element signature="e#2615#2694#0" />
-            <element signature="e#2774#3337#0" />
-            <element signature="e#2830#3329#0" />
             <element signature="e#3086#3318#0" />
             <element signature="e#3113#3191#0" />
             <element signature="e#3197#3304#0" />
@@ -2307,75 +2328,6 @@
             <element signature="e#220923#221176#0" />
             <element signature="e#221251#221286#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1242">
-          <caret line="89" column="28" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/package.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/package-lock.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="1458">
-            <caret line="54" column="2" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="63" column="52" selection-start-line="63" selection-start-column="44" selection-end-line="63" selection-end-column="52" />
-          <folding>
-            <element signature="n#!!block;n#handleVerify#0;n#Controller#0" />
-            <element signature="n#!!block;n#handleUpload#0;n#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="24" column="10" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload/form-file.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3051">
-          <caret line="113" column="35" selection-start-line="113" selection-start-column="35" selection-end-line="113" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="150">
-            <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
         </state>
       </provider>
     </entry>
