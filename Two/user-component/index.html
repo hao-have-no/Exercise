@@ -5,6 +5,9 @@
     <title>死磕 36 个 JS 手写题（搞懂后，提升真的大）</title>
 </head>
 <body>
+<div id="debounce-listen" style="width: 20px;height: 20px;background-color: #eea236">
+
+</div>
 <script>
     // 数据类型判断
     function typeOf(obj){
@@ -20,10 +23,528 @@
         });
         return res;
     }
-    var unique = [...new Set(arr)];
+    // var unique = [...new Set(arr)];
 
     //数组扁平化
-    function
+    function flatten(array){
+        var result = [];
+        for (let i=0;i<array.length;i++){
+            if (Array.isArray(array[i])){
+                result = result.concat(flatten(array[i]))
+            }else{
+                result.push(array[i])
+            }
+
+        }
+        return result;
+    }
+
+    const flattenEs6=(array)=>{
+        while (array.some(item=>Array.isArray(item))){
+            console.log(array,'###');
+            array = [].concat(...array);
+        }
+        return array;
+    };
+
+    // console.log(flattenEs6([1, [2, [3]]]));
+
+    //深浅拷贝 浅直接赋值 深判断对象类型
+    function deepClone(obj){
+        if (typeof obj !== 'object')return
+        const newObj = Array.isArray(obj)?[]:{}
+        for (let key in obj){
+            if (obj.hasOwnProperty(key)){
+                newObj[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key];
+            }
+        }
+        return newObj;
+    }
+
+    console.log(deepClone([1,2,3,4,5]))
+
+    //事件发布订阅者模式
+    class EventEmitter{
+        constructor(){
+            this.cache = [];
+        }
+
+        on(name,fn){
+            if (this.cache[name]){
+                this.cache[name].push(fn);
+            }else{
+                this.cache[name] = [fn];
+            }
+        }
+
+        off(name,fn){
+            let tasks = this.cache[name];
+            if (tasks){
+                const index = tasks.findIndex(item=>item === fn||item.callback === fn);
+                if (index !== -1){
+                    tasks.splice(index,1);
+                }
+            }
+        }
+
+        emit(name,once=false,...args){
+            if (this.cache[name]){
+                const task = this.cache[name].slice();
+                for (let fn of task){
+                    fn(...args);
+                }
+                if (once){
+                    delete this.cache[name];
+                }
+            }
+        }
+    }
+
+    let eventBus = new EventEmitter();
+    let fn1 = function(name, age) {
+        console.log(`${name} ${age}`)
+    };
+    let fn2 = function(name, age) {
+        console.log(`hello, ${name} ${age}`)
+    };
+
+    eventBus.on('aaa',fn1);
+    eventBus.on('aaa',fn2);
+    eventBus.on('aaa',fn2);
+
+    // eventBus.off('aaa',fn2);
+
+    eventBus.emit('aaa', false, '布兰', 12);
+
+    //防抖
+    function debounce(func,wait){
+        var timeout;
+        return function () {
+            var context = this;
+            var args = arguments;
+            clearTimeout(timeout);
+            timeout = setTimeout(()=>{
+                //apply 改变this指向,保证this永远指向当前的函数本身
+                func.apply(context,args);
+                // func(args);
+
+            },wait)
+        }
+    }
+
+    let node = document.getElementById('debounce-listen');
+    let count = 0;
+
+    function testDebounce(e){
+        console.log(this,e);
+        node.innerHTML = count++;
+    }
+
+    node.onclick = debounce(testDebounce, 1000);
+
+    //call
+    //将函数作为上下文传入的参数，执行了
+    const selfCall=(context,...args)=>{
+        let func = this;
+        context||(context = window);
+        if (typeof func !== 'function'){
+            console.log('error function');
+            return;
+        };
+        // 防止属性冲突使用了 ES6 的 Symbol 类型
+        let caller = Symbol('caller');
+        context[caller] = func;
+        let res = context[caller](...args);
+        delete  context[caller];
+        return res;
+    };
+
+    Function.prototype.selfCall||(Object.defineProperty(Function.prototype,'selfCall',{
+        value: selfCall,
+        enumerable: false,
+        configurable: true,
+        writable: true
+    }));
+
+    //promise
+
+    // 先定义三个常量表示状态
+    const PENDING = 'pending';
+    const FULFILLED = 'fulfilled';
+    const REJECTED = 'rejected';
+
+    class myPromise{
+        constructor(executor){
+            // executor 是一个执行器，进入会立即执行
+            // 并传入resolve和reject方法
+
+            //0412----增加try-catch
+            try {
+                executor(this.resolve, this.reject)
+            }catch (e) {
+                this.reject(e);
+            }
+        }
+
+
+        //0412--增加resolve和reject
+        static resolve(parameter){
+            //如果传入myPromise就直接返回
+            if (parameter instanceof myPromise){
+                return parameter;
+            }
+
+            // 转成常规方式
+            return new myPromise(resolve=>{
+                resolve(parameter);
+            })
+        }
+
+        static reject(reason){
+            return new MyPromise((resolve, reject) => {
+                reject(reason);
+            });
+        }
+
+        //0409-增加存储成功和失败回调函数
+
+        // onFulfilledCallback = null;
+        //
+        // onRejectedCallback = null;
+        //0409-增加存储成功和失败回调函数队列
+        onFulfilledCallback=[];
+        onRejectedCallback=[];
+
+
+        //初始化状态
+        status = PENDING;
+
+        // resolve和reject为什么要用箭头函数？
+        // 如果直接调用的话，普通函数this指向的是window或者undefined
+        // 用箭头函数就可以让this指向当前实例对象
+
+        // 成功之后的值
+        value = null;
+        // 失败之后的原因
+        reason = null;
+
+        // 更改成功后的状态
+        resolve = (value) => {
+            if (this.status === PENDING){
+                this.status = FULFILLED;
+                this.value = value;
+
+                //0409 增加对缓存方法的判定
+                // this.onFulfilledCallback&&this.onFulfilledCallback(value);
+                while(this.onFulfilledCallback.length){
+                    this.onFulfilledCallback.shift()(value);
+                }
+            }
+        };
+        // 更改失败后的状态
+        reject = (reason) => {
+            // 只有状态是等待，才执行状态修改
+            if (this.status === PENDING) {
+                // 状态成功为失败
+                this.status = REJECTED;
+                // 保存失败后的原因
+                this.reason = reason;
+
+                //0409
+                // this.onRejectedCallback&&this.onRejectedCallback(value);
+                while(this.onRejectedCallback.length){
+                    this.onRejectedCallback.shift()(reason)
+                }
+            }
+        };
+
+        //0409-增加then链式调用逻辑
+        // then 方法要链式调用那么就需要返回一个 Promise 对象
+        then(onFulfilled, onRejected){
+
+            //0412--对then方法不做参数强制规定
+            // 如果不传，就使用默认函数
+            onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
+            onRejected = typeof onRejected === 'function' ? onRejected : reason => {throw reason};
+
+            //0405--普通的promise函数
+            // if (this.status === FULFILLED) {
+            //     // 调用成功回调，并且把值返回
+            //     onFulfilled(this.value);
+            // } else if (this.status === REJECTED) {
+            //     // 调用失败回调，并且把原因返回
+            //     onRejected(this.reason);
+            // } else if (this.status === PENDING){
+            //     //0409 不确定后续状态
+            //     //将回调成功和回调失败存储
+            //     //等到执行成功或者失败函数后执行 用于异步任务
+            //     // this.onFulfilledCallback = onFulfilled;
+            //     // this.onRejectedCallback = onRejected;
+            //
+            //     //0409 针对连续多次调用的then,改为数组
+            //     this.onFulfilledCallback.push(onFulfilled);
+            //     this.onRejectedCallback.push(onRejected);
+            // }
+
+            //0409-增加then链式调用逻辑
+            // then 方法要链式调用那么就需要返回一个 Promise 对象
+
+            //直接创建promise,并最后return出去
+            const promise2= new myPromise((resolve,reject)=>{
+                //0412----整体代码调整，抽离微任务流程
+                const fulfilledMicrotask=()=>{
+                    queueMicrotask(()=>{
+                        try {
+                            const x = onFulfilled(this.value);
+                            //传入resolvePromise集中处理
+                            resolvePromise(promise2,x,resolve,reject);
+                        }catch (e) {
+                            reject(e)
+                        }
+                    })
+                };
+
+                const rejectedMicrotask=()=>{
+                    queueMicrotask(()=>{
+                       try {
+                           const x = onRejected(this.reason);
+                           resolvePromise(promise2,x,resolve,reject);
+                       }catch (e) {
+                           reject(e)
+                       }
+                    });
+                };
+
+
+
+                    //实例化后，直接执行了
+                if(this.status === FULFILLED){
+                    //0412--创建微任务等待promise2初始化
+                    //0412--新增错误捕获机制
+                    // try {
+                    //     queueMicrotask(()=>{
+                    //         //获取执行结果
+                    //         const x = onFulfilled(this.value);
+                    //         //传入resolvePromise集中处理
+                    //         resolvePromise(promise2,x,resolve,reject);
+                    //     })
+                    // }catch (e) {
+                    //         reject(error)
+                    // }
+
+                    //0412--抽象微任务流程
+                    fulfilledMicrotask();
+
+                }else if (this.status === REJECTED){
+                    //0412 对其他状态进行异步任务处理
+                    // queueMicrotask(()=>{
+                    //     try {
+                    //        const x = onRejected(this.reason);
+                    //        resolvePromise(promise2,x,resolve,reject);
+                    //     }catch (e) {
+                    //         reject(e);
+                    //     }
+                    // });
+                    rejectedMicrotask();
+
+                }else if (this.status === PENDING){
+                        // this.onFulfilledCallback.push(()=>{
+                        //     try {
+                        //         // 获取成功回调函数的执行结果
+                        //         const x = onFulfilled(this.value);
+                        //         // 传入 resolvePromise 集中处理
+                        //         resolvePromise(promise2, x, resolve, reject);
+                        //     } catch (e) {
+                        //         reject(e)
+                        //     }
+                        // });
+                        // this.onRejectedCallback.push(()=>{
+                        //     try {
+                        //         // 获取成功回调函数的执行结果
+                        //         const x = onRejected(this.reason);
+                        //         // 传入 resolvePromise 集中处理
+                        //         resolvePromise(promise2, x, resolve, reject);
+                        //     } catch (e) {
+                        //         reject(e)
+                        //     }
+                        // });
+                        this.onFulfilledCallback.push(fulfilledMicrotask);
+                        this.onRejectedCallback.push(rejectedMicrotask);
+                }
+            });
+
+            return promise2;
+        }
+    }
+
+    function resolvePromise(promise2,x,resolve,reject){
+        //0412 判断x是不是 MyPromise 实例对象
+        // console.log(x);
+
+        if (promise2 === x) {
+            return reject(new TypeError('Chaining cycle detected for promise #<Promise>'))
+        }
+
+        //0412--在promise测试脚本的测试下，调整x的类型判断
+        //报错,根据promiseA+规范，我们需要多种方式来处理then的返回值
+        if (typeof x=== 'object'|| typeof x=== 'function'){
+            if (x=== null){
+                return resolve(x)
+            }
+        let then;
+        try {
+            then = x.then;
+        }catch (e) {
+            return reject(error);
+        }
+
+        //如果是then函数
+        if (typeof then === 'function'){
+            let called = false;
+            try {
+                then.call(
+                x,//this　指向x
+                //如果resolvePromise以值为y为参数来进行调用,则运行[[Resolve]](promise,y)
+                y=>{
+                    // 如果 resolvePromise 和 rejectPromise 均被调用，
+                    // 或者被同一参数调用了多次，则优先采用首次调用并忽略剩下的调用
+                    // 实现这条需要前面加一个变量 called
+                    if (called) return;
+                    called = true;
+                    resolvePromise(promise,y,resolve,reject)
+                },
+                r=>{
+                    if (called) return;
+                    called = true;
+                    reject(r);
+                }
+                )
+            }catch (e) {
+                // 如果调用 then 方法抛出了异常 error：
+                // 如果 resolvePromise 或 rejectPromise 已经被调用，直接返回
+                if (called) return;
+
+                // 否则以 error 为据因拒绝 promise
+                reject(error);
+            }
+        }else{
+            // 如果 then 不是函数，以 x 为参数执行 promise
+            resolve(x);
+        }
+
+        }else{
+            // 如果 x 不为对象或者函数，以 x 为参数执行 promise
+            resolve(x);
+        }
+
+
+        //0410---增加then链式回调的集中处理
+        // if (x instanceof myPromise){
+        //     // 执行 x，调用 then 方法，
+        //     // 目的是将其状态变为 fulfilled 或者 rejected
+        //     // x.then(value => resolve(value),reason => reject(reason))
+        //     x.then(resolve,reject);
+        // }else{
+        //     resolve(x);
+        // }
+    }
+
+    // myPromise.deferred = function () {
+    //     var result = {};
+    //     result.promise = new myPromise(function (resolve, reject) {
+    //         result.resolve = resolve;
+    //         result.reject = reject;
+    //     });
+    //
+    //     return result;
+    // }
+
+
+    // module.exports = myPromise;
+
+    //验证promise
+    const promise = new myPromise((resolve, reject) => {
+        //0405-promise init 实现基本的reject,resolve
+        // resolve('success');
+        // reject('err')
+
+        //0409-promise 增加对异步队列（微任务）的处理
+        //主线程代码立即执行，setTimeout是异步,then会立即执行
+        //这个时候的状态是pending,没有任何处理逻辑
+        // 这个时候需要判断promise状态
+        // setTimeout(() => {
+        //     resolve('success1')
+        // }, 2000);
+
+        //0412-报错执行机制
+        throw new Error('执行器错误')
+    });
+
+    // promise.then(value=>{
+    //     console.log('resolve1', value)
+    // });
+    // //0409-多个then方法调用
+    // promise.then(value=>{
+    //     console.log('resolve2', value)
+    // });
+    //
+    // promise.then(value=>{
+    //     console.log('resolve3', value)
+    // });
+
+    //0409-实现then的链式调用
+    // function other () {
+    //     return new myPromise((resolve, reject) =>{
+    //         resolve('other1')
+    //     })
+    // }
+    // promise.then(value => {
+    //         console.log(1,value);
+    //         return other();
+    //     })
+    //     .then(value => {
+    //     console.log(2,value);
+    // })
+    // .then(value => {
+    //     console.log(3,value);
+    // })
+
+    //0410-防止promise返回本身造成的循环调用，报错
+    // const p1 = promise.then(value=>{
+    //     console.log(value);
+    //     //在未声明异步函数去等待p1初始化的话，会报错
+    //     //宏/微任务及事件循环
+    //     return p1;
+    // });
+    //
+    //
+    // // 运行的时候会走reject
+    // p1.then(value => {
+    //     console.log(2);
+    //     console.log('resolve', value)
+    // }, reason => {
+    //     console.log(3);
+    //     console.log(reason.message)
+    // });
+
+    // promise.then(value=>{
+    //     console.log(value);
+    // },reason=>{
+    //     console.log(reason);
+    // })
+
+
+    //0412--实现resolve和reject的静态作用
+    myPromise.resolve().then(() => {
+        console.log(0);
+        return myPromise.resolve(4);
+    }).then((res) => {
+        console.log(res)
+    });
+
+
+
+
 </script>
 </body>
 </html>
