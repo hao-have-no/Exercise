@@ -323,7 +323,7 @@
                     //0412--新增错误捕获机制
                     // try {
                     //     queueMicrotask(()=>{
-                    //         //获取执行结果
+                    //         //获取执行结果 then链式回调的话会获取一个新的promise对象
                     //         const x = onFulfilled(this.value);
                     //         //传入resolvePromise集中处理
                     //         resolvePromise(promise2,x,resolve,reject);
@@ -439,6 +439,7 @@
 
 
         //0410---增加then链式回调的集中处理
+        // x代表者then链式调用返回的promise对象
         // if (x instanceof myPromise){
         //     // 执行 x，调用 then 方法，
         //     // 目的是将其状态变为 fulfilled 或者 rejected
