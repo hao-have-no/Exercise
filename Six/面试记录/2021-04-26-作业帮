@@ -1,0 +1,70 @@
+
+### script标签加载机制
+> 当浏览器遇到<script>标签的时候，浏览器必须先话时间下载外链的文件然后并执行，在这过程中，页面渲染和用户交互是完全被阻塞的。
+
+1. 多脚本都是异步向服务器请求资源的，放在header中会阻塞进程,但是多个脚本之间不互相阻塞(加载完成后，依次执行)
+2. 增加defer 属性，要求脚本立马下载，但页面加载完成后，才会执行脚本，只适用于外部脚本文件。
+3. async规定脚本立即下载，一旦可用就异步执行。async先加载完的脚本，先执行;<!--最先响应回来的脚本先执行-->
+4. defer的机制就是知道DOM加载完成前才去下载js文件，不会阻塞浏览器的其他进程,defer是在onload事件执行之前被调用
+5. 加快js标签引用，通过动态增加script标签的形式来做这个事情(ready页面加载完毕后)
+
+### webpack多入口打包，缓存问题
+1. 多文件打包:entry中进行多文件的配置
+2. 文件缓存:通过给打包的文件增加hash值,来进行相关的更新
+3. 增加vender配置，来进行多入口文件打包,添加了一个CommonsChunkPlugin的插件，用于提取vendor
+4. 添加了一个CommonsChunkPlugin的插件增加配置，增加names:names: ['vendor', 'manifest']
+, manifest为修改的部分，vender的hash不改变
+
+### webpack中loader和plugins配置问题
+1. loader对打包流程的配置,因为webpack对于loader的调用是从右往左的
+> 配置bable-loader,profile来完成js的浏览器适配与优雅降级
+> style-loader(将css-loader转化的代码以标签的实行插入html中)和css-loader(处理js文件中引入的css模块（处理@import和url）)
+> -loader和 exports-loader来处理amd模块的引用
+
+2. plugins 提供第三方插件拓展webpack功能
+> 比如html-webpack-plugin:会将打包好的js文件自动引入到指定的html中去，并将html文件输出在指定位置
+> 多入口文件的话，可以在entry多入口文件打包的时候进行tmlPluginArray的实例化
+
+3. resolve配置规定了webpack如何寻找各个依赖模块
+
+4. 按需加载: import语法实现动态引用
+
+5. 打包策略
+> 第三方库打包出vendor（基本不变）
+> 用两次以上的模块打包出common （变化较少）
+> 业务代码 （常变）
+> 对于分包方式，webpack 4 移除 CommonsChunkPlugin，取而代之的是optimization.splitChunks 
+
+6. 优化loader配置
+> 配置exclude设置哪些目录下的文件不进行处理
+> 
+
+### _proto_和prototype关系，原型链上怎么获取构造函数本身
+
+1. 一个对象由构造函数创建时，其隐式原型（__proto__）指向
+构造该对象的构造函数（constructor）的显示原型（prototype），
+这保证了实例能够访问在构造函数原型中定义的属性和方法。
+
+### 布局问题－左右都不固定宽度，右边div自适应
+1. 浮动布局实现
+>父容器overflow:hidden
+>左:float:left
+>右: 设置最大宽度100%,
+
+2. 弹性布局实现
+> 父容器: display:flex
+> left:   flex: 0 0 auto;
+> right:  flex: 1 1 auto;
+
+
+### 继承问题
+1. 原型链集成
+2. 构造函数集成
+3. 组合集成
+4. 原型链 + 借用构造函数(共享的用原型链，各自的借用构造函数)
+
+### Object.create()
+1. Object.create(null) 创建的对象是一个空对象，
+在该对象上没有继承 Object.prototype 原型链上的属性或者方法
+将对象继承到proto属性上
+ 
