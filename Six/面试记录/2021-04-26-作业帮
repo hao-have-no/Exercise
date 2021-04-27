@@ -45,6 +45,27 @@
 构造该对象的构造函数（constructor）的显示原型（prototype），
 这保证了实例能够访问在构造函数原型中定义的属性和方法。
 
+2. 所有对象都有 __proto__ 属性，函数这个特殊对象
+除了具有 __proto__ 属性，还有特有的原型属性prototype。
+
+3. prototype对象默认有两个属性，constructor属性和__proto__ 属性
+
+4. prototype属性可以给函数和对象添加可共享（继承）的方法、属性
+
+5. __proto__ 是查找某函数或对象的原型链方式。
+
+6. constructor，这个属性包含了一个指针，指回原构造函数。
+
+7. str.__proto__ === Str(函数).prototype-->相当于一个指针指向内存中的地址
+－－＞实例化后的对象也有一个指针，也指向这个地方;只是__proto__可以忽略不写
+
+8. constructor 是存放在 __proto__ 这个属性上的，
+然后 __proto__  === prototype
+
+9. 类的.prototype.constructor === 类
+
+10. new Object(1):相当于对object进行了包装，constructor的结果为String而不是Object
+
 ### 布局问题－左右都不固定宽度，右边div自适应
 1. 浮动布局实现
 >父容器overflow:hidden

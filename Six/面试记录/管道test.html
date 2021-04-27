@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>管道test</title>
+</head>
+<body>
+<script>
+    console.log('管道test');
+    let arr = [3,1,3,2,5,4,5];
+
+    function reduce(arr){
+        return new Set(arr);
+    }
+
+    function transform(arr){
+        return Array.from(arr);
+    }
+
+    function mySort(arr){
+        return arr.sort((a,b)=>b-a);
+    }
+
+    function getNum(arr,k){
+        if (typeof arr[k-1] !== 'undefined'){
+            return arr[k-1];
+        }else{
+            console.log('no data');
+        }
+    }
+
+    // const composeN =(...fns) =>(value)=>fns.reverse().reduce((acc,fn)=>fn(acc),value);
+    const composeN =(...fns)=>(value)=>{
+        return fns.reverse().reduce((acc,fn)=>{
+            console.log(acc,fn);
+            return fn(acc);
+        },value);
+    };
+
+    const log=(arr)=>{
+        console.log(arr);
+        return arr;
+    };
+
+    // console.log(composeN(mySort,transform,reduce)(arr));
+    // console.log(composeN(mySort,transform,reduce)(arr));
+    console.log(getNum(composeN(log,mySort,transform,reduce)(arr),2))
+    // let num = getNum(composeN(mySort,transform,reduce)(arr),2);
+    // console.log(num);
+
+
+</script>
+</body>
+</html>
