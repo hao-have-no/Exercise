@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //所有的结果都要被收集
+    //所有的promise结果都收集完成后，将所有的结果抛出给新的promise的resolve
+    const myPromiseAllSettled=(list)=>{
+        let resArr = new Array(list.length);
+        let num = 0;
+        return new Promise(resolve=>{
+            list.forEach((item,key)=>{
+                let obj = {};
+                item.then(res=>{
+                    obj[status] = "fulfilled";
+                    obj.value = res;
+                    resArr[key] = obj;
+                    num++;
+                    if (num === list.length){
+                        resolve(resArr);
+                    }
+                },err=>{
+                    obj[status] = "fulfilled";
+                    obj.reson = err;
+                    resArr[key] = obj;
+                    num++;
+                    if (num === list.length){
+                        resolve(resArr);
+                    }
+                })
+            })
+        })
+    }
+
+    let p1=new Promise((resolve,reject) => {
+        setTimeout(()=>{
+            reject(111)
+        },1000);
+    });
+
+    let p2=new Promise((resolve,reject) => {
+        setTimeout(()=>{
+            resolve(222)
+        },1000);
+    });
+
+    Promise.allSettled([p1,p2]).then(res=>{
+        console.log(res);
+    })
+
+    myPromiseAllSettled([p1,p2]).then(res=>{
+        console.log(res);
+    })
+
+</script>
+</body>
+</html>

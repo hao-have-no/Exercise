@@ -1,0 +1,26 @@
+### promise.allSettled
++ promise.all只能获取成功的结果，不允许出错
++ promise.allSettled 优化all，可以收集各种结果
+
+
+### 什么是同步，什么是异步　什么是宏任务　　什么是微任务
++ js是单线程的，因为多线程进行dom的操作,无法确定那个操作是正确的
++ 同步和异步－－＞宏任务和微任务
+> 微任务执行在主函数（也是一个宏任务）执行之后，当前宏任务之前;
+> 宏任务是时间粒度较大的任务，例如setTimeout
+> 宏任务执行完毕后，检查是否还有微任务，有的话继续执行，没有的话进行下个微任务的执行
+
+console.log(11);
+
+setTimeout(() => {console.log(22)});
+
+let p = new Promise(resolve=>{console.log(33),resolve();})
+
+p.then(res=>{console.log(44)})
+
+console.log(55)
+
+先宏任务【script主代码块（同步代码）:console.log(11);、console.log(33)、console.log(55)】
+[微任务：Promise.then(console.log(44))] 
+---下一个宏任务--> 【setTimeout(() => {console.log(22)});】[微任务：空]
+
