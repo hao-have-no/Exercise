@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="烟花">
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-04-28" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html" afterDir="false" />
+    <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-04-29.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
@@ -125,25 +124,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-04-28">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-04-29.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="297">
-                <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+              <first_editor relative-caret-position="324">
+                <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -214,7 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/node/app.file.fetch.js" />
         <option value="$PROJECT_DIR$/node/upload/form-fetch.html" />
         <option value="/home/hxw/tools/apache-tomcat-7.0.94/webapps/uploads/form-file.html" />
         <option value="$PROJECT_DIR$/node/upload/form-file.html" />
@@ -265,6 +254,7 @@
         <option value="$PROJECT_DIR$/Six/面试记录/allAndAllSettled.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-04-28" />
         <option value="$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-04-29.md" />
       </list>
     </option>
   </component>
@@ -637,14 +627,8 @@
       <workItem from="1618538976269" duration="789000" />
       <workItem from="1619425954193" duration="5732000" />
       <workItem from="1619432832063" duration="6905000" />
-      <workItem from="1619570613312" duration="5594000" />
-    </task>
-    <task id="LOCAL-00015" summary="0423-总结">
-      <created>1556009919235</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1556009919235</updated>
+      <workItem from="1619570613312" duration="5776000" />
+      <workItem from="1619657294424" duration="2056000" />
     </task>
     <task id="LOCAL-00016" summary="0426-搭建ｎｏｄｅ服务器，构建数据库连接测试">
       <created>1556275706391</created>
@@ -982,11 +966,18 @@
       <option name="project" value="LOCAL" />
       <updated>1619490029383</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="0428,allSettled使用，同步异步微任务相关问题解析">
+      <created>1619576777925</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1619576777925</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1570637000" />
+    <option name="totallyTimeSpent" value="1572875000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -999,16 +990,15 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.28345168" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.28345168" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50209206" side_tool="true" weight="0.17203714" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49918076" weight="0.3294979" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32894737" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39748955" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39748955" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972692" weight="0.32845187" />
@@ -1099,7 +1089,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="person-vue实现鉴定权限,手写vue核心机制(watch,dep,complete)数据响应化,数据劫持，模版渲染" />
     <MESSAGE value="增加jwt令牌机制的引入" />
     <MESSAGE value="vue实战.对应无状态化开发过程,提供对应的轮播图接口" />
     <MESSAGE value="新年-增加球形表白图" />
@@ -1124,10 +1113,10 @@
     <MESSAGE value="烟花" />
     <MESSAGE value="2021-0426-面试总结" />
     <MESSAGE value="函数式编程实践，解析说明" />
-    <option name="LAST_COMMIT_MESSAGE" value="函数式编程实践，解析说明" />
+    <MESSAGE value="0428,allSettled使用，同步异步微任务相关问题解析" />
+    <option name="LAST_COMMIT_MESSAGE" value="0428,allSettled使用，同步异步微任务相关问题解析" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/.eslintrc" />
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/README.md" />
     <entry file="file://$PROJECT_DIR$/vue-nuxt-project/server/package.json" />
     <entry file="file://$PROJECT_DIR$/html/b.html" />
@@ -1502,8 +1491,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="51" column="6" lean-forward="true" selection-start-line="51" selection-start-column="6" selection-end-line="51" selection-end-column="6" />
+        <state relative-caret-position="578">
+          <caret line="55" column="6" selection-start-line="55" selection-start-column="6" selection-end-line="55" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-04-29.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="324">
+            <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
         </state>
       </provider>
     </entry>
