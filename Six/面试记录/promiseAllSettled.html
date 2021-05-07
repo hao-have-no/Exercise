@@ -12,6 +12,7 @@
         let resArr = new Array(list.length);
         let num = 0;
         return new Promise(resolve=>{
+            //promise.all不进行error的处理
             list.forEach((item,key)=>{
                 let obj = {};
                 item.then(res=>{

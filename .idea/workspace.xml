@@ -127,16 +127,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-06">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="528">
-                <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+              <first_editor relative-caret-position="2970">
+                <caret line="242" column="34" lean-forward="true" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
               </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="216">
+              <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -161,43 +170,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="189">
               <caret line="10" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-04-26-作业帮">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="216">
-                <caret line="62" column="27" selection-start-line="62" selection-start-column="27" selection-end-line="62" selection-end-column="27" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-04-28">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="26">
-                <caret line="1" column="22" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="22" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="605">
-              <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -312,13 +284,13 @@
         <option value="$PROJECT_DIR$/node/server.js" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-04-26-作业帮" />
         <option value="$PROJECT_DIR$/Six/面试记录/allAndAllSettled.html" />
-        <option value="$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-04-29.md" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-04-28" />
         <option value="$PROJECT_DIR$/Six/面试记录/管道test.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/BFC.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-07" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-06" />
+        <option value="$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html" />
       </list>
     </option>
   </component>
@@ -356,6 +328,12 @@
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="面试记录" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
           </expand>
           <select />
@@ -688,14 +666,7 @@
       <workItem from="1619570613312" duration="5776000" />
       <workItem from="1619657294424" duration="2795000" />
       <workItem from="1619685512524" duration="4590000" />
-      <workItem from="1620264602243" duration="27241000" />
-    </task>
-    <task id="LOCAL-00018" summary="0505-完成ａｘｉｏｓ的监听，数据库的连接，回去试一下express-session的用法和ｊｗｔ的连用">
-      <created>1557051060421</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1557051060421</updated>
+      <workItem from="1620264602243" duration="27417000" />
     </task>
     <task id="LOCAL-00019" summary="0426-搭建ｎｏｄｅ服务器，构建数据库连接测试,前后端进行交互">
       <created>1557137970502</created>
@@ -1033,11 +1004,18 @@
       <option name="project" value="LOCAL" />
       <updated>1619691627739</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="0506-http相关知识点整理和浏览器渲染流程详解&#10;0507-react相关知识点整理(通信，声明周期)">
+      <created>1620359334159</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1620359334160</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1605445000" />
+    <option name="totallyTimeSpent" value="1605621000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1150,7 +1128,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="新年-增加球形表白图" />
     <MESSAGE value="调整各种项目页面" />
     <MESSAGE value="webfunny-project(开源前端监控平台),viewer使用(图片查看器)" />
     <MESSAGE value="koa-完成文件服务器搭建，完成对切片文件的汇总，增加分片进度和文件整体进度" />
@@ -1175,7 +1152,8 @@
     <MESSAGE value="0428,allSettled使用，同步异步微任务相关问题解析" />
     <MESSAGE value="0429,vue通信，显隐性，keep-alive" />
     <MESSAGE value="0428,allSett" />
-    <option name="LAST_COMMIT_MESSAGE" value="0428,allSett" />
+    <MESSAGE value="0506-http相关知识点整理和浏览器渲染流程详解&#10;0507-react相关知识点整理(通信，声明周期)" />
+    <option name="LAST_COMMIT_MESSAGE" value="0506-http相关知识点整理和浏览器渲染流程详解&#10;0507-react相关知识点整理(通信，声明周期)" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/html/new/c.html" />
@@ -1528,13 +1506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="605">
-          <caret line="38" column="24" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/管道test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1594,12 +1565,19 @@
     <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-06">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="528">
-            <caret line="243" lean-forward="true" selection-start-line="243" selection-end-line="243" />
+          <first_editor relative-caret-position="2970">
+            <caret line="242" column="34" lean-forward="true" selection-start-line="242" selection-start-column="34" selection-end-line="242" selection-end-column="34" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
         </state>
       </provider>
     </entry>
