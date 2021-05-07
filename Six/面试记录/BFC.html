@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .p1 {
+        color: #f55;
+        background: #fcc;
+        width: 200px;
+        line-height: 100px;
+        text-align:center;
+        margin: 80px;
+    }
+    .container{
+        overflow: hidden;
+    }
+
+    #green {
+        margin:10px 10px 10px 10px;
+        display: inline-block;
+    }
+    #blue {
+        margin:10px 10px 10px 10px;
+        display: inline-block;
+    }
+    #red {
+        margin:10px 10px 10px 10px;
+        display: inline-block;
+    }
+
+    .container-tb{
+        writing-mode:tb-lr;
+    }
+
+    .first{
+        margin:20px;
+        background:lightgreen;
+        width:100px;
+        height:100px;
+    }
+    ul{
+        /*display:inline-block;*/
+        /*解决ul,li,div之间的margin重叠*/
+        margin:10px;
+        background:lightblue;
+    }
+    li{
+        margin:25px;
+    }
+
+
+    /*增加内部浮动*/
+    .par {
+        border: 5px solid #fcc;
+        width: 300px;
+        /*overflow: hidden;*/
+        /*使父容器成为一个bfc,这样内部内部也参与了计算*/
+    }
+
+    /*父级之后增加伪元素来先出浮动*/
+    /*.par:after{*/
+        /*content:".";*/
+        /*display:block;*/
+        /*height:0;*/
+        /*visibility:hidden;*/
+        /*clear:left;*/
+    /*}*/
+
+    .child {
+        border: 5px solid #f66;
+        width:100px;
+        height: 100px;
+        float: left;
+    }
+</style>
+<body>
+<h1>两个相邻Box垂直方向margin重叠</h1>
+<div class="container">
+    <!--增加父容器，生成新的BFC-->
+<p class="p1">Haha</p>
+</div>
+<p class="p1">Hehe</p>
+<h1>两个相邻Box水平方向margin重叠</h1>
+<div class="container-tb">
+    <div id="green" style="background:lightgreen;height:100px;width:100px;"></div>
+    <div id="blue" style="background:lightblue;height:100px;width:100px;"></div>
+    <div id="red" style="background:pink;height:100px;width:100px;"></div>
+</div>
+<h1>嵌套元素的margin重叠</h1>
+<div class="claro">
+    <div class="first"></div>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</div>
+<!--float 清除内部浮动 使内部元素也参与整体的计算-->
+<div class="par">
+    <div class="child"></div>
+    <div class="child"></div>
+    <div style="clear: both;"></div>
+    <!--
+    clear:left属性只是消除其左侧div浮动对它自己造成的影响，而不会改变左侧div甚至于父容器的表现，
+    在父容器看来，三个div还都是float的，所以高度依旧塌陷。但是我们在最后添加了一个非浮动的div，
+    由于它有clear:left属性，所以它会按照左侧div不浮动来定位自己，也就是定位到下一行，
+    而父容器看到有一个非浮动、普通流的子元素元素，会将其包围，这样造成了顺便也把三个浮动元素也包裹起来的效果，高度不再塌陷
+    -->
+</div>
+</body>
+</html>

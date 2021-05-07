@@ -1,0 +1,33 @@
+### React通信方式
+1. props 父子
+2. refs: 引用子组件,父组件可以调用子组件的方法
+3. 回调函数: 
+parent:
+<Child myFunc={this.handleChildFunc}>
+child:
+this.props.myFunc
+Child.propTypes={
+    myFunc:React.PropTypes.func
+}
+4. 事件冒泡
+父组件捕获子组件DOM事件
+evt.target
+5. 兄弟组件，通过共同的父组件进行通讯，将数组赋值到父组件的state上
+6. 观察者模式
+7. 全局变量
+8. Context(树中从上而下，配合函数回调完成数据的回传)
+
+### React怎么实现路由懒加载
+1. import,返回promise对象，是异步的操作
+2. lazyload-loader(import Shop from 'lazy!./src/view/Shop';)
+
+### React生命周期函数分别有哪些?分别有什么作用
+1. constructor:初始化 props,state,但此时不能调用setState
+2. componentWillMount:　组件即将被渲染到页面之前触发，此时可以进行开启定时器、向服务器发送请求等操作
+3. render: 组件渲染
+4. componentDidMount: 行DOM相关的操作
+5. componentWillReceiveProps: 组件接收到属性时触发
+6. shouldComponentUpdate: 当组件接收到新属性，或者组件的状态发生改变时触发。组件首次渲染时并不会触发
+7. componentWillUpdate: 组件即将被更新时触发
+8. componentDidUpdate:组件被更新完成后触发。页面中产生了新的DOM的元素，可以进行DOM操作
+9. componentWillUnmount: 被销毁时触发。这里我们可以进行一些清理操作
