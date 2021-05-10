@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>适配器</title>
+</head>
+<body>
+<script>
+    // 使用ES6改写适配器实现地图SDK统一渲染
+    class googleMap {
+        show() {
+            console.log('开始渲染谷歌地图');
+        }
+    }
+
+    class baiduMap {
+        display() {
+            console.log('开始渲染百度地图');
+        }
+    }
+
+    class baiduMapAdapter extends baiduMap {
+        constructor() {
+            super();
+        }
+
+        show() {
+            this.display();
+        }
+    }
+
+    // 外部调用者
+    function renderMap(map) {
+        map.show();   // 统一接口调用
+    }
+
+    renderMap(new googleMap());
+    renderMap(new baiduMapAdapter());
+
+
+    //jq中的适配器
+    // $('selector').on 的实现
+    function on(target, event, callback) {
+        if (target.addEventListener) {
+            // 标准事件监听
+            target.addEventListener(event, callback);
+        } else if (target.attachEvent) {
+            // IE低版本事件监听
+            target.attachEvent(event, callback)
+        } else {
+            // 低版本浏览器事件监听
+            target[`on${event}`] = callback
+        }
+    }
+</script>
+</body>
+</html>

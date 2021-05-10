@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-08" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/适配器.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-08" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-08" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -123,7 +124,31 @@
     <favorites_list name="Exercise" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-08">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="690">
+                <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/适配器.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1010">
+              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -189,7 +214,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/node/upload/schedule.js" />
         <option value="$PROJECT_DIR$/One/old/找出出现最多的字符和个数.html" />
         <option value="$PROJECT_DIR$/One/old/tree-component.html" />
         <option value="$PROJECT_DIR$/Six/html/2020-面试准备" />
@@ -239,6 +263,7 @@
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-07" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-06" />
         <option value="$PROJECT_DIR$/Six/面试记录/promiseAllSettled.html" />
+        <option value="$PROJECT_DIR$/Six/面试记录/适配器.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-08" />
       </list>
     </option>
@@ -255,17 +280,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -277,6 +291,23 @@
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="面试记录" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -609,14 +640,8 @@
       <workItem from="1619570613312" duration="5776000" />
       <workItem from="1619657294424" duration="2795000" />
       <workItem from="1619685512524" duration="4590000" />
-      <workItem from="1620264602243" duration="33855000" />
-    </task>
-    <task id="LOCAL-00020" summary="06-18,暂时总结">
-      <created>1560845736646</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1560845736646</updated>
+      <workItem from="1620264602243" duration="35179000" />
+      <workItem from="1620612234396" duration="3791000" />
     </task>
     <task id="LOCAL-00021" summary="0718-增加大屏项目">
       <created>1563441946926</created>
@@ -954,11 +979,18 @@
       <option name="project" value="LOCAL" />
       <updated>1620359477509</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="0508-cookie,koa等">
+      <created>1620438719507</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1620438719508</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1612059000" />
+    <option name="totallyTimeSpent" value="1617174000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -971,6 +1003,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.14363736" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
@@ -984,7 +1017,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" sideWeight="0.49972692" weight="0.32845187" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.52400833" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.5230126" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.4212963" side_tool="true" weight="0.34133613" />
       <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5787037" weight="0.35146442" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3294979" />
@@ -1070,7 +1103,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="webfunny-project(开源前端监控平台),viewer使用(图片查看器)" />
     <MESSAGE value="koa-完成文件服务器搭建，完成对切片文件的汇总，增加分片进度和文件整体进度" />
     <MESSAGE value="增加断点续传后台配置" />
     <MESSAGE value="1.调整文件上传后台逻辑&#10;2.增加面试准备（生成tree）&#10;3.增加面试题库" />
@@ -1095,10 +1127,10 @@
     <MESSAGE value="0428,allSett" />
     <MESSAGE value="0506-http相关知识点整理和浏览器渲染流程详解&#10;0507-react相关知识点整理(通信，声明周期)" />
     <MESSAGE value="promise.all" />
-    <option name="LAST_COMMIT_MESSAGE" value="promise.all" />
+    <MESSAGE value="0508-cookie,koa等" />
+    <option name="LAST_COMMIT_MESSAGE" value="0508-cookie,koa等" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/html/new/b.html" />
     <entry file="file://$PROJECT_DIR$/html/new/a.html" />
     <entry file="file://$PROJECT_DIR$/html/new/index.html" />
     <entry file="file://$PROJECT_DIR$/html/new/table-meihua.html">
@@ -1522,11 +1554,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/适配器.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1010">
+          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-08">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="297">
-            <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
+          <first_editor relative-caret-position="690">
+            <caret line="58" column="12" lean-forward="true" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="12" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />

@@ -1,5 +1,19 @@
 ### koa中间件原理
 koa的中间件实现既是洋葱圈是实现原理
+例子:log中间件，通过引入log4js
+--> https://blog.csdn.net/sinat_17775997/article/details/83148240
+module.exports = async((ctx,next)=>{
+    const start = Date.now();
+    const requestTime = new Date();
+    await next();
+    const ms = Date.now() - startTime;
+    const logout = `${ctx.request.ip}--${requestTime}---${ctx.method}--${ctx.url}---${ctx.ms}`;
+    fs.appendFileSync("./log.text",logout+'\n');
+)
+
+
+中间件的本质就是一个函数，可以是async函数，也可以是普通函数
+
 1. 核心在于next的实现。next需要依次调用下一个middleware，
 当到最后一个的时候结束，这样后面middleware的promise先resolve，然后直到第一个执行完毕
 
@@ -7,9 +21,20 @@ koa的中间件实现既是洋葱圈是实现原理
 
 3. 复合函数，便于之后的中间件使用.适用于复杂环境
 
+4. 调用next的时候，调用后面的中间件函数
+
 ### 判断脚本运行环境
 通过判断Global对象是否为window，如果不为window，当前脚本没有运行在浏览器中
+eg axios源码:
+if(typeof XMLHttpRequest !== 'undefined'){
 
+}else if(typeof process !== 'undefined'&&Object.prototype.toString.call(process) === '[object process]'){
+   
+}
+
+适配器模式:
+适配器:
+主要是在之前的基础上，通过集成，来增加新的借口，从而完成适配
 
 ### cookies,sessionStorage,localStrong
 1. cookie
@@ -27,3 +52,14 @@ sessionStrong和 localStrong共同点
 1. 存储数据大小一般都是：5MB
 2. 保存在客户端，不与服务器进行交互通信。
 3. 存储字符串类型，对于复杂的对象可以使用ECMAScript提供的JSON对象的stringify和parse来处理
+
+### 为什么会发送option?
+--> 只要浏览器检测到响应头带上了CORS，并且允许的源包括了本网站，那么就不会拦截请求响应。
+1. 作用:使用OPTIONS方法对服务器发起请求，可以检测服务器支持哪些 HTTP 方法
+2. 为什么会主动发起:
+    mdn:对那些可能对服务器数据产生副作用的 HTTP 请求方法（特别是 GET 以外的 HTTP 请求，或者搭配某些 MIME 类型的 POST 请求），
+    浏览器必须首先使用 OPTIONS 方法发起一个预检请求（preflight request），从而获知服务端是否允许该跨域请求。
+    2.1 跨域请求触发了浏览器自动发起OPTIONS请求
+    
+    
+
