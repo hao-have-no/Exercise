@@ -41,3 +41,27 @@ XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型�
 1. HttpOnly配置,浏览器将禁止页面的Javascript 访问带有 HttpOnly 属性的Cookie
 2. 使用Secure属性,这个属性基本是"自动"的,当前网页是https请求的,所有请求都会加上这个属性,如果请求的cookie中没有这个属性，
 浏览器自动忽略请求
+
+
+### webpack Loader和Plugin的区别
+1. Loader 本质就是一个函数，在该函数中对接收到的内容进行转换，返回转换后的结果。 
+2. Plugin 就是插件，基于事件流框架 Tapable，插件可以扩展 Webpack 的功能，在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，
+在合适的时机通过 Webpack 提供的 API 改变输出结果。
+3. Loader 在 module.rules 中配置，作为模块的解析规则，类型为数组。
+每一项都是一个 Object，内部包含了 test(类型文件)、loader、options (参数)等属性。
+4. Plugin 在 plugins 中单独配置，类型为数组，每一项是一个 Plugin 的实例
+参数都通过构造函数传入。
+
+> 手写loader注意项
+
+> 手写plugins注意项
++ compiler 暴露了和 Webpack 整个生命周期相关的钩子
++ compilation 暴露了与模块和依赖有关的粒度更小的事件钩子
++ 插件需要在其原型上绑定apply方法，才能访问 compiler 实例
++ 异步的事件需要在插件处理完任务时调用回调函数通知 Webpack 进入下一个流程
+
+
+### webpack执行流程
+初始化：启动构建，读取与合并配置参数，加载 Plugin，实例化 Compiler
+编译：从 Entry 出发，针对每个 Module 串行调用对应的 Loader 去翻译文件的内容，再找到该 Module 依赖的 Module，递归地进行编译处理
+输出：将编译后的 Module 组合成 Chunk，将 Chunk 转换成文件，输出到文件系统中
