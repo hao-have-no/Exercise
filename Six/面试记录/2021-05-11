@@ -1,0 +1,43 @@
+### 节流和防抖分别是什么，在什么场景下使用？手写防抖和节流
+1.　防抖：触发高频事件后n秒内函数只会执行一次，如果n秒内高频事件再次被触发，则重新计算时间
+function debounce(callback,time){
+    let timeout = null;
+    return function(){
+        clearTimeout(timeout);
+        timeout = setTimeout(()=>{
+            callback.apply(this,arguments);
+        },time)
+    }
+}
+
+2. 节流: 触发高频事件后n秒内函数只会执行一次,判断如果有执行的函数，则不予理睬
+
+function throttle(callback,time){
+    let mark = false; //是否有函数正在运行
+    return function(){
+        if(mark) return;
+        mark = true;
+        setTimeout(()=>{
+            callback.apply(this,arguments);
+            mark = false;
+        },time)
+    }
+}
+
+### 什么是XSS攻击，如何防范XSS攻击？
+1. 跨站脚本攻击
+攻击者在网站上注入恶意的客户端代码，通过恶意脚本对客户端网页进行篡改，
+从而在用户浏览网页时，对用户浏览器进行控制或者获取用户隐私数据的一种攻击方式。
+
+XSS攻击可以分为3类：反射型（非持久型）、存储型（持久型）、基于DOM
+
+2. 怎么预防?
++ HttpOnly配置,防止劫取Cookie
++ 输入检查,输入检查一般是检查用户输入的数据中是否包含 <，> 等特殊字符，
+如果存在，则对特殊字符进行过滤或编码，这种方式也称为 XSS Filter。
++ 输出检查,可以使用编码或转义的方式来防御 XSS 攻击
+
+### 怎么禁止js读取cookie?怎么只让cookie在https下传输
+1. HttpOnly配置,浏览器将禁止页面的Javascript 访问带有 HttpOnly 属性的Cookie
+2. 使用Secure属性,这个属性基本是"自动"的,当前网页是https请求的,所有请求都会加上这个属性,如果请求的cookie中没有这个属性，
+浏览器自动忽略请求
