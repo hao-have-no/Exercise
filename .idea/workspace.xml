@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-12" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-11" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-11" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -140,7 +138,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-11">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
@@ -154,13 +152,14 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="513">
+              <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#255#271#0" />
               </folding>
             </state>
           </provider>
@@ -171,7 +170,7 @@
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="594">
-                <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+                <caret line="22" selection-start-line="22" selection-end-line="22" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -295,8 +294,8 @@
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-08" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-06" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-12" />
-        <option value="$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-11" />
+        <option value="$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html" />
       </list>
     </option>
   </component>
@@ -677,14 +676,7 @@
       <workItem from="1620623235209" duration="1011000" />
       <workItem from="1620695365059" duration="4097000" />
       <workItem from="1620724999059" duration="1073000" />
-      <workItem from="1620782200554" duration="6545000" />
-    </task>
-    <task id="LOCAL-00024" summary="数据库数据模拟，ｗｏｒｄ导出">
-      <created>1565000650491</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1565000650491</updated>
+      <workItem from="1620782200554" duration="8523000" />
     </task>
     <task id="LOCAL-00025" summary="增加ｗｏｒｄ文档转换，增加后台请求">
       <created>1565090010525</created>
@@ -1022,11 +1014,18 @@
       <option name="project" value="LOCAL" />
       <updated>1620726968745</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="0512-v-if,v-for等  0511-增加头部执行的防抖解释">
+      <created>1620789981351</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1620789981352</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1630132000" />
+    <option name="totallyTimeSpent" value="1632110000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1139,7 +1138,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="面试题库" />
     <MESSAGE value="变量提升,hash路由实现,vue响应式开发等" />
     <MESSAGE value="箭头函数测试，mock,前端路由实现和异步串行流" />
     <MESSAGE value="算法训练营引导" />
@@ -1164,7 +1162,8 @@
     <MESSAGE value="运行环境（扩展适配器），koa中间间原理,浏览器缓存方案" />
     <MESSAGE value="0511-xss,cookie" />
     <MESSAGE value="0511-loader与plugins ,执行顺序" />
-    <option name="LAST_COMMIT_MESSAGE" value="0511-loader与plugins ,执行顺序" />
+    <MESSAGE value="0512-v-if,v-for等  0511-增加头部执行的防抖解释" />
+    <option name="LAST_COMMIT_MESSAGE" value="0512-v-if,v-for等  0511-增加头部执行的防抖解释" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/js-suanfa/动态规划套路详解-斐波那契.html">
@@ -1608,21 +1607,11 @@
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="594">
-            <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+            <caret line="22" selection-start-line="22" selection-end-line="22" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1635,6 +1624,17 @@
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/防抖-头步执行.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="50" column="39" selection-start-line="50" selection-start-column="39" selection-end-line="50" selection-end-column="39" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#255#271#0" />
+          </folding>
         </state>
       </provider>
     </entry>
