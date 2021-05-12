@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>防抖－头步执行</title>
+</head>
+<body>
+<div class="box" style="width: 100px;height: 100px;background-color: #eea236;color: red;">
+
+</div>
+<script>
+    var box = document.querySelector('.box');
+    box.onclick = debounce(myClick,1000);
+
+    var x = 0;
+
+    function myClick(){
+        x++;
+        console.log('sure',x);
+        box.innerHTML = x;
+    }
+
+    function debounce(fn,wait){
+        let timer = null;
+        return function(...args){
+            let now = !timer;
+
+            console.log(now,timer);
+            function clear(){
+                console.log(x++);
+                clearTimeout(timer);
+                //将timerout赋值一个变量，这个变量得到的是timeout的id,取消只是取消了timeout里面的函数执行，而非timeout的值
+                //所以timeout声明后，即使取消了,变量也有值，从而可以保证只执行timeout的第一次声明的值
+            }
+
+            timer && clear();
+            timer = setTimeout(()=>{
+                timer = null;
+            },wait);
+
+            if (now){
+                fn.apply(this,args);
+            }
+        }
+    }
+
+</script>
+</body>
+</html>
