@@ -22,3 +22,88 @@
 <input v-bind:value = 'something' v-on:input="something = $event.target.value">
 
 // 接受一个value 触发input事件同时传递数据，更改当前值，触发视图重新渲染
+
+
+### 前端模块化：CommonJS,AMD,CMD,ES6
+> CommonJs(node.js的主要实践者)
++ 有四个重要的环境变量为模块化的实现提供支持: module、exports、require、global
++ 用module.exports定义当前模块对外输出的接口（不推荐直接用exports），用require加载模块
++ eg:
+var basicNum = 0;
+function add(a, b) {
+  return a + b;
+}
+module.exports = { //在这里写上需要向外暴露的函数、变量
+  add: add,
+  basicNum: basicNum
+}
+
+var math = require('./math');
+math.add(2, 5);
+
++ 用同步的方式加载模块
++ 在浏览器端，限于网络原因，更合理的方案是使用异步加载
++ module.exports导出的是一个值的拷贝(浅拷贝，一处更改，另一处也会更新３)
++ CommonJS 模块就是对象；即在输入时是先加载整个模块，生成一个对象，然后再从这个对象上面读取方法，这种加载称为“运行时加载”。
+
+> AMD和require.js
++ 采用异步方式加载模块，模块的加载不影响它后面语句的运行。
+所有依赖这个模块的语句，都定义在一个回调函数中，等到加载完成之后，这个回调函数才会运行。
++ 用require.config()指定引用路径等，用define()定义模块，用require()加载模块。
++ require.js在申明依赖的模块时会在第一之间加载并执行模块内的代码：
++ 推崇依赖前置、提前执行
+
+
+
+>CMD和sea.js
++ 依赖就近、延迟执行
+eg:
+/** AMD写法 **/
+define(["a", "b", "c", "d", "e", "f"], function(a, b, c, d, e, f) { 
+     // 等于在最前面声明并初始化了要用到的所有模块
+    a.doSomething();
+    if (false) {
+        // 即便没用到某个模块 b，但 b 还是提前执行了
+        b.doSomething()
+    } 
+});
+
+/** CMD写法 **/
+define(function(require, exports, module) {
+    var a = require('./a'); //在需要时申明
+    a.doSomething();
+    if (false) {
+        var b = require('./b');
+        b.doSomething();
+    }
+});
+
+> Es6的模块
+export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
+
+/** 定义模块 math.js **/
+var basicNum = 0;
+var add = function (a, b) {
+    return a + b;
+};
+export { basicNum, add };
+
+/** 引用模块 **/
+import { basicNum, add } from './math';
+function test(ele) {
+    ele.textContent = add(99 + basicNum);
+}
+
++ es6 导出的是值的引用
+JS 引擎对脚本静态分析的时候，遇到模块加载命令import，就会生成一个只读引用;
+ES6 的import:
+原始值变了，import加载的值也会跟着变。因此，ES6 模块是动态引用，并且不会缓存值，模块里面的变量绑定其所在的模块。
++ 编译时加载: ES6 模块不是对象，而是通过 export 命令显式指定输出的代码，import时采用静态命令的形式。
+即在import时可以指定加载某个输出值，而不是加载整个模块，这种加载称为“编译时加载”。
+
+
+> commonjs和es6的区别
+CommonJS 加载的是一个对象（即module.exports属性），该
+对象只有在脚本运行完才会生成。
+而 ES6 模块不是对象，它的对外接口只是一种静态定义，
+在代码静态解析阶段就会生成。

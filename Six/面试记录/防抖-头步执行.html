@@ -61,6 +61,21 @@
         })
     }
 
+    let obj1={
+        name:'obj1',
+        print:function(){
+            return ()=>console.log(this.name);
+        }
+    }
+
+    let obj2 = {
+        name:"obj2"
+    }
+
+    obj1.print()();
+    obj1.print().call(obj2);
+    obj1.print.call(obj2)();
+
 </script>
 </body>
 </html>

@@ -1,0 +1,66 @@
+### React项目中，想要进行逻辑复用，怎么做
+1. Mixins 混入模式　Es6之前
++ ES6 class，规范不支持 mixins
++ mixins 改变了 state，因此也就很难知道一些 state 是从哪里来的
+可能还会相互依赖，相互耦合，及不利于代码维护。
++ 不同的 mixins 中的方法可能会相互冲突、相互覆盖
+
+2. Hoc 高阶组件
+高阶组件是参数为组件，返回值为新组件的函数
+为这个组件扩充了很多新的方法和属性
+
++ 解决了代码复用，但是没有解决命名冲突等问题
++ 不能在 render 方法中使用 HOC
++ Refs 不会被传递
+
+3. Hooks
+eg:
+function useWindowWidth() {
+    const [width, setWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        setWidth(window.innerWidth);
+    });
+    return width;
+}
+
+function MyResponsiveComponent() {
+    const width = useWindowWidth(); // 使用自定义hook，获取窗口宽高
+    return (
+        <p>Window width is {width}</p>
+ );
+}
++ Hooks 在每次渲染时的顺序都是相同的，因此我们可以为每次调用提供正确的组件状态
++ Hooks 的状态保持在 React 保存类状态的同一个地方。 React 有一个内部更新队列，它是任何状态的真实来源，不论如何定义组件。
++ 只需要实现较小粒度逻辑的hooks，然后在组件中组合它们就可以完成复杂的交互逻辑
+
+
+### 在React中,针对类组件和函数组件，怎么去进行性能优化
+类组件:
+1. render里面尽量减少新建变量和bind函数，传递参数是尽量减少传递参数的数量。
+2. 定制shouldComponentUpdate函数
+
+函数组件:
+1. React.memo 包裹子组件，在props不变的情况下,子组件不会重新渲染
+2. React.useCallBack 通过以上代码就能解决了子组件不必要的渲染。
+3. React.useEffect 每一次组件更新完成渲染后，都调用传入 useEffect 中的函数，包括初次渲染以及后续的每一次更新渲染。
+4. React.useMemo useMemo可以缓存计算
+
+
+### 结合React Router实现React项目的路由守卫
+1.
+<Route
+                //props 包含值：history，location，match
+                //login 页面可以通过 this.props.location.state.from知道是哪个页面跳转过来的,方便登录后直接跳转
+                render={props =>
+                    isLogin ? (
+                        <Component {...props} />
+                    ) : (
+                            <Redirect
+                                to={{
+                                    pathname: "/login",
+                                    state: { from: props.location.pathname }
+                                }}
+                            />
+                        )
+                }
+            />
