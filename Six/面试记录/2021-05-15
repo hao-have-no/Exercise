@@ -1,0 +1,79 @@
+### teleport作用 
+1. 类似React的Portal功能，能将定义的元素渲染到其他的地方去
+2. Vue3的teleport是基于html的标签选择器来定位的
+3. Teleport作为一个自带的组件， 接收to和disabled两个参数
+• to 定义穿梭到哪
+• class
+• id
+• data-*
+• disabled  是否禁用该穿梭功能
+4. 注意事项
++ 穿梭组件的作用域是Teleport组件自身的data
++ 穿梭出去的元素上的事件会被阻断，不会冒泡到Teleport组件内
+
+### vue3的composition api
+1. 在新版的生命周期函数，可以按需导入到组件中，且只能在setup()函数中使用.
+2. setup()函数是vue3中专门新增的方法，可以理解为Composition Api的入口.
+3. 在beforecreate之后，create之前执行.
+4. setup()的第二个参数是一个上下文对象，这个上下文对象大致包含了这些属性,注意：在setup()函数中无法访问this
+5. reactive是用来创建一个响应式对象，等价于2.x的Vue.observable
+
+### vue3中v-model的变化
+<!-- Vue2的写法 -->
+<!-- v-model实际上就是:value和@input的语法糖 --><!-- 双向绑定多个属性的时候可以使用.sync关键字 -->
+<CustomInput v-model="age" :name.sync="name"/>
+<!-- Vue3的写法 -->
+<CustomInput v-model:age="age" v-model:name="name"/>
+
+ <!-- Vue2的写法 -->
+<input type="text" :value="value" @input="onInput" />
+<!-- Vue3的写法 -->
+<input type="text" :value="age" @input="onInput" />
+// Vue2的写法
+// 触发的事件只能是input
+// e.target.value是字符串需要转换成数字
+this.$emit("input", parseInt(e.target.value));
+// Vue3的写法
+this.$emit("update:age", e.target.value);
+
+
+
+### websocket: 在单个tcp连接上进行双全双工通讯的协议,帮助客户端和浏览器端进行实时的数据传递,允许服务端向客户端主动推送消息
+> 在websocket中，浏览器和服务端只需要完成一次握手的动作，两者就可以直接创建永久性的链接，形成快速通道，进行数据传递
+
+http连接三次握手(为了防止服务端这边开启一些无用的连接)　和 websocket 一次握手的区别
++ websocket是一种双向通信协议，是建立在TCP之上的,并且Websocket是一个持久化的协议;而http协议是非持久化的协议
++ ebSocket protocol 是HTML5一种新的协议,但Websocket是基于HTTP协议的，
+或者说借用了HTTP的协议来完成一部分握手。一开始的握手需要借助HTTP请求完成。
++ WebSocket在建立握手时，通过 HTTP/1.1 协议的101状态码进行握手。但是建立之后，在真正传输时候是不需要HTTP协议的,而是使用TCP协议.
++ Websocket使用ws或wss的统一资源标志符，类似于HTTPS，其中wss表示在TLS之上的Websocket
++ Websocket使用和 HTTP 相同的 TCP 端口，可以绕过大多数防火墙的限制。默认情况下，Websocket协议使用80端口；
+https运行在TLS之上时，默认使用443端口
+
+1. 广播
+> 类似广播给多个人进行广播消息
+eg:socket.io
+//服务端监听socket链接
+io.on("connection",socket=>console.log('有socket链接了'))
+//通过监听连接过来的socket对象广播对应的信息
+//广播除自己之外的其他订阅者
+socket('addData',data=>socket.broadcast.emit('addInputData',data));
+// 客户端连接并发送对应的socket请求
+let socket = io.connect("ws://localhost:3000");//连接socket服务器
+socket.emit('addData',JSON.stringify(info)); //大宋socket事件
+
+2. 点对点: 一对一的通信，需要服务端记录每个socket客户端的连接,需要将客户端级服务端的socket对象关联其他,广播的时候制定对象就行
+eg:
+//服务端记录每个连接过来的socket对象，且与用户Id进行关联
+// 通过userObj记录链接过来的用户
+socket.on("uid6yn  ",data=>userObj[data] = socket);
+
+
+//给指定的socket对象进行广播
+socket.on('user',data=>{
+    let uid = JSON.parse(data).uid;
+    userObj[uid].emit("connect",data);
+})
+
+//客户端监听点对点的广播事件
+socket.on('connect',data=>console.log(data));
