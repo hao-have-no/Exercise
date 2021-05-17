@@ -1,0 +1,74 @@
+### 实现一个myMap,类似map功能
+function myMap() {
+    var struct = function(key, value) {
+        this.key = key;
+        this.value = value;
+    };
+    var put = function(key, value){
+        for (var i = 0; i < this.arr.length; i++) {
+            if ( this.arr[i].key === key ) {
+                this.arr[i].value = value;
+                return;
+            }
+        }
+        this.arr[this.arr.length] = new struct(key, value);
+    };
+    var get = function(key) {
+        for (var i = 0; i < this.arr.length; i++) {
+            if ( this.arr[i].key === key ) {
+                return this.arr[i].value;
+            }
+        }
+        return null;
+    };
+    var remove = function(key) {
+        var v;
+        var new_array = new Array();
+        var total = this.arr.length;
+        for (var i = 0; i < total; i++) {
+            // 删除并返回数组的最后一个元素
+            v = this.arr.pop();
+            if ( v.key === key ) {
+                continue;
+            }
+            // 重新将当前的key放到新数组的开始位置
+            new_array.unshift(v);
+        }
+        this.arr = new_array;
+    };
+    var size = function() {
+        return this.arr.length;
+    };
+    var isEmpty = function() {
+        return this.arr.length <= 0;
+    };
+    var getValues = function(){
+        var ids = "";
+        for(var index in this.arr){
+            if(Number(index) + 1 == this.arr.length){
+                ids += this.arr[index].value;
+            }else{
+                ids += this.arr[index].value+",";
+            }
+        }
+        return ids;
+    };
+    var clear = function(){
+        var new_array = new Array();
+        this.arr = new_array;
+    }
+    this.arr = new Array();
+    this.get = get;
+    this.put = put;
+    this.remove = remove;
+    this.size = size;
+    this.isEmpty = isEmpty;
+    this.getValues = getValues;
+    this.clear = clear;
+}
+
+### 实现一个go函数
+
+
+### 函数组件，如何获取组件更新前的state
+componentWillReciveProps生命周期内
