@@ -13,12 +13,47 @@
 
 ### vue3的composition api
 1. 在新版的生命周期函数，可以按需导入到组件中，且只能在setup()函数中使用.
-2. setup()函数是vue3中专门新增的方法，可以理解为Composition Api的入口.
-3. 在beforecreate之后，create之前执行.
-4. setup()的第二个参数是一个上下文对象，这个上下文对象大致包含了这些属性,注意：在setup()函数中无法访问this
-5. reactive是用来创建一个响应式对象，等价于2.x的Vue.observable
++ setup()函数是vue3中专门新增的方法，可以理解为Composition Api的入口(在props被解析时).
++ 在beforecreate之后，create之前执行.
++ setup()的第二个参数是一个上下文对象，这个上下文对象大致包含了这些属性,注意：在setup()函数中无法访问this
+2. vue3 提供了　ref和reactive是用来创建一个响应式对象，等价于2.x的Vue.observable
++ ref返回一个包含value属性的对象，value就是响应式变量对应的值 reactivity 返回的是通过proxy处理过的对象
++ const count = ref(0)   const obj = reactive({count:0});
+3. 生命周期的使用
++ vue3需要引入对应的声明周期，且生命周期直接执行的是一个方法
+4. watch使用方式
++ watch作为函数至少接受两个参数，第一个是watch的响应式数据，第二个为回调函数
++ 根据响应式来源的不同，使用的方法不同
++ ref--> watch(count,(count,prevCount))
++ reactivity--> watch(()=>state.count,(count,prevCount)=>{})
++ 同时新增watchEffect,收集内部依赖，当内部依赖改变就会执行(不能接受oldVal)
+5. props接受
++ props现在作为setup的第一个参数接受，使用props可以通过vue的toRefs方法将props上的属性转化为独立的ref响应式对象
+6. 在setup中可以根据功能进行代码组织
 
 ### vue3中v-model的变化
+1. vue3取消了sync静态修饰符的使用,直接使用v-model替换就行
+vue2: <SearchInput :value.sync = "value"/>
+子: this.$emit('update:value',newValue);
+
+vue: <SearchInput v-model:value = "value"/>
+子: this.$emit('update:value',newValue);
+
+2. 自定义组件使用v-model时,props与事件的默认名称更改 value/@input--> modalValue/@update:modalValue
+3. 修改model的名称从原来的model选项修改改为了传递参数给model  v-model:argument
+4. v-model参数会更改props和事件名--> argument/@update:argument
++ vue2: modal:{prop:'value',event:'input'}
++ vue3: 
+ <custom-copmponent v-model = "value">
+ <input @input="fn">
+setup(props,{emit}){
+    consf fn = function(){
+        emit('update:value',e.target.value);
+//直接在model后面通过传入参数的方法进行更改
+// 修改后在组件内部使用属性名：后面的参数名,事件名为uupdate"事件
+    }
+}
+
 <!-- Vue2的写法 -->
 <!-- v-model实际上就是:value和@input的语法糖 --><!-- 双向绑定多个属性的时候可以使用.sync关键字 -->
 <CustomInput v-model="age" :name.sync="name"/>
