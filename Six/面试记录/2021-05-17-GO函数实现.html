@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function go(...args){
+        let o = 'o';//默认有一个初始值o
+        var fn =function(...args){
+            console.log('args',args);
+            //没有携带参数，代表着进行o的次数叠加
+            if(typeof args[0] == "undefined"){
+                return function(...args){
+                    o +="o";
+                    return fn(...args);
+                }
+            }else{
+                return "g"+o+args[0];
+            }
+        }
+        return fn(...args);
+    }
+    let res = go()('l');console.log(res);
+</script>
+</body>
+</html>

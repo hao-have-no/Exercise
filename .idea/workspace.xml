@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
-      <change afterPath="$PROJECT_DIR$/Six/suanfa/15-三数之和.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-18" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-15" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-15" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-17" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-17" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -124,53 +125,27 @@
     <favorites_list name="Exercise" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/管道test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/suanfa/链表/case1-反转列表.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="12" column="7" lean-forward="true" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/suanfa/链表/case2-递归进行字符串的操作.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="567">
-              <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
-              <folding>
-                <element signature="e#1269#1301#0" />
-                <element signature="e#1323#2152#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/suanfa/15-三数之和.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18">
+          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="567">
+                <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              </first_editor>
+              <second_editor>
+                <markdownNavigatorState />
+              </second_editor>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-15">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="177">
-                <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+              <first_editor relative-caret-position="783">
+                <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -246,8 +221,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/One/new/变量提升.html" />
-        <option value="$PROJECT_DIR$/Six/html/前端路由实现.html" />
         <option value="$PROJECT_DIR$/Four/箭头函数.html" />
         <option value="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" />
         <option value="$PROJECT_DIR$/js-suanfa/kkb/README.md" />
@@ -293,18 +266,20 @@
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-13" />
         <option value="$PROJECT_DIR$/node/app.file.js" />
         <option value="$PROJECT_DIR$/node/upload/upload-controller.js" />
-        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-17" />
         <option value="$PROJECT_DIR$/Six/面试记录/管道test.html" />
         <option value="$PROJECT_DIR$/Six/suanfa/15-三数之和.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-15" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-18" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-17" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="885" />
-    <option name="y" value="239" />
+    <option name="x" value="70" />
+    <option name="y" value="68" />
     <option name="width" value="1855" />
-    <option name="height" value="1028" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -323,17 +298,6 @@
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="html" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="websocket" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -383,19 +347,19 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/node/upload" />
-      <recent name="$PROJECT_DIR$/html/new" />
-      <recent name="$PROJECT_DIR$/html/new/css" />
-      <recent name="$PROJECT_DIR$/Six" />
-      <recent name="$PROJECT_DIR$/Three/viewers" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/html" />
       <recent name="$PROJECT_DIR$/Six/question" />
       <recent name="$PROJECT_DIR$/Six" />
       <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
       <recent name="$PROJECT_DIR$/node/message" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Six/面试记录" />
+      <recent name="$PROJECT_DIR$/node/upload" />
+      <recent name="$PROJECT_DIR$/html/new" />
+      <recent name="$PROJECT_DIR$/html/new/css" />
+      <recent name="$PROJECT_DIR$/Six" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -702,14 +666,9 @@
       <workItem from="1620724999059" duration="1073000" />
       <workItem from="1620782200554" duration="30726000" />
       <workItem from="1620954778665" duration="5246000" />
-      <workItem from="1620986818979" duration="20826000" />
-    </task>
-    <task id="LOCAL-00031" summary="es6常规知识点实现">
-      <created>1569753094793</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1569753094793</updated>
+      <workItem from="1620986818979" duration="20898000" />
+      <workItem from="1621323783810" duration="6000" />
+      <workItem from="1621385373340" duration="6565000" />
     </task>
     <task id="LOCAL-00032" summary="koa+mysql实现鉴定权限">
       <created>1570616287677</created>
@@ -1047,11 +1006,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621262731686</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="0515-composition-api,v-model问题答疑　0518-三数之和算法">
+      <created>1621309071890</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1621309071890</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1680385000" />
+    <option name="totallyTimeSpent" value="1687028000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1164,7 +1130,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update-config" />
     <MESSAGE value="上传文件知识点梳理" />
     <MESSAGE value="上传文件知识点串讲" />
     <MESSAGE value="update-upload-introduce" />
@@ -1189,28 +1154,10 @@
     <MESSAGE value="0514" />
     <MESSAGE value="0515--vue3相关内容" />
     <MESSAGE value="0517" />
-    <option name="LAST_COMMIT_MESSAGE" value="0517" />
+    <MESSAGE value="0515-composition-api,v-model问题答疑　0518-三数之和算法" />
+    <option name="LAST_COMMIT_MESSAGE" value="0515-composition-api,v-model问题答疑　0518-三数之和算法" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node/upload-file-knowledge-point.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="1134">
-            <caret line="42" column="1" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/hotSearch.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="18" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/node_modules/koa-router/lib/router.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="201">
@@ -1620,22 +1567,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="258">
-            <caret line="39" column="30" selection-start-line="39" selection-start-column="30" selection-end-line="39" selection-end-column="30" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/管道test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
-          <caret line="39" column="22" lean-forward="true" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
+        <state relative-caret-position="1053">
+          <caret line="39" column="22" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
         </state>
       </provider>
     </entry>
@@ -1648,7 +1583,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Six/suanfa/链表/case2-递归进行字符串的操作.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="567">
+        <state relative-caret-position="810">
           <caret line="30" column="43" lean-forward="true" selection-start-line="30" selection-start-column="43" selection-end-line="30" selection-end-column="43" />
           <folding>
             <element signature="e#1269#1301#0" />
@@ -1659,7 +1594,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Six/suanfa/15-三数之和.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
+        <state relative-caret-position="864">
           <caret line="32" column="30" lean-forward="true" selection-start-line="32" selection-start-column="30" selection-end-line="32" selection-end-column="30" />
         </state>
       </provider>
@@ -1667,8 +1602,39 @@
     <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-15">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="177">
-            <caret line="50" column="8" lean-forward="true" selection-start-line="50" selection-start-column="8" selection-end-line="50" selection-end-column="8" />
+          <first_editor relative-caret-position="150">
+            <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="567">
+            <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="783">
+            <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />

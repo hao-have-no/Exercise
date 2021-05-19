@@ -1,74 +1,52 @@
 ### 实现一个myMap,类似map功能
-function myMap() {
-    var struct = function(key, value) {
-        this.key = key;
-        this.value = value;
-    };
-    var put = function(key, value){
-        for (var i = 0; i < this.arr.length; i++) {
-            if ( this.arr[i].key === key ) {
-                this.arr[i].value = value;
-                return;
-            }
-        }
-        this.arr[this.arr.length] = new struct(key, value);
-    };
-    var get = function(key) {
-        for (var i = 0; i < this.arr.length; i++) {
-            if ( this.arr[i].key === key ) {
-                return this.arr[i].value;
-            }
-        }
-        return null;
-    };
-    var remove = function(key) {
-        var v;
-        var new_array = new Array();
-        var total = this.arr.length;
-        for (var i = 0; i < total; i++) {
-            // 删除并返回数组的最后一个元素
-            v = this.arr.pop();
-            if ( v.key === key ) {
-                continue;
-            }
-            // 重新将当前的key放到新数组的开始位置
-            new_array.unshift(v);
-        }
-        this.arr = new_array;
-    };
-    var size = function() {
-        return this.arr.length;
-    };
-    var isEmpty = function() {
-        return this.arr.length <= 0;
-    };
-    var getValues = function(){
-        var ids = "";
-        for(var index in this.arr){
-            if(Number(index) + 1 == this.arr.length){
-                ids += this.arr[index].value;
-            }else{
-                ids += this.arr[index].value+",";
-            }
-        }
-        return ids;
-    };
-    var clear = function(){
-        var new_array = new Array();
-        this.arr = new_array;
+> map方法的功能点
++ map方法创建一个新数组，接受一个函数作为参数，这个函数有三个参数，分别是数组中的每一项，每一项的索引，以及这个数组本身
++ map方法一个由原数组每个元素执行回调函数的结果组成的新数组
+// 在Array的prototype上挂在myMap,方法接受一个参数
+Array.prototype.myMap=function(fn){
+    //声明一个新的数组，用来存放调用map方法的这个数组中每个元素执行完回调，返回结果组成的新数组
+    let relArr = [];
+    //循环调用方法的原数组，把原数组的每一项都作为fn的参数,并且把执行结果push到新数组中
+    for(let i=0;i<this.length;i++){
+        resArr.push(fn(this[i],i,this));
     }
-    this.arr = new Array();
-    this.get = get;
-    this.put = put;
-    this.remove = remove;
-    this.size = size;
-    this.isEmpty = isEmpty;
-    this.getValues = getValues;
-    this.clear = clear;
+    //将最终结果return出去
+    return relArr;
 }
 
-### 实现一个go函数
+let arr = ['s','d','c'];
+arr.myMap((item,index,arr)=>{
+    console.log(item,index,arr);
+})
+
+### 实现一个go函数 go(l) gol  go()(l) gool
+function go(...args){
+    let o = 'o';//默认有一个初始值o
+    const fn =function(...args){
+        if(type args[0] === 'undefined'){
+            return function(...args){
+                o +="o";
+                return fn(...args);
+            }
+        }else{
+            return "g"+o+args[0];
+        }
+    }
+    return fn(...args);
+}
+let res = go()('l')
 
 
 ### 函数组件，如何获取组件更新前的state
-componentWillReciveProps生命周期内
+> 通过useEffect来进行操作
+function Count(){
+    const [count,setCount] = useState(1);
+    //useRef获取实例，还可以跨组件更新周期来保存我们的数组
+    const preCount = useRef(count);
+    useEffect(()=>{
+        console.log(prevCount,current);
+        prevCount.current = count;
+    })
+}
+//每次组件更新完成后，获取preCount来获取组件更新的值,
+使用完成之后将preCount更新为当前值

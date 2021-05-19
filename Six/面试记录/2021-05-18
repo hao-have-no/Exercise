@@ -1,0 +1,23 @@
+### 虚拟Dom有什么作用?如何构建虚拟Dom
+> 通俗来说：是对真实Dom的抽象，以JavaScript 对象 (VNode 节点) 作为基础的树，用对象的属性来描述节点，
+最终可以通过一系列操作使这棵树映射到真实环境上
+
+> 创建虚拟DOM就是为了更好将虚拟的节点渲染到页面视图中，所以虚拟DOM对象的节点与真实DOM的属性一一照应
+
+> 以vue举例
++ src/core/vdom/vnode.js包含了对虚拟节点的定义，包含了tag(标签),children(孩子),elm(真实节点),data(数据)等必要的字段
++ 所有对象的 context 选项都指向了 Vue 实例
++ src/core/vdom/create-element.js: 声明了如何去创建虚拟节点（createElement）
++ createElement 方法实际上是对 _createElement 方法的封装，对参数的传入进行了判断
++ createComponent生成VNode的三个关键流程：构造子类构造函数Ctor,installComponentHooks安装组件钩子函数,实例化 vnode
+
+### React中的diff是什么样子的
++ 策略一：忽略Web UI中DOM节点跨层级移动；
++ 策略二：拥有相同类型的两个组件产生的DOM结构也是相似的，不同类型的两个组件产生的DOM结构则不近相同
++ 策略三：对于同一层级的一组子节点，通过分配唯一唯一id进行区分（key值）
++ React的做法是把dom tree分层级，对于两个dom tree只比较同一层次的节点，
+忽略Dom中节点跨层级移动操作，只对同一个父节点下的所有的子节点进行比较。如果对比发现该父节点不存在则直接删除该节点下所有子节点，
+不会做进一步比较，这样只需要对dom tree进行一次遍历就完成了两个tree的比较。  
+
+### Vue3中的数据响应式是怎么实现的
++ vue3借助proxy来进行的数据劫持
