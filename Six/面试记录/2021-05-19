@@ -1,0 +1,44 @@
+### vue2为什么要用vm.$set解决对象新增属性不能响应的问题?你能说一下原理吗?
+> Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式
+> core/instance/index.js的set方法
++ 如果目标是数组，直接使用数组的 splice 方法触发相应式；
++ 如果目标是对象，会先判读属性是否存在、对象是否是响应式，
+最终如果要对属性进行响应式处理，则是通过调用 defineReactive 方法进行响应式处理
+
+### 简述vue2中template的原理
++ platforms/web/entry-runtime-with-compiler.js 会根据优先级完成解析 render>template>el
++ 解析template时，会经历３个过程
++ 1.将模板字符串转化为ast抽象语法树
++ 2.对抽象语法树进行静态节点的标记
++ 3.使用element ASTs 生成 render 函数代码字符串（代码生成器
++ 4.直接调用render渲染函数进行页面的渲染-->createElement
+
+### 如何把真实的dom转化为虚拟dom,代码实现一下
+function getVNode(node) {
+    let nodeType = node.nodeType;
+    let _vnode = null;
+    // 对节点进行判断
+    if (nodeType === 1) {
+        // 元素节点
+        let nodeName = node.nodeName;
+        // 属性，返回属性组成的为数组，我们就是把这个伪数组转换为对象
+        let attrs = node.attributes
+        let _attrObj = {};
+        // 循环attrs
+        for (let i = 0; i < attrs.length; i++) {
+            // attrs[i]是一个属性节点，我们要的是nodeName这个属性
+            _attrObj[attrs[i].nodeName] = attrs[i].nodeValue
+        }
+        _vnode = new VNode(nodeName, _attrObj, undefined, nodeType);
+        // 考虑node的子元素
+        let childNodes = node.childNodes;
+        for (let i = 0; i < childNodes.length; i++) {
+            //递归
+            _vnode.appendChild(getVNode(childNodes[i]));
+        }
+    } else if (nodeType === 3) {
+        // 文本节点
+        _vnode = new VNode(undefined, undefined, node.nodeValue, nodeType);
+    }
+    return _vnode;
+}

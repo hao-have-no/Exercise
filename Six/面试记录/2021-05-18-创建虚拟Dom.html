@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建虚拟Dom</title>
+</head>
+<body>
+<script>
+    //源码里使用ast来解析template
+    class vDom{
+        constructor(option){
+            this.tagName = option.tagName;
+            this.props = option.props||{};
+            this.children = option.children||'';
+        }
+        render(){
+            //获取真实dom
+            let el = document.createElement(this.tagName);
+            for (let propsKey in this.props){
+                el.setAttribute(propsKey,this.props[propsKey]);
+            }
+
+            if (Array.isArray(this.children)){
+                console.log(this.children);
+                this.children.forEach(item=>{
+                    console.log(item.render());
+                    el.appendChild(item.render());
+                })
+            }else{
+                el.innerText = this.children;
+            }
+
+            return el;
+        }
+    }
+
+    let vdom = new vDom({
+        tagName:'div',
+        props:{'style':'width:100px','class':'banner'},
+        children:[
+            new vDom({
+                tagName:'p',
+                children:'这里是p标签'
+            }),
+            new vDom({
+                tagName:'p',
+                children:[
+                    new vDom({tagName:'span',children:'span'}),
+                    new vDom({tagName:'a',children:'a'})
+                ]
+            }),
+        ]
+    });
+
+    document.body.appendChild(vdom.render());
+</script>
+</body>
+</html>

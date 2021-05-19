@@ -11,6 +11,8 @@
 + createElement 方法实际上是对 _createElement 方法的封装，对参数的传入进行了判断
 + createComponent生成VNode的三个关键流程：构造子类构造函数Ctor,installComponentHooks安装组件钩子函数,实例化 vnode
 
+> 如何创建虚拟dom,简易版
+
 ### React中的diff是什么样子的
 + 策略一：忽略Web UI中DOM节点跨层级移动；
 + 策略二：拥有相同类型的两个组件产生的DOM结构也是相似的，不同类型的两个组件产生的DOM结构则不近相同
@@ -20,4 +22,4 @@
 不会做进一步比较，这样只需要对dom tree进行一次遍历就完成了两个tree的比较。  
 
 ### Vue3中的数据响应式是怎么实现的
-+ vue3借助proxy来进行的数据劫持
++ vue3借助proxy来进行的数据劫持 vue2中使用defineProperty也可以完成对新增数据的劫持，但是没必要，性能问题和用户体验不成正比

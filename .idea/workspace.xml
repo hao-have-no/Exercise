@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-18" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-19" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-17" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-17" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-18" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-18" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -126,12 +126,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18">
           <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="567">
-                <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+              <first_editor relative-caret-position="648">
+                <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
               </first_editor>
               <second_editor>
                 <markdownNavigatorState />
@@ -140,16 +140,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="783">
-                <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
             </state>
           </provider>
         </entry>
@@ -221,8 +216,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Four/箭头函数.html" />
-        <option value="$PROJECT_DIR$/Six/html/异步串行流-async-reducer.html" />
         <option value="$PROJECT_DIR$/js-suanfa/kkb/README.md" />
         <option value="$PROJECT_DIR$/js-suanfa/寻找距离原点最近的Kge点.html" />
         <option value="$PROJECT_DIR$/vue-nuxt-project/front/package.json" />
@@ -269,17 +262,19 @@
         <option value="$PROJECT_DIR$/Six/面试记录/管道test.html" />
         <option value="$PROJECT_DIR$/Six/suanfa/15-三数之和.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-15" />
-        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-18" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-17" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-19" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html" />
+        <option value="$PROJECT_DIR$/Six/面试记录/2021-05-18" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="70" />
-    <option name="y" value="68" />
+    <option name="x" value="885" />
+    <option name="y" value="239" />
     <option name="width" value="1855" />
-    <option name="height" value="1000" />
+    <option name="height" value="1028" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -287,6 +282,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -320,17 +326,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Exercise" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Exercise" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -347,19 +342,19 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/Six/question" />
-      <recent name="$PROJECT_DIR$/Six" />
-      <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
-      <recent name="$PROJECT_DIR$/node/message" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Six/面试记录" />
       <recent name="$PROJECT_DIR$/node/upload" />
       <recent name="$PROJECT_DIR$/html/new" />
       <recent name="$PROJECT_DIR$/html/new/css" />
       <recent name="$PROJECT_DIR$/Six" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/Six/question" />
+      <recent name="$PROJECT_DIR$/Six" />
+      <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
+      <recent name="$PROJECT_DIR$/node/message" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -668,14 +663,8 @@
       <workItem from="1620954778665" duration="5246000" />
       <workItem from="1620986818979" duration="20898000" />
       <workItem from="1621323783810" duration="6000" />
-      <workItem from="1621385373340" duration="6565000" />
-    </task>
-    <task id="LOCAL-00032" summary="koa+mysql实现鉴定权限">
-      <created>1570616287677</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1570616287677</updated>
+      <workItem from="1621385373340" duration="6899000" />
+      <workItem from="1621424493723" duration="4353000" />
     </task>
     <task id="LOCAL-00033" summary="koa+mysql实现鉴定权限完成,最后的接口不同,需调试">
       <created>1570876641956</created>
@@ -1013,11 +1002,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621309071890</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="0517-map函数实现，go方法实现,0518-diff,vue3响应式">
+      <created>1621393295675</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1621393295675</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1687028000" />
+    <option name="totallyTimeSpent" value="1691715000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1130,7 +1126,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="上传文件知识点梳理" />
     <MESSAGE value="上传文件知识点串讲" />
     <MESSAGE value="update-upload-introduce" />
     <MESSAGE value="详解文件上传" />
@@ -1155,28 +1150,10 @@
     <MESSAGE value="0515--vue3相关内容" />
     <MESSAGE value="0517" />
     <MESSAGE value="0515-composition-api,v-model问题答疑　0518-三数之和算法" />
-    <option name="LAST_COMMIT_MESSAGE" value="0515-composition-api,v-model问题答疑　0518-三数之和算法" />
+    <MESSAGE value="0517-map函数实现，go方法实现,0518-diff,vue3响应式" />
+    <option name="LAST_COMMIT_MESSAGE" value="0517-map函数实现，go方法实现,0518-diff,vue3响应式" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node/node_modules/koa-router/lib/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
-          <caret line="313" selection-start-line="313" selection-end-line="313" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="FIRST">
-          <first_editor>
-            <caret column="38" selection-start-column="24" selection-end-column="38" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/config.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1611,18 +1588,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="567">
-            <caret line="21" column="21" lean-forward="true" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-          </first_editor>
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-17-GO函数实现.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1635,6 +1600,37 @@
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="783">
             <caret line="29" column="13" lean-forward="true" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-19">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="697">
+            <caret line="31" column="68" selection-start-line="31" selection-start-column="68" selection-end-line="31" selection-end-column="68" />
+          </first_editor>
+          <second_editor>
+            <markdownNavigatorState />
+          </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="17" column="48" lean-forward="true" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18">
+      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="648">
+            <caret line="24" column="76" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
