@@ -101,7 +101,7 @@ socket.emit('addData',JSON.stringify(info)); //大宋socket事件
 eg:
 //服务端记录每个连接过来的socket对象，且与用户Id进行关联
 // 通过userObj记录链接过来的用户
-socket.on("uid6yn  ",data=>userObj[data] = socket);
+socket.on("uid",data=>userObj[data] = socket);
 
 
 //给指定的socket对象进行广播

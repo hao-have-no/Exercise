@@ -1,5 +1,6 @@
 ### vue2为什么要用vm.$set解决对象新增属性不能响应的问题?你能说一下原理吗?
 > Vue 会在初始化实例时对属性执行 getter/setter 转化，所以属性必须在 data 对象上存在才能让 Vue 将它转换为响应式
+> vue2用defineProperty实现双向数据板顶，性能和用户体验不成正比，没做处理
 > core/instance/index.js的set方法
 + 如果目标是数组，直接使用数组的 splice 方法触发相应式；
 + 如果目标是对象，会先判读属性是否存在、对象是否是响应式，
@@ -9,9 +10,9 @@
 + platforms/web/entry-runtime-with-compiler.js 会根据优先级完成解析 render>template>el
 + 解析template时，会经历３个过程
 + 1.将模板字符串转化为ast抽象语法树
-+ 2.对抽象语法树进行静态节点的标记
++ 2.对抽象语法树进行静态节点的标记,做虚拟Dom的渲染优化
 + 3.使用element ASTs 生成 render 函数代码字符串（代码生成器
-+ 4.直接调用render渲染函数进行页面的渲染-->createElement
++ 4.直接调用render渲染函数进行页面的渲染-->createElement(创建vnode)-->patch(diff操作，vdom-->dom)
 
 ### 如何把真实的dom转化为虚拟dom,代码实现一下
 function getVNode(node) {
