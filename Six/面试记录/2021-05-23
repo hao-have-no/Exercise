@@ -1,0 +1,79 @@
+### 怎么捕获vue-component的错误
+1. errorCaptured 是组件内部钩子，
+当捕获一个来自子孙组件的错误时被调用，接收error、vm、info 三个参数，return false 后可以阻止错误继续向上抛出
+
+2. errorHandler 为全局钩子，使用 Vue.config.errorHandler 配置，
+接收参数与errorCaptured 一致，2.6 后可捕捉 v-on 与 promise 链的错误，可用于统一错误处理与错误兜底
+
+### promise捕获错误
+promise.reject()
+promise.prototype.catch()
+
+### eventLoop详细说
+> 在js的运行环境中，通常伴随着很多事件的发生，比如用户点击、页面渲染、脚本执行、网络请求，等 
+等。为了协调这些事件的处理，浏览器使用事件循环机制
+
+> 事件循环会维护一个或多个任务队列（task queues），以上提到的事件作为任务源往队列中加入任务。
+有一个持续执行的线程来处理这些任务，每执行完一个就从队列中移除它，这就是一次事 件循环。 
+
+> 微任务与宏任务
++ 从任务队列中取出一个宏任务并执行
++ 检查微任务队列，执行并清空微任务队列，如果在微任务的执行中又加入了新的微任务，也会在这一步一起执行。
++ 进入更新渲染阶段，判断是否需要渲染，这里有一个 rendering opportunity 的概念，
+也就是说不一定每一轮 event loop 都会对应一次浏览 器渲染(一般情况下会是执行一次宏任务就渲染一次页面)
++ requestAnimationFrame(在重新渲染前调用,很可能在宏任务之后不调用)
++ requestIdleCallback在渲染屏幕之后执行，并且是否有空执行要看浏览器的调度
+
+### vue:css的scoped
++ vue中的scoped属性的效果其实主要是通过PostCSS(vue-loader)转译实现。
++ 它的 CSS 只作用于当前组件中的元素。
++ 编译出来的选择器将会带上data-v-hash的方式来应用到对应的组件中
++ scoped 样式中的一个选择器能够作用得“更深”，例如影响子组件，你可以使用 >>> 操作符
++ 通过 v-html 创建的 DOM 内容不受 scoped 样式影响
++ css:a[data-ves]限定了css的作用地方,只作用在有特殊标识的元素上
+
+### setTimeout,setInterval
+> setTimeout() 方法用于在指定的毫秒数后调用函数或计算表达式
+> 将setTimeout()的第二个参数设为0，就表示当前代码执行完（执行栈清空）以后，立即执行（0毫秒间隔）指定的回调函数
+> 如果使用setInterval，里面的回调函数中，需要执行比较长的事件，例如setInterval一个1秒钟的时间，
+然后callback中需要执行3秒，那么下一个setInterval并不会等待上一个的setInterval的callback执行完毕才执行，
+这样就有可能出现同一时间触发多次setInterval的callback，然后导致页面的奇怪现象。另外这样也容易造成内存溢出。
+
+> setTimeout
+将回调函数推入任务队列，并且在每一次执行任务队列的时候判断这个定时任务时候到时间执行了(但是也是有误差)
+需要每次都将误差追补回来
+timeout = 1000; // 触发倒计时任务的时间间隙
+countIndex每执行一次,递增+1
+
+const endTime = new Date().getTime();
+const startTime = new Date().getTime();//开始倒计时的时候
+
+//实际的结束时间-理论上的结束时间
+const deviation = endTime - (startTime + countIndex * timeout)
+
+// 下一次倒计时
+startCountdown(timeout - deviation);
+
+> 最后使用webworker,开辟另外的线程去处理问题,不会收到js事件机制的影响
+
+### webpack在什么时候执行loader,什么时候执行plugins
+plugins:在 Webpack 运行的生命周期中会广播出许多事件，Plugin 可以监听这些事件，在合适的时机通过 Webpack 提供的 API 改变输出结果。
+constructor中获取传入的参数
+apply:做plugins要做的事,绑定钩子通过compiler.plugin('compilation', compilation => {
+监听对应的声明周期钩子,进行处理
+
+### vue中定时器问题,$on,$once,$off
+
+beforeDestroy() {
+    clearInterval(this.timer); //比较难于程序化的清理我们建立的所有东西。
+    this.timer = null;
+}
+
+// 通过$once来监听定时器，在beforeDestroy钩子可以被清除。
+//一次性侦听一个事件
+//hook:beforeDestroy 使我们在compileToFunction处理模板为渲染函数前 注册的hook钩子
+this.$once('hook:beforeDestroy', () => {
+    clearInterval(timer);
+})
+
+通过 $off(eventName, eventHandler) 停止侦听一个事件
