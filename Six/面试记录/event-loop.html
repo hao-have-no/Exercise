@@ -13,13 +13,20 @@
         // process.nextTick(function(){
         //     console.log(3);
         // });
+        //当前微任务执行的时候,又有微任务加入的话,会一并执行完毕
         new Promise(function(resolve){
             console.log(4);
             resolve();
         }).then(function(){
+            new Promise(function(resolve){
+                console.log(41);
+                resolve();
+            }).then(function(){
+                console.log(42);
+            });
             console.log(5);
         })
-    })
+    },0);
 
     // process.nextTick(function(){
     //     console.log(6);
@@ -43,7 +50,7 @@
         }).then(function(){
             console.log(12);
         })
-    })
+    },0)
 
 </script>
 </body>

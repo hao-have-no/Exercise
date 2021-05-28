@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /**
+     * Initialize your data structure here.
+     */
+    var MyLinkedList = function() {
+        this.head = null;
+        this.length = null;
+    };
+
+    /**
+     * Get the value of the index-th node in the linked list. If the index is invalid, return -1.
+     * @param {number} index
+     * @return {number}
+     */
+    MyLinkedList.prototype.get = function(index) {
+        if(index<0||index>=this.length) return -1;
+        let current  = this.head,count = 0;
+        while (count < index) {
+            current = current.next;
+            count++;
+        }
+        console.log('get',current);
+        return current.val;
+    };
+
+    /**
+     * Add a node of value val before the first element of the linked list. After the insertion, the new node will be the first node of the linked list.
+     * @param {number} val
+     * @return {void}
+     */
+    MyLinkedList.prototype.addAtHead = function(val) {
+        if(!this.head){
+            this.head={val,next:null};
+        }
+        else{
+            //更改指针的位置,添加后扩充链表的长度
+            let node = {val,next:this.head};
+            //更新当前链表
+            this.head = node;
+        }
+        this.length++;
+    };
+
+    /**
+     * Append a node of value val to the last element of the linked list.
+     * @param {number} val
+     * @return {void}
+     */
+    MyLinkedList.prototype.addAtTail = function(val) {
+        let node = {val,next:null}
+        if(!this.head){
+            this.head = node;
+        }else{
+            let current = this.head;
+            while(current.next){
+                current = current.next
+            }
+            current.next = node;
+        }
+        console.log('addAtTail',this.head);
+        this.length++;
+    };
+
+    /**
+     * Add a node of value val before the index-th node in the linked list. If index equals to the length of linked list, the node will be appended to the end of linked list. If index is greater than the length, the node will not be inserted.
+     * @param {number} index
+     * @param {number} val
+     * @return {void}
+     */
+    MyLinkedList.prototype.addAtIndex = function(index, val) {
+        if(index<0||index>this.length) return;
+        const node = {val,next:null};
+        let current = this.head,previous,count = 0;
+        if(index == 0){
+            return this.addAtHead(val);
+        }else if(index == this.head.length){
+            return this.addAtTail(val);
+        }else{
+            while(count < index){
+                //找到index位置的前一个节点
+                previous = current;
+                //当前值是下一个节点
+                current = current.next;
+                count++;
+            }
+            previous.next =node;
+            node.next = current;
+        }
+        console.log('addAtIndex',this.head);
+        this.length++;
+    };
+
+    /**
+     * Delete the index-th node in the linked list, if the index is valid.
+     * @param {number} index
+     * @return {void}
+     */
+    MyLinkedList.prototype.deleteAtIndex = function(index) {
+        if(index<0||index >= this.length) return;
+        let current = this.head,previous,countIndex = 0;
+        //删除头部
+        if(index == 0) this.head = current.next;
+        else{
+            //index 为下标值
+            while(countIndex < index){
+                previous = current;
+                current = current.next;
+                countIndex++;
+            }
+            if(current){
+                previous.next = current.next;
+            }else{
+                previous.next = null;
+            }
+        }
+        console.log('deleteAtIndex',this.head);
+        this.length--;
+    };
+
+    //测试
+
+
+    ["MyLinkedList","addAtHead","get","addAtHead","addAtHead","deleteAtIndex","addAtHead","get","get","get","addAtHead","deleteAtIndex"]
+        [[],[4],[1],[1],[5],[3],[7],[3],[3],[3],[1],[4]]
+
+    var list = new MyLinkedList();
+    list.addAtHead(4);
+    list.get(1);
+    list.addAtHead(1);
+    list.addAtHead(5);
+    list.deleteAtIndex(3);
+    list.addAtHead(7);
+    list.get(3);
+    list.get(3);
+    list.get(3);
+    list.addAtHead(1);
+    list.deleteAtIndex(4);
+</script>
+</body>
+</html>

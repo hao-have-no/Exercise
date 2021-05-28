@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb587ae5-04a7-4cd6-9337-41068ab6ff97" name="Default Changelist" comment="0428,allSett">
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-23" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Six/面试记录/event-loop.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Six/suanfa/链表/链表.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-21-百度.md" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-21.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Six/面试记录/2021-05-22-百度.md" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/2021-05-22.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Six/面试记录/event-loop.html" beforeDir="false" afterPath="$PROJECT_DIR$/Six/面试记录/event-loop.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/node/api-route.js" beforeDir="false" afterPath="$PROJECT_DIR$/node/api-route.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/accepts/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/accepts/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/array-flatten/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node/node_modules/bignumber.js/CHANGELOG.md" afterDir="false" />
@@ -128,66 +127,19 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-22.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="850">
-                <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-21.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="-242">
-                <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="53">
+              <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-23">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="501">
-                <caret line="62" column="16" selection-start-line="62" selection-start-column="16" selection-end-line="62" selection-end-column="16" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/event-loop.html">
+        <entry file="file://$PROJECT_DIR$/Six/suanfa/链表/链表.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="14" column="14" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="14" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-06">
-          <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="2782">
-                <caret line="273" column="17" selection-start-line="273" selection-start-column="17" selection-end-line="273" selection-end-column="17" />
-              </first_editor>
-              <second_editor>
-                <markdownNavigatorState />
-              </second_editor>
+            <state relative-caret-position="243">
+              <caret line="104" column="58" selection-start-line="104" selection-start-column="58" selection-end-line="104" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -259,8 +211,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/vue-nuxt-project/server/package.json" />
-        <option value="$PROJECT_DIR$/vue-nuxt-project/server/.eslintrc" />
         <option value="$PROJECT_DIR$/vue-nuxt-project/server/README.md" />
         <option value="$PROJECT_DIR$/html/new/index.html" />
         <option value="$PROJECT_DIR$/html/new/a.html" />
@@ -273,7 +223,6 @@
         <option value="$PROJECT_DIR$/node/upload/utils.js" />
         <option value="$PROJECT_DIR$/node/upload-file-knowledge-point.md" />
         <option value="$PROJECT_DIR$/Two/user-component/READNE.md" />
-        <option value="$PROJECT_DIR$/node/api-route.js" />
         <option value="$PROJECT_DIR$/Two/promise/test.js" />
         <option value="$PROJECT_DIR$/Two/promise/promise.js" />
         <option value="$PROJECT_DIR$/Two/user-component/index.html" />
@@ -308,8 +257,11 @@
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-19" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-21-百度.md" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-22-百度.md" />
-        <option value="$PROJECT_DIR$/Six/面试记录/event-loop.html" />
         <option value="$PROJECT_DIR$/Six/面试记录/2021-05-23" />
+        <option value="$PROJECT_DIR$/node/api-route.js" />
+        <option value="$PROJECT_DIR$/Six/面试记录/event-loop.html" />
+        <option value="$PROJECT_DIR$/Six/面试记录/链表.html" />
+        <option value="$PROJECT_DIR$/Six/suanfa/链表/链表.html" />
       </list>
     </option>
   </component>
@@ -335,12 +287,20 @@
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="node" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="suanfa" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="Six" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="suanfa" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+              <item name="链表" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="Exercise" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -379,19 +339,19 @@
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/html" />
-      <recent name="$PROJECT_DIR$/Six/question" />
-      <recent name="$PROJECT_DIR$/Six" />
-      <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
-      <recent name="$PROJECT_DIR$/node/message" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Six/面试记录" />
       <recent name="$PROJECT_DIR$/node/upload" />
       <recent name="$PROJECT_DIR$/html/new" />
       <recent name="$PROJECT_DIR$/html/new/css" />
       <recent name="$PROJECT_DIR$/Six" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Six/suanfa/链表" />
+      <recent name="$PROJECT_DIR$/html" />
+      <recent name="$PROJECT_DIR$/Six/question" />
+      <recent name="$PROJECT_DIR$/Six" />
+      <recent name="$PROJECT_DIR$/study-kaikeba/day-10-vue源码解析" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -705,14 +665,8 @@
       <workItem from="1621559324773" duration="6212000" />
       <workItem from="1621601833748" duration="3138000" />
       <workItem from="1621817747708" duration="14946000" />
-      <workItem from="1621923762315" duration="9696000" />
-    </task>
-    <task id="LOCAL-00037" summary="person-vue实现鉴定权限,手写vue核心机制(watch,dep,complete)数据响应化,数据劫持，模版渲染">
-      <created>1576233034547</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1576233034547</updated>
+      <workItem from="1621923762315" duration="9969000" />
+      <workItem from="1622009679039" duration="13258000" />
     </task>
     <task id="LOCAL-00038" summary="增加jwt令牌机制的引入">
       <created>1576492171821</created>
@@ -1050,11 +1004,18 @@
       <option name="project" value="LOCAL" />
       <updated>1621860739342</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="0521,0522,0523 baidu面试">
+      <created>1621947040788</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1621947040788</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1725906000" />
+    <option name="totallyTimeSpent" value="1739437000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1067,9 +1028,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.14363736" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49790794" visible="true" weight="0.18569088" />
       <window_info id="Structure" order="1" sideWeight="0.5018797" side_tool="true" weight="0.23600605" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" sideWeight="0.50209206" side_tool="true" weight="0.17203714" />
@@ -1083,7 +1043,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49863464" weight="0.5230126" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.4212963" side_tool="true" weight="0.34133613" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5787037" weight="0.35146442" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.5787037" visible="true" weight="0.35146442" />
       <window_info anchor="bottom" id="TypeScript" order="11" weight="0.3294979" />
       <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49972692" weight="0.3294979" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1167,7 +1127,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update sql" />
     <MESSAGE value="自己实现一版基于promiseA+规范的promise函数" />
     <MESSAGE value="烟花" />
     <MESSAGE value="2021-0426-面试总结" />
@@ -1192,19 +1151,10 @@
     <MESSAGE value="0515 websocket点对点补充  0519:vm.$set详解  0520 模块化,性能优化，缓存" />
     <MESSAGE value="继承复习，nextTick复习" />
     <MESSAGE value="0428,allSett" />
-    <option name="LAST_COMMIT_MESSAGE" value="0428,allSett" />
+    <MESSAGE value="0521,0522,0523 baidu面试" />
+    <option name="LAST_COMMIT_MESSAGE" value="0521,0522,0523 baidu面试" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Six/introduce.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor>
-            <markdownNavigatorState />
-          </second_editor>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Six/面试记录/BFC.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
@@ -1399,37 +1349,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node/api-route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="26" column="19" selection-start-line="26" selection-start-column="15" selection-end-line="26" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#26#0" />
-            <element signature="e#815#923#0" />
-            <element signature="e#973#1224#0" />
-            <element signature="e#1295#3370#0" />
-            <element signature="e#3419#3549#0" />
-            <element signature="e#3618#3686#0" />
-            <element signature="e#3750#6411#0" />
-            <element signature="e#6477#206964#0" />
-            <element signature="e#207022#207067#0" />
-            <element signature="e#207127#207172#0" />
-            <element signature="e#207243#207716#0" />
-            <element signature="e#207770#208149#0" />
-            <element signature="e#208220#208597#0" />
-            <element signature="e#208649#208731#0" />
-            <element signature="e#208780#209036#0" />
-            <element signature="e#209088#209394#0" />
-            <element signature="e#209461#209894#0" />
-            <element signature="e#209959#210663#0" />
-            <element signature="e#210764#212213#0" />
-            <element signature="e#212257#212428#0" />
-            <element signature="e#212530#212701#0" />
-            <element signature="e#212776#213808#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node/upload/upload-controller.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
@@ -1491,13 +1410,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="12" column="32" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="17" column="48" selection-start-line="17" selection-start-column="48" selection-end-line="17" selection-end-column="48" />
         </state>
       </provider>
     </entry>
@@ -1640,11 +1552,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-06">
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-22.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="2782">
-            <caret line="273" column="17" selection-start-line="273" selection-start-column="17" selection-end-line="273" selection-end-column="17" />
+          <first_editor relative-caret-position="1836">
+            <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
@@ -1655,7 +1567,7 @@
     <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-21.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="-242">
+          <first_editor relative-caret-position="567">
             <caret line="21" column="23" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
           </first_editor>
           <second_editor>
@@ -1665,22 +1577,15 @@
       </provider>
       <provider editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-22.md">
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-06">
       <provider selected="true" editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="850">
-            <caret line="68" column="24" selection-start-line="68" selection-start-column="24" selection-end-line="68" selection-end-column="24" />
+          <first_editor relative-caret-position="7371">
+            <caret line="273" column="17" selection-start-line="273" selection-start-column="17" selection-end-line="273" selection-end-column="17" />
           </first_editor>
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Six/面试记录/event-loop.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="14" column="14" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="14" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -1693,6 +1598,60 @@
           <second_editor>
             <markdownNavigatorState />
           </second_editor>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/event-loop.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="918">
+          <caret line="34" column="22" lean-forward="true" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node/api-route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="3500" column="13" selection-start-line="3500" selection-start-column="13" selection-end-line="3500" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#26#0" />
+            <element signature="e#815#923#0" />
+            <element signature="e#973#1224#0" />
+            <element signature="e#1295#3370#0" />
+            <element signature="e#3419#3549#0" />
+            <element signature="e#3618#3686#0" />
+            <element signature="e#3750#6411#0" />
+            <element signature="e#6477#206964#0" />
+            <element signature="e#207022#207067#0" />
+            <element signature="e#207127#207172#0" />
+            <element signature="e#207243#207716#0" />
+            <element signature="e#207770#208149#0" />
+            <element signature="e#208220#208597#0" />
+            <element signature="e#208649#208731#0" />
+            <element signature="e#208780#209036#0" />
+            <element signature="e#209088#209394#0" />
+            <element signature="e#209461#209894#0" />
+            <element signature="e#209959#210663#0" />
+            <element signature="e#210764#212213#0" />
+            <element signature="e#212257#212428#0" />
+            <element signature="e#212530#212701#0" />
+            <element signature="e#212776#213808#0" />
+            <element signature="e#213864#220567#0" />
+            <element signature="e#220653#221256#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/面试记录/2021-05-18-创建虚拟Dom.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="46" column="26" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Six/suanfa/链表/链表.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="104" column="58" selection-start-line="104" selection-start-column="58" selection-end-line="104" selection-end-column="58" />
         </state>
       </provider>
     </entry>
