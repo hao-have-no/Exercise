@@ -3448,7 +3448,61 @@ router.get('/disease-info', function (req, res, next) {
         }], "status": "200", "description": "数据请求成功"
     })
     res.json(data);
-})
+});
+
+router.get('/flow-list/:id',function(req,res,next){
+    var data = mockjs.mock({
+        "data" : [ {
+            "taskName" : "我的待办",
+            "taskId" : "1",
+            "finishedCount" : 0,
+            "totalCount" : 0
+        }, {
+            "taskName" : "健康评估",
+            "taskId" : "2,6,15,16,30,33",
+            "finishedCount" : 99,
+            "totalCount" : 532
+        }, {
+            "taskName" : "签约健保专家",
+            "taskId" : "3",
+            "finishedCount" : 47,
+            "totalCount" : 59
+        }, {
+            "taskName" : "健康体检",
+            "taskId" : "4,5,7,31,32",
+            "finishedCount" : 106,
+            "totalCount" : 570
+        }, {
+            "taskName" : "健康方案",
+            "taskId" : "9,10,21,22,23,28,29",
+            "finishedCount" : 44,
+            "totalCount" : 231
+        }, {
+            "taskName" : "诊疗协助",
+            "taskId" : "8,11,13,24,25,26,27,34,35",
+            "finishedCount" : 65,
+            "totalCount" : 117
+        }, {
+            "taskName" : "家庭监测",
+            "taskId" : "12",
+            "finishedCount" : 11,
+            "totalCount" : 34
+        }, {
+            "taskName" : "健康促进",
+            "taskId" : "14",
+            "finishedCount" : 14,
+            "totalCount" : 20
+        }, {
+            "taskName" : "其它",
+            "taskId" : "-1",
+            "finishedCount" : 0,
+            "totalCount" : 0
+        } ],
+        "code" : "200",
+        "description" : "数据请求成功"
+    })
+    res.json(data);
+});
 
 /**
  *

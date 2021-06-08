@@ -10,7 +10,7 @@
 </div>
 <script>
     var box = document.querySelector('.box');
-    box.onclick = myDebounce(myClick,1000);
+    box.onclick = debounce(myClick,1000);
 
     var x = 0;
 
@@ -72,9 +72,9 @@
         name:"obj2"
     }
 
-    obj1.print()();
-    obj1.print().call(obj2);
-    obj1.print.call(obj2)();
+    // obj1.print()();
+    // obj1.print().call(obj2);
+    // obj1.print.call(obj2)();
 
 </script>
 </body>

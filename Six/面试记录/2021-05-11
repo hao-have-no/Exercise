@@ -61,10 +61,22 @@ dom: 客户端脚本程序，动态价差修改页面内容
 参数都通过构造函数传入。
 
 > 手写loader注意项
+module.exports = function (source) {
+
+        //loader包含异步代码　　引入async方法
+        const callback =this.async();
+        setTimeout(()=>{
+            const result =  source.replace('laofeng','gungun');
+            callback(null,result);
+        },2000)
+}
+
++ 执行callback回调方法将结果回传;
 
 > 手写plugins注意项
 + compiler 暴露了和 Webpack 整个生命周期相关的钩子
-+ compilation 暴露了与模块和依赖有关的粒度更小的事件钩子
++ complier.hooks.emit.tapAsync("FileWebpackPlugin",(compilation,cb)=>{})完成处理
++ tapAsync("FileWebpackPlugin"异步获取当前生命周期,compilation 暴露了与模块和依赖有关的粒度更小的事件钩子
 + 插件需要在其原型上绑定apply方法，才能访问 compiler 实例
 + 异步的事件需要在插件处理完任务时调用回调函数通知 Webpack 进入下一个流程
 

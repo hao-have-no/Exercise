@@ -1,0 +1,68 @@
+### webpack常见的loader和plugins常见(20210426)
+1. plugins:
+> htmlwebpackplugin 自动生成 html 并且注入到 .html 文件中的插件
+> CleanWebpackPlugin 清空webpack打包碎片
+> OptimizeCSSPlugin 压缩css
+> new webpack.DefinePlugin 声明全局变量(api端口号,mode等环境标识)
+> HotModuleReplacementPlugin 热更新
+> CommonsChunkPlugin 配置CommonsChunkPlugin提取公用代码
+>  new webpack.HashedModuleIdsPlugin(),会根据模块的相对路径生成一个四位数的hash作为模块id
+> 解决每次更新只更新改动部分,具有缓存,减少不必要的操作;
+new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      // 传入 `Infinity` 会马上生成 公共独立文件
+      minChunks: Infinity
+    }),
+    当编译器(compiler)开始执行、解析和映射应用程序时，设置好的 /src文件夹就会被打散
+    但会保留所有模块的详细要点。这个数据集合称为 "Manifest"
+    在运行时通过 Manifest 来解析和加载模块
+    如果不提取manifest的数据,每次build打包 上面vendor文件的hash值也会被改变
+    未改变vendor的代码因为hash改变 缓存也会被干掉
+
+2. loader:
++ url-loader,css-loader,style-loader,postcss-loader(浏览器css适配),babel-loader(js适配,主要引入的core.js)
++ 解析顺序从优往左:["style-loader", "css-loader","postcss-loader", "less-loader"]
++ vue-loader解析vue文件的
+
+### OOP继承
+> 继承.html
+
+### tcp三次握手
+
+
+### js事件机制
+
+
+### 页面渲染机制
+
+
+
+
+### egg总结
+1. mongoose: mongodb连接工具   new scheme() 后 通过model-->api 将当前collection丢离出去
+2. 配置文件分为:config.default,plugin对应
+3. plugins:引入插件
+module.exports = {
+cors: {
+        enable: true,
+        package: 'egg-cors',
+    },
+mongoose : {  enable: true,  package: 'egg-mongoose'},    
+    }
+4.  config.default根据plugins去进行配置
+module.exports = appInfo => {
+const config = exports = {};
+config.mongoose= {
+        url: 'mongodb://127.0.0.1:27017/egg_x',
+        options: {
+        // useMongoClient: true,
+            autoReconnect: true,
+            reconnectTries: Number.MAX_VALUE,
+            bufferMaxEntries: 0
+        }
+    }
+     return {
+        ...config,
+        }
+}
+egg.js会根据依赖动态加载->引入

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 目前市面语言支持接口继承和实现继承,js只支持实现继承,实现方式为原型链继承,而es6的继承是在原型链的集成上封装的
+
+    //构造函数,原型和实例的关系
+    // 构造函数都有一个原型对象(Parent.prototype,也是通过构造函数创建的对象的原型-->结合new来说及该对象是构造函数的prototype),
+    // 原型(prototype)有一个属性(constructor)指向构造函数(Parent),Parent.prototype.constructor = Parent
+    // prototype(原型) 是一个地址指向原型对象
+    // 实例(new Parent)有一个内部指针(__proto__)指向原型(prototype);
+    // __proto__和prototype的指向是相同的
+
+    // 如果原型是另一个类型的实例,原型本身有一个内部指针指向另一个原型,相应的另一个原型也有一个指针指向另一个构造函数;(实例与原型上有一个原型链)
+
+    // 一般的继承
+    function Parent(){
+        this.prototype = true;
+        this.colors = [1,2,3]
+    }
+    Parent.prototype.say=function(){
+        return this.prototype;
+    }
+
+    function Children(){
+        Parent.call(this);
+        this.childrenProperty = false;
+    }
+
+    //children通过创建parent的实例,并将其赋值给自己的原型children.prototype,实现了对parent的继承
+    // 这个操作改变了children最初的原型,将其替换为parent的实例,parent的实例访问的属性和方法,也会存放在children.prototype上
+    //紧接着给children.prototype上也就是parent的实例上新添加了一个方法
+    Children.prototype = new Parent();
+
+    Children.prototype.getVal = function(){
+        return this.childrenProperty;
+    }
+
+    let instance = new Children();
+
+    //引用类型的值会被修改掉
+    let parentOne = new Children();
+    parentOne.colors.push(6);
+    let parent1Two = new Children();
+
+    console.log(instance.say());
+    console.log('Parent',Parent);
+    console.log('Parent.prototype',Parent.prototype)
+
+    // 只要创建一个函数,就会按照特定的规则,为函数创建一个prototype属性(指向原型对象)
+    // 默认情况下,所有的原型对象都会获取constructor属性,指向与之关联的构造函数
+    // 自定义构造函数,其原型对象只会获取constructor属性,其他的属性和方法都继承自己的Object
+    // 每次调用构造函数都会创建一个新的实例,实例内部的[[Prototype]]指针会被赋值为构造函数的原型对象
+    // 在浏览器中,每个对象都有一个__proto__属性,通过这个属性可以访问对象的原型(即得到原型对象);
+
+    console.log('parentOne.__proto__',parentOne.__proto__);
+    console.log('parentOne',parentOne);
+    console.log('parentOne.__proto__ === Parent.prototype',parentOne.__proto__ === Parent.prototype)
+
+    console.log(parentOne.colors,parent1Two.colors)
+
+
+    Function.prototype.myCall=function(content){
+        //call接受的是构造函数和对应的参数,且调用者必须是函数
+        if (typeof this !== 'function'){
+            console.log('error');
+            return;
+        }
+
+        //获取参数
+        let args = [...arguments].slice(1),result = null;
+
+        //判断content是否传入
+        content = content || window;
+
+        //将调用的函数设为对象的方法
+        content.fn = this;
+        //调用函数(将父类的属性全部挂在到当前子类上)
+        result = content.fn(args);
+        //删除临时属性,返回result结果
+        delete content.fn;
+        return result;
+    }
+
+    //为了解决父类的原型上的引用类型属性会被更改掉,复用构造函数解决问题
+    // 在子类的构造函数中调用父类的构造函数,通过call/apply改变this指向
+    function superType(type){
+        this.colors=[1,2,3,4];
+        this.type = type;
+    }
+    superType.prototype.sayType=function () {
+      console.log('123');
+    };
+
+    //对象伪装或者经典继承
+    function subType(type){
+        //superType构造函数在subType的实例穿件的新对象的上下文中执行了,
+        //相当于在新的subType的对象上运行了superType函数的初始化代码
+
+        //优化点:可以传递参数,在子类构造函数中可以向父类构造函数传参
+        superType.myCall(this,type);
+    }
+
+    let instance1 = new subType();
+    instance1.colors.push(99);
+    let instance2 = new subType('time');
+    console.log(instance1.colors,instance2.colors,instance1.type,instance2.type);
+    //instance2.sayType();//无法获取父类原型上的方法, 没有继承父类的原型(prototype)
+    //new操作符过程-->创建一个新的对象,将对象内部的[[Prototype]]特性赋值为构造函数的prototype属性  将构造函数内部的this赋值为这个新对象
+    // --> 执行构造函数内部代码(给对象添加属性) 构造函数返回非空对象,则返回该对象,否则返回新的对象
+    // 盗用构造函数缺点:必须在构造函数中定义方法,函数不能重用,子类不能访问父类原型上定义的方法,所有类型只能用构造函数模式
+
+    //------------->组合继承---->子类的prototype 继承父类的prototype上的方法,通过call,执行父类构造函数,继承父类的属性
+    //改变上下文,创建新的对象
+
+    // 原型式继承-->创建临时的构造函数,将传入的对象赋值给构造函数的原型,返回这个临时构造函数的实例-->es6中 Object.create将这种方法规范化
+    function tempObject(o){
+        function F(){}
+        F.prototype = o;
+        return new F();
+    }
+
+    let person = {
+        name: 'person',
+        friends: ['sh', 'bo'],
+        say:function(){
+            console.log('person',this.name);
+        }
+    };
+
+    let otherPerson = tempObject(person);
+    otherPerson.name = 'other';
+    otherPerson.friends.push('other');
+    otherPerson.say();
+
+    let otherPerson1 = tempObject(person);
+    otherPerson1.name = 'other1';
+    otherPerson1.friends.push('other1');
+    otherPerson1.say();
+
+    console.log(otherPerson,otherPerson1,person);
+    console.log(otherPerson.name,otherPerson1.name);
+    //与原型链继承一致,属性的引用值会在实例间共享
+
+
+    //寄生式继承-->创建一个实现继承的函数,通过某种方式增强函数,返回这个对象
+    // 会导致函数无法重用,与构造函数模式(盗用构造函数)一致
+    function createOtherObject(original){
+        let clone = tempObject(original);
+        clone.sayHi = function(){
+            console.log('hi');
+        };
+        return clone;
+    }
+
+    //组合寄生式继承
+    // 组合继承-->父类构造函数会执行两次-->一次在prototype = new Parent(),一次实在子类构造函数中call,改变上下文的时候
+    // 两次调用会遮蔽原型上的同名属性
+
+    //寄生式组合继承-->盗用构造函数继承属性,使用原型链继承方法,不通过调用父类构造方法来给子类原型赋值.二是取得父类原型的副本
+    // 寄生式继承继承父类原型
+    function inheritProperty(subType,superType){
+        let prototype = tempObject(superType.prototype); //获取父类构造函数原型副本(父类的属性都拷贝了)
+        prototype.constructor = subType; //对象的constructor指向子类本身
+        subType.prototype = prototype; //子类的原型指向父类的的原型副本(类原型对象)
+    }
+
+    function subType(){
+        superType.call(this);
+    }
+    inheritProperty(subType,superType);
+    //只调用了一次构造函数,借助一个临时的构造函数将父类的原型拷贝下来,返回父类的实例-->子类通过处理副本,完成对父类原型的接受
+    //引用类型继承的最佳模式
+
+
+    //类继承class
+    //new操作符实例化person,相当于使用new调用其构造函数,constructor函数进行实例化;javascript解释器知道new和类意味着使用constructor函数实例化
+    // new 创建新对象,[[prototype]]指针赋值为构造函数的prototype属性 构造函数内部this被赋值为新对象
+    // 执行构造函数,为对象添加属性,返回飞空对象
+
+    //构造函数在不使用new的时候,默认是全局window,而类构造函数会报错
+
+    //es6继承:extends 继承拥有construct和原型对象
+    //super 关键字引用原型,只能在派生类中使用 class Bus extends Vehicle{ constructor(){ super();//相当于super.constructor()  console.log(this) } }
+</script>
+</body>
+</html>
