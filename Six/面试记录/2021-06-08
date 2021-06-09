@@ -62,25 +62,98 @@ GSLB的主要功能是根据用户的本地DNS的IP地址判断用户的位置�
 
 CDN中最为常见的工作方式，这种工作方式利用CNAME将域名和目标IP之间进行解耦，
 将目标IP的解析权下放到GSLB中，方便实现更多自定义的功能，是一种更加灵活的方式
+
+
 ### ssr
 
 
 ### vue3和vue2区别
-
+1. 渲染更快
+> 虚拟DOM重写
++ 组件快速路径+单个调用+子节点类型检测
++ 跳过不必要的条件分支
+> 优化slots的生成 
++ vue3中可以单独重新渲染父级和子级 
+> 静态树,静态属性提升 
++ Vue 3 的编译器将能够检测到什么是静态的，然后将其提升，从而降低了渲 染成本。 
+eg: 经过编译器会生成__static静态属性,生成的render渲染函数中会携带若干个__static(静态属性),vue3打补丁时会跳过这个属性
+> 基于Proxy的响应式系统
++ 组件实例初始化的速度提高
++ 使用Proxy节省以前一半的内存开销，加快速度，但是存在低浏览器版本的不兼容 
+2. 使用更简单,compositionApi
+> 通过摇树优化核心库体积 
+> 避免页面反复横跳
+3. 跨平台：编译器核心和运行时核心与平台无关，使得Vue更容易与任何平台（Web、 
+Android、iOS）一起使用  
+4. 独立的响应化模块 
+5. 改进的TypeScript支持，编辑器能提供强有力的类型检查和错误及警告 
 
 ### typeof,instanceof,Object.prototype.toString.call() 判断对象类型及原理
 
 
 ### common.js,,amd-require.js,es6-module,cmd
+> 2021-05-20 说明
 
 
 ### tcp/udp及相关问题
+> TCP等于和陌生人打电话处理事情，UDP等于发广播
+> tcp三次握手,保持一次网络通信交互正常,在不认识我的情况下打我的电话让我来面试
+> tcp四次挥手,我找老板办理离职，老板说可以，老板接着给我办理离职，我才可以走
 
+> 在TCP/IP协议中IP层主要负责网络主机的定位，数据传输的路由，由IP地址可以唯一地确定Internet上的一台主机。
+> 传输层提供面向应用的可靠（TCP）的或非可靠（UDP）的数据传输机制
 
-### plugins和component有什么区别?
+> 传输控制/网络协议，是面向连接的协议，发送数据前要先建立连接(发送方和接收方的成对的两个之间必须建 立连接)，
+TCP提供可靠的服务，也就是说，通过TCP连接传输的数据不会丢失，没有重复，并且按顺序到达
+> UDP它是属于TCP/IP协议族中的一种。是无连接的协议，发送数据前不需要建立连接，是没有可靠性的协议
 
+> TCP只支持点对点通信，UDP支持一对一、一对多、多对一、多对多
 
-### performance
+> TCP是面向字节流的，UDP是面向报文的;
+面向字节流是指发送数据时以字节为单位，一个数据包可以拆分成若干组进行发送，而UDP一个报文只能一次发完
 
+> Http,https,ftp都是运行在tcp协议上的应用层协议
+   ntp,dhcp都是运行在udp协议上的应用层协议
+   
+>> 什么是Socket?
+> 两个程序通过一个双向的通讯连接实现数据的交换，这个双向链路的一端称为一个Socket
+
+> 服务器端先初始化Socket，然后与端口绑定(bind)，对端口进行监听(listen)，调用accept阻塞，等待客户端连接。
+在这时如果有个客户端初始化一个Socket，然后连接服务器(connect)，如果连接成功，这时客户端与服务器端的连接就建立了   
+
+http1,http1.1,http2--->2021-05-06
+
+### performance:详情见性能分析pdf
+1. 性能分析
++ chrome dev tools:分析页面性能
+
+2. 错误捕获
++ try-catch
++ window.error监听错误:可以捕获常见语法、同步、异步错误等错误；在所有JS脚本之前被执行,容易被覆盖
++ 异步的话promise中的error或者reject
++ window.addEventListener：监听网络错误-->window.addEventListener('error', (error) => {
++ 
+
+3. 数据上报
++ 常见的是通过加载资源的方式:javascript或者css/图片,将数据包发送到服务器
+var img = new window.Image();
+img.src = "".concat(url).concat(encodeURIComponent(JSON.stringFy(logInfo)));
 
 ### element和node的区别
+element 继承node 
+
+### vue-router模式
+1. hash
+> hash:通过url中#(锚点)及后面的配置完成导航
+> 通过监听hashchange来完成路由的变化监听
+2. history
+> 提供了 pushState 和 replaceState 两个方法
+> 改变 URL 的 path 部分不会引起页面刷新
+> 提供popstate事件进行监听,没有hash方便
+
+
+### get和post区别
+1. GET产生一个TCP数据包;POST产生两个TCP数据包
+2. GET方式的请求，浏览器会把http header和data一并发送出去，服务器响应200(返回数据);
+POST，浏览器先发送header，服务器响应100 continue，浏览器再发送data，服务器响应200 ok(返回数据)。
+3. 参数携带的大小问题，get在url上挂在参数，post是在request body上挂载
