@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    //箭头函数是否可以使用new
+    // 不能，箭头函数实际是一个函数表达式
+    // 箭头函数不能使用arguments,super，也没有prototype,所以不能作为构造函数，也不能使用new
+
+    //函数提升与变量提升
+    // js引擎在解析js脚本时，会扫描全局，
+    // 读取函数声明和变量声明，并添加到执行上下文，这个过程成为函数或者变量声明提升
+    // 并且在提升变量声明时，由于自身的机制，不允许变量无值，会默认给变量赋值undefined
+
+    //尾调用优化
+    function other(){
+        return inner();
+    }
+
+    // 外部函数的返回值是内部函数返回值
+    // 从堆栈的角度分析-->
+    // 执行other,第一个栈帧被推到栈上-->执行other函数体，到return语句，计算返回值必须先计算inner
+    // -->执行inner,第二个栈帧被推到栈上--> 执行inner函数体，计算其返回值--> 返回值返回other,other在将返回值返回
+    //---> 栈帧弹出栈外
+
+    //es6优化后
+    // 在执行inner,引擎发现吧第一个栈帧弹出也没问题，inner的返回值也是other的返回值
+    // 将other的栈帧弹出，执行inner函数体，栈帧被推到栈上
+</script>
+</body>
+</html>

@@ -360,7 +360,7 @@ HTML解析文件，生成DOM Tree，解析CSS文件生成CSSOM Tree
 页面与嵌套的iframe消息传递
 4. websocket:建立通信
 5. node做一层代理
-6. 
+6. nginx反向代理
 
 ## vue部分
 > SPA和SSR的区别

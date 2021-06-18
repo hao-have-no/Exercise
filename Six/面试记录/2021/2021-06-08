@@ -89,7 +89,15 @@ Android、iOS）一起使用
 5. 改进的TypeScript支持，编辑器能提供强有力的类型检查和错误及警告 
 
 ### typeof,instanceof,Object.prototype.toString.call() 判断对象类型及原理
+>> typeof 实现原理
++ 判断类型:number, string, object, boolean, function, undefined, symbol
++ js 在底层是怎么存储数据的类型信息?js 在底层存储变量的时候，会在变量的机器码的低位1-3位存储其类型信息
+000：对象  010：浮点数  100：字符串  110：布尔  1：整数  对于undefined和null 有些特殊
+null：所有机器码均为0  undefined：用 −2^30 整数来表示
 
+>> instance of 通过原型链进行判断
++ 主要的作用就是判断一个实例是否属于某种类型
++ 左边的变量一直在更新__proto__,直到与右边父类的prototype一致，返回正确，否则为false;
 
 ### common.js,,amd-require.js,es6-module,cmd
 > 2021-05-20 说明
@@ -150,7 +158,7 @@ element 继承node
 > 提供了 pushState 和 replaceState 两个方法
 > 改变 URL 的 path 部分不会引起页面刷新
 > 提供popstate事件进行监听,没有hash方便
-
+> 地址变动的话，会请求新的资源，这时候需要nginx做一个try_file的适配，将页面资源定向为首页
 
 ### get和post区别
 1. GET产生一个TCP数据包;POST产生两个TCP数据包
