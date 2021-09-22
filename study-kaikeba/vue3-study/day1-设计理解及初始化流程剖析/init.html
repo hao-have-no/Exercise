@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue3初始化</title>
+</head>
+<body>
+<div id="app">
+    <p>{{title1}}</p>
+    <p>{{title2}}</p>
+</div>
+<script src="http://unpkg.com/vue@next"></script>
+<script>
+    const app = Vue.createApp({
+        data(){
+            return {
+                title1:'hello, vue3'
+            }
+        },
+
+        setup(){
+          const state = Vue.reactive({
+              title2:'vue3,hello'
+          });
+          return {...state}
+        }
+    });
+    app.mount('#app');
+</script>
+</body>
+</html>

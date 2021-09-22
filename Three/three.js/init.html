@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>three.js初始化应用</title>
+</head>
+<body>
+<div>
+    three.js在图形渲染前会进行三角化，交给webgl去渲染
+</div>
+<script src="./three.min.js"></script>
+<script>
+    //透视相机－椎体表示，对于平面的前后有放大缩小的功能，适合3d效果
+    //正交相机，立方体，前后画面一直，适合2d环境
+    //一个3d的效果由场景＋相机＋光源构成
+
+    //3d地图
+    class chinaMap{
+        constructor(){
+            this.init();
+        }
+
+        init(){
+            //新建场景
+            this.scene = new THREE.Scene();
+            //设置相机
+            this.setCamera();
+            //启动渲染器
+            this.setRender();
+            //创建三维几何体
+            const geometry = new THREE.BoxGeometry();
+            //创建材质:MeshBasicMaterial,网格会被渲染成简单的平面多边形，而且也可以显示几何体的线框
+            const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+            //创建物体对象(Mesh)
+            this.cube = new THREE.Mesh(geometry, material);
+            // scene.add：会导致物体将会被添加到(0,0,0)坐标。但将使得摄像机和立方体彼此在一起
+            this.scene.add(this.cube);
+            //需要调整照相机位置
+            // this.render();
+            this.animate();
+        }
+
+        //加载地图数据
+        loadMapData(){
+            const loader = new THREE.FileLoader();
+            loader.load('./china.json', (data) => {
+                const jsondata = JSON.parse(JSON.stringify(data))
+            })
+        }
+
+        //初始化地图，通过墨卡托投影转换
+        generateGeometry(){
+
+        }
+
+        setCamera(){
+            // PerspectiveCamera(fov, aspect, near, far)
+            //Fov – 相机的视锥体的垂直视野角
+            //Aspect – 相机视锥体的长宽比
+            //Near – 相机视锥体的近平面
+            //Far – 相机视锥体的远平面
+            this.camera = new THREE.PerspectiveCamera(75,window.innerWidth/window.innerHeight,0.1,1000);
+            this.camera.position.z = 5
+        }
+
+        setRender(){
+            this.renderer = new THREE.WebGLRenderer();
+            //设置幕布
+            this.renderer.setSize(window.innerWidth,window.innerHeight);
+            //渲染画布到页面
+            document.body.appendChild(this.renderer.domElement);
+        }
+
+        //设置环境光
+        setLight(){
+            this.ambientLight = new THREE.AmbientLight(0xffffff) // 环境光
+            this.scene.add(this.ambientLight);
+        }
+
+        //render 方法
+        render() {
+            //幕布开始进行渲染
+            this.renderer.render(this.scene, this.camera)
+        }
+
+        //2d-->3d 通过不停的渲染，reqestanimationframe(来进行调用渲染方法)
+        animate(){
+            requestAnimationFrame(this.animate.bind(this));
+            this.cube.rotation.x += 0.01;
+            this.cube.rotation.y += 0.01;
+            this.render();
+        }
+    }
+
+    new chinaMap();
+</script>
+</body>
+</html>

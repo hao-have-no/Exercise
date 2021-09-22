@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue3-自实现</title>
+</head>
+<body>
+<div id="app">
+    <p>{{title1}}</p>
+    <p>{{title2}}</p>
+</div>
+<script>
+    //响应式 将传入的对象做一层代理
+    function reactive(obj) {
+        return new Proxy(obj, {
+            get(target, key) {
+                //2021-09-14 进行依赖收集
+                //建立 target,key以及执行的fn之间的关系
+                track(target, key);
+                return target[key]
+            },
+            set(target, key, val) {
+                target[key] = val;
+                //20210907通知更新
+                //20210908 发布订阅,观察者模式,
+                // app.update();
+
+                //20210914
+                trigger(target, key);//通知更新
+            }
+        })
+    }
+
+    // 2021.09.14
+    //临时变量,保存依赖函数
+    const effectStack = [];
+
+    // app.update 需要在建立依赖的关系列表中找到对应的依赖方,通知它进行更新
+    function effect(fn) {
+        //创建副作用,用于依赖收集,建立关系
+        const eff = function () {
+            //将执行函数临时存储一下
+            try {
+                //为什么存储后,又弹了出去
+                // 通知更新后,需要将旧的方法销毁,保证下次更新操作执行
+                effectStack.push(fn);
+
+                fn(); //立即执行一下,触发proxy的监听
+            } finally {
+                effectStack.pop();
+            }
+        }
+
+        eff();
+
+        return eff;
+    }
+
+    //20210914 将映射关系保存在map中
+    const targetMap = {};
+    // eg targetMap={state:{title:[fn,fn1]}} 可能有多个函数对state.title有依赖
+
+    //20210914 建立映射关系 target,ket,effect
+    function track(target, key) {
+        const effect = effectStack[effectStack.length - 1];
+        if (effect) {
+            let map = targetMap[target];
+            if (!map) {
+                map = targetMap[target] = {};
+            }
+
+            let deps = map[key];
+            if (!deps) {
+                deps = map[key] = [];
+            }
+
+            //建立联系,最好用set做去重
+            deps.push(effect)
+        }
+    }
+
+    //通知更新
+    function trigger(target, key) {
+        const map = targetMap[target];
+        //是否有映射关系
+        if (map) {
+            const deps = map[key]
+            if (deps) {
+                deps.forEach(eff => eff())
+            }
+        }
+    }
+
+    function h(tag, props, children) {
+        return {tag, props, children}
+        //返回虚拟dom
+    }
+
+    const Vue = {
+        //暴露createRenderer,用户只需要编写dom和insert的方法就可以
+        // 扩展渲染器,createElement 创建元素的方法
+        createRenderer({querySelector, insert, createElement}) {
+            //自定义方法--工厂函数
+            //通过传入的配置,调用createApp中的方法,完成解析,挂载等操作
+
+            return {
+                createApp(options) {
+                    //返回App实例
+                    return {
+                        //mount 初始化  更新机制的建立
+                        mount(selector) {
+                            //挂载做什么?
+                            //解析传入的选项,将选项中的数据状态转化为dom,追加到宿主元素上
+
+                            //1.获取宿主元素
+                            const parent = querySelector(selector);
+
+                            //2.渲染 template--> render
+                            //编译: data--ast解析-->render函数-->vdom node树-->dom 真实node树
+
+                            //2.5 处理其他的options,兼容vue2
+                            if (options.setup) {
+                                this.setUpState = options.setup();
+                            }
+                            if (options.data) {
+                                this.data = options.data();
+                            }
+
+                            //优先级获取 9
+                            this.proxy = new Proxy(this, {
+                                get(target, key) {
+                                    if (key in target.setUpState) {
+                                        return target.setUpState[key];
+                                    } else {
+                                        return target.data[key];
+                                    }
+                                },
+                                set(target, key, val) {
+                                    if (key in target.setUpState) {
+                                        target.setUpState[key] = val;
+                                    } else {
+                                        target.data[key] = val;
+                                    }
+                                    //update() 通知视图更新
+                                }
+                            });
+
+                            //声明render构造函数
+                            if (!options.render) {
+                                options.render = this.compile(parent.innerHTML);
+                            }
+
+                            //20210907-更新机制建立: proxy监听数据发生变化,重新执行render函数,页面重渲染
+                            //20210914-给应用一个更新函数,希望update函数是一个副作用函数
+                            this.update = effect(() => {
+                                //20210915
+                                //抽离更新部分-希望成为副作用函数  effect传入的函数立马执行后,再建立依赖关系
+                                //执行渲染函数,得到真实dom
+                                // const el = options.render.call(this.proxy);
+                                // //3.追加
+                                // parent.innerHTML="";
+                                // // parent.appendChild(el);
+                                // //4.插入指定的位置
+                                // insert(el,parent);
+
+                                //20210917-增加虚拟dom的概念
+                                //vnode  通过render调用得到的
+                                const vnode = options.render.call(this.proxy);
+
+                                //vnode ---> node  patch
+
+                                //初始化
+                                if (!this.isMounted) {
+                                    //接收vnode 递归遍历树  创建dom
+                                    const el = this.createElm(vnode);
+
+                                    parent.innerHTML = "";
+
+                                    insert(el, parent);
+
+                                    this.isMounted = true;
+                                } else {
+                                    //update
+                                    this.patch(this._vnode, vnode);
+                                }
+
+                                this._vnode = vnode;
+                            });
+
+                            //初始化后执行
+                            //20210917-effect后,不需要在主动调用了
+                            // this.update();
+
+                            //2021-08-30 createApp 初始化 渲染函数 追加宿主
+                            // //设置上下文,主要是render函数中有各种数据的调用
+                            // //ctx独立上下文,提供优先级
+                            // const el = options.render.call(this.proxy);
+                            //
+                            // //3.追加
+                            // parent.innerHTML="";
+                            //
+                            // // parent.appendChild(el);
+                            // //4.插入指定的位置
+                            // insert(el,parent);
+                        },
+                        createElm(vnode) {
+                            const {tag, props, children} = vnode;
+                            const el = createElement(tag);
+
+                            if (typeof children === 'string') {
+                                el.textContent = children
+                            } else {
+                                //循环递归
+                                children.forEach(item => {
+                                    insert(this.createElm(item), el)
+                                })
+                            }
+
+                            //为了便于更新 保存这个元素 用于之后的diff判断对比
+                            vnode.el = el;
+
+                            return el;
+                        },
+                        //patch diff 对比
+                        patch(n1,n2) {
+                            //获取dom
+                            const el = n2.el = n1.el;
+
+                            // diff 两个节点发生比较,是否需要比较  只有相同节点才比较
+                            // 源码中还有其他判断
+                            if (n1.tag === n2.tag){
+                                //diff 先比较孩子
+                                const oldCh = n1.children;
+                                const newCh = n2.children;
+                                if(typeof oldCh === 'string'){
+                                    if (typeof newCh === 'string'){
+                                        //双方都是文本
+                                        if (oldCh !== newCh){
+                                            el.textContent = newCh;
+                                        }
+                                    }else{
+                                        //newCH 是数组 replace
+                                        //replace text width
+                                    }
+                                }else{
+                                    if (condition){
+
+                                    }else{
+
+                                    }
+                                }
+                                //同层比较 深度优先
+                            }else{
+                                //replace
+
+                            }
+                        },
+                        compile(template) {
+                            //render函数,描述视图
+                            return function render() {
+                                // const h3 = document.createElement('h3');
+                                // h3.textContent = this.title2 ;
+                                // return h3;
+
+                                //20210917 声明render函数,构造节点
+                                // return h('h3',{},[
+                                //     h('p',{},this.title2),
+                                //     h('p',{},this.title2),
+                                //     h('p',{},this.title2),
+                                //     h('p',{},this.title2)
+                                // ]);
+                                return h('h3', {}, this.title2)
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        createApp(options) {
+            //createApp的升级,支持自定义渲染器
+            const renderer = this.createRenderer({
+                querySelector(sel) {
+                    //将查询到的元素返回回去
+                    return document.querySelector(sel)
+                },
+                insert(el, parent, anchor) {
+                    parent.insertBefore(el, anchor || null)
+                },
+                createElement(tag) {
+                    return document.createElement(tag)
+                }
+            });
+            //返回App实例
+            return renderer.createApp(options);
+        }
+    }
+</script>
+<script>
+    const app = Vue.createApp({
+        data() {
+            return {
+                title1: 'hello, vue3'
+            }
+        },
+
+        setup() {
+            const state = reactive({
+                title2: 'vue3,hello---'
+            });
+
+            setTimeout(() => {
+                state.title2 = 'hell-vue3---';
+            }, 2000);
+
+
+            //初始化先返普通对象
+            return state;
+        }
+    });
+    app.mount('#app');
+</script>
+</body>
+</html>
