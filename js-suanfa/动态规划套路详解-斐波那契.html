@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态规划</title>
+</head>
+<body>
+<script>
+    //斐波那契数列-通过递归方式
+    // --> dp 数组的迭代解法 将每次的结果存为一个数组，更为准确，用到时直接拿
+    //状态转移方程
+    // var fib = function(n) {
+    //     if(n<2){return n;}
+    //     //暂存，储存当前的值与之前计算的和值
+    //     // f3 = f2+ f1; r = q + p
+    //     // f4 = f3+ f2  r = r + q
+    //     let p=0,q=0,r=1;
+    //     for(let i=2;i<=n;i++){
+    //         p=q;q=r;r=p+q;
+    //     }
+    //     return r;
+    // };
+    //斐波那契数列：跳房子的问题，跳楼梯的例子(最后一步只能跳１个或者两个)
+
+    //最长回文字符串
+
+    //最优路径
+
+    //凑零钱的问题－最优解
+
+    //最好入手时机
+    /**
+     * @param {number[]} prices
+     * @return {number}
+     */
+    // 我们只关心 最小的数和最大的利润
+    var maxProfit = function(prices) {
+    if (!prices || !prices.length) return 0;
+
+    let min = Number.MAX_SAFE_INTEGER, max = 0;
+
+    for (let i = 0, price; i < prices.length; i++) {
+        price = prices[i];
+        min = Math.min(min, price);
+        max = Math.max(max, price - min);
+    }
+    return max
+    };
+
+    //偷房子的问题
+    //最有价值的应该是当前的房子＋前面倒数第二所的房子或者相邻的房子才有可能实现最大值
+    /**
+     * @param {number[]} nums
+     * @return {number}
+     */
+    var rob = function(nums) {
+        const len = nums.length;
+        if(len == 0)
+            return 0;
+        const dp = new Array(len + 1);
+        dp[0] = 0;
+        dp[1] = nums[0];
+        for(let i = 2; i <= len; i++) {
+            //偷房子的重点
+            dp[i] = Math.max(dp[i-1], dp[i-2] + nums[i-1]);
+        }
+        return dp[len];
+    };
+
+</script>
+</body>
+</html>
