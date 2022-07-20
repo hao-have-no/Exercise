@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>响应式系统</title>
+</head>
+<body>
+    <script>
+        // 副作用函数桶
+        // const bucket = new Set();
+
+        //更新effect与对象的关系，防止无关副作用的产生
+        const bucket = new WeakMap();
+
+        // const data = {ok:false,text:'hello world',bar:'1',foo:2};
+
+        const data = {foo:1,bar:2};
+
+
+        //第四部 component嵌套情形适配 , 增加执行栈
+        let temp1,temp2;
+        let effectStack = []; //执行栈
+
+        //第七步 增加类似fleshCalllBack 任务队列
+        const jobQueue = new Set();
+        // 创建promise实例，將任务推送到微任务队列中
+        const p = Promise.resolve()
+        //标示： 是否正在刷新队列
+        let isFlushing = false;
+
+        function flushJob(){
+            //队列刷新中，操作停止
+            if(isFlushing) return;
+            isFlushing = true;
+
+            // 在微任务队列里刷新jobQueue队列
+            p.then(()=>{
+                jobQueue.forEach(job=>job());
+            }).finally(()=>{
+                //结束后重置isFlushing
+                isFlushing = false;
+            })
+
+        }
+
+
+        //暂存effect副作用函数
+        let activeEffect
+
+
+        // 第三步 cleanup函数， 消除无用的依赖
+        function cleanup(effectFn){
+            for(let i=0;i<effectFn.deps.length;i++){
+                const deps = effectFn.deps[i];
+                deps.delete(effectFn);
+            }
+
+            effectFn.deps.length = 0;
+        }
+
+        // effect 副作用函数生成中心
+        // 第六步 增加调度器配置
+        function effect(fn,options={}){
+            // 第三步  优化现有副作用函数处理，在每次执行前，将副作用函数从依赖中处理，在执行后再建立依赖
+            const effectFn=()=>{
+                //第三步 处理依赖，重新建立依赖
+                cleanup(effectFn); 
+
+                //执行时，将当前设置为激活的副作用函数，触发proxy,重新建立依赖关系
+                activeEffect = effectFn;
+
+                // 第四步 调用副作用函数之前，将当前副作用函数压入栈中
+                effectStack.push(effectFn);
+
+                // fn();
+                // 第九步 将fn 的执行结构存储到res中， 直接返回
+                res = fn();
+
+                // 执行后 将副作用函数弹出栈，并将activeEffect还原
+                effectStack.pop();
+                activeEffect = effectStack[effectStack.length -1];
+
+                return res;
+            }
+
+             // 第六步 将option 挂载到effectFn上 在执行副作用函数的时候就可以执行用户传入的调度器函数
+             effectFn.options = options;
+
+            //第三步 effectFn.deps 存储所有与副作用相关联的依赖集合,保证依赖和副作用的关系是正确的
+            effectFn.deps = [];
+
+            // // 执行副作用函数
+            // effectFn();
+
+            //第八步  增加lazy 惰性  实现computed
+            if(!options.lazy){
+                effectFn()
+            }
+            return effectFn;
+
+            // effect 注册副作用函数  将函数赋值当前暂存的副作用函数
+            // activeEffect = fn;
+            // fn();
+        }
+
+        const objS = new Proxy(data,{
+            get: function (target, key, receiver) {
+                //将activeEffect 存储的副作用函数 收集到副作用桶里
+                // if(activeEffect){
+                //     bucket.add(activeEffect)
+                // }
+                // return target[key]
+
+                //更新effect与对象的关系，防止无关副作用的产生
+                if(!activeEffect) return;
+                // 根据target 从桶里面提取depsMap(key => effects,精确建立key与副作用函数的关系)
+                let depsMap = bucket.get(target);
+                //如果没有depsMap，创建map，与target进行关联
+                if(!depsMap){
+                    bucket.set(target,(depsMap=new Map()));
+                }
+
+                // 根据key,从map中拿到key关联的副作用
+                let deps = depsMap.get(key);
+
+                //deps 没有的话， 建立一个key与副作用函数的关系
+                if(!deps){
+                    depsMap.set(key,(deps = new Set()))
+                }
+
+                //将副作用添加到当前key的关联关系中（deps就是副作用函数存在的依赖集合）
+                deps.add(activeEffect);
+
+
+                //第三步 反向将依赖与副作用函数的关系保存在当前执行的副作用函数中
+                activeEffect.deps.push(deps);
+
+                return target[key]
+
+            },
+
+            // 通过effect更为精确的建立关系，可得出
+            // weakmap由target --> map构成
+            // map 由 key----> set构成
+
+            set: function (target, key, value, receiver) {
+                target[key] = value;
+                // bucket.forEach(fn=>fn());
+                // return true;
+
+                console.log(key,value);
+
+                // target[key] = newVal;
+                const depsMap = bucket.get(target);
+                if(!depsMap)return;
+                const effects = depsMap.get(key);
+
+                //第三步 在进行依赖收集时，会出现死循环，不断的删除添加依赖
+                //（set的foreach遍历情况，一个值在删除添加，如果foreach没有遍历完，会一直循环当前过程）
+                // effects&&effects.forEach(fn=>fn())
+
+                //第五步 避免obj.foo++ 导致的无线回调 get set 都在对activeEffect做处理
+
+                // const effectsRun = new Set(effects);
+                // // 新的set代替老的set 避免死循环
+                // effectsRun.forEach(fn=>fn())
+
+                const effectsRun = new Set();
+                effects&&effects.forEach(effectFn => {
+                    if(effectFn !== activeEffect){
+                        effectsRun.add(effectFn);
+                    }
+                });
+                effectsRun.forEach(effectFn=>
+                {
+                    //第六步 如果一个副作用函数存在调度器 则调用调度器 将该副作用函数作为参数传入
+                    if(effectFn.options.schedule){
+                        effectFn.options.schedule(effectFn);
+                    }else{
+                        effectFn()
+                    }
+                })
+
+
+            }
+        })
+
+        
+        // effect(
+        //     ()=>{
+        //         console.log('effect run')
+        //         //触发proxy的拦截器
+        //         document.body.innerText =  obj.ok?obj.text:'non';
+        //     }
+        // )
+
+        // 第四步 effect副作用嵌套模拟component嵌套场景
+        // effect(function f1(){
+        //     document.body.innerText = obj.foo++;
+        //     effect(function f2(){
+        //         console.log('effect2 执行');
+        //         temp2 = obj.bar;
+        //     })
+        //     console.log('effect1 执行')
+        //     temp1 = obj.foo;
+        // })
+
+        // 第六步 通过设置option参数，来配置调度，从而完成不改变内容的前提下修改执行顺序
+        // effect(()=>{
+        //     console.log(obj.foo)
+        // })
+
+        // obj.foo++;
+
+        // console.log('结束了');
+
+        //第七步 模仿vue2 异步更新机制 形成flushing任务执行队列
+
+        // effect(()=>{
+        //     console.log(obj.foo)
+        // },{
+        //     schedule(fn){
+        //         // 每次执行将任务 推送 jobQuene
+        //         jobQueue.add(fn);
+        //         //刷新任务队列
+        //         flushJob()
+        //     }
+        // })
+
+        // obj.foo++;
+
+        // obj.foo++;
+
+
+        // 第九步  实现computed
+        function computed(getter){
+            // 增加缓存 防止多次调用值不变
+            let res;
+            let dirty = true // 标示是否重新计算值
+
+            // 把 getter 作为副作用函数 创建一个lazy的effect
+            const effectFn = effect(getter,{
+                lazy:true,
+                schedule(){
+                    dirty = true
+                }
+            })
+
+            const obj = {
+                get value(){
+                    if(dirty){
+                        res = effectFn();
+                        dirty = false
+                    }
+                    return res;
+                }
+            }
+
+            return obj;
+        }
+
+        // const sumRes = computed(()=>objS.foo + objS.bar);
+
+        // console.log(sumRes);
+
+        console.log(objS.foo);
+        // objS.foo++;
+
+        // console.log(sumRes);
+
+
+
+        // setTimeout(()=>{
+        //     // 不存在的属性导致副作用函数执行了两次，但是新增的属性不存在，并没有建立副作用链接
+        //     // obj.title = 'helo vue3';
+        //     obj.foo = '222';
+        // },1000);
+
+        // setTimeout(()=>{
+        //     // obj.ok = true;
+
+        //     //改变foo的值引起了effect2的执行，因为activeEffect在effect1执行时被effect2覆盖了
+        //     // 为了解决覆盖问题，使用执行栈
+        //     // 始终让activeEffect指向栈顶的副作用函数
+        //     obj.foo = '222';
+
+        //     //第五步 无限循环 obj.foo
+        //     // while(obj.foo <20){
+               
+        //     // }
+        // },2000)
+
+    </script>
+</body>
+</html>
