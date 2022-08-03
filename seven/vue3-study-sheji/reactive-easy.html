@@ -265,7 +265,7 @@
 
         // console.log(sumRes);
 
-        console.log(objS.foo);
+        // console.log(objS.foo);
         // objS.foo++;
 
         // console.log(sumRes);
@@ -291,6 +291,21 @@
                
         //     // }
         // },2000)
+
+
+        const enumData = {foo :1};
+        const deeeps = new Proxy(enumData,{
+            get:function(target,key){
+
+            },
+            set:function(target,key,value){
+                target[key] = value;
+            }
+        })
+
+        enumData.foo++;
+        
+        console.log(enumData.foo);
 
     </script>
 </body>
