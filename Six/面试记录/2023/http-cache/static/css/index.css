@@ -1,0 +1,8 @@
+.box {
+    width: 500px;
+    height: 300px;
+    background-image: url('../image/guang.jpg');
+    background-size: 100% 100%;
+    /* 修改这里 */
+    color: #333;
+  }
