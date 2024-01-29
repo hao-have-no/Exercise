@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>渐变背景</title>
+    <style>
+        /* 具体怎么兼容，还不清楚 */
+        @property --direc {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        .card{
+            --direc: 0deg;
+            color: red;
+            font-size: 2rem;
+            height: 600px;
+            width: 400px;
+            margin: auto;
+            background-image: linear-gradient(
+                var(--direc),
+                #5ddcff,
+                #3c67e3 43%,
+                #4e00c2
+            );
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes rotate{
+            to{
+               --direc: 360deg
+            }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        linear-gradient: 渐变背景，是浏览器画的背景图，并无动画属性
+        开发无法感觉绘画的过程;
+        houdni api: 可以干预浏览器环节
+    </div>
+    <div class="card">
+      
+    </div>
+
+    <script></script>
+</body>
+</html>

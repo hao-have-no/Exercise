@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./axios.js"></script>
+    <script>
+        function getQueryString(name) {
+            let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            let r = window.location.search.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            };
+            return null;
+        }
+        function init(){
+            const query = window.location.search.split('?redirectUrl=')[1];
+            // const data =
+
+            if(query){
+                // $.ajax({url:'https://sdjkscreen.yjbhealth.com.cn/api/v1/users/login',
+                //     method:'POST',
+                //     data:params,
+                //     type:'json',
+                //     success:function(res){
+                //         cosnole.log('111',res)
+                //     }  
+                // })
+                var url = 'https://sdjkscreen.yjbhealth.com.cn/api/v1/users/login';
+                var data =  {
+                    username:'wjht',
+                    password: 'wjht2014'
+                };
+                axios({
+                    url:url,
+                    method:'POST',
+                    data:data,
+                }).then(function(res){
+                    console.log(res,query);
+                    // expires=Thu, 18 Dec 2043 12:00:00 GMT"
+                    document.cookie = 'AUTHORIZATION_TOKEN ='+res.headers.authorization+'; expires='+new Date()+'; path=/'
+            var resultUrl = query+'&type=LOGIN&dyType=1';
+	    if(resultUrl.indexOf('dept_id')>=0) resultUrl = resultUrl.replace('&dept_id','?dept_id')
+console.log('url--->',JSON.stringify(resultUrl));
+window.location.href = resultUrl;
+                })
+            }
+        }
+        init();
+    </script>
+</body>
+</html>
