@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //抽象的工具类
+      function User(name, age, career, work) {
+        this.name = name;
+        this.age = age;
+        this.career = career;
+        this.work = work;
+      }
+
+      // 简单工厂函数
+      //工厂模式其实就是将创建对象的过程单独封装
+      // 共性属性传入，非共性判断
+      function Factory(name, age, career) {
+        let work;
+        switch (career) {
+          case "coder":
+            work = ["写代码", "写系分", "修Bug"];
+            break;
+          case "product manager":
+            work = ["订会议室", "写PRD", "催更"];
+            break;
+          case "boss":
+            work = ["喝茶", "看报", "见客户"];
+          case "xxx":
+          // 其它工种的职责分配
+        }
+        return new User(name, age, career, work);
+      }
+
+      // 工厂改造-开放封闭原则
+      // 软件实体类（方法，类，模块）可扩展，但是不能修改
+
+      // 约定基础工厂(抽象工厂),赋予共性方法（系统和硬件）
+      class mobilePhoneFactroy {
+        createOs() {
+          throw new Error("抽象工厂方法不允许直接调用，你需要将我重写！");
+        }
+        createHardWare() {
+          throw new Error("抽象工厂方法不允许直接调用，你需要将我重写！");
+        }
+      }
+
+      // 封装系统抽象工厂
+      class Os {
+        controlHardWare() {
+          throw new Error("抽象产品方法不允许直接调用，你需要将我重写！");
+        }
+      }
+      class AndroidOs extends Os {
+        controlHardWare() {
+          console.log("我会用安卓的方式去操作硬件");
+        }
+      }
+
+      class AppleOS extends Os {
+        controlHardWare() {
+          console.log("我会用🍎的方式去操作硬件");
+        }
+      }
+
+      // 封装硬件抽象工厂
+      class HardWare {
+        // 手机硬件的共性方法，这里提取了“根据命令运转”这个共性
+        operateByOrder() {
+          throw new Error("抽象产品方法不允许直接调用，你需要将我重写！");
+        }
+      }
+
+      // 定义具体硬件的具体产品类
+      class QualcommHardWare extends HardWare {
+        operateByOrder() {
+          console.log("我会用高通的方式去运转");
+        }
+      }
+
+      class MiWare extends HardWare {
+        operateByOrder() {
+          console.log("我会用小米的方式去运转");
+        }
+      }
+
+      // 基于基础工厂扩展实际的业务工厂
+      class fakeStarFactory extends mobilePhoneFactroy {
+        createOs() {
+          // 提供安卓系统
+          return new AndroidOs();
+        }
+        createHardWare() {
+          // 提供高通硬件
+          return new QualcommHardWare();
+        }
+      }
+
+      // 基于基础工厂的二次新业务
+      class StarFactory extends mobilePhoneFactroy {
+        createOS() {
+          // 操作系统实现代码
+          return new AppleOS();
+        }
+        createHardWare() {
+          // 硬件实现代码
+          return new MiWare();
+        }
+      }
+
+      const myPhone = new fakeStarFactory();
+      const myOs = myPhone.createOs();
+      const myHardWare = myPhone.createHardWare();
+      myOs.controlHardWare();
+      myHardWare.operateByOrder();
+      
+      // 抽象工厂（抽象类，它不能被用于生成具体实例）： 用于声明最终目标产品的共性。在一个系统里，抽象工厂可以有多个（大家可以想象我们的手机厂后来被一个更大的厂收购了，这个厂里除了手机抽象类，还有平板、游戏机抽象类等等），每一个抽象工厂对应的这一类的产品，被称为“产品族”。
+      // 具体工厂（用于生成产品族里的一个具体的产品）： 继承自抽象工厂、实现了抽象工厂里声明的那些方法，用于创建具体的产品的类。
+      // 抽象产品（抽象类，它不能被用于生成具体实例）： 上面我们看到，具体工厂里实现的接口，会依赖一些类，这些类对应到各种各样的具体的细粒度产品（比如操作系统、硬件等），这些具体产品类的共性各自抽离，便对应到了各自的抽象产品类。
+      // 具体产品（用于生成产品族里的一个具体的产品所依赖的更细粒度的产品）： 比如我们上文中具体的一种操作系统、或具体的一种硬件等。
+
+    </script>
+  </body>
+</html>

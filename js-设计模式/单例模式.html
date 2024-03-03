@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vuex数据管理的单例模式应用</title>
+  </head>
+  <body>
+    <!-- 保证一个类仅有一个实例，并提供一个访问它的全局访问点，这样的模式就叫做单例模式 -->
+    <script>
+      class singDog {
+        show() {
+          console.log("单例模式");
+        }
+        static getInstance() {
+          // 判断实例是否存在，存在的话直接返回
+          if (!singDog.instance) {
+            singDog.instance = new singDog();
+            return singDog.instance;
+          }
+          // singDog.instance = new singDog();
+          return singDog.instance;
+        }
+      }
+
+      const s1 = singDog.getInstance();
+      const s2 = singDog.getInstance();
+      console.log(s1 === s2);
+
+      // 闭包实现单例模式
+      let Sinds = function () {};
+      Sinds.getInstance = (function () {
+        let instance = null;
+        return function () {
+          if (!instance) {
+            instance = new Sinds();
+          }
+          return instance;
+        };
+      })();
+      const s11 = Sinds.getInstance();
+      const s12 = Sinds.getInstance();
+      console.log(s11 === s12);
+
+      // vuex工作原理分析-假单例模式
+      // 部分源码
+      class Store {
+        constructor(options = {}) {
+          // ...
+          this._actions = Object.create(null);
+          this._mutations = Object.create(null);
+          this._wrappedGetters = Object.create(null);
+          this._modulesNamespaceMap = Object.create(null);
+          this._subscribers = [];
+          this._watcherVM = new Vue();
+
+          // 将 this 赋值给 store，这是为了在后续的函数中使用 Store 实例的上下文
+          const store = this;
+          // 将 this 中的 dispatch 和 commit 方法解构出来，以便在后续的函数中使用
+          const { dispatch, commit } = this;
+          // 分别为 dispatch 和 commit 方法绑定上下文
+          this.dispatch = function boundDispatch(type, payload) {
+            return dispatch.call(store, type, payload);
+          };
+          this.commit = function boundCommit(type, payload, options) {
+            return commit.call(store, type, payload, options);
+          };
+          // ...
+        }
+      }
+      //   开发者可以通过 new 关键字创建多个 Store 实例，这显然不符合我们对单例模式的预期。
+      //从整体设计的层面来保证了 Store 在同一个 Vue 应用中的唯一性
+      // 实现方法借助 vue.use 装载插件是，vuex提供的对应的install，在install判断类似是否存在实例而返回实例
+      export function install(_Vue) {
+        // 判断传入的Vue实例对象是否已经被install过Vuex插件（是否有了唯一的 store）
+        if (Vue && _Vue === Vue) {
+          if (process.env.NODE_ENV !== "production") {
+            console.error(
+              "[vuex] already installed. Vue.use(Vuex) should be called only once."
+            );
+          }
+          return;
+        }
+        // 若没有，则为这个Vue实例对象install一个唯一的Vuex
+        Vue = _Vue;
+        // 将Vuex的初始化逻辑写进Vue的钩子函数里
+        //applyMixin() 函数会在 Vue 实例的 beforeCreate 生命周期钩子中，将 Store 实例挂载到 Vue 实例上
+        applyMixin(Vue);
+      }
+
+      // vuex 实例化方法
+      function vuexInit() {
+        const options = this.$options;
+        // 将 store 实例挂载到 Vue 实例上
+        if (options.store) {
+          this.$store =
+            typeof options.store === "function"
+              ? options.store()
+              : options.store;
+        } else if (options.parent && options.parent.$store) {
+        // $store实例在 Vue 组件树中是被层层继承下来的
+        // 当前组件没有实例，会去集成父组件的实例，所以最后得到的是根组件的实例
+        // 这个机制确保了 Vuex Store 在整个 Vue 应用中的唯一性。
+          this.$store = options.parent.$store;
+        }
+      }
+    </script>
+  </body>
+</html>
