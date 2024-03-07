@@ -1,0 +1,11 @@
+{
+    "javascript.inlayHints.enumMemberValues.enabled": false,
+    "javascript.inlayHints.functionLikeReturnTypes.enabled": false,
+    "javascript.inlayHints.parameterNames.enabled": "none",
+    "javascript.inlayHints.parameterTypes.enabled": false,
+    "typescript.inlayHints.enumMemberValues.enabled": false,
+    "typescript.inlayHints.functionLikeReturnTypes.enabled": true,
+    "typescript.inlayHints.parameterNames.enabled": "all",
+    "typescript.inlayHints.parameterTypes.enabled": true,
+    "typescript.inlayHints.variableTypes.enabled": true
+}

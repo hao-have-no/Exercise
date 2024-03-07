@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arr = [
+        { id: 1, parentId: -1 },
+        { id: 11, parentId: 1 },
+        { id: 12, parentId: 1 },
+        { id: 2, parentId: -1 },
+        { id: 21, parentId: 2 },
+        { id: 22, parentId: 2 },
+        { id: 221, parentId: 22 },
+      ];
+
+      const transListToTree = (list, id) => {
+        const child = [];
+        if (!list) return child;
+        for (let item of list) {
+          if (id === item.parentId) {
+            item.children = transListToTree(list, item.id);
+            child.push(item);
+          }
+        }
+        return child;
+      };
+
+      console.log(transListToTree(arr,-1));
+    </script>
+  </body>
+</html>

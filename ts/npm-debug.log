@@ -1,0 +1,73 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'E:\\tools\\nodejs\\node.exe',
+1 verbose cli   'E:\\tools\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'npx' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readGlobalPackageData
+7 silly fetchPackageMetaData npx
+8 silly fetchNamedPackageData npx
+9 silly mapToRegistry name npx
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npmjs.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'npx',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'npx',
+12 silly mapToRegistry   name: 'npx',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npmjs.org/npx
+14 verbose request uri https://registry.npmjs.org/npx
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 17:02:19
+17 verbose request id 3b1c4f0729792fb8
+18 http request GET https://registry.npmjs.org/npx
+19 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 104.16.25.34:443
+20 info attempt registry request try #2 at 17:02:50
+21 http request GET https://registry.npmjs.org/npx
+22 info retry will retry, error on last attempt: Error: connect ETIMEDOUT 104.16.25.34:443
+23 info attempt registry request try #3 at 17:04:11
+24 http request GET https://registry.npmjs.org/npx
+25 silly fetchPackageMetaData Error: connect ETIMEDOUT 104.16.25.34:443
+25 silly fetchPackageMetaData     at Object.exports._errnoException (util.js:1022:11)
+25 silly fetchPackageMetaData     at exports._exceptionWithHostPort (util.js:1045:20)
+25 silly fetchPackageMetaData     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1087:14)
+25 silly fetchPackageMetaData  error for npx { Error: connect ETIMEDOUT 104.16.25.34:443
+25 silly fetchPackageMetaData     at Object.exports._errnoException (util.js:1022:11)
+25 silly fetchPackageMetaData     at exports._exceptionWithHostPort (util.js:1045:20)
+25 silly fetchPackageMetaData     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1087:14)
+25 silly fetchPackageMetaData   code: 'ETIMEDOUT',
+25 silly fetchPackageMetaData   errno: 'ETIMEDOUT',
+25 silly fetchPackageMetaData   syscall: 'connect',
+25 silly fetchPackageMetaData   address: '104.16.25.34',
+25 silly fetchPackageMetaData   port: 443 }
+26 silly rollbackFailedOptional Starting
+27 silly rollbackFailedOptional Finishing
+28 silly runTopLevelLifecycles Finishing
+29 silly install printInstalled
+30 verbose stack Error: connect ETIMEDOUT 104.16.25.34:443
+30 verbose stack     at Object.exports._errnoException (util.js:1022:11)
+30 verbose stack     at exports._exceptionWithHostPort (util.js:1045:20)
+30 verbose stack     at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1087:14)
+31 verbose cwd E:\project\self\未命名文件夹\Exercise\ts
+32 error Windows_NT 10.0.19045
+33 error argv "E:\\tools\\nodejs\\node.exe" "E:\\tools\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "npx"
+34 error node v6.9.2
+35 error npm  v3.10.9
+36 error code ETIMEDOUT
+37 error errno ETIMEDOUT
+38 error syscall connect
+39 error network connect ETIMEDOUT 104.16.25.34:443
+40 error network This is most likely not a problem with npm itself
+40 error network and is related to network connectivity.
+40 error network In most cases you are behind a proxy or have bad network settings.
+40 error network
+40 error network If you are behind a proxy, please make sure that the
+40 error network 'proxy' config is set properly.  See: 'npm help config'
+41 verbose exit [ 1, true ]
